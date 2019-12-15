@@ -1,8 +1,7 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import "tailwindcss/base";
 
-// Variables
-@import 'variables';
+@import "./front/front.scss";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
