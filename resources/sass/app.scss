@@ -1,7 +1,10 @@
 @import "tailwindcss/base";
 
+@import "global.scss";
+
 @import "./front/front.scss";
 
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+

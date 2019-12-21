@@ -1,0 +1,19 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.transition-1 {
+  transition: background-color .1s ease-out;
+}
+
+.transition-3 {
+  transition: background-color .3s ease-out;
+}
+
+.transition-6 {
+  transition: all .6s ease-out;
+}
+
+.transition-9 {
+  transition: all .9s ease-out;
+}
