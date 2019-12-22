@@ -61,7 +61,7 @@
 
 {{-- Navigation --}}
 <div class="flex flex-row justify-center px-24">
-    <div class="container bg-gray-800 text-sm absolute -mt-8">
+    <div class="container bg-gray-800 text-sm absolute -mt-8 z-50">
         <div class="flex justify-between w-full">
             <div class="w-10/12 flex justify-between">
                 <ul class="flex py-6 px-4 uppercase">
@@ -101,31 +101,3 @@
         </div>
     </div>
 </div>
-
-{{--<nav class="bg-white flex flex-wrap text-blue-900 items-center justify-between px-2 shadow-md">--}}
-{{--    <div class="flex flex-no-shrink items-center mr-6 py-4">--}}
-{{--        <span class="font-semibold text-xl tracking-tight">GPNAPO</span>--}}
-{{--    </div>--}}
-{{--    <input class="menu-btn hidden" type="checkbox" id="menu-btn">--}}
-{{--    <label class="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" for="menu-btn">--}}
-{{--        <span class="navicon bg-grey-darkest flex items-center relative"></span>--}}
-{{--    </label>--}}
-{{--    <ul class="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">--}}
-{{--        <li class="border-t md:border-none">--}}
-{{--            <a href="/" class="block md:inline-block px-4 py-3 no-underline font-bold">Home</a>--}}
-{{--        </li>--}}
-
-{{--        <li class="border-t md:border-none">--}}
-{{--            <a href="/about/" class="block md:inline-block px-4 py-3 no-underline text-white hover:text-grey-darker">About</a>--}}
-{{--        </li>--}}
-
-{{--        <li class="border-t md:border-none">--}}
-{{--            <a href="/blog/" class="block md:inline-block px-4 py-3 no-underline text-white hover:text-grey-darker">Blog</a>--}}
-{{--        </li>--}}
-
-{{--        <li>--}}
-{{--            <input type="search" name="" id="">--}}
-{{--        </li>--}}
-
-{{--    </ul>--}}
-{{--</nav>--}}
