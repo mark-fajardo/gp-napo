@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="373203fc-b8b5-4138-a101-f91315162021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/plugins/sequencejs/sequence-theme.modern-slide-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/plugins/sequencejs/sequence-theme.modern-slide-in.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/sequencejs/sequence-theme.modern-slide-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/sequencejs/sequence-theme.modern-slide-in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/front/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/front/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/front.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/home/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home/slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,10 +198,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1865" height="375" key="GridCell.Tab.0.right/0.40.1920.1040/-1920.40.1920.1040@0.40.1920.1040" timestamp="1577072772471" />
-    <state x="770" y="463" key="NewPhpFileDialog" timestamp="1577076338420">
+    <state x="770" y="463" key="NewPhpFileDialog" timestamp="1577077844122">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="770" y="463" key="NewPhpFileDialog/0.40.1920.1040/-1920.40.1920.1040@0.40.1920.1040" timestamp="1577076338420" />
+    <state x="770" y="463" key="NewPhpFileDialog/0.40.1920.1040/-1920.40.1920.1040@0.40.1920.1040" timestamp="1577077844122" />
     <state x="189" y="156" width="1215" height="883" key="SettingsEditor" timestamp="1577063547244">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>

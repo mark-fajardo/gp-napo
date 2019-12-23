@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <button class="w-2/12 bg-yellow-600 px-4 hover:bg-yellow-700 text-white font-medium uppercase transition-3">
+            <button class="w-2/12 bg-new-yellow px-4 hover:bg-yellow-600 text-white font-medium uppercase transition-3">
                 Request a quote
             </button>
         </div>

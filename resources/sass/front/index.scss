@@ -1,0 +1,38 @@
+.s1-flex-item {
+    flex: 0 0 100%;
+    transition: all .3s ease;
+}
+
+.s1-flex-item:hover {
+    -moz-transform: translate(0px, -16px);
+    -ms-transform: translate(0px, -16px);
+    -o-transform: translate(0px, -16px);
+    -webkit-transform: translate(0px, -16px);
+    transform: translate(0px, -16px);
+
+    h2 {
+        color: #000;
+    }
+
+    p {
+        color: #000;
+    }
+
+    .f-icon {
+        fill: #000;
+    }
+
+}
+
+
+
+@media (min-width: 1024px) {
+    .s1-flex-item {
+        flex: 0 0 33.333333%;
+    }
+}
+
+.f-icon {
+    fill: #1a202c;
+}
+
