@@ -603,6 +603,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.open-sans {
+  font-family: "Open Sans", sans-serif !important;
+}
+
 .transition-1 {
   -webkit-transition: background-color 0.1s ease-out;
   transition: background-color 0.1s ease-out;
