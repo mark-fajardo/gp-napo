@@ -60,44 +60,47 @@
 </header>
 
 {{-- Navigation --}}
-<div class="flex flex-row justify-center px-24">
-    <div class="container bg-gray-800 text-sm absolute -mt-8 z-50">
-        <div class="flex justify-between w-full">
-            <div class="w-10/12 flex justify-between">
-                <ul class="flex py-6 px-4 uppercase">
-                    <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
-                        <a href="/home">
-                            Home
-                        </a>
-                    </li>
-                    <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
-                        <a href="/categories">
-                            Categories
-                        </a>
-                    </li>
-                    <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
-                        <a href="/about">
-                            About
-                        </a>
-                    </li>
-                    <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
-                        <a href="/contact-us">
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-                <div class="flex items-center mr-3">
-                    <input class="w-64 bg-gray-900 shadow appearance-none border border-gray-700 py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:border-gray-600 s-product" type="search" placeholder="Search Product">
-                    <div class="absolute top-0 py-5 px-2 text-gray-400" style="margin-top: 2.2px">
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" width="18" height="18">
-                            <path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
-                        </svg>
+<div id="navigation-anchor" class="h-2 bg-new-yellow absolute"></div>
+<div class="relative">
+    <div class="flex flex-row justify-center px-24">
+        <div id="navigation" class="absolute container bg-gray-800 text-sm -mt-8">
+            <div class="flex justify-between w-full">
+                <div class="w-10/12 flex justify-between">
+                    <ul class="flex py-6 px-4 uppercase">
+                        <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
+                            <a href="/home">
+                                Home
+                            </a>
+                        </li>
+                        <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
+                            <a href="/categories">
+                                Categories
+                            </a>
+                        </li>
+                        <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
+                            <a href="/about">
+                                About
+                            </a>
+                        </li>
+                        <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
+                            <a href="/contact-us">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="flex items-center mr-3">
+                        <input class="w-64 bg-gray-900 shadow appearance-none border border-gray-700 py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:border-gray-600 s-product" type="search" placeholder="Search Product">
+                        <div class="absolute top-0 py-5 px-2 text-gray-400" style="margin-top: 2.2px">
+                            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" width="18" height="18">
+                                <path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+                <button class="w-2/12 bg-new-yellow px-4 hover:bg-yellow-600 text-white font-medium uppercase transition-3">
+                    Request a quote
+                </button>
             </div>
-            <button class="w-2/12 bg-new-yellow px-4 hover:bg-yellow-600 text-white font-medium uppercase transition-3">
-                Request a quote
-            </button>
         </div>
     </div>
 </div>

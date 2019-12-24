@@ -103,7 +103,7 @@ html,
   padding: 0;
   pointer-events: none;
   border: none;
-  z-index: 9999999999999;
+  z-index: 99;
 }
 
 .seq .seq-next,

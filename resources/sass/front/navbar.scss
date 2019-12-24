@@ -2,6 +2,14 @@
    text-indent: 18px;
  }
 
+#navigation-anchor {
+  margin-top: -35px;
+}
+
+#navigation {
+  z-index: 9999;
+}
+
 @media (max-width: 767px) {
   .navicon {
     width: 1.125em;
