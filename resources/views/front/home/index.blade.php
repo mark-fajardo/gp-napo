@@ -2,12 +2,15 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/plugins/sequencejs/sequence-theme.modern-slide-in.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 @endsection
 
 @section('content')
 
     @include('front.home.slider')
     @include('front.home.first-section')
+    @include('front.home.testimonials')
 
 @endsection
 
@@ -21,9 +24,9 @@
             crossorigin="anonymous"></script>
     <script>
         function stickNavBar(windowPos, navbarPos) {
+            const elNav = $('#navigation');
             const marginIn = '-' + (navbarPos + 35) + 'px';
             const marginOut = '-' + (navbarPos - 109) + 'px';
-            const elNav = $('#navigation');
 
             if (windowPos > navbarPos) {
                 elNav.removeClass('absolute');
@@ -44,5 +47,28 @@
                 stickNavBar(windowPos, navbarPos)
             });
         });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <script>
+        $('.testimonial_owlCarousel').owlCarousel({
+            loop:true,
+            margin:10,
+            dots:false,
+            nav:true,
+            autoplay:false,
+            smartSpeed: 1000,
+            autoplayTimeout:4000,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1
+                }
+            }
+        })
     </script>
 @endsection
