@@ -11,17 +11,16 @@
     @include('front.home.slider')
     @include('front.home.first-section')
     @include('front.home.testimonials')
+    @include('front.home.client')
 
 @endsection
 
 @section('scripts')
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/plugins/sequencejs/hammer.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sequencejs/sequence.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sequencejs/sequence-theme.modern-slide-in.js') }}"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script>
         function stickNavBar(windowPos, navbarPos) {
             const elNav = $('#navigation');
@@ -46,29 +45,27 @@
                 const navbarPos = $('#navigation-anchor').offset().top;
                 stickNavBar(windowPos, navbarPos)
             });
-        });
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-    <script>
-        $('.testimonial_owlCarousel').owlCarousel({
-            loop:true,
-            margin:10,
-            dots:false,
-            nav:true,
-            autoplay:false,
-            smartSpeed: 1000,
-            autoplayTimeout:4000,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:1
-                },
-                1000:{
-                    items:1
+
+            $('.testimonial_owlCarousel').owlCarousel({
+                loop:true,
+                margin:10,
+                dots:false,
+                nav:true,
+                autoplay:false,
+                smartSpeed: 1000,
+                autoplayTimeout:4000,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
                 }
-            }
-        })
+            })
+        });
     </script>
 @endsection

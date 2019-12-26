@@ -39,6 +39,15 @@
     fill: #1a202c;
 }
 
+.owl-prev, .owl-next {
+    background-color: #FFB716 !important;
+
+    &:hover {
+        background-color: #d69e2e !important;
+    }
+}
+
+
 .t-section {
     background-image: url('http://gp-napo.test/images/bg-testimonials.jpg');
     background-position: center !important;
