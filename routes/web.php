@@ -13,7 +13,10 @@
 
 Route::get('/', [
     'uses' => 'Front\FrontController@index',
-    'as' => 'front.index'
+    'as'   => 'front.index'
 ]);
 
-
+Route::get('/admin', [
+    'uses' => 'Admin\HomeController@index',
+    'as'   => 'admin.index'
+]);

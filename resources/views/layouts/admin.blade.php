@@ -11,16 +11,11 @@
     <title>GPNAPO</title>
 </head>
 <body>
+
     <div id="app">
-
-        @include('front.includes.navbar')
-
         @yield('content')
-
-        @include('front.includes.footer')
-        
     </div>
-    
+
     @yield('scripts')
 </body>
 </html>

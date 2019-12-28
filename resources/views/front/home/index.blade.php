@@ -16,7 +16,7 @@
 @endsection
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <script src="{{ asset('js/plugins/sequencejs/hammer.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sequencejs/sequence.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sequencejs/sequence-theme.modern-slide-in.js') }}"></script>
