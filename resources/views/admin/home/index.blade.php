@@ -2,6 +2,16 @@
 
 @section('styles')
 
+    <style>
+        .green-font {
+            color: #000000;
+        }
+
+        .green-font:hover {
+            color: #38C172;
+        }
+    </style>
+
 @endsection
 
 @section('content')
@@ -11,7 +21,6 @@
         <div class="row">
             <side-bar></side-bar>
             <router-view></router-view>
-            <!-- <dashboard></dashboard> -->
         </div>
     </div>
 

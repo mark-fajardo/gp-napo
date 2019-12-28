@@ -22,7 +22,14 @@ window.Vue = require('vue');
 Vue.component('nav-bar', require('./components/NavBarComponent.vue').default);
 Vue.component('side-bar', require('./components/SideBarComponent.vue').default);
 Vue.component('dashboard', require('./components/DashboardComponent.vue').default);
-Vue.component('products-graph', require('./components/graphs/ProductsComponent.vue').default);
+
+// Under Graphs
+Vue.component('line-graph', require('./components/graphs/LineComponent.vue').default);
+Vue.component('dashboard-card', require('./components/graphs/CardComponent.vue').default);
+
+// Under Subs
+Vue.component('products-btns', require('./components/subcomponents/ProductsBtnGroupComponent.vue').default);
+Vue.component('table-sub', require('./components/subcomponents/TableComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

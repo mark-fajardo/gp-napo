@@ -5,37 +5,37 @@
                 <li class="nav-item">
                     <router-link class="nav-link active" :to="{ name: 'dashboard'}">
                         <span data-feather="home"></span>
-                        Dashboard
+                        <span class="green-font">Dashboard</span>
                     </router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" :to="{ name: 'products'}">
                         <span data-feather="shopping-cart"></span>
-                        Products
+                        <span class="green-font">Products</span>
                     </router-link>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file"></span>
-                    Orders
+                    <span class="green-font">Orders</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="users"></span>
-                    Customers
+                    <span class="green-font">Customers</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="bar-chart-2"></span>
-                    Reports
+                    <span class="green-font">Reports</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="layers"></span>
-                    Integrations
+                    <span class="green-font">Integrations</span>
                 </a>
                 </li>
             </ul>
@@ -50,25 +50,25 @@
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Current month
+                    <span class="green-font">Current month</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Last quarter
+                    <span class="green-font">Last quarter</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Social engagement
+                    <span class="green-font">Social engagement</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file-text"></span>
-                    Year-end sale
+                    <span class="green-font">Year-end sale</span>
                 </a>
                 </li>
             </ul>
