@@ -1,5 +1,5 @@
 <section class="t-section">
-    <div class="t-section-wrapper px-28 py-16">
+    <div class="t-section-wrapper px-28 pb-16 pt-12">
         <div class="container m-auto">
             <header class="relative text-center mt-4">
                 <h1 class="font-medium text-4xl text-white" id="nigga">What people saying about us?</h1>

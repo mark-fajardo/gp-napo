@@ -6,7 +6,7 @@ html,
 .seq {
    width: 100% !important;
    max-width: 100% !important;
-   height: 670px !important;
+   height: 550px !important;
    max-height: 100% !important;
 }
 
@@ -208,7 +208,7 @@ html,
 }
 
 .seq .seq-title h2 {
-    line-height: 70px;
+    line-height: 60px;
     text-transform: uppercase;
   color: black;
   float: left;
@@ -326,7 +326,7 @@ html,
   }
 
   .seq .seq-title h2 {
-      font-size: 70px;
+      font-size: 55px;
       font-weight: bold;
     margin-bottom: .4em;
     -webkit-transform: translate3d(-120px, 0, 0);
@@ -335,9 +335,9 @@ html,
   }
 
   .seq .seq-title h3 {
-      font-size: 18px;
+      font-size: 16px;
     display: block;
-      line-height: 30px;
+      line-height: 28px;
     font-family: 'Source Sans Pro', sans-serif;
     -webkit-transform: translate3d(120px, 0, 0);
     -ms-transform: translate3d(120px, 0, 0);

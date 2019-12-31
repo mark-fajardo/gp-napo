@@ -74,7 +74,7 @@
                         </li>
                         <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
                             <a href="/categories">
-                                Categories
+                                Products
                             </a>
                         </li>
                         <li class="text-center text-gray-300 hover:text-yellow-600 px-6 font-medium transition-1">
@@ -97,8 +97,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="w-2/12 bg-new-yellow px-4 hover:bg-yellow-600 text-white font-medium uppercase transition-3">
-                    Request a quote
+                <button class="w-2/12 tracking-wider bg-new-yellow px-4 hover:bg-yellow-600 text-white font-medium uppercase transition-3">
+                    Get a quote
                 </button>
             </div>
         </div>

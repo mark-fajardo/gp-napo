@@ -721,6 +721,13 @@ body {
   fill: #000;
 }
 
+@media (min-width: 1024px) {
+  .s1-flex-item {
+    -webkit-box-flex: 0;
+            flex: 0 0 33.333333%;
+  }
+}
+
 @media only screen and (max-width: 650px) and (min-width: 400px) {
   .testimonial:before {
     border-right: 325px solid transparent;
@@ -731,23 +738,77 @@ body {
   }
 }
 
+.f-icon {
+  fill: #1a202c;
+}
+
+.client-logos li {
+  -webkit-box-flex: 1;
+          flex: 1 1 20%;
+  text-align: center;
+}
+
+.client-logos li img {
+  width: 150px;
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+.request-quote-section {
+  background-image: url("http://gp-napo.test/images/map_transparent_dark_2.png");
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.contact-loc {
+  background: url("http://gp-napo.test/images/map_transparent_dark_2.png");
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.contact-no {
+  background: url("http://gp-napo.test/images/bg-head.svg");
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}
+
+.contact-email {
+  background: url("http://gp-napo.test/images/bg-quote.svg");
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}
+
+.c1-flex-item {
+  -webkit-box-flex: 0;
+          flex: 0 0 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 @media (min-width: 1024px) {
-  .s1-flex-item {
+  .c1-flex-item {
     -webkit-box-flex: 0;
             flex: 0 0 33.333333%;
   }
 }
 
-.f-icon {
-  fill: #1a202c;
+.f1-flex-item {
+  -webkit-box-flex: 0;
+          flex: 0 0 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.owl-prev, .owl-next {
-  background-color: #FFB716 !important;
-}
-
-.owl-prev:hover, .owl-next:hover {
-  background-color: #d69e2e !important;
+@media (min-width: 1024px) {
+  .f1-flex-item {
+    -webkit-box-flex: 0;
+            flex: 0 0 25%;
+  }
 }
 
 .t-section {
@@ -1094,6 +1155,14 @@ body {
   .testimonial_section .testimonial_box .testimonial_container .testimonials .images_box {
     display: none;
   }
+}
+
+.owl-prev, .owl-next {
+  background-color: #FFB716 !important;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  background-color: #d69e2e !important;
 }
 
 .container {

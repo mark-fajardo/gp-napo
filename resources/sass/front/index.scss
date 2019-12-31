@@ -1,3 +1,4 @@
+// First section
 .s1-flex-item {
     flex: 0 0 100%;
     transition: all .3s ease;
@@ -24,30 +25,97 @@
 
 }
 
-@media only screen and (max-width: 650px) and (min-width: 400px){
-    .testimonial:before{ border-right: 325px solid transparent; }
-    .testimonial:after{ border-left: 325px solid transparent; }
-}
-
 @media (min-width: 1024px) {
     .s1-flex-item {
         flex: 0 0 33.333333%;
     }
 }
 
+@media only screen and (max-width: 650px) and (min-width: 400px){
+    .testimonial:before{ border-right: 325px solid transparent; }
+    .testimonial:after{ border-left: 325px solid transparent; }
+}
+
+
+
 .f-icon {
     fill: #1a202c;
 }
 
-.owl-prev, .owl-next {
-    background-color: #FFB716 !important;
+// Client
+.client-logos {
+    li {
+        flex: 1 1 20%;
+        text-align: center;
 
-    &:hover {
-        background-color: #d69e2e !important;
+        img {
+            width: 150px;
+            filter: gray;
+            -webkit-filter: grayscale(1);
+            -webkit-transition: all .3s ease-in-out;
+
+            //&:hover {
+            //    filter: none;
+            //    -webkit-filter: grayscale(0);
+            //    -webkit-transform: scale(1.01);
+            //}
+        }
     }
 }
 
+// Get a quote
+.request-quote-section {
+  background-image: url('http://gp-napo.test/images/map_transparent_dark_2.png');
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
 
+// Contact
+.contact-loc {
+    background: url('http://gp-napo.test/images/map_transparent_dark_2.png');
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.contact-no {
+    background: url('http://gp-napo.test/images/bg-head.svg');
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+}
+
+.contact-email {
+    background: url('http://gp-napo.test/images/bg-quote.svg');
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+}
+
+.c1-flex-item {
+    flex: 0 0 100%;
+    transition: all .3s ease;
+}
+
+@media (min-width: 1024px) {
+    .c1-flex-item {
+        flex: 0 0 33.333333%;
+    }
+}
+
+// Footer
+.f1-flex-item {
+    flex: 0 0 100%;
+    transition: all .3s ease;
+}
+
+@media (min-width: 1024px) {
+    .f1-flex-item {
+        flex: 0 0 25%;
+    }
+}
+
+// Testimonials
 .t-section {
     background-image: url('http://gp-napo.test/images/bg-testimonials.jpg');
     background-position: center !important;
@@ -343,5 +411,12 @@
     }
     .testimonial_section .testimonial_box .testimonial_container .testimonials .images_box {
         display: none;
+    }
+}
+.owl-prev, .owl-next {
+    background-color: #FFB716 !important;
+
+    &:hover {
+        background-color: #d69e2e !important;
     }
 }
