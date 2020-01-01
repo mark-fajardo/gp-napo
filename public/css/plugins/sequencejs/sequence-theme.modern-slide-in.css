@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+.slide-item {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.slide-item-drop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.50);
+}
+
 
 body,
 html,
@@ -130,7 +141,8 @@ html,
 
 .seq .seq-next {
   right: 20px;
-  background: url("http://gp-napo.test/images/bt-next.png");
+  background: url("http://gp-napo.test/images/next.png");
+  outline: none !important;
 }
 
 .seq .seq-next:focus,
@@ -142,7 +154,8 @@ html,
 
 .seq .seq-prev {
   left: 20px;
-  background: url("http://gp-napo.test/images/bt-prev.png");
+  background: url("http://gp-napo.test/images/prev.png");
+  outline: none !important;
 }
 
 .seq .seq-prev:focus,
@@ -210,7 +223,7 @@ html,
 .seq .seq-title h2 {
     line-height: 60px;
     text-transform: uppercase;
-  color: black;
+  color: #FDC900;
   float: left;
 }
 

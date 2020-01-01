@@ -756,28 +756,24 @@ body {
 }
 
 .request-quote-section {
-  background-image: url("http://gp-napo.test/images/map_transparent_dark_2.png");
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
 
 .contact-loc {
-  background: url("http://gp-napo.test/images/map_transparent_dark_2.png");
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
 
 .contact-no {
-  background: url("http://gp-napo.test/images/bg-head.svg");
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;
 }
 
 .contact-email {
-  background: url("http://gp-napo.test/images/bg-quote.svg");
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;
@@ -812,7 +808,6 @@ body {
 }
 
 .t-section {
-  background-image: url("http://gp-napo.test/images/bg-testimonials.jpg");
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -974,10 +969,9 @@ body {
   width: auto;
   margin-right: -200px;
   right: 0;
-  background-image: url("http://gp-napo.test/images/maps.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
   position: absolute;
   height: 100%;
   top: 0;

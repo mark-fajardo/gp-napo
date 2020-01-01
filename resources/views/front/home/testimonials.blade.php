@@ -1,4 +1,4 @@
-<section class="t-section">
+<section class="t-section" style="background: url('{{ asset('images/bg-testimonials.jpg') }}');">
     <div class="t-section-wrapper px-28 pb-16 pt-12">
         <div class="container m-auto">
             <header class="relative text-center mt-4">
@@ -11,7 +11,7 @@
                 <div class="testimonial_section">
                     <div class="testimonial_box px-40">
                         <div class="testimonial_container">
-                            <div class="background_layer"></div>
+                            <div style="background: url('{{ asset('images/maps.jpg') }}');" class="background_layer"></div>
                             <div class="layer_content">
                                 <div class="testimonial_owlCarousel owl-carousel">
                                     <div class="testimonials">

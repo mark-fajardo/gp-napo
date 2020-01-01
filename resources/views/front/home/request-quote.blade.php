@@ -1,5 +1,5 @@
 <div class="bg-gray-800">
-    <section class="request-quote-section">
+    <section class="request-quote-section" style="background: url('{{ asset('images/map_transparent_dark_2.png') }}');">
         <div class="px-28 py-10">
             <div class="container m-auto">
                 <div class="flex flex-column items-center justify-between">
