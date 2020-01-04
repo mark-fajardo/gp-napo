@@ -24,7 +24,16 @@ Route::get('/admin', [
     'as'   => 'admin.auth'
 ])->middleware('guest');
 
-Route::get('/admin/control', [
-    'uses' => 'Admin\HomeController@index',
-    'as'   => 'admin.index'
-])->middleware('auth');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::get('/control', [
+        'uses' => 'Admin\HomeController@index',
+        'as'   => 'admin.index'
+    ]);
+
+    Route::group(['prefix' => 'api'], function () {
+        Route::post('/item/add', [
+            'uses' => 'api\Admin\ItemsController@add',
+            'as'   => 'api.admin.item.add'
+        ]);
+    });
+});

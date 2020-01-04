@@ -9,24 +9,36 @@
                     Add Item
                 </div>
             </div>
-            <div class="row">
-                <form class="m-3">
-                    <div class="form-group form-inline m-b1">
-                        <label for="item-name" class="mr-3">Item Name:</label>
-                        <input type="text" class="form-control" id="item-name" placeholder="Item name">
+            <div class="mt-3 ml-2">
+                <form action="#">
+                    <div class="form-group row">
+                        <label for="item-name" class="col-sm-2 col-form-label">Item Name:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sItemName" id="item-name" placeholder="Item name">
+                        </div>
                     </div>
-                    <div class="form-group form-inline mb-1">
-                        <label for="item-brand" class="mr-3">Item Brand:</label>
-                        <input type="text" class="form-control" id="item-brand" placeholder="Item brand">
+                    <div class="form-group row">
+                        <label for="item-brand" class="col-sm-2 col-form-label">Item Brand:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sItemBrand" id="item-brand" placeholder="Item brand">
+                        </div>
                     </div>
-                    <div class="form-group form-inline mb-1">
-                        <label for="item-qty" class="mr-3">Item Quantity:</label>
-                        <input type="number" class="form-control" id="item-qty" placeholder="Item quantity">
+                    <div class="form-group row">
+                        <label for="item-qty" class="col-sm-2 col-form-label">Item Quantity:</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" v-model="sItemQty" id="item-qty" placeholder="Item quantity">
+                        </div>
                     </div>
-                    <div class="form-group form-inline mt-5 mb-1">
-                        <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
-                        <button class="btn btn-outline-success mr-1 my-2 my-sm-0">Clear</button>
-                        <button class="btn btn-success my-2 my-sm-0">Add</button>
+                    <div class="container-fluid mt-5 mb-1">
+                        <div class="row">
+                            <div class="col-sm-7 bg-light border">
+                                <div class="form-group form-inline m-3 ml-auto">
+                                    <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
+                                    <button class="btn btn-outline-success mr-1 my-2 my-sm-0">Clear</button>
+                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -36,6 +48,29 @@
 
 <script>
 export default {
-    
+    data () {
+        return {
+            sItemName : '',
+            sItemBrand : '',
+            sItemQty : ''
+        };
+    },
+    methods : {
+        addItem : function () {
+            let oThis = this;
+            axios.post('/admin/api/item/add', {
+                item_name : oThis.sItemName,
+                item_brand : oThis.sItemBrand,
+                item_qty : oThis.sItemQty,
+            })
+            .then(function (bResponse) {
+                if (bResponse.data === true) {
+                    Vue.$toast.open('Item is successfully added');
+                    oThis.$router.push({ name : 'items'});
+                }
+
+            });
+        }
+    }
 }
 </script>

@@ -5,9 +5,12 @@
  */
 
 require('./bootstrap');
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/index.css';
+ 
 
 window.Vue = require('vue');
-
+Vue.use(VueToast);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
