@@ -16,7 +16,15 @@ Route::get('/', [
     'as'   => 'front.index'
 ]);
 
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/admin', [
+    'uses' => 'Admin\HomeController@auth',
+    'as'   => 'admin.auth'
+])->middleware('guest');
+
+Route::get('/admin/control', [
     'uses' => 'Admin\HomeController@index',
     'as'   => 'admin.index'
-]);
+])->middleware('auth');

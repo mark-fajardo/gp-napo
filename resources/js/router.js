@@ -11,9 +11,14 @@ export default new VueRouter({
           component: require('./components/DashboardComponent.vue').default
         },
         {
-          path: '/products',
-          name: 'products',
-          component: require('./components/ProductsComponent.vue').default
+          path: '/items',
+          name: 'items',
+          component: require('./components/ItemsComponent.vue').default
+        },
+        {
+          path: '/items/add',
+          name: 'add-items',
+          component: require('./components/forms/AddItemsComponent.vue').default
         }
     ]
 });

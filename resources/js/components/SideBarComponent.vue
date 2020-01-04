@@ -9,10 +9,16 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'products'}">
+                    <router-link class="nav-link" :to="{ name: 'items'}">
                         <span data-feather="shopping-cart"></span>
-                        <span class="green-font">Products</span>
+                        <span class="green-font">Items</span>
                     </router-link>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span data-feather="file"></span>
+                    <span class="green-font">Item categories</span>
+                </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">
