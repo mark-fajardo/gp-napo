@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="mt-3 ml-2">
-                <form action="#">
+                <form action="#/items/add">
                     <div class="form-group row">
                         <label for="item-name" class="col-sm-2 col-form-label">Item Name:</label>
                         <div class="col-sm-5">
@@ -33,8 +33,10 @@
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
                                 <div class="form-group form-inline m-3 ml-auto">
-                                    <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
-                                    <button class="btn btn-outline-success mr-1 my-2 my-sm-0">Clear</button>
+                                    <router-link :to="{ name: 'items'}">
+                                        <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
+                                    </router-link>
+                                    <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
                                     <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
                                 </div>
                             </div>
@@ -65,11 +67,20 @@ export default {
             })
             .then(function (bResponse) {
                 if (bResponse.data === true) {
-                    Vue.$toast.open('Item is successfully added');
+                    // Vue.$toast.open(oThis.$store.state.oMessages.oAlerts.sSuccessAddItem);
+                    oThis.$store.dispatch('toast', {
+                        bType : true,
+                        sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessAddItem,
+                    });
                     oThis.$router.push({ name : 'items'});
                 }
 
             });
+        },
+        clearForms : function () {
+            this.sItemName = '',
+            this.sItemBrand = '',
+            this.sItemQty = ''
         }
     }
 }

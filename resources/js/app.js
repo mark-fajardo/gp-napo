@@ -40,9 +40,11 @@ Vue.component('table-sub', require('./components/subcomponents/TableComponent.vu
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const store = require('./store').default;
 const router = require('./router').default;
 
 const app = new Vue({
     el: '#app',
+    store,
     router,
 });
