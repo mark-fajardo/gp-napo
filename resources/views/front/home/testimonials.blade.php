@@ -1,61 +1,195 @@
-<section class="t-section" style="background: url('{{ asset('images/bg-testimonials.jpg') }}');">
-    <div class="t-section-wrapper px-28 pb-16 pt-12">
-        <div class="container m-auto">
-            <header class="relative text-center mt-4">
-                <h1 class="font-medium text-4xl text-white" id="nigga">What people saying about us?</h1>
-                <div class="flex justify-center">
-                    <div class="bg-white mt-2 h-2 w-20 rounded-full"></div>
+<div class="testimonial-brand-slider-area section-space--inner--120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- testimonial slider -->
+                <div class="testimonial-slider__body-wrapper section-space--bottom--60">
+                    <!-- testimonial slider title -->
+                    <div class="testimonial-slider__title-wrapper section-space--bottom--60">
+                        <h2 class="testimonial-slider__title"><i class="icon icomoon-chat-1"></i> Happy Customers Said</h2>
+                        <div class="testimonial-slider__nav-container">
+                            <div class="ht-swiper-button-prev ht-swiper-button-prev-3 ht-swiper-button-nav"><i class="ion-chevron-left"></i></div>
+                            <div class="ht-swiper-button-next ht-swiper-button-next-3 ht-swiper-button-nav"><i class="ion-chevron-right"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slider__content-area">
+                        <div class="swiper-container testimonial-slider__container">
+                            <div class="swiper-wrapper testimonial-slider__wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial-slider__single-item">
+                                        <div class="testimonial-slider__single-item__image">
+                                            <img src="assets/img/testimonial/1.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="testimonial-slider__single-item__content">
+                                            <h4 class="testimonial-name"> Fannie Moreno <span class="designation">Founder Xcompany</span></h4>
+                                            <div class="rating">
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star-outline"></i>
+                                            </div>
+                                            <p class="text">I would say I highly recommend this to my friends, acquaintances and family members. The attitude and services are always dedicated.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-slider__single-item">
+                                        <div class="testimonial-slider__single-item__image">
+                                            <img src="assets/img/testimonial/2.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="testimonial-slider__single-item__content">
+                                            <h4 class="testimonial-name">David James <span class="designation">Founder Xcompany</span></h4>
+                                            <div class="rating">
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                            </div>
+                                            <p class="text">I would say I highly recommend this to my friends, acquaintances and family members. The attitude and services are always dedicated.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-slider__single-item">
+                                        <div class="testimonial-slider__single-item__image">
+                                            <img src="assets/img/testimonial/3.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="testimonial-slider__single-item__content">
+                                            <h4 class="testimonial-name"> Bryan Freeman <span class="designation">Founder Xcompany</span></h4>
+                                            <div class="rating">
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star-outline"></i>
+                                            </div>
+                                            <p class="text">Their services are among the best to be honest. Making everything simple and easy, even for beginners and novices like me and my wife.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-slider__single-item">
+                                        <div class="testimonial-slider__single-item__image">
+                                            <img src="assets/img/testimonial/4.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="testimonial-slider__single-item__content">
+                                            <h4 class="testimonial-name"> Milanda Moses <span class="designation">Founder Xcompany</span></h4>
+                                            <div class="rating">
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star-outline"></i>
+                                            </div>
+                                            <p class="text">Working with @Tractor is like an ever-before experience when people knows what your problem is right when you start to mention it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-slider__single-item">
+                                        <div class="testimonial-slider__single-item__image">
+                                            <img src="assets/img/testimonial/5.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="testimonial-slider__single-item__content">
+                                            <h4 class="testimonial-name"> John Doe <span class="designation">Founder Xcompany</span></h4>
+                                            <div class="rating">
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star"></i>
+                                                <i class="ion-ios-star-outline"></i>
+                                            </div>
+                                            <p class="text">Here at @Tractor center, you have professional staff to look at your business. All solutions are prompt, precise and accurate.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination-3"></div>
+                    </div>
+
                 </div>
-            </header>
-            <div>
-                <div class="testimonial_section">
-                    <div class="testimonial_box px-40">
-                        <div class="testimonial_container">
-                            <div style="background: url('{{ asset('images/maps.jpg') }}');" class="background_layer"></div>
-                            <div class="layer_content">
-                                <div class="testimonial_owlCarousel owl-carousel">
-                                    <div class="testimonials">
-                                        <div class="testimonial_content">
-                                            <div class="testimonial_caption">
-                                                <h6>Alex Clarkson</h6>
-                                                <span>CEO, Axura</span>
-                                            </div>
-                                            <p class="open-sans">The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="images_box">
-                                            <div class="testimonial_img">
-                                                <img class="img-center" src="https://cdn.pixabay.com/photo/2017/08/30/17/27/business-woman-2697954_960_720.jpg" alt="images not found">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonials">
-                                        <div class="testimonial_content">
-                                            <div class="testimonial_caption">
-                                                <h6>Robert Clarkson</h6>
-                                                <span>CEO, Axura</span>
-                                            </div>
-                                            <p class="open-sans">The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="images_box">
-                                            <div class="testimonial_img">
-                                                <img class="img-center" src="https://cdn.pixabay.com/photo/2016/02/19/10/56/man-1209494_960_720.jpg" alt="images not found">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonials">
-                                        <div class="testimonial_content">
-                                            <div class="testimonial_caption">
-                                                <h6>Robert Clarkson</h6>
-                                                <span>CEO, Axura</span>
-                                            </div>
-                                            <p class="open-sans">The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="images_box">
-                                            <div class="testimonial_img">
-                                                <img class="img-center" src="https://cdn.pixabay.com/photo/2017/09/21/19/06/woman-2773007_960_720.jpg" alt="images not found">
-                                            </div>
-                                        </div>
-                                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- brand logo slider -->
+                <div class="brand-logo-slider__container-area">
+                    <div class="swiper-container brand-logo-slider__container">
+                        <div class="swiper-wrapper brand-logo-slider__wrapper">
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/1.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/1b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/2.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/2b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/3.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/3b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/4.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/4b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/5.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/5b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/6.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/6b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/7.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/7b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/8.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/8b.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide brand-logo-slider__single">
+                                <div class="image">
+                                    <img src="assets/img/brand-logo/9.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="image-hover">
+                                    <img src="assets/img/brand-logo/9b.png" class="img-fluid" alt="">
                                 </div>
                             </div>
                         </div>
@@ -64,4 +198,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>

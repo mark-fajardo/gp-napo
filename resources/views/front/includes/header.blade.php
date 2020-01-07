@@ -110,8 +110,10 @@
                                                 <li class="megamenu--tab__menu bg-img bg-img--menu" data-bg="assets/img/banner/decor.jpg">
                                                     <nav>
                                                         <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
-                                                            <a class="nav-item nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-selected="true">Industries Layout</a>
-                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Industries Served</a>
+                                                            <a class="nav-item nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-selected="true">Industrial Mixer</a>
+                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Meat Processing</a>
+                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Restaurant Equipment</a>
+                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Bakeshops and Commissary</a>
                                                         </div>
                                                     </nav>
                                                 </li>
