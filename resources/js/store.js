@@ -8,6 +8,7 @@ export default new Vuex.Store({
         oMessages : {
             oAlerts : {
                 sSuccessAddItem : 'Item is successfully added',
+                sSuccessAddCategory : 'Category is successfully added',
             },
             iPage : 1,
             sFilter : '',

@@ -16,9 +16,19 @@ export default new VueRouter({
           component: require('./components/ItemsComponent.vue').default
         },
         {
+          path: '/categories',
+          name: 'categories',
+          component: require('./components/CategoriesComponent.vue').default
+        },
+        {
           path: '/items/add',
           name: 'add-items',
           component: require('./components/forms/AddItemsComponent.vue').default
+        },
+        {
+          path: '/categories/add',
+          name: 'add-categories',
+          component: require('./components/forms/AddCategoryComponent.vue').default
         }
     ]
 });

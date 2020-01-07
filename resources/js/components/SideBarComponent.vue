@@ -15,9 +15,10 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    <span class="green-font">Item categories</span>
+                    <router-link class="nav-link" :to="{ name: 'categories'}">
+                        <span data-feather="file"></span>
+                        <span class="green-font">Item categories</span>
+                    </router-link>
                 </a>
                 </li>
                 <li class="nav-item">
