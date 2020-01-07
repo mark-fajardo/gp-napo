@@ -8,32 +8,21 @@ export default new Vuex.Store({
         oMessages : {
             oAlerts : {
                 sSuccessAddItem : 'Item is successfully added',
-            }
+            },
+            iPage : 1,
+            sFilter : '',
         },
         oApi : {
             oItems : {
                 columns: [
                     {label: 'id', field: 'id'},
-                    {label: 'Username', field: 'user.username', headerClass: 'class-in-header second-class'},
-                    {label: 'First Name', field: 'user.firstName'},
-                    {label: 'Last Name', field: 'user.lastName'},
-                    {label: 'Email', field: 'user.email'},
-                    {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+                    {label: 'Quantity', field: 'item_qty', headerClass: 'class-in-header second-class'},
+                    {label: 'Item Name', field: 'item_name'},
+                    {label: 'Item Brand', field: 'item_brand'},
+                    {label: 'Category', field: 'item_name'},
+                    // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
-                rows: [
-                    {
-                        id: 1,
-                        user: {
-                            username: "dprice0",
-                            firstName: "Daniel",
-                            lastName: "Price",
-                            email: "dprice0@blogs.com"
-                        },
-                        address: "3 Toban Park",
-                        city: "Pocatello",
-                        state: "Idaho"
-                    }
-                ]
+                rows: []
             }
         }
     },

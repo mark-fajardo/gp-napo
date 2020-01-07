@@ -35,5 +35,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'uses' => 'api\Admin\ItemsController@add',
             'as'   => 'api.admin.item.add'
         ]);
+
+        Route::get('/item/load', [
+            'uses' => 'api\Admin\ItemsController@load',
+            'as'   => 'api.admin.item.load'
+        ]);
     });
 });

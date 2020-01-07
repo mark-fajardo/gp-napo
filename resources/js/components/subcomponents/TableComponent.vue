@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid mt-3">
+        
         <table class="table w-100">
             <thead>
                 <tr>

@@ -24,7 +24,7 @@ class ItemsController extends Controller
     /**
      * Add new item
      * 
-     * @return Object
+     * @return Boolean
      */
     public function add()
     {
@@ -37,5 +37,16 @@ class ItemsController extends Controller
         
         $bReturn = $oItems->save();
         return response()->json($bReturn);
+    }
+
+    /**
+     * Load items
+     * 
+     * @return Object
+     */
+    public function load()
+    {
+        $oItems = Items::all();
+        return response()->json($oItems);
     }
 }

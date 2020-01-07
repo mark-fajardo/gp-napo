@@ -7,10 +7,12 @@
 require('./bootstrap');
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
+import { TColumnsDefinition, VuejsDatatableFactory } from 'vuejs-datatable';
  
 
 window.Vue = require('vue');
 Vue.use(VueToast);
+Vue.use( VuejsDatatableFactory );
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -39,6 +41,28 @@ Vue.component('table-sub', require('./components/subcomponents/TableComponent.vu
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+VuejsDatatableFactory.useDefaultType( false )
+    .registerTableType( 'datatable', tableType => tableType.mergeSettings( {
+        table: {
+            class:   'table table-hover table-striped',
+            sorting: {
+                sortAsc:  '<i class="fas fa-sort-amount-up" title="Sort ascending"></i>',
+                sortDesc: '<i class="fas fa-sort-amount-down" title="Sort descending"></i>',
+                sortNone: '<i class="fas fa-sort" title="Sort"></i>',
+            },
+        },
+        pager: {
+            classes: {
+                pager:    'pagination text-center',
+                selected: 'active',
+            },
+            icons: {
+                next:     '<i class="fas fa-chevron-right" title="Next page"></i>',
+                previous: '<i class="fas fa-chevron-left" title="Previous page"></i>',
+            },
+        },
+    } ) );
 
 const store = require('./store').default;
 const router = require('./router').default;
