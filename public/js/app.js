@@ -1882,7 +1882,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    getCategories: function getCategories() {
+      var oThis = this;
+      axios.get('/admin/api/category/load').then(function (oResponse) {
+        oThis.$store.state.oApi.oCategories.rows = oResponse.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getCategories();
+  }
+});
 
 /***/ }),
 
@@ -72835,19 +72847,32 @@ var render = function() {
         { staticClass: "row" },
         [
           _c("dashboard-card", {
-            attrs: { "s-title": "3 sold", "s-card-label": "Total Items Sold" }
+            attrs: {
+              "s-title":
+                _vm.$store.state.oApi.oCategories.rows.length + " records",
+              "s-card-label": "Total categories"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 items", "s-card-label": "Archived Items" }
+            attrs: {
+              "s-title": "0 items",
+              "s-card-label": "Archived categories"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 refunds", "s-card-label": "Changed Items" }
+            attrs: {
+              "s-title": "0 items",
+              "s-card-label": "Changed category related"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 items", "s-card-label": "Returned Items" }
+            attrs: {
+              "s-title": "0 items",
+              "s-card-label": "Returned category related"
+            }
           })
         ],
         1
@@ -72860,7 +72885,7 @@ var render = function() {
           [
             _c("categories-btns"),
             _vm._v(" "),
-            _c("div", { staticClass: "col-xs-12 form-inline" }, [
+            _c("div", { staticClass: "col-xs-12 form-inline mt-3" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c(
                   "label",
@@ -72903,8 +72928,8 @@ var render = function() {
                 _c("datatable", {
                   staticClass: "table mt-3",
                   attrs: {
-                    columns: _vm.$store.state.oApi.oItems.columns,
-                    data: _vm.$store.state.oApi.oItems.rows,
+                    columns: _vm.$store.state.oApi.oCategories.columns,
+                    data: _vm.$store.state.oApi.oCategories.rows,
                     "per-page": 10
                   }
                 }),
@@ -73040,7 +73065,10 @@ var render = function() {
         { staticClass: "row" },
         [
           _c("dashboard-card", {
-            attrs: { "s-title": "3 sold", "s-card-label": "Total Items Sold" }
+            attrs: {
+              "s-title": _vm.$store.state.oApi.oItems.rows.length + " items",
+              "s-card-label": "Total Items"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
@@ -73065,7 +73093,7 @@ var render = function() {
           [
             _c("products-btns"),
             _vm._v(" "),
-            _c("div", { staticClass: "col-xs-12 form-inline" }, [
+            _c("div", { staticClass: "col-xs-12 form-inline mt-3" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c(
                   "label",
@@ -91942,6 +91970,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         }, {
           label: 'Category',
           field: 'item_name'
+        } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+        ],
+        rows: []
+      },
+      oCategories: {
+        columns: [{
+          label: 'id',
+          field: 'id'
+        }, {
+          label: 'Category Name',
+          field: 'name'
         } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
         ],
         rows: []

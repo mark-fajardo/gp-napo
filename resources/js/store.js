@@ -24,6 +24,14 @@ export default new Vuex.Store({
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
                 rows: []
+            },
+            oCategories : {
+                columns: [
+                    {label: 'id', field: 'id'},
+                    {label: 'Category Name', field: 'name'},
+                    // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+                ],
+                rows: []
             }
         }
     },

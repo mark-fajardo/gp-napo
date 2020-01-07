@@ -6,8 +6,8 @@
             </div>
             <div class="row">
                 <dashboard-card
-                    :s-title="'3 sold'"
-                    :s-card-label="'Total Items Sold'">
+                    :s-title="$store.state.oApi.oItems.rows.length + ' items'"
+                    :s-card-label="'Total Items'">
                 </dashboard-card>
                 <dashboard-card
                     :s-title="'0 items'"
@@ -26,7 +26,7 @@
                 <div class="col-sm-12" style="">
                     <products-btns></products-btns>
                     <!-- <table-sub></table-sub> -->
-                    <div class="col-xs-12 form-inline">
+                    <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
                             <label for="filter" class="sr-only">Filter</label>
                             <input type="text" class="form-control" v-model="$store.state.oMessages.sFilter" placeholder="Filter">
@@ -53,7 +53,7 @@ export default {
                 })
         }
     },
-    mounted(){
+    mounted () {
         this.getItems();
     }
 }

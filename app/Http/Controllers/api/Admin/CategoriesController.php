@@ -34,4 +34,15 @@ class CategoriesController extends Controller
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
     }
+
+    /**
+     * Load items
+     * 
+     * @return Object
+     */
+    public function load()
+    {
+        $oCategories = Categories::all();
+        return response()->json($oCategories);
+    }
 }

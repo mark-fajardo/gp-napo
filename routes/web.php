@@ -45,5 +45,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'uses' => 'api\Admin\ItemsController@load',
             'as'   => 'api.admin.item.load'
         ]);
+
+        Route::get('/category/load', [
+            'uses' => 'api\Admin\CategoriesController@load',
+            'as'   => 'api.admin.category.load'
+        ]);
     });
 });
