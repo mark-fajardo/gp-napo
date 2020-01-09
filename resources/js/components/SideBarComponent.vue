@@ -2,45 +2,10 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="border-right: 1px solid whitesmoke;">
         <div class="sidebar-sticky p-3">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <router-link class="nav-link green-font" :to="{ name: 'dashboard'}">
-                        Dashboard
+                <li class="nav-item" v-for="aRoute in $store.state.oLabels.oSideNav">
+                    <router-link class="nav-link green-font" :to="{ name: aRoute.sRoute}">
+                        {{ aRoute.sLabel }}
                     </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link green-font" :to="{ name: 'items'}">
-                        Items
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link green-font" :to="{ name: 'categories'}">
-                        Item categories
-                    </router-link>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    <span class="green-font">Orders</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="users"></span>
-                    <span class="green-font">Customers</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="bar-chart-2"></span>
-                    <span class="green-font">Reports</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    <span class="green-font">Integrations</span>
-                </a>
                 </li>
             </ul>
 

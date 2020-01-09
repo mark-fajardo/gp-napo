@@ -8,6 +8,7 @@ require('./bootstrap');
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
 import { TColumnsDefinition, VuejsDatatableFactory } from 'vuejs-datatable';
+import VueTagsInput from '@johmun/vue-tags-input';
  
 
 window.Vue = require('vue');
@@ -24,6 +25,8 @@ Vue.use( VuejsDatatableFactory );
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('vue-tags-input', VueTagsInput);
+
 Vue.component('nav-bar', require('./components/NavBarComponent.vue').default);
 Vue.component('side-bar', require('./components/SideBarComponent.vue').default);
 Vue.component('dashboard', require('./components/DashboardComponent.vue').default);
@@ -33,7 +36,7 @@ Vue.component('line-graph', require('./components/graphs/LineComponent.vue').def
 Vue.component('dashboard-card', require('./components/graphs/CardComponent.vue').default);
 
 // Under Subs
-Vue.component('products-btns', require('./components/subcomponents/ProductsBtnGroupComponent.vue').default);
+Vue.component('items-btns', require('./components/subcomponents/ItemsBtnGroupComponent.vue').default);
 Vue.component('categories-btns', require('./components/subcomponents/CategoriesBtnGroupComponent.vue').default);
 Vue.component('table-sub', require('./components/subcomponents/TableComponent.vue').default);
 

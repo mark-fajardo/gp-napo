@@ -29,6 +29,14 @@
                             <input type="number" class="form-control" v-model="sItemQty" id="item-qty" placeholder="Item quantity">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <vue-tags-input
+                            v-model="sTags"
+                            :tags="aTags"
+                            :autocomplete-items="filteredItems"
+                            @tags-changed="newTags => aTags = newTags"
+                            />
+                    </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
@@ -39,6 +47,7 @@
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
                                     <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
                                 </div>
+                                <pre>{{filteredItems}}</pre>
                             </div>
                         </div>
                     </div>
@@ -54,7 +63,10 @@ export default {
         return {
             sItemName : '',
             sItemBrand : '',
-            sItemQty : ''
+            sItemQty : '',
+            sTags : '',
+            aTags : [],
+            autocompleteItems : this.$store.state.oApi.oCategories.rows,
         };
     },
     methods : {
@@ -88,6 +100,16 @@ export default {
             this.sItemBrand = '',
             this.sItemQty = ''
         }
-    }
+    },
+    mounted () {
+        this.$store.dispatch('getCategories');
+    },
+    computed: {
+        filteredItems () {
+            return this.$store.state.oApi.oCategories.rows.filter(i => {
+                return i.name.toLowerCase().indexOf(this.sTags.toLowerCase()) !== -1;
+            });
+        },
+    },
 }
 </script>

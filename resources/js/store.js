@@ -15,6 +15,34 @@ export default new Vuex.Store({
             iPage : 1,
             sFilter : '',
         },
+        oLabels : {
+            oSideNav : [
+                {
+                    sLabel : 'Dashboard',
+                    sRoute : 'dashboard'
+                },
+                {
+                    sLabel : 'Items',
+                    sRoute : 'items'
+                },
+                {
+                    sLabel : 'Item categories',
+                    sRoute : 'categories'
+                },
+                {
+                    sLabel : 'Orders',
+                    sRoute : 'orders'
+                },
+                {
+                    sLabel : 'Customers',
+                    sRoute : 'customers'
+                },
+                {
+                    sLabel : 'Reports',
+                    sRoute : 'reports'
+                }
+            ]
+        },
         oApi : {
             oItems : {
                 columns: [
@@ -37,8 +65,10 @@ export default new Vuex.Store({
             }
         }
     },
-    mutations : {
-
+    mutations: {
+        setFilter (state, value) {
+            state.oMessages.sFilter = value;
+        },
     },
     actions: {
         toast : function (context, { bType, sMsg }) {
@@ -56,6 +86,18 @@ export default new Vuex.Store({
                 type : 'success',
                 position : 'top'
             });
+        },
+        getItems : function (context) {
+            axios.get('/admin/api/item/load')
+                .then(function (oResponse) {
+                    context.state.oApi.oItems.rows = oResponse.data;
+                })
+        },
+        getCategories : function (context) {
+            axios.get('/admin/api/category/load')
+                .then(function (oResponse) {
+                    context.state.oApi.oCategories.rows = oResponse.data;
+                })
         }
     },
 });

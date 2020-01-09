@@ -24,12 +24,12 @@
             </div>
             <div class="row">
                 <div class="col-sm-12" style="">
-                    <products-btns></products-btns>
+                    <items-btns></items-btns>
                     <!-- <table-sub></table-sub> -->
                     <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
                             <label for="filter" class="sr-only">Filter</label>
-                            <input type="text" class="form-control" v-model="$store.state.oMessages.sFilter" placeholder="Filter">
+                            <input type="text" class="form-control" v-model="sFilter" placeholder="Search" @keydown="$event.stopImmediatePropagation()">
                         </div>
                     </div>
                     <div class="col-xs-12 table-responsive">
@@ -45,16 +45,20 @@
 <script>
 export default {
     methods : {
-        getItems : function () {
-            let oThis = this;
-            axios.get('/admin/api/item/load')
-                .then(function (oResponse) {
-                    oThis.$store.state.oApi.oItems.rows = oResponse.data;
-                })
-        }
+        
     },
     mounted () {
-        this.getItems();
+        this.$store.dispatch('getItems');
+    },
+    computed: {
+        sFilter: {
+            get () {
+               return this.$store.state.oMessages.sFilter
+            },
+            set (value) {
+                this.$store.commit('setFilter', value)
+            }
+        }
     }
 }
 </script>

@@ -45,16 +45,10 @@
 <script>
 export default {
     methods : {
-        getCategories : function () {
-            let oThis = this;
-            axios.get('/admin/api/category/load')
-                .then(function (oResponse) {
-                    oThis.$store.state.oApi.oCategories.rows = oResponse.data;
-                })
-        }
+
     },
     mounted () {
-        this.getCategories();
+        this.$store.dispatch('getCategories');
     }
 }
 </script>

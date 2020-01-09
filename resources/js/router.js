@@ -21,6 +21,21 @@ export default new VueRouter({
           component: require('./components/CategoriesComponent.vue').default
         },
         {
+          path: '/orders',
+          name: 'orders',
+          component: require('./components/OrdersComponent.vue').default
+        },
+        {
+          path: '/customers',
+          name: 'customers',
+          component: require('./components/CustomersComponent.vue').default
+        },
+        {
+          path: '/reports',
+          name: 'reports',
+          component: require('./components/OrdersComponent.vue').default
+        },
+        {
           path: '/items/add',
           name: 'add-items',
           component: require('./components/forms/AddItemsComponent.vue').default
