@@ -57,8 +57,16 @@ export default {
                         sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessAddCategory,
                     });
                     oThis.$router.push({ name : 'categories'});
+                    return;
                 }
 
+                
+            })
+            .catch(function (oResponse) {
+                oThis.$store.dispatch('toast', {
+                    bType : false,
+                    sMsg : oThis.$store.state.oMessages.oAlerts.sFailAddCategory,
+                });
             });
         },
         clearForms : function () {

@@ -3,21 +3,18 @@
         <div class="sidebar-sticky p-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <router-link class="nav-link active" :to="{ name: 'dashboard'}">
-                        <span data-feather="home"></span>
-                        <span class="green-font">Dashboard</span>
+                    <router-link class="nav-link green-font" :to="{ name: 'dashboard'}">
+                        Dashboard
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'items'}">
-                        <span data-feather="shopping-cart"></span>
-                        <span class="green-font">Items</span>
+                    <router-link class="nav-link green-font" :to="{ name: 'items'}">
+                        Items
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'categories'}">
-                        <span data-feather="file"></span>
-                        <span class="green-font">Item categories</span>
+                    <router-link class="nav-link green-font" :to="{ name: 'categories'}">
+                        Item categories
                     </router-link>
                 </a>
                 </li>
@@ -88,3 +85,9 @@
         
     }
 </script>
+
+<style scoped>
+    .router-link-exact-active {
+        color: #28a745;
+    }
+</style>

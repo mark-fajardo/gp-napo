@@ -13,10 +13,18 @@ class CategoriesController extends Controller
      * 
      * @var
      */
+    public $oRequest;
+    
+    /**
+     * Request Array
+     * 
+     * @var
+     */
     public $aRequest;
 
     public function __construct(Request $aRequest)
     {
+        $this->oRequest = $aRequest;
         $this->aRequest = $aRequest->all();
     }
     
@@ -27,6 +35,10 @@ class CategoriesController extends Controller
      */
     public function add()
     {
+        $validatedData = $this->oRequest->validate([
+            'category_name' => 'required|min:5',
+        ]);
+
         $bReturn = false;
         $oCategories = new Categories;
         $oCategories->name = $this->aRequest['category_name'];

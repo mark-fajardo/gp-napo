@@ -75,6 +75,12 @@ export default {
                     oThis.$router.push({ name : 'items'});
                 }
 
+            })
+            .catch(function (oResponse) {
+                oThis.$store.dispatch('toast', {
+                    bType : false,
+                    sMsg : oThis.$store.state.oMessages.oAlerts.sFailAddItem,
+                });
             });
         },
         clearForms : function () {

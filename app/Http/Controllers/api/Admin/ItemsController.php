@@ -14,10 +14,18 @@ class ItemsController extends Controller
      * 
      * @var
      */
+    public $oRequest;
+    
+    /**
+     * Request Array
+     * 
+     * @var
+     */
     public $aRequest;
 
     public function __construct(Request $aRequest)
     {
+        $this->oRequest = $aRequest;
         $this->aRequest = $aRequest->all();
     }
     
@@ -28,6 +36,12 @@ class ItemsController extends Controller
      */
     public function add()
     {
+        $validatedData = $this->oRequest->validate([
+            'item_name' => 'required|min:5',
+            'item_brand' => 'required|min:5',
+            'item_qty' => 'required',
+        ]);
+
         $bReturn = false;
         $oItems = new Items;
         $oItems->users_id = Auth::user()->get('id')[0]['id'];
