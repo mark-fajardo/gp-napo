@@ -1,4 +1,98 @@
-<section>
+<div class="footer-area section-space--inner--top--120 dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer-content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <!-- footer intro wrapper -->
+                            <div class="footer-intro-wrapper">
+                                <div class="footer-logo">
+                                    <a href="#">
+                                        <img src="assets/img/logo/logo-light.png" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="footer-desc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, similique harum, sequi perspiciatis, minima doloribus architecto qui iure fuga soluta dolores quaerat quisquam voluptatem assumenda.
+                                </div>
+                                <div class="social-links">
+                                    <ul>
+                                        <li><a href="//facebook.com" data-tippy="Facebook" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-facebook"></i></a></li>
+                                        <li><a href="//twitter.com" data-tippy="Twitter" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-twitter"></i></a></li>
+                                        <li><a href="//vimeo.com" data-tippy="Vimeo" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-vimeo"></i></a></li>
+                                        <li><a href="//linkedin.com" data-tippy="Linkedin" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-linkedin"></i></a></li>
+                                        <li><a href="//skype.com" data-tippy="Skype" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-skype"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <!-- footer widget -->  
+                            <div class="footer-widget">
+                                <h4 class="footer-widget__title">NAVIGATION</h4>
+                                <ul class="footer-widget__navigation">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Equipments</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">GET A QUOTE</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <!-- footer widget -->
+                            <div class="footer-widget">
+                                <h4 class="footer-widget__title">EQUIPMENTS</h4>
+                                <ul class="footer-widget__navigation">
+                                    <li>
+                                        <i class="fas fa-sort-down"></i>
+                                    </li>
+                                    <li><a href="#">Industrial Mixer</a></li>
+                                    <li><a href="#">Meat Processing</a></li>
+                                    <li><a href="#">Restaurant Equipment</a></li>
+                                    <li style="line-height: 30px !important"><a href="#">Bakeshops and Commissary</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <!-- footer widget -->
+                            <div class="footer-widget">
+                                <h4 class="footer-widget__title">CONTACT</h4>
+                                <ul class="footer-widget__navigation">
+                                    <li>
+                                        <p>Address</p>
+                                        <p>688-A1 Road 1, Matandang Balara, Commonwealth Avenue, Quezon City, PH</p>
+                                    </li>
+                                    <li><a href="#">Gifts & Apparel</a></li>
+                                    <li><a href="#">Auto Parts</a></li>
+                                    <li><a href="#">Power Systems</a></li>
+                                    <li><a href="#">Building Management</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer-copyright-wrapper">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-copyright-left">
+                                Copyright © 2020 All Rights Reserved by GP NAPO Food and Equipment Trading
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{-- <section>
     <div class="px-28 pt-16 pb-4 bg-gray-200">
         <div class="container m-auto">
             <ul class="flex flex-wrap flex-column text-gray-800">
@@ -92,4 +186,4 @@
             Copyright © 2020 All Rights Reserved by GP NAPO Food and Equipment Trading
         </div>
     </div>
-</section>
+</section> --}}
