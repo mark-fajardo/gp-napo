@@ -1,3 +1,17 @@
+<style>
+    .remove-after:after {
+        content: none !important;
+    }
+    .li-more {
+        color: #000 !important;
+        font-weight: bold;
+        border-bottom: 2px solid #FFC246;
+    }
+
+    .li-more:hover {
+        color: #FFC246 !important;
+    }
+</style>
 <div class="header-area header-sticky header-sticky--default">
     <div class="header-area__desktop header-area__desktop--default">
         <!--=======  header top bar  =======-->
@@ -106,82 +120,48 @@
                                         </li>
                                         <li class="has-children">
                                             <a href="#">EQUIPMENTS</a>
-                                            <ul class="megamenu megamenu--tab">
-                                                <li class="megamenu--tab__menu bg-img bg-img--menu" data-bg="assets/img/banner/decor.jpg">
-                                                    <nav>
-                                                        <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
-                                                            <a class="nav-item nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-selected="true">Industrial Mixer</a>
-                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Meat Processing</a>
-                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Restaurant Equipment</a>
-                                                            <a class="nav-item nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-selected="false">Bakeshops and Commissary</a>
-                                                        </div>
-                                                    </nav>
+                                            <ul class="megamenu megamenu--mega">
+                                                <li>
+                                                    <h2 class="page-list-title">Industrial Mixer</h2>
+                                                    <ul>
+                                                        <li><a href="page-about.html">About 01</a></li>
+                                                        <li><a href="page-about-2.html">About 02</a></li>
+                                                        <li><a href="page-contact.html">Contact Us 01</a></li>
+                                                        <li class="remove-after">
+                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
+                                                        </li>
+                                                    </ul>
                                                 </li>
-                                                <li class="megamenu--tab__content tab-content">
-                                                    <div class="tab-pane show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
-                                                        <ul class="megamenu-tab-wrapper">
-                                                            <li>
-                                                                <h2 class="page-list-title">Grid</h2>
-                                                                <ul>
-                                                                    <li><a href="industries-grid.html">Industries Grid 1</a></li>
-                                                                    <li><a href="industries-grid-2.html">Industries Grid 2</a></li>
-                                                                    <li><a href="industries-grid-3.html">Industries Grid 3</a></li>
-                                                                    <li><a href="industries-grid-4.html">Industries Grid 4</a></li>
-                                                                    <li><a href="industries-grid-5.html">Industries Grid 5</a></li>
-                                                                    <li><a href="industries-grid-6.html">Industries Grid 6</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <h2 class="page-list-title">Carousel</h2>
-                                                                <ul>
-                                                                    <li><a href="industries-carousel.html">Industries Carousel 1</a></li>
-                                                                    <li><a href="industries-carousel-2.html">Industries Carousel 2</a></li>
-                                                                    <li><a href="industries-carousel-3.html">Industries Carousel 3</a></li>
-                                                                    <li><a href="industries-carousel-4.html">Industries Carousel 4</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <div class="menu-widget">
-                                                                    <div class="menu-widget__image">
-                                                                        <img src="assets/img/banner/about-500x286.jpg" class="img-fluid" alt="">
-                                                                    </div>
-                                                                    <div class="menu-widget__content">
-                                                                        <h2 class="menu-widget__title">About Tractor Industrial</h2>
-                                                                        <p class="menu-widget__short-desc">Our expertise and global reach help promote safety and health for the planet and its..</p>
-                                                                        <a href="page-about.html" class="menu-widget__link">SEE MORE <i class="ion-arrow-right-c"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="tab-pane" id="item2" role="tabpanel" aria-labelledby="item2-tab">
-                                                        <ul class="menu-item-list-desc">
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Automotive Manufacturing</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Bridge construction</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Industrial construction</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Mechanical engineering</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Oil & gas energy</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                            <li class="menu-item-list-desc__single">
-                                                                <h6 class="title"><a href="#">Chemical research</a></h6>
-                                                                <p class="desc">Our expertise and global reach help promote safety and health for the planet and its inhabitants.</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <li>
+                                                    <h2 class="page-list-title">Meat Processing</h2>
+                                                    <ul>
+                                                        <li><a href="page-history.html">History</a></li>
+                                                        <li><a href="page-leadership.html">Leadership</a></li>
+                                                        <li><a href="page-partner.html">Partners & Clients</a></li>
+                                                        <li><a href="page-faq.html">FAQ's</a></li>
+                                                        <li><a href="page-award.html">Award & Recognition</a></li>
+                                                        <li><a href="page-career.html">Career</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <h2 class="page-list-title">Restaurant Equipment</h2>
+                                                    <ul>
+                                                        <li><a href="icon-flat.html">Icon Flat</a></li>
+                                                        <li><a href="icon-tractor.html">Icon Tractor</a></li>
+                                                        <li><a href="icon-icomoon.html">Icon Icomoon</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <h2 class="page-list-title">Bakeshops and Commissary</h2>
+                                                    <ul>
+                                                        <li><a href="service-details.html">Service Details 01</a></li>
+                                                        <li><a href="service-details-2.html">Service Details 02</a></li>
+                                                        <li><a href="service-details-3.html">Service Details 03</a></li>
+                                                        <li><a href="service-details-4.html">Service Details 04</a></li>
+                                                        <li><a href="service-details-5.html">Service Details 05</a></li>
+                                                        <li><a href="service-details-6.html">Service Details 06</a></li>
+
+                                                    </ul>
                                                 </li>
                                             </ul>
                                         </li>

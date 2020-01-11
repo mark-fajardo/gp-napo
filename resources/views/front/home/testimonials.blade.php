@@ -6,7 +6,7 @@
                 <div class="testimonial-slider__body-wrapper section-space--bottom--60">
                     <!-- testimonial slider title -->
                     <div class="testimonial-slider__title-wrapper section-space--bottom--60">
-                        <h2 class="testimonial-slider__title"><i class="icon icomoon-chat-1"></i> Happy Customers Said</h2>
+                        <h2 class="testimonial-slider__title"><i class="icon icomoon-chat-1"></i> Let out customers do the talking</h2>
                         <div class="testimonial-slider__nav-container">
                             <div class="ht-swiper-button-prev ht-swiper-button-prev-3 ht-swiper-button-nav"><i class="ion-chevron-left"></i></div>
                             <div class="ht-swiper-button-next ht-swiper-button-next-3 ht-swiper-button-nav"><i class="ion-chevron-right"></i></div>
@@ -22,7 +22,7 @@
                                             <img src="assets/img/testimonial/1.jpg" class="img-fluid" alt="">
                                         </div>
                                         <div class="testimonial-slider__single-item__content">
-                                            <h4 class="testimonial-name"> Fannie Moreno <span class="designation">Founder Xcompany</span></h4>
+                                            <h4 class="testimonial-name"> Leo Prieto <span class="designation">Shakey's Pizza Founder</span></h4>
                                             <div class="rating">
                                                 <i class="ion-ios-star"></i>
                                                 <i class="ion-ios-star"></i>
@@ -40,7 +40,7 @@
                                             <img src="assets/img/testimonial/2.jpg" class="img-fluid" alt="">
                                         </div>
                                         <div class="testimonial-slider__single-item__content">
-                                            <h4 class="testimonial-name">David James <span class="designation">Founder Xcompany</span></h4>
+                                            <h4 class="testimonial-name">Juan Dela Cruz <span class="designation">Founder Xcompany</span></h4>
                                             <div class="rating">
                                                 <i class="ion-ios-star"></i>
                                                 <i class="ion-ios-star"></i>
@@ -58,7 +58,7 @@
                                             <img src="assets/img/testimonial/3.jpg" class="img-fluid" alt="">
                                         </div>
                                         <div class="testimonial-slider__single-item__content">
-                                            <h4 class="testimonial-name"> Bryan Freeman <span class="designation">Founder Xcompany</span></h4>
+                                            <h4 class="testimonial-name"> Elijah De Asis <span class="designation">Founder XbrandPH</span></h4>
                                             <div class="rating">
                                                 <i class="ion-ios-star"></i>
                                                 <i class="ion-ios-star"></i>
@@ -84,7 +84,7 @@
                                                 <i class="ion-ios-star"></i>
                                                 <i class="ion-ios-star-outline"></i>
                                             </div>
-                                            <p class="text">Working with @Tractor is like an ever-before experience when people knows what your problem is right when you start to mention it.</p>
+                                            <p class="text">Working with GP NAPO is like an ever-before experience when people knows what your problem is right when you start to mention it.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                                 <i class="ion-ios-star"></i>
                                                 <i class="ion-ios-star-outline"></i>
                                             </div>
-                                            <p class="text">Here at @Tractor center, you have professional staff to look at your business. All solutions are prompt, precise and accurate.</p>
+                                            <p class="text">Here at GP NAPO center, you have professional staff to look at your business. All solutions are prompt, precise and accurate.</p>
                                         </div>
                                     </div>
                                 </div>
