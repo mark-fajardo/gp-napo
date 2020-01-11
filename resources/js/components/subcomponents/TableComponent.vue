@@ -6,23 +6,39 @@
                 <tr>
                     <th scope="col">
                         <div class="form-check">
-                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            <input
+                                v-model="bSelectAllItems"
+                                @click="selectAllItem"
+                                class="form-check-input position-static"
+                                type="checkbox">
                         </div>
                     </th>
-                    <th scope="col" v-for="sCol in aColumn">{{ sCol }}</th>
+                    <th
+                        v-for="(aCol, index) in aColumn"
+                        :key="index"
+                        scope="col">
+                        {{ aCol.label }}
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="sBody in aData">
+                <tr
+                    v-for="aItem in aData"
+                    :key="aItem.id">
                     <th scope="row">
                         <div class="form-check">
-                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            <input
+                                v-model="aSelectedItemsIds"
+                                :value="aItem.id"
+                                class="form-check-input position-static"
+                                type="checkbox">
                         </div>
                     </th>
-                    <td>{{ sBody[1] }}</td>
-                    <td>{{ sBody[2] }}</td>
-                    <td>{{ sBody[3] }}</td>
-                    <td>{{ sBody[4] }}</td>
+                    <td>{{ aItem.id }}</td>
+                    <td>{{ aItem.item_qty }}</td>
+                    <td>{{ aItem.item_name }}</td>
+                    <td>{{ aItem.item_brand }}</td>
+                    <td>Sample Category</td>
                 </tr>
             </tbody>
         </table>
@@ -47,6 +63,21 @@ export default {
                     [1, 'Oven Toaster', 'Dowell', 'Toaster', 5],
                     [1, 'ABC Steamer', 'ABCApply', 'Steamer', 3]
                 ]
+            }
+        }
+    },
+    data: () => ({
+        aSelectedItemsIds: [],
+        bSelectAllItems: false
+    }),
+    methods: {
+        selectAllItem() {
+            this.aSelectedItemsIds = [];
+
+            if (this.bSelectAllItems === false) {
+                this.aData.map(item => {
+                    this.aSelectedItemsIds.push(item.id)
+                })
             }
         }
     }

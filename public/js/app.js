@@ -1985,6 +1985,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _subcomponents_TableComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./subcomponents/TableComponent */ "./resources/js/components/subcomponents/TableComponent.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2029,21 +2037,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Table: _subcomponents_TableComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   methods: {},
-  mounted: function mounted() {
+  created: function created() {
     this.$store.dispatch('getItems');
   },
-  computed: {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['oItems']), {
     sFilter: {
       get: function get() {
-        return this.$store.state.oMessages.sFilter;
+        return this.$store.getters.sFilter;
       },
       set: function set(value) {
         this.$store.commit('setFilter', value);
       }
     }
-  }
+  })
 });
 
 /***/ }),
@@ -2532,6 +2547,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     aColumn: {
@@ -2544,6 +2575,25 @@ __webpack_require__.r(__webpack_exports__);
       type: Array,
       "default": function _default() {
         return [[1, 'Oven Toaster', 'Dowell', 'Toaster', 5], [1, 'ABC Steamer', 'ABCApply', 'Steamer', 3]];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      aSelectedItemsIds: [],
+      bSelectAllItems: false
+    };
+  },
+  methods: {
+    selectAllItem: function selectAllItem() {
+      var _this = this;
+
+      this.aSelectedItemsIds = [];
+
+      if (this.bSelectAllItems === false) {
+        this.aData.map(function (item) {
+          _this.aSelectedItemsIds.push(item.id);
+        });
       }
     }
   }
@@ -73279,12 +73329,10 @@ var render = function() {
               "div",
               { staticClass: "col-xs-12 table-responsive" },
               [
-                _c("datatable", {
-                  staticClass: "table mt-3",
+                _c("Table", {
                   attrs: {
-                    columns: _vm.$store.state.oApi.oItems.columns,
-                    data: _vm.$store.state.oApi.oItems.rows,
-                    "per-page": 10
+                    "a-column": _vm.oItems.columns,
+                    "a-data": _vm.oItems.rows
                   }
                 }),
                 _vm._v(" "),
@@ -74262,11 +74310,57 @@ var render = function() {
         _c(
           "tr",
           [
-            _vm._m(0),
+            _c("th", { attrs: { scope: "col" } }, [
+              _c("div", { staticClass: "form-check" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.bSelectAllItems,
+                      expression: "bSelectAllItems"
+                    }
+                  ],
+                  staticClass: "form-check-input position-static",
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(_vm.bSelectAllItems)
+                      ? _vm._i(_vm.bSelectAllItems, null) > -1
+                      : _vm.bSelectAllItems
+                  },
+                  on: {
+                    click: _vm.selectAllItem,
+                    change: function($event) {
+                      var $$a = _vm.bSelectAllItems,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.bSelectAllItems = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.bSelectAllItems = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.bSelectAllItems = $$c
+                      }
+                    }
+                  }
+                })
+              ])
+            ]),
             _vm._v(" "),
-            _vm._l(_vm.aColumn, function(sCol) {
-              return _c("th", { attrs: { scope: "col" } }, [
-                _vm._v(_vm._s(sCol))
+            _vm._l(_vm.aColumn, function(aCol, index) {
+              return _c("th", { key: index, attrs: { scope: "col" } }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(aCol.label) +
+                    "\n                "
+                )
               ])
             })
           ],
@@ -74276,17 +74370,61 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.aData, function(sBody) {
-          return _c("tr", [
-            _vm._m(1, true),
+        _vm._l(_vm.aData, function(aItem) {
+          return _c("tr", { key: aItem.id }, [
+            _c("th", { attrs: { scope: "row" } }, [
+              _c("div", { staticClass: "form-check" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.aSelectedItemsIds,
+                      expression: "aSelectedItemsIds"
+                    }
+                  ],
+                  staticClass: "form-check-input position-static",
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    value: aItem.id,
+                    checked: Array.isArray(_vm.aSelectedItemsIds)
+                      ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                      : _vm.aSelectedItemsIds
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.aSelectedItemsIds,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = aItem.id,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.aSelectedItemsIds = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.aSelectedItemsIds = $$c
+                      }
+                    }
+                  }
+                })
+              ])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sBody[1]))]),
+            _c("td", [_vm._v(_vm._s(aItem.id))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sBody[2]))]),
+            _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sBody[3]))]),
+            _c("td", [_vm._v(_vm._s(aItem.item_name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sBody[4]))])
+            _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Sample Category")])
           ])
         }),
         0
@@ -74294,44 +74432,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("th", { attrs: { scope: "col" } }, [
-      _c("div", { staticClass: "form-check" }, [
-        _c("input", {
-          staticClass: "form-check-input position-static",
-          attrs: {
-            type: "checkbox",
-            id: "blankCheckbox",
-            value: "option1",
-            "aria-label": "..."
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("th", { attrs: { scope: "row" } }, [
-      _c("div", { staticClass: "form-check" }, [
-        _c("input", {
-          staticClass: "form-check-input position-static",
-          attrs: {
-            type: "checkbox",
-            id: "blankCheckbox",
-            value: "option1",
-            "aria-label": "..."
-          }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -92307,6 +92408,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   mutations: {
     setFilter: function setFilter(state, value) {
       state.oMessages.sFilter = value;
+    },
+    setItems: function setItems(state, payload) {
+      state.oApi.oItems.rows = payload;
+    },
+    setCategories: function setCategories(state, payload) {
+      state.oApi.oItems.oCategories = payload;
     }
   },
   actions: {
@@ -92331,13 +92438,24 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     getItems: function getItems(context) {
       axios.get('/admin/api/item/load').then(function (oResponse) {
-        context.state.oApi.oItems.rows = oResponse.data;
+        context.commit('setItems', oResponse.data);
       });
     },
     getCategories: function getCategories(context) {
       axios.get('/admin/api/category/load').then(function (oResponse) {
-        context.state.oApi.oCategories.rows = oResponse.data;
+        context.commit('setCategories', oResponse.data);
       });
+    }
+  },
+  getters: {
+    oItems: function oItems(state) {
+      return state.oApi.oItems;
+    },
+    oCategories: function oCategories(state) {
+      return state.oApi.oCategories;
+    },
+    sFilter: function sFilter(state) {
+      return state.oMessages.sFilter;
     }
   }
 }));
@@ -92362,8 +92480,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

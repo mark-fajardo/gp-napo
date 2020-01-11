@@ -33,7 +33,9 @@
                         </div>
                     </div>
                     <div class="col-xs-12 table-responsive">
-                        <datatable class="table mt-3" :columns="$store.state.oApi.oItems.columns" :data="$store.state.oApi.oItems.rows" :per-page="10"></datatable>
+                        <Table
+                            :a-column="oItems.columns"
+                            :a-data="oItems.rows"/>
                         <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager>
                     </div>
                 </div>
@@ -43,17 +45,24 @@
 </template>
 
 <script>
+import Table from './subcomponents/TableComponent'
+import { mapGetters } from 'vuex'
+
 export default {
+    components: {
+        Table
+    },
     methods : {
         
     },
-    mounted () {
+    created () {
         this.$store.dispatch('getItems');
     },
     computed: {
+        ...mapGetters(['oItems']),
         sFilter: {
             get () {
-               return this.$store.state.oMessages.sFilter
+               return this.$store.getters.sFilter
             },
             set (value) {
                 this.$store.commit('setFilter', value)

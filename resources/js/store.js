@@ -62,13 +62,19 @@ export default new Vuex.Store({
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
                 rows: []
-            }
+            },
         }
     },
     mutations: {
         setFilter (state, value) {
             state.oMessages.sFilter = value;
         },
+        setItems: (state, payload) => {
+            state.oApi.oItems.rows = payload;
+        },
+        setCategories: (state, payload) => {
+            state.oApi.oItems.oCategories = payload;
+        }
     },
     actions: {
         toast : function (context, { bType, sMsg }) {
@@ -90,14 +96,19 @@ export default new Vuex.Store({
         getItems : function (context) {
             axios.get('/admin/api/item/load')
                 .then(function (oResponse) {
-                    context.state.oApi.oItems.rows = oResponse.data;
+                    context.commit('setItems', oResponse.data)
                 })
         },
         getCategories : function (context) {
             axios.get('/admin/api/category/load')
                 .then(function (oResponse) {
-                    context.state.oApi.oCategories.rows = oResponse.data;
+                    context.commit('setCategories', oResponse.data)
                 })
         }
     },
+    getters: {
+        oItems: state => state.oApi.oItems,
+        oCategories: state => state.oApi.oCategories,
+        sFilter: state => state.oMessages.sFilter
+    }
 });
