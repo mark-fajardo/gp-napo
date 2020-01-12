@@ -1232,31 +1232,6 @@
     });
     
     /*=====  End of swiper slider activation  ======*/
-    
-    
-    /*=============================================
-    =            light gallery active            =
-    =============================================*/
-    
-    $('.video-popup').lightGallery(); 
-    $('.image-popup').lightGallery({
-        selector: '.single-gallery-thumb'
-    }); 
-    
-    /*=====  End of light gallery active  ======*/
-
-    
-    /*=============================================
-    =            counter up active            =
-    =============================================*/
-    
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
-    
-    /*=====  End of counter up active  ======*/
-    
 
     
     /*=============================================
@@ -1293,35 +1268,6 @@
 	});
     
     /*=====  End of overlay menu  ======*/
-    
-    
-    
-    /*=============================================
-    =            mailchimp active            =
-    =============================================*/
-    
-    if(('#mc-form').length){
-        $('#mc-form').ajaxChimp({
-            language: 'en',
-            callback: mailChimpResponse,
-            // ADD YOUR MAILCHIMP URL BELOW HERE!
-            url: 'http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
-    
-        });
-        
-        function mailChimpResponse(resp) {
-    
-            if (resp.result === 'success') {
-                $('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-                $('.mailchimp-error').fadeOut(400);
-    
-            } else if (resp.result === 'error') {
-                $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-            }
-        }
-    }
-    
-    /*=====  End of mailchimp active  ======*/
     
 
     
@@ -1376,37 +1322,6 @@
     
     /*=====  End of ajax contact form active  ======*/
 
-    
-    /*=============================================
-    =            isotope active            =
-    =============================================*/
-    
-    	
-    var activeId = $(".project-filter-menu li");
-    $(".project-isotope").isotope();
-
-	activeId.on('click', function () {
-		var $this = $(this),
-			filterValue = $this.data('filter');
-
-		$(".project-isotope").isotope({
-			filter: filterValue,
-            layoutMode: 'fitRows',
-            hiddenStyle: {
-                opacity: 0
-            },
-            visibleStyle: {
-                opacity: 1
-            }
-	});
-
-		activeId.removeClass('active');
-		$this.addClass('active');
-	});
-
-    
-    /*=====  End of isotope active  ======*/
-
 
     /*=============================================
     =            masonry activation            =
@@ -1429,89 +1344,7 @@
     
     /*=====  End of masonry activation  ======*/
 
-    
-    /*=============================================
-    =            progress bar active            =
-    =============================================*/
-    
-    var skillsBar = $(".progress-line-bar");
-    skillsBar.appear(function () {
-        skillsBar.each(function (index, elem) {
-            var elementItem = $(elem),
-                skillBarAmount = elementItem.data('percent');
-            elementItem.animate({
-                width: skillBarAmount
-            },600);
-
-            elementItem.siblings('.progress-line-dot').css({
-                left: skillBarAmount
-            }, 600);
-            elementItem.closest('.progress-bar-item').find('.percent').text(skillBarAmount);
-        });
-    });
-    
-    /*=====  End of progress bar active  ======*/
-    
-    
-    /*=============================================
-    =            quantity counter            =
-    =============================================*/
-    
-    $('.pro-qty').append('<a href="#" class="inc qty-btn"><i class="ion-arrow-up-b"></i></a>');
-	$('.pro-qty').append('<a href="#" class= "dec qty-btn"><i class="ion-arrow-down-b"></i></a>');
-	$('.qty-btn').on('click', function (e) {
-		e.preventDefault();
-		var $button = $(this);
-		var oldValue = $button.parent().find('input').val();
-		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValue > 0) {
-				var newVal = parseFloat(oldValue) - 1;
-			} else {
-				newVal = 0;
-			}
-		}
-		$button.parent().find('input').val(newVal);
-	});
-
-    
-    /*=====  End of quantity counter  ======*/
-
-    
-    
-    /*=============================================
-    =            payment method select            =
-    =============================================*/
-    
-    $('[name="payment-method"]').on('click', function () {
-
-        var $value = $(this).attr('value');
-
-        $('.single-method p').slideUp();
-        $('[data-method="' + $value + '"]').slideDown();
-
-    });
-    
-    /*=====  End of payment method select  ======*/
 
 
-    
-    /*=============================================
-    =            shipping form active            =
-    =============================================*/
-    
-    $('[data-shipping]').on('click', function () {
-        if ($('[data-shipping]:checked').length > 0) {
-            $('#shipping-form').slideDown();
-        } else {
-            $('#shipping-form').slideUp();
-        }
-    });
-    
-    /*=====  End of shipping form active  ======*/
-    
-    
     
 })(jQuery);

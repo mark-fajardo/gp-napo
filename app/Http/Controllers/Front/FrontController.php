@@ -10,4 +10,8 @@ class FrontController extends Controller
     public function index() {
         return view('front.home.index');
     }
+
+    public function about() {
+        return view('front.home.index');
+    }
 }

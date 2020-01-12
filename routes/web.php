@@ -16,4 +16,10 @@ Route::get('/', [
     'as' => 'front.index'
 ]);
 
+Route::get('/about', [
+    'uses' => 'Front\FrontController@about',
+    'as' => 'front.about'
+]);
+
+
 

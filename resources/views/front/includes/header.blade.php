@@ -166,7 +166,7 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">ABOUT</a>
+                                            <a href="{{ route('front.about') }}">ABOUT</a>
                                         </li>
                                         <li>
                                             <a href="#">CONTACT US</a>

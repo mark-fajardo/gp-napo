@@ -30,7 +30,7 @@
                                 <ul class="footer-widget__navigation">
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#">Equipments</a></li>
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="{{ route('front.about') }}">About Us</a></li>
                                     <li><a href="#">Contact Us</a></li>
                                     <li><a href="#" style="color: #FFC246">GET A QUOTE</a></li>
                                 </ul>
