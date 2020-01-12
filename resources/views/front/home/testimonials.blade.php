@@ -6,7 +6,7 @@
                 <div class="testimonial-slider__body-wrapper section-space--bottom--60">
                     <!-- testimonial slider title -->
                     <div class="testimonial-slider__title-wrapper section-space--bottom--60">
-                        <h2 class="testimonial-slider__title"><i class="icon icomoon-chat-1"></i> Let out customers do the talking</h2>
+                        <h2 class="testimonial-slider__title"><i class="icon icomoon-chat-1"></i> Some of our customers stories</h2>
                         <div class="testimonial-slider__nav-container">
                             <div class="ht-swiper-button-prev ht-swiper-button-prev-3 ht-swiper-button-nav"><i class="ion-chevron-left"></i></div>
                             <div class="ht-swiper-button-next ht-swiper-button-next-3 ht-swiper-button-nav"><i class="ion-chevron-right"></i></div>

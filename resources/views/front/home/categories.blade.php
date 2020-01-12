@@ -63,7 +63,7 @@
         <div class="swiper-container industry-slider-content-container">
             <div class="swiper-wrapper industry-slider-content-wrapper">
                 <div class="swiper-slide">
-                    <div class="industry-slider-content-single bg-img" style="background-size: cover !important;" data-bg="assets/img/backgrounds/meat.jpg">
+                    <div class="industry-slider-content-single bg-img" style="background-size: cover !important;" data-bg="assets/img/backgrounds/mixer.jpg">
                         <div class="container">
                             <div class="industry-content-inner" style="background: #F7FAFC; ">
                                 <div class="section-title-area">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/restaurant-2.jpg">
+                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/meat.jpg">
                         <div class="container">
                             <div class="industry-content-inner" style="background: #F7FAFC; ">
                                 <div class="section-title-area">
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/bakery.jpg">
+                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/restaurant-3.jpg">
                         <div class="container">
                             <div class="industry-content-inner" style="background: #F7FAFC; ">
                                 <div class="section-title-area">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/mixer.jpg">
+                    <div class="industry-slider-content-single bg-img" data-bg="assets/img/backgrounds/bakery-2.jpg">
                         <div class="container">
                             <div class="industry-content-inner" style="background: #F7FAFC; ">
                                 <div class="section-title-area">

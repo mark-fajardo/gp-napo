@@ -12,6 +12,14 @@ class FrontController extends Controller
     }
 
     public function about() {
-        return view('front.home.index');
+        return view('front.about.index');
+    }
+
+    public function contact() {
+        return view('front.contact.index');
+    }
+
+    public function quote() {
+        return view('front.quote.index');
     }
 }

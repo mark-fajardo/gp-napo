@@ -1,0 +1,19 @@
+Front Design:
+1. Fix next and prev btn
+2. Change slider contents
+3. Mobile header fix
+4. Search Page
+
+Front Data:
+1. Header megamenu
+2. Footer
+3. Home category
+4. category page
+5. Item page
+
+Backend:
+1. Get quote
+2. Search
+
+(Optional):
+1. Add im not a robot security in get quote

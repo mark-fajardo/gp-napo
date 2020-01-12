@@ -16,9 +16,19 @@ Route::get('/', [
     'as' => 'front.index'
 ]);
 
+Route::get('/contact', [
+    'uses' => 'Front\FrontController@contact',
+    'as' => 'front.contact'
+]);
+
 Route::get('/about', [
     'uses' => 'Front\FrontController@about',
     'as' => 'front.about'
+]);
+
+Route::get('/get-quote', [
+    'uses' => 'Front\FrontController@quote',
+    'as' => 'front.quote'
 ]);
 
 

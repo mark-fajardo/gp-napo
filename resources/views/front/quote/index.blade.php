@@ -6,8 +6,7 @@
 
 @section('content')
 
-    @include('front.about.first')
-    @include('front.includes.quote')
+    @include('front.quote.form')
 
 @endsection
 

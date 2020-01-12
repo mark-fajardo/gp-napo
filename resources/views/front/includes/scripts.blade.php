@@ -16,11 +16,6 @@
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
-<!-- Revolution Slider JS -->
-<script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="assets/revolution/revolution-active.js"></script>
-
 <!--=====
 
  global removed:

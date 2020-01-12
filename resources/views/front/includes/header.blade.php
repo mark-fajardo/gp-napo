@@ -1,16 +1,5 @@
 <style>
-    .remove-after:after {
-        content: none !important;
-    }
-    .li-more {
-        color: #000 !important;
-        font-weight: bold;
-        border-bottom: 2px solid #FFC246;
-    }
-
-    .li-more:hover {
-        color: #FFC246 !important;
-    }
+    .remove-after:after{content:none!important}.li-more{color:#000!important;font-weight:700;border-bottom:2px solid #ffc246}.li-more:hover{color:#ffc246!important}.header-title:hover{color:#ffc246}
 </style>
 <div class="header-area header-sticky header-sticky--default">
     <div class="header-area__desktop header-area__desktop--default">
@@ -49,7 +38,7 @@
                         <div class="header-info-wrapper align-items-center">
                             <!-- logo -->
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="{{ route('front.index') }}">
                                     <img src="assets/img/logo/logo-dark.png" class="img-fluid" alt="">
                                 </a>
                             </div>
@@ -116,51 +105,53 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="index.html">HOME</a>
+                                            <a href="{{ route('front.index') }}">HOME</a>
                                         </li>
                                         <li class="has-children">
                                             <a href="#">EQUIPMENTS</a>
                                             <ul class="megamenu megamenu--mega">
                                                 <li>
-                                                    <h2 class="page-list-title">Industrial Mixer</h2>
+                                                    <h2 class="page-list-title">
+                                                        <a href="#" class="header-title">Industrial Mixer</a>
+                                                    </h2>
                                                     <ul>
-                                                        <li><a href="page-about.html">About 01</a></li>
-                                                        <li><a href="page-about-2.html">About 02</a></li>
-                                                        <li><a href="page-contact.html">Contact Us 01</a></li>
+                                                        <li><a href="#">Item</a></li>
                                                         <li class="remove-after">
                                                             <a href="page-contact-2.html" class="li-more">More Equipments</a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <h2 class="page-list-title">Meat Processing</h2>
+                                                    <h2 class="page-list-title">
+                                                        <a href="#" class="header-title">Meat Processing</a>
+                                                    </h2>
                                                     <ul>
-                                                        <li><a href="page-history.html">History</a></li>
-                                                        <li><a href="page-leadership.html">Leadership</a></li>
-                                                        <li><a href="page-partner.html">Partners & Clients</a></li>
-                                                        <li><a href="page-faq.html">FAQ's</a></li>
-                                                        <li><a href="page-award.html">Award & Recognition</a></li>
-                                                        <li><a href="page-career.html">Career</a></li>
+                                                        <li><a href="#">Item</a></li>
+                                                        <li class="remove-after">
+                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <h2 class="page-list-title">Restaurant Equipment</h2>
+                                                    <h2 class="page-list-title">
+                                                        <a href="#" class="header-title">Restaurant Equipment</a>
+                                                    </h2>
                                                     <ul>
-                                                        <li><a href="icon-flat.html">Icon Flat</a></li>
-                                                        <li><a href="icon-tractor.html">Icon Tractor</a></li>
-                                                        <li><a href="icon-icomoon.html">Icon Icomoon</a></li>
+                                                        <li><a href="#">Item</a></li>
+                                                        <li class="remove-after">
+                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <h2 class="page-list-title">Bakeshops and Commissary</h2>
+                                                    <h2 class="page-list-title">
+                                                        <a href="#" class="header-title">Bakeshops and Commissary</a>
+                                                    </h2>
                                                     <ul>
-                                                        <li><a href="service-details.html">Service Details 01</a></li>
-                                                        <li><a href="service-details-2.html">Service Details 02</a></li>
-                                                        <li><a href="service-details-3.html">Service Details 03</a></li>
-                                                        <li><a href="service-details-4.html">Service Details 04</a></li>
-                                                        <li><a href="service-details-5.html">Service Details 05</a></li>
-                                                        <li><a href="service-details-6.html">Service Details 06</a></li>
-
+                                                        <li><a href="#">Item</a></li>
+                                                        <li class="remove-after">
+                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -169,10 +160,10 @@
                                             <a href="{{ route('front.about') }}">ABOUT</a>
                                         </li>
                                         <li>
-                                            <a href="#">CONTACT US</a>
+                                            <a href="{{ route('front.contact') }}">CONTACT US</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="ht-btn ht-btn--default d-inline-block" style="height: 100% !important;">GET A QUOTE</a>
+                                            <a href="{{ route('front.quote') }}" class="ht-btn ht-btn--default d-inline-block" style="height: 100% !important;">GET A QUOTE</a>
                                         </li>
                                     </ul>
                                 </nav>

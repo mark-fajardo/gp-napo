@@ -28,11 +28,11 @@
                             <div class="footer-widget">
                                 <h4 class="footer-widget__title">NAVIGATION</h4>
                                 <ul class="footer-widget__navigation">
-                                    <li><a href="#">Home</a></li>
+                                    <li><a href="{{ route('front.index') }}">Home</a></li>
                                     <li><a href="#">Equipments</a></li>
                                     <li><a href="{{ route('front.about') }}">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#" style="color: #FFC246">GET A QUOTE</a></li>
+                                    <li><a href="{{ route('front.contact') }}">Contact Us</a></li>
+                                    <li style="border: 2px solid #FFC246; padding: 15px 25px !important; text-align: center; margin-top: 30px"><a href="{{ route('front.quote') }}" style="color: #FFC246; padding: 0 !important;">GET A QUOTE</a></li>
                                 </ul>
                             </div>
                         </div>
