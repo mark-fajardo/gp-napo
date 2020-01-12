@@ -2371,6 +2371,8 @@ __webpack_require__.r(__webpack_exports__);
         item_brand: oThis.sItemBrand,
         item_qty: oThis.sItemQty
       }).then(function (bResponse) {
+        console.log(bResponse);
+
         if (bResponse.data === true) {
           // Vue.$toast.open(oThis.$store.state.oMessages.oAlerts.sSuccessAddItem);
           oThis.$store.dispatch('toast', {

@@ -3,9 +3,15 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Categories extends Model
 {
+    use Sluggable;
+
+    use SluggableScopeHelpers;
+
     /**
      * The table associated with the model.
      *
@@ -36,4 +42,18 @@ class Categories extends Model
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    /**
+     * Generate category slug based on category name
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'onUpdate' => true
+            ]
+        ];
+    }
 }

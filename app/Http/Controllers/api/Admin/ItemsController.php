@@ -48,7 +48,7 @@ class ItemsController extends Controller
         $oItems->item_name = $this->aRequest['item_name'];
         $oItems->item_brand = $this->aRequest['item_brand'];
         $oItems->item_qty = $this->aRequest['item_qty'];
-        
+
         $bReturn = $oItems->save();
         return response()->json($bReturn);
     }

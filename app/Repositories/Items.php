@@ -3,9 +3,15 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Items extends Model
 {
+    use Sluggable;
+
+    use SluggableScopeHelpers;
+
     /**
      * The table associated with the model.
      *
@@ -36,4 +42,18 @@ class Items extends Model
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    /**
+     * Generate items slug based on item name and brand
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => ['item_brand', 'item_name'],
+                'onUpdate' => true
+            ]
+        ];
+    }
 }
