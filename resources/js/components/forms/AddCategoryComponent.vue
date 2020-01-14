@@ -17,6 +17,12 @@
                             <input type="text" class="form-control" v-model="sCategoryName" id="category-name" placeholder="Category name">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="category-name" class="col-sm-2 col-form-label">Category Description:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sCategoryDesc" id="category-name" placeholder="Category description">
+                        </div>
+                    </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
@@ -41,6 +47,7 @@ export default {
     data () {
         return {
             sCategoryName : '',
+            sCategoryDesc : '',
         };
     },
     methods : {
@@ -48,6 +55,7 @@ export default {
             let oThis = this;
             axios.post('/admin/api/category/add', {
                 category_name : oThis.sCategoryName,
+                category_desc : oThis.sCategoryDesc,
             })
             .then(function (bResponse) {
                 if (bResponse.data === true) {

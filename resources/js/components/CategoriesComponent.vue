@@ -33,8 +33,14 @@
                         </div>
                     </div>
                     <div class="col-xs-12 table-responsive">
-                        <datatable class="table mt-3" :columns="$store.state.oApi.oCategories.columns" :data="$store.state.oApi.oCategories.rows" :per-page="10"></datatable>
-                        <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager>
+
+                        <table-sub
+                            :s-show="'categories'"
+                            :a-column="$store.state.oApi.oCategories.columns"
+                            :a-data="$store.state.oApi.oCategories.rows"/>
+
+                        <!-- <datatable class="table mt-3" :columns="$store.state.oApi.oCategories.columns" :data="$store.state.oApi.oCategories.rows" :per-page="10"></datatable>
+                        <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager> -->
                     </div>
                 </div>
             </div>

@@ -59,6 +59,7 @@ export default new Vuex.Store({
                 columns: [
                     {label: 'id', field: 'id'},
                     {label: 'Category Name', field: 'name'},
+                    {label: 'Category Description', field: 'description'},
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
                 rows: []
@@ -66,14 +67,14 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-        setFilter (state, value) {
+        setFilter: (state, value) => {
             state.oMessages.sFilter = value;
         },
         setItems: (state, payload) => {
             state.oApi.oItems.rows = payload;
         },
         setCategories: (state, payload) => {
-            state.oApi.oItems.oCategories = payload;
+            state.oApi.oCategories.rows = payload;
         }
     },
     actions: {

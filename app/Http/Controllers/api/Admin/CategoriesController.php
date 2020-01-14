@@ -37,12 +37,13 @@ class CategoriesController extends Controller
     {
         $validatedData = $this->oRequest->validate([
             'category_name' => 'required|min:5',
+            'category_desc' => 'required|min:5',
         ]);
 
         $bReturn = false;
         $oCategories = new Categories;
         $oCategories->name = $this->aRequest['category_name'];
-        
+        $oCategories->description = $this->aRequest['category_desc'];
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
     }

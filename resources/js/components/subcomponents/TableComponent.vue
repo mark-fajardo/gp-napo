@@ -21,7 +21,8 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody
+                v-if="sShow === 'items'">
                 <tr
                     v-for="aItem in aData"
                     :key="aItem.id">
@@ -41,6 +42,25 @@
                     <td>Sample Category</td>
                 </tr>
             </tbody>
+            <tbody
+                v-if="sShow === 'categories'">
+                <tr
+                    v-for="aItem in aData"
+                    :key="aItem.id">
+                    <th scope="row">
+                        <div class="form-check">
+                            <input
+                                v-model="aSelectedItemsIds"
+                                :value="aItem.id"
+                                class="form-check-input position-static"
+                                type="checkbox">
+                        </div>
+                    </th>
+                    <td>{{ aItem.id }}</td>
+                    <td>{{ aItem.name }}</td>
+                    <td>{{ aItem.description }}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
@@ -48,6 +68,10 @@
 <script>
 export default {
     props : {
+        sShow : {
+            type : String,
+            default : 'items'
+        },
         aColumn : {
             type : Array,
             default () {

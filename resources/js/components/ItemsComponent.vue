@@ -33,10 +33,11 @@
                         </div>
                     </div>
                     <div class="col-xs-12 table-responsive">
-                        <Table
+                        <table-sub
+                            :s-show="'items'"
                             :a-column="oItems.columns"
                             :a-data="oItems.rows"/>
-                        <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager>
+                        <!-- <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager> -->
                     </div>
                 </div>
             </div>
