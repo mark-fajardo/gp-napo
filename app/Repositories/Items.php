@@ -44,6 +44,13 @@ class Items extends Model
     const UPDATED_AT = 'updated_at';
 
     /**
+     * Category table relationship
+     */
+    public function categories() {
+        return $this->belongsToMany('App\Repositories\Categories', 'category_item', 'item_id', 'category_id');
+    }
+
+    /**
      * Generate items slug based on item name and brand
      * @return array
      */

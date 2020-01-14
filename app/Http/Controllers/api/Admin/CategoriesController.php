@@ -54,7 +54,7 @@ class CategoriesController extends Controller
      */
     public function load()
     {
-        $oCategories = Categories::all();
+        $oCategories = Categories::with('items')->get();
         return response()->json($oCategories);
     }
 }
