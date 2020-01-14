@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Categories;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -38,12 +40,14 @@ class CategoriesController extends Controller
         $validatedData = $this->oRequest->validate([
             'category_name' => 'required|min:5',
             'category_desc' => 'required|min:5',
+            'category_img' => 'required|image|max:5000',
         ]);
 
         $bReturn = false;
         $oCategories = new Categories;
         $oCategories->name = $this->aRequest['category_name'];
         $oCategories->description = $this->aRequest['category_desc'];
+        $oCategories->img_dir = Storage::putFile('photos/categories', new File($this->aRequest['category_img']));
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
     }

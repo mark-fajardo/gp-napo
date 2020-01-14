@@ -8,8 +8,7 @@ require('./bootstrap');
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
 import { TColumnsDefinition, VuejsDatatableFactory } from 'vuejs-datatable';
-import VueTagsInput from '@johmun/vue-tags-input';
- 
+import VueTagsInput from '@johmun/vue-tags-input';import UploadImage from 'vue-upload-image'; 
 
 window.Vue = require('vue');
 Vue.use(VueToast);
@@ -25,6 +24,7 @@ Vue.use( VuejsDatatableFactory );
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('upload-image', UploadImage);
 Vue.component('vue-tags-input', VueTagsInput);
 
 Vue.component('nav-bar', require('./components/NavBarComponent.vue').default);
