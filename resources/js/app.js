@@ -38,6 +38,7 @@ Vue.component('dashboard-card', require('./components/graphs/CardComponent.vue')
 // Under Subs
 Vue.component('items-btns', require('./components/subcomponents/ItemsBtnGroupComponent.vue').default);
 Vue.component('categories-btns', require('./components/subcomponents/CategoriesBtnGroupComponent.vue').default);
+Vue.component('inline-btns', require('./components/subcomponents/InlineBtnGroupComponent.vue').default);
 Vue.component('table-sub', require('./components/subcomponents/TableComponent.vue').default);
 
 /**

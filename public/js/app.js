@@ -1850,6 +1850,13 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1897,14 +1904,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {},
   mounted: function mounted() {
     this.$store.dispatch('getCategories');
-  }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    oCategoriesWhole: 'oCategories'
+  }), {
+    oItemsRow: function oItemsRow() {
+      var _this = this;
+
+      return this.oCategoriesWhole.rows.filter(function (rows) {
+        return rows.name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter) !== -1;
+      });
+    },
+    sFilter: {
+      get: function get() {
+        return this.$store.getters.sFilter;
+      },
+      set: function set(value) {
+        this.$store.commit('setFilter', value);
+      }
+    }
+  })
 });
 
 /***/ }),
@@ -1991,8 +2015,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _subcomponents_TableComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./subcomponents/TableComponent */ "./resources/js/components/subcomponents/TableComponent.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2045,16 +2068,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Table: _subcomponents_TableComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   methods: {},
-  created: function created() {
+  mounted: function mounted() {
     this.$store.dispatch('getItems');
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     oItemsWhole: 'oItems'
   }), {
     oItemsRow: function oItemsRow() {
@@ -2646,6 +2665,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -73705,7 +73730,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "sr-only", attrs: { for: "filter" } },
-                  [_vm._v("Filter")]
+                  [_vm._v("Search")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -73713,23 +73738,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.$store.state.oMessages.sFilter,
-                      expression: "$store.state.oMessages.sFilter"
+                      value: _vm.sFilter,
+                      expression: "sFilter"
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Filter" },
-                  domProps: { value: _vm.$store.state.oMessages.sFilter },
+                  attrs: { type: "text", placeholder: "Search" },
+                  domProps: { value: _vm.sFilter },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(
-                        _vm.$store.state.oMessages,
-                        "sFilter",
-                        $event.target.value
-                      )
+                      _vm.sFilter = $event.target.value
                     }
                   }
                 })
@@ -73743,8 +73764,8 @@ var render = function() {
                 _c("table-sub", {
                   attrs: {
                     "s-show": "categories",
-                    "a-column": _vm.$store.state.oApi.oCategories.columns,
-                    "a-data": _vm.$store.state.oApi.oCategories.rows
+                    "a-column": _vm.oCategoriesWhole.columns,
+                    "a-data": _vm.oItemsRow
                   }
                 })
               ],
@@ -74967,12 +74988,6 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("Update")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
                 { staticClass: "btn btn-warning", attrs: { type: "button" } },
                 [_vm._v("Archive")]
               ),
@@ -74991,6 +75006,87 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-fluid mt-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          {
+            staticClass: "btn-toolbar justify-content-between",
+            attrs: {
+              role: "toolbar",
+              "aria-label": "Toolbar with button groups"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "btn-group",
+                attrs: { role: "group", "aria-label": "First group" }
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-sm",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Update")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning btn-sm",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Archive")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger btn-sm",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -75035,12 +75131,6 @@ var render = function() {
                   attrs: { type: "button", to: { name: "add-items" } }
                 },
                 [_vm._v("\n                    Add Item\n                ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("Update")]
               ),
               _vm._v(" "),
               _c(
@@ -75216,7 +75306,9 @@ var render = function() {
                     )
                   }),
                   0
-                )
+                ),
+                _vm._v(" "),
+                _c("td", [_c("inline-btns")], 1)
               ])
             }),
             0
@@ -75277,7 +75369,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(aItem.name))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(aItem.description))])
+                _c("td", [_vm._v(_vm._s(aItem.description))]),
+                _vm._v(" "),
+                _c("td", [_c("inline-btns")], 1)
               ])
             }),
             0
@@ -92204,6 +92298,7 @@ Vue.component('dashboard-card', __webpack_require__(/*! ./components/graphs/Card
 
 Vue.component('items-btns', __webpack_require__(/*! ./components/subcomponents/ItemsBtnGroupComponent.vue */ "./resources/js/components/subcomponents/ItemsBtnGroupComponent.vue")["default"]);
 Vue.component('categories-btns', __webpack_require__(/*! ./components/subcomponents/CategoriesBtnGroupComponent.vue */ "./resources/js/components/subcomponents/CategoriesBtnGroupComponent.vue")["default"]);
+Vue.component('inline-btns', __webpack_require__(/*! ./components/subcomponents/InlineBtnGroupComponent.vue */ "./resources/js/components/subcomponents/InlineBtnGroupComponent.vue")["default"]);
 Vue.component('table-sub', __webpack_require__(/*! ./components/subcomponents/TableComponent.vue */ "./resources/js/components/subcomponents/TableComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -93102,6 +93197,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/subcomponents/InlineBtnGroupComponent.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/subcomponents/InlineBtnGroupComponent.vue ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6& */ "./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/subcomponents/InlineBtnGroupComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/subcomponents/InlineBtnGroupComponent.vue?vue&type=template&id=806df7e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineBtnGroupComponent_vue_vue_type_template_id_806df7e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/subcomponents/ItemsBtnGroupComponent.vue":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/subcomponents/ItemsBtnGroupComponent.vue ***!
@@ -93345,6 +93493,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         }, {
           label: 'Category',
           field: 'item_name'
+        }, {
+          label: 'Action',
+          field: 'action'
         } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
         ],
         rows: []
@@ -93359,6 +93510,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         }, {
           label: 'Category Description',
           field: 'description'
+        }, {
+          label: 'Action',
+          field: 'action'
         } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
         ],
         rows: []

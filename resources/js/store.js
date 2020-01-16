@@ -53,6 +53,7 @@ export default new Vuex.Store({
                     {label: 'Item Name', field: 'item_name'},
                     {label: 'Item Brand', field: 'item_brand'},
                     {label: 'Category', field: 'item_name'},
+                    {label: 'Action', field: 'action'},
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
                 rows: []
@@ -62,6 +63,7 @@ export default new Vuex.Store({
                     {label: 'No', field: 'no'},
                     {label: 'Category Name', field: 'name'},
                     {label: 'Category Description', field: 'description'},
+                    {label: 'Action', field: 'action'},
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
                 rows: []

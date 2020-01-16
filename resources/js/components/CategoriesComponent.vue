@@ -28,19 +28,16 @@
                     <!-- <table-sub></table-sub> -->
                     <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
-                            <label for="filter" class="sr-only">Filter</label>
-                            <input type="text" class="form-control" v-model="$store.state.oMessages.sFilter" placeholder="Filter">
+                            <label for="filter" class="sr-only">Search</label>
+                            <input type="text" class="form-control" v-model="sFilter" placeholder="Search">
                         </div>
                     </div>
                     <div class="col-xs-12 table-responsive">
 
                         <table-sub
                             :s-show="'categories'"
-                            :a-column="$store.state.oApi.oCategories.columns"
-                            :a-data="$store.state.oApi.oCategories.rows"/>
-
-                        <!-- <datatable class="table mt-3" :columns="$store.state.oApi.oCategories.columns" :data="$store.state.oApi.oCategories.rows" :per-page="10"></datatable>
-                        <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager> -->
+                            :a-column="oCategoriesWhole.columns"
+                            :a-data="oItemsRow"/>
                     </div>
                 </div>
             </div>
@@ -49,12 +46,33 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     methods : {
 
     },
     mounted () {
         this.$store.dispatch('getCategories');
+    },
+    computed: {
+        ...mapGetters({
+            oCategoriesWhole : 'oCategories'
+        }),
+        oItemsRow () {
+            return this.oCategoriesWhole.rows.filter(rows => {
+                return rows.name.toLowerCase().indexOf(this.sFilter) !== -1 
+                    || rows.description.toLowerCase().indexOf(this.sFilter) !== -1
+            });
+        },
+        sFilter: {
+            get () {
+               return this.$store.getters.sFilter
+            },
+            set (value) {
+                this.$store.commit('setFilter', value)
+            }
+        }
     }
 }
 </script>

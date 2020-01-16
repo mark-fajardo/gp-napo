@@ -6,7 +6,7 @@
                     <router-link type="button" class="btn btn-success" :to="{ name: 'add-items'}">
                         Add Item
                     </router-link>
-                    <button type="button" class="btn btn-primary">Update</button>
+                    <!-- <button type="button" class="btn btn-primary">Update</button> -->
                     <button type="button" class="btn btn-warning">Archive</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>

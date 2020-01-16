@@ -42,6 +42,9 @@
                     <td>
                         <span v-for="aCateg in aItem.categories" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
                     </td>
+                    <td>
+                        <inline-btns></inline-btns>
+                    </td>
                 </tr>
             </tbody>
             <tbody
@@ -61,6 +64,9 @@
                     <td>{{ iKey + 1 }}</td>
                     <td>{{ aItem.name }}</td>
                     <td>{{ aItem.description }}</td>
+                    <td>
+                        <inline-btns></inline-btns>
+                    </td>
                 </tr>
             </tbody>
         </table>

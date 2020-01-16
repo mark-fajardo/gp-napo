@@ -44,17 +44,13 @@
 </template>
 
 <script>
-import Table from './subcomponents/TableComponent'
 import { mapGetters } from 'vuex'
 
 export default {
-    components: {
-        Table
-    },
     methods : {
         
     },
-    created () {
+    mounted () {
         this.$store.dispatch('getItems');
     },
     computed: {
