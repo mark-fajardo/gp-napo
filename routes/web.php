@@ -16,6 +16,11 @@ Route::get('/', [
     'as'   => 'front.index'
 ]);
 
+Route::get('/results', [
+    'uses' => 'Front\FrontController@searchItems',
+    'as' => 'front.search'
+]);
+
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
