@@ -53,10 +53,10 @@ class ItemsController extends Controller
         $oItems->item_qty = $this->aRequest['item_qty'];
         $sItemImg = '[';
         for ($i = 0; $i < $iFileLen; $i++) {
-            $sItemImg .= Storage::putFile('photos/items', new File($this->aRequest['file_' . $i]));
+            $sItemImg .= '"' . Storage::putFile('photos/items', new File($this->aRequest['file_' . $i])) . '", ';
         }
-
-        $sItemImg = ']';
+        $sItemImg = rtrim($sItemImg, ", ");
+        $sItemImg .= ']';
         $oItems->img_dir = $sItemImg;
         $bReturn = $oItems->save();
         $oItems->categories()->attach(explode(',', $this->aRequest['item_categs']));
