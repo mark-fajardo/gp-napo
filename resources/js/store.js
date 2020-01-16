@@ -10,7 +10,9 @@ export default new Vuex.Store({
                 sSuccessAddItem : 'Item is successfully added',
                 sFailAddItem : 'Please check item credentials',
                 sSuccessAddCategory : 'Category is successfully added',
-                sFailAddCategory : 'Please check category credentials'
+                sFailAddCategory : 'Please check category credentials',
+                sNoCategSelected : 'There is no category selected',
+                sNoImgSelected : 'There is no image selected',
             },
             iPage : 1,
             sFilter : '',

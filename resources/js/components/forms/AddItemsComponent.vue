@@ -47,6 +47,13 @@
                             </multiselect>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
+                        <div class="col-sm-5">
+                            <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
+                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage" multiple>
+                        </div>
+                    </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
@@ -76,18 +83,36 @@ export default {
             sItemBrand : '',
             sItemQty : '',
             aTags : [],
+            aCategIds : [],
+            oImg : [],
+            bPreviewImage : null,
         };
     },
     methods : {
         addItem : function () {
+            if (this.recollectCategIds() === false) {
+                this.aCategIds = [];
+                return;
+            }
+
+            if (this.validateImgs() === false) {
+                this.aCategIds = [];
+                return;
+            }
+            
             let oThis = this;
-            axios.post('/admin/api/item/add', {
-                item_name : oThis.sItemName,
-                item_brand : oThis.sItemBrand,
-                item_qty : oThis.sItemQty,
-            })
+            let oFormData = new FormData();
+            oFormData.append('item_name', this.sItemName);
+            oFormData.append('item_brand', this.sItemBrand);
+            oFormData.append('item_qty', this.sItemQty);
+            oFormData.append('item_categs', this.aCategIds);
+            for (let i = 0; i < this.oImg.length; i++) {
+               oFormData.append('file_' + i, this.oImg[i]); 
+            }
+            // oFormData.append(this.oImg);
+            axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+            axios.post('/admin/api/item/add', oFormData)
             .then(function (bResponse) {
-                console.log(bResponse)
                 if (bResponse.data === true) {
                     oThis.$store.dispatch('toast', {
                         bType : true,
@@ -108,10 +133,58 @@ export default {
             this.sItemName = '',
             this.sItemBrand = '',
             this.sItemQty = ''
+        },
+        uploadImage : function (e) {
+            this.oImg = [];
+            let iImgCount = e.target.files.length;
+            // for (let i = 0; i < iImgCount; i++) {
+                const image = e.target.files[0];
+                this.oImg = e.target.files;
+                const reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = e =>{
+                    this.bPreviewImage = e.target.result;
+                };
+            // }
+        },
+        cancelSelect : function (e) {
+            this.bPreviewImage = null;
+            this.oImg = [];
+        },
+        recollectCategIds : function () {
+            let iCategLen = this.aTags.length;
+            if (iCategLen <= 0) {
+                this.$store.dispatch('toast', {
+                    bType : false,
+                    sMsg : this.$store.state.oMessages.oAlerts.sNoCategSelected,
+                });
+                return false;
+            }
+
+            for (let i = 0; i < iCategLen; i++) {
+                let iIndex = this.aCategIds.indexOf(this.aTags[i]['id']);
+                if (iIndex === -1) {
+                    this.aCategIds.push(this.aTags[i]['id']);
+                }
+            }
+
+            return true;
+        },
+        validateImgs : function () {
+            if (this.oImg.length === 0) {
+                this.$store.dispatch('toast', {
+                    bType : false,
+                    sMsg : this.$store.state.oMessages.oAlerts.sNoImgSelected,
+                });
+                return false;
+            }
+
+            return true;
         }
     },
     mounted () {
         this.$store.dispatch('getCategories');
+        this.aTags = [];
     },
     computed: {
     },

@@ -26,11 +26,11 @@
                     <div class="form-group row">
                         <label for="category-img" class="col-sm-2 col-form-label">Category Image:</label>
                         <div class="col-sm-5">
-                            <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
-                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage">
+                            <div v-if="bPreviewImage !== null">
+                                <img :src="bPreviewImage" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
+                            </div>
+                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @blur="cancelSelect" @change="uploadImage">
                         </div>
-                        <!-- <upload-image is="upload-image"
-   :url="'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjarsLWq4PnAhUm-2EKHXZjBasQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.shutterstock.com%2Fcategory%2Fnature&psig=AOvVaw27AUjyVWwN8nmADyS-EHNE&ust=1579099899119899'"></upload-image> -->
                     </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
@@ -59,6 +59,7 @@ export default {
             sCategoryDesc : '',
             bPreviewImage : null,
             oImg : [],
+            oFiles : [],
         };
     },
     methods : {
@@ -68,7 +69,6 @@ export default {
             oFormData.append('category_name', this.sCategoryName);
             oFormData.append('category_desc', this.sCategoryDesc);
             oFormData.append('category_img', this.oImg);
-            console.log(this.oImg);
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
             axios.post('/admin/api/category/add', oFormData)
             .then(function (bResponse) {
@@ -93,14 +93,18 @@ export default {
         clearForms : function () {
             this.sCategoryName = '';
         },
-        uploadImage : function (e){
+        uploadImage : function (e) {
             const image = e.target.files[0];
             const reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = e =>{
-                this.oImg = image;
+                this.oImg = e.target.files;
                 this.bPreviewImage = e.target.result;
             };
+        },
+        cancelSelect : function (e) {
+            this.bPreviewImage = null;
+            this.oImg = [];
         }
     }
 }

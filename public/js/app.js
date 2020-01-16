@@ -2274,7 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
       sCategoryName: '',
       sCategoryDesc: '',
       bPreviewImage: null,
-      oImg: []
+      oImg: [],
+      oFiles: []
     };
   },
   methods: {
@@ -2284,7 +2285,6 @@ __webpack_require__.r(__webpack_exports__);
       oFormData.append('category_name', this.sCategoryName);
       oFormData.append('category_desc', this.sCategoryDesc);
       oFormData.append('category_img', this.oImg);
-      console.log(this.oImg);
       axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
       axios.post('/admin/api/category/add', oFormData).then(function (bResponse) {
         if (bResponse.data === true) {
@@ -2315,9 +2315,13 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(image);
 
       reader.onload = function (e) {
-        _this.oImg = image;
+        _this.oImg = e.target.files;
         _this.bPreviewImage = e.target.result;
       };
+    },
+    cancelSelect: function cancelSelect(e) {
+      this.bPreviewImage = null;
+      this.oImg = [];
     }
   }
 });
@@ -2403,6 +2407,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 Vue.component('multiselect', vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2411,19 +2422,38 @@ Vue.component('multiselect', vue_multiselect__WEBPACK_IMPORTED_MODULE_0___defaul
       sItemName: '',
       sItemBrand: '',
       sItemQty: '',
-      aTags: []
+      aTags: [],
+      aCategIds: [],
+      oImg: [],
+      bPreviewImage: null
     };
   },
   methods: {
     addItem: function addItem() {
-      var oThis = this;
-      axios.post('/admin/api/item/add', {
-        item_name: oThis.sItemName,
-        item_brand: oThis.sItemBrand,
-        item_qty: oThis.sItemQty
-      }).then(function (bResponse) {
-        console.log(bResponse);
+      if (this.recollectCategIds() === false) {
+        this.aCategIds = [];
+        return;
+      }
 
+      if (this.validateImgs() === false) {
+        this.aCategIds = [];
+        return;
+      }
+
+      var oThis = this;
+      var oFormData = new FormData();
+      oFormData.append('item_name', this.sItemName);
+      oFormData.append('item_brand', this.sItemBrand);
+      oFormData.append('item_qty', this.sItemQty);
+      oFormData.append('item_categs', this.aCategIds);
+
+      for (var i = 0; i < this.oImg.length; i++) {
+        oFormData.append('file_' + i, this.oImg[i]);
+      } // oFormData.append(this.oImg);
+
+
+      axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+      axios.post('/admin/api/item/add', oFormData).then(function (bResponse) {
         if (bResponse.data === true) {
           oThis.$store.dispatch('toast', {
             bType: true,
@@ -2442,10 +2472,63 @@ Vue.component('multiselect', vue_multiselect__WEBPACK_IMPORTED_MODULE_0___defaul
     },
     clearForms: function clearForms() {
       this.sItemName = '', this.sItemBrand = '', this.sItemQty = '';
+    },
+    uploadImage: function uploadImage(e) {
+      var _this = this;
+
+      this.oImg = [];
+      var iImgCount = e.target.files.length; // for (let i = 0; i < iImgCount; i++) {
+
+      var image = e.target.files[0];
+      this.oImg = e.target.files;
+      var reader = new FileReader();
+      reader.readAsDataURL(image);
+
+      reader.onload = function (e) {
+        _this.bPreviewImage = e.target.result;
+      }; // }
+
+    },
+    cancelSelect: function cancelSelect(e) {
+      this.bPreviewImage = null;
+      this.oImg = [];
+    },
+    recollectCategIds: function recollectCategIds() {
+      var iCategLen = this.aTags.length;
+
+      if (iCategLen <= 0) {
+        this.$store.dispatch('toast', {
+          bType: false,
+          sMsg: this.$store.state.oMessages.oAlerts.sNoCategSelected
+        });
+        return false;
+      }
+
+      for (var i = 0; i < iCategLen; i++) {
+        var iIndex = this.aCategIds.indexOf(this.aTags[i]['id']);
+
+        if (iIndex === -1) {
+          this.aCategIds.push(this.aTags[i]['id']);
+        }
+      }
+
+      return true;
+    },
+    validateImgs: function validateImgs() {
+      if (this.oImg.length === 0) {
+        this.$store.dispatch('toast', {
+          bType: false,
+          sMsg: this.$store.state.oMessages.oAlerts.sNoImgSelected
+        });
+        return false;
+      }
+
+      return true;
     }
   },
   mounted: function mounted() {
     this.$store.dispatch('getCategories');
+    this.aTags = [];
   },
   computed: {}
 });
@@ -74277,7 +74360,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "navbar-brand ml-4", attrs: { href: "#" } },
-            [_vm._v("\n                 Add Category\n             ")]
+            [_vm._v("\n                Add Category\n            ")]
           )
         ],
         1
@@ -74375,14 +74458,16 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-5" }, [
               _vm.bPreviewImage !== null
-                ? _c("img", {
-                    staticClass: "uploading-image p-1 border",
-                    staticStyle: {
-                      "max-width": "200px",
-                      "max-height": "200px"
-                    },
-                    attrs: { src: _vm.bPreviewImage }
-                  })
+                ? _c("div", [
+                    _c("img", {
+                      staticClass: "uploading-image p-1 border",
+                      staticStyle: {
+                        "max-width": "200px",
+                        "max-height": "200px"
+                      },
+                      attrs: { src: _vm.bPreviewImage }
+                    })
+                  ])
                 : _vm._e(),
               _vm._v(" "),
               _c("input", {
@@ -74392,7 +74477,7 @@ var render = function() {
                   id: "category-img",
                   accept: "image/jpeg"
                 },
-                on: { change: _vm.uploadImage }
+                on: { blur: _vm.cancelSelect, change: _vm.uploadImage }
               })
             ])
           ]),
@@ -74682,6 +74767,41 @@ var render = function() {
               ],
               1
             )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-2 col-form-label",
+                attrs: { for: "category-img" }
+              },
+              [_vm._v("Item Images:")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-5" }, [
+              _vm.bPreviewImage !== null
+                ? _c("img", {
+                    staticClass: "uploading-image p-1 border",
+                    staticStyle: {
+                      "max-width": "200px",
+                      "max-height": "200px"
+                    },
+                    attrs: { src: _vm.bPreviewImage }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "mt-1",
+                attrs: {
+                  type: "file",
+                  id: "category-img",
+                  accept: "image/jpeg",
+                  multiple: ""
+                },
+                on: { change: _vm.uploadImage }
+              })
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "container-fluid mt-5 mb-1" }, [
@@ -92726,15 +92846,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************!*\
   !*** ./resources/js/components/forms/AddItemsComponent.vue ***!
   \*************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddItemsComponent_vue_vue_type_template_id_6abda2ba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddItemsComponent.vue?vue&type=template&id=6abda2ba& */ "./resources/js/components/forms/AddItemsComponent.vue?vue&type=template&id=6abda2ba&");
 /* harmony import */ var _AddItemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddItemsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/forms/AddItemsComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AddItemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AddItemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -92764,7 +92883,7 @@ component.options.__file = "resources/js/components/forms/AddItemsComponent.vue"
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/forms/AddItemsComponent.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -93161,7 +93280,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         sSuccessAddItem: 'Item is successfully added',
         sFailAddItem: 'Please check item credentials',
         sSuccessAddCategory: 'Category is successfully added',
-        sFailAddCategory: 'Please check category credentials'
+        sFailAddCategory: 'Please check category credentials',
+        sNoCategSelected: 'There is no category selected',
+        sNoImgSelected: 'There is no image selected'
       },
       iPage: 1,
       sFilter: ''
