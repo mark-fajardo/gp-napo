@@ -2315,13 +2315,9 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(image);
 
       reader.onload = function (e) {
-        _this.oImg = e.target.files;
+        _this.oImg = image;
         _this.bPreviewImage = e.target.result;
       };
-    },
-    cancelSelect: function cancelSelect(e) {
-      this.bPreviewImage = null;
-      this.oImg = [];
     }
   }
 });
@@ -74477,7 +74473,7 @@ var render = function() {
                   id: "category-img",
                   accept: "image/jpeg"
                 },
-                on: { blur: _vm.cancelSelect, change: _vm.uploadImage }
+                on: { change: _vm.uploadImage }
               })
             ])
           ]),

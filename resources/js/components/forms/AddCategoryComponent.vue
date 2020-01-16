@@ -29,7 +29,7 @@
                             <div v-if="bPreviewImage !== null">
                                 <img :src="bPreviewImage" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
                             </div>
-                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @blur="cancelSelect" @change="uploadImage">
+                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage">
                         </div>
                     </div>
                     <div class="container-fluid mt-5 mb-1">
@@ -98,13 +98,9 @@ export default {
             const reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = e =>{
-                this.oImg = e.target.files;
+                this.oImg = image;
                 this.bPreviewImage = e.target.result;
             };
-        },
-        cancelSelect : function (e) {
-            this.bPreviewImage = null;
-            this.oImg = [];
         }
     }
 }

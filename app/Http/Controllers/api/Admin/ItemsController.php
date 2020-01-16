@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Items;
 use Auth;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class ItemsController extends Controller
 {
@@ -49,15 +51,15 @@ class ItemsController extends Controller
         $oItems->item_name = $this->aRequest['item_name'];
         $oItems->item_brand = $this->aRequest['item_brand'];
         $oItems->item_qty = $this->aRequest['item_qty'];
-        $oItems->tags()->attach(explode(',', $this->aRequest['item_categs']));
         $sItemImg = '[';
         for ($i = 0; $i < $iFileLen; $i++) {
-            $sItemImg .+ Storage::putFile('photos/items', new File($this->aRequest['file_' . $i]));
+            $sItemImg .= Storage::putFile('photos/items', new File($this->aRequest['file_' . $i]));
         }
 
         $sItemImg = ']';
         $oItems->img_dir = $sItemImg;
         $bReturn = $oItems->save();
+        $oItems->categories()->attach(explode(',', $this->aRequest['item_categs']));
         return response()->json($bReturn);
     }
 
