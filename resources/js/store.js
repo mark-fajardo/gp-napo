@@ -10,7 +10,9 @@ export default new Vuex.Store({
                 sSuccessAddItem : 'Item is successfully added',
                 sFailAddItem : 'Please check item credentials',
                 sSuccessAddCategory : 'Category is successfully added',
-                sFailAddCategory : 'Please check category credentials'
+                sFailAddCategory : 'Please check category credentials',
+                sSuccessDeleteItems: 'Item(s) successfully deleted',
+                sFailDeleteItems: 'Failed to delete item(s), please try again'
             },
             iPage : 1,
             sFilter : '',
@@ -64,7 +66,8 @@ export default new Vuex.Store({
                 ],
                 rows: []
             },
-        }
+        },
+        aToBeDeletedIds: []
     },
     mutations: {
         setFilter: (state, value) => {
@@ -75,6 +78,9 @@ export default new Vuex.Store({
         },
         setCategories: (state, payload) => {
             state.oApi.oCategories.rows = payload;
+        },
+        setDeleteIds: (state, payload) => {
+            state.aToBeDeletedIds = payload;
         }
     },
     actions: {
@@ -105,11 +111,33 @@ export default new Vuex.Store({
                 .then(function (oResponse) {
                     context.commit('setCategories', oResponse.data)
                 })
+        },
+        deleteItems: ({dispatch, state}) => {
+            const ids = [...state.aToBeDeletedIds]
+            if (ids.length >= 1) {
+                axios.post('/admin/api/item/delete', {id: ids})
+                    .then(function (oResponse) {
+                        if (oResponse.data.result === true) {
+                            dispatch('getItems');
+                            dispatch('toast', {
+                                bType : true,
+                                sMsg : state.oMessages.oAlerts.sSuccessDeleteItems
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        dispatch('toast', {
+                            bType : false,
+                            sMsg : state.oMessages.oAlerts.sFailDeleteItems
+                        });
+                    })
+            }
         }
     },
     getters: {
         oItems: state => state.oApi.oItems,
         oCategories: state => state.oApi.oCategories,
-        sFilter: state => state.oMessages.sFilter
+        sFilter: state => state.oMessages.sFilter,
+        aToBeDeletedItems: state => state.aToBeDeletedItems
     }
 });

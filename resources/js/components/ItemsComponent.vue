@@ -24,7 +24,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-12" style="">
-                    <items-btns></items-btns>
+                    <items-btns 
+                        @onDelete="deleteItemsHandler"/>
                     <!-- <table-sub></table-sub> -->
                     <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
@@ -54,7 +55,11 @@ export default {
         Table
     },
     methods : {
-        
+        deleteItemsHandler() {
+            if (confirm('Are you sure you want to delete this items?')) {
+                this.$store.dispatch('deleteItems')
+            }
+        }
     },
     created () {
         this.$store.dispatch('getItems');

@@ -63,4 +63,24 @@ class ItemsController extends Controller
         $oItems = Items::all();
         return response()->json($oItems);
     }
+    
+    /**
+     * Delete multiple items
+     */
+    public function delete() {
+        $ids = $this->aRequest['id'];
+        $response = false;
+
+        try {
+            foreach($ids as $id) {
+                $item = Items::findOrFail($id);
+                $item->delete();
+            }
+            $response  = true;
+        } catch (Exception $e) {
+            $response = false;
+        }
+
+        return response()->json(['result' => $response]);
+    }
 }

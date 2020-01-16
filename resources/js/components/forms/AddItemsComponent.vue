@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="mt-3 ml-2">
-                <form action="#/items/add">
+                <form action="#" @submit.prevent="addItem">
                     <div class="form-group row">
                         <label for="item-name" class="col-sm-2 col-form-label">Item Name:</label>
                         <div class="col-sm-5">
@@ -45,7 +45,7 @@
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
-                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
+                                    <button type="submit" class="btn btn-success my-2 my-sm-0">Add</button>
                                 </div>
                                 <pre>{{filteredItems}}</pre>
                             </div>
