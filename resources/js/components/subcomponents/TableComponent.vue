@@ -24,7 +24,7 @@
             <tbody
                 v-if="sShow === 'items'">
                 <tr
-                    v-for="aItem in aData"
+                    v-for="(aItem, iKey) in aData"
                     :key="aItem.id">
                     <th scope="row">
                         <div class="form-check">
@@ -35,17 +35,19 @@
                                 type="checkbox">
                         </div>
                     </th>
-                    <td>{{ aItem.id }}</td>
+                    <td>{{ iKey + 1 }}</td>
                     <td>{{ aItem.item_qty }}</td>
                     <td>{{ aItem.item_name }}</td>
                     <td>{{ aItem.item_brand }}</td>
-                    <td>Sample Category</td>
+                    <td>
+                        <span v-for="aCateg in aItem.categories" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
+                    </td>
                 </tr>
             </tbody>
             <tbody
                 v-if="sShow === 'categories'">
                 <tr
-                    v-for="aItem in aData"
+                    v-for="(aItem, iKey) in aData"
                     :key="aItem.id">
                     <th scope="row">
                         <div class="form-check">
@@ -56,7 +58,7 @@
                                 type="checkbox">
                         </div>
                     </th>
-                    <td>{{ aItem.id }}</td>
+                    <td>{{ iKey + 1 }}</td>
                     <td>{{ aItem.name }}</td>
                     <td>{{ aItem.description }}</td>
                 </tr>
@@ -92,8 +94,12 @@ export default {
     },
     data: () => ({
         aSelectedItemsIds: [],
-        bSelectAllItems: false
+        bSelectAllItems: false,
+        iInc : 0,
     }),
+    created () {
+        this.iInc = 0;
+    },
     methods: {
         selectAllItem() {
             this.aSelectedItemsIds = [];

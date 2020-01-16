@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <dashboard-card
-                    :s-title="$store.state.oApi.oItems.rows.length + ' items'"
+                    :s-title="oItemsWhole.rows.length + ' items'"
                     :s-card-label="'Total Items'">
                 </dashboard-card>
                 <dashboard-card
@@ -25,7 +25,6 @@
             <div class="row">
                 <div class="col-sm-12" style="">
                     <items-btns></items-btns>
-                    <!-- <table-sub></table-sub> -->
                     <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
                             <label for="filter" class="sr-only">Filter</label>
@@ -35,9 +34,8 @@
                     <div class="col-xs-12 table-responsive">
                         <table-sub
                             :s-show="'items'"
-                            :a-column="oItems.columns"
-                            :a-data="oItems.rows"/>
-                        <!-- <datatable-pager v-model="$store.state.oMessages.iPage" type="abbreviated"></datatable-pager> -->
+                            :a-column="oItemsWhole.columns"
+                            :a-data="oItemsRow"/>
                     </div>
                 </div>
             </div>
@@ -60,7 +58,15 @@ export default {
         this.$store.dispatch('getItems');
     },
     computed: {
-        ...mapGetters(['oItems']),
+        ...mapGetters({
+            oItemsWhole : 'oItems'
+        }),
+        oItemsRow () {
+            return this.oItemsWhole.rows.filter(rows => {
+                return rows.item_name.toLowerCase().indexOf(this.sFilter) !== -1 
+                    || rows.item_brand.toLowerCase().indexOf(this.sFilter) !== -1
+            });
+        },
         sFilter: {
             get () {
                return this.$store.getters.sFilter

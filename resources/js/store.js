@@ -48,7 +48,7 @@ export default new Vuex.Store({
         oApi : {
             oItems : {
                 columns: [
-                    {label: 'id', field: 'id'},
+                    {label: 'No', field: 'no'},
                     {label: 'Quantity', field: 'item_qty', headerClass: 'class-in-header second-class'},
                     {label: 'Item Name', field: 'item_name'},
                     {label: 'Item Brand', field: 'item_brand'},
@@ -59,7 +59,7 @@ export default new Vuex.Store({
             },
             oCategories : {
                 columns: [
-                    {label: 'id', field: 'id'},
+                    {label: 'No', field: 'no'},
                     {label: 'Category Name', field: 'name'},
                     {label: 'Category Description', field: 'description'},
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}

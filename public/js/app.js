@@ -2044,8 +2044,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2056,7 +2054,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     this.$store.dispatch('getItems');
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['oItems']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    oItemsWhole: 'oItems'
+  }), {
+    oItemsRow: function oItemsRow() {
+      var _this = this;
+
+      return this.oItemsWhole.rows.filter(function (rows) {
+        return rows.item_name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.item_brand.toLowerCase().indexOf(_this.sFilter) !== -1;
+      });
+    },
     sFilter: {
       get: function get() {
         return this.$store.getters.sFilter;
@@ -2706,6 +2713,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     sShow: {
@@ -2728,8 +2737,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       aSelectedItemsIds: [],
-      bSelectAllItems: false
+      bSelectAllItems: false,
+      iInc: 0
     };
+  },
+  created: function created() {
+    this.iInc = 0;
   },
   methods: {
     selectAllItem: function selectAllItem() {
@@ -73895,7 +73908,7 @@ var render = function() {
         [
           _c("dashboard-card", {
             attrs: {
-              "s-title": _vm.$store.state.oApi.oItems.rows.length + " items",
+              "s-title": _vm.oItemsWhole.rows.length + " items",
               "s-card-label": "Total Items"
             }
           }),
@@ -73964,8 +73977,8 @@ var render = function() {
                 _c("table-sub", {
                   attrs: {
                     "s-show": "items",
-                    "a-column": _vm.oItems.columns,
-                    "a-data": _vm.oItems.rows
+                    "a-column": _vm.oItemsWhole.columns,
+                    "a-data": _vm.oItemsRow
                   }
                 })
               ],
@@ -75138,7 +75151,7 @@ var render = function() {
       _vm.sShow === "items"
         ? _c(
             "tbody",
-            _vm._l(_vm.aData, function(aItem) {
+            _vm._l(_vm.aData, function(aItem, iKey) {
               return _c("tr", { key: aItem.id }, [
                 _c("th", { attrs: { scope: "row" } }, [
                   _c("div", { staticClass: "form-check" }, [
@@ -75185,7 +75198,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(aItem.id))]),
+                _c("td", [_vm._v(_vm._s(iKey + 1))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
                 _vm._v(" "),
@@ -75193,7 +75206,17 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
                 _vm._v(" "),
-                _c("td", [_vm._v("Sample Category")])
+                _c(
+                  "td",
+                  _vm._l(aItem.categories, function(aCateg) {
+                    return _c(
+                      "span",
+                      { staticClass: "badge badge-success p-2 m-1" },
+                      [_vm._v(_vm._s(aCateg.name))]
+                    )
+                  }),
+                  0
+                )
               ])
             }),
             0
@@ -75203,7 +75226,7 @@ var render = function() {
       _vm.sShow === "categories"
         ? _c(
             "tbody",
-            _vm._l(_vm.aData, function(aItem) {
+            _vm._l(_vm.aData, function(aItem, iKey) {
               return _c("tr", { key: aItem.id }, [
                 _c("th", { attrs: { scope: "row" } }, [
                   _c("div", { staticClass: "form-check" }, [
@@ -75250,7 +75273,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(aItem.id))]),
+                _c("td", [_vm._v(_vm._s(iKey + 1))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(aItem.name))]),
                 _vm._v(" "),
@@ -93307,8 +93330,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     oApi: {
       oItems: {
         columns: [{
-          label: 'id',
-          field: 'id'
+          label: 'No',
+          field: 'no'
         }, {
           label: 'Quantity',
           field: 'item_qty',
@@ -93328,8 +93351,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       },
       oCategories: {
         columns: [{
-          label: 'id',
-          field: 'id'
+          label: 'No',
+          field: 'no'
         }, {
           label: 'Category Name',
           field: 'name'
