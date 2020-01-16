@@ -30,12 +30,22 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <vue-tags-input
-                            v-model="sTags"
-                            :tags="aTags"
-                            :autocomplete-items="filteredItems"
-                            @tags-changed="newTags => aTags = newTags"
-                            />
+                        <label for="item-qty" class="col-sm-2 col-form-label">Select Category:</label>
+                        <div class="col-sm-5">
+                            <multiselect 
+                                v-model="aTags" 
+                                :options="$store.state.oApi.oCategories.rows" 
+                                :multiple="true" 
+                                :close-on-select="false" 
+                                :clear-on-select="false" 
+                                :preserve-search="true" 
+                                placeholder="Categories" 
+                                label="name" 
+                                track-by="name" 
+                                :preselect-first="true">
+                                <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} categories selected</span></template>
+                            </multiselect>
+                        </div>
                     </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
@@ -47,7 +57,6 @@
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
                                     <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
                                 </div>
-                                <pre>{{filteredItems}}</pre>
                             </div>
                         </div>
                     </div>
@@ -58,15 +67,15 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect';
+Vue.component('multiselect', Multiselect);
 export default {
     data () {
         return {
             sItemName : '',
             sItemBrand : '',
             sItemQty : '',
-            sTags : '',
             aTags : [],
-            autocompleteItems : this.$store.state.oApi.oCategories.rows,
         };
     },
     methods : {
@@ -80,7 +89,6 @@ export default {
             .then(function (bResponse) {
                 console.log(bResponse)
                 if (bResponse.data === true) {
-                    // Vue.$toast.open(oThis.$store.state.oMessages.oAlerts.sSuccessAddItem);
                     oThis.$store.dispatch('toast', {
                         bType : true,
                         sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessAddItem,
@@ -106,11 +114,6 @@ export default {
         this.$store.dispatch('getCategories');
     },
     computed: {
-        filteredItems () {
-            return this.$store.state.oApi.oCategories.rows.filter(i => {
-                return i.name.toLowerCase().indexOf(this.sTags.toLowerCase()) !== -1;
-            });
-        },
     },
 }
 </script>

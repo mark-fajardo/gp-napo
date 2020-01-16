@@ -8,7 +8,7 @@ require('./bootstrap');
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
 import { TColumnsDefinition, VuejsDatatableFactory } from 'vuejs-datatable';
-import VueTagsInput from '@johmun/vue-tags-input';import UploadImage from 'vue-upload-image'; 
+import VueTagsInput from '@johmun/vue-tags-input';import UploadImage from 'vue-upload-image';
 
 window.Vue = require('vue');
 Vue.use(VueToast);

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('styles')
-
+<link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
     <style>
         .green-font {
             color: #000000;
