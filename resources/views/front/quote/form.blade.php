@@ -12,28 +12,47 @@
 
             <div class="col-lg-9 mx-auto">
                 <div class="contact-form-wrapper">
-                    <form id="contact-form" action="//whizthemes.com/mail-php/mail.php" method="post">
+                    <form action="{{ route('front.addQuote') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" name="con_fname" id="con_fname" placeholder="First Name *" required>
+                                <input type="text" name="first_name" placeholder="First Name *" >
+                                @error('first_name')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" name="con_lname" id="con_lname" placeholder="Last Name *" required>
+                                <input type="text" name="last_name" placeholder="Last Name *" >
+                                @error('last_name')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-6">
-                                <input type="email" name="con_email" id="con_email" placeholder="Email *" required>
+                                <input type="type" name="email" placeholder="Email *" >
+                                @error('email')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" name="con_phone" id="con_phone" placeholder="Phone Number *" required>
+                                <input type="text" name="phone" placeholder="Phone Number *" >
+                                @error('phone')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" name="con_phone" id="con_phone" placeholder="Company Name">
+                                <input type="text" name="company_name" placeholder="Company Name">
+                                @error('company_name')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-12">
-                                <textarea placeholder="Your quote request" name="con_message" id="con_message"></textarea>
+                                <textarea placeholder="Your quote request *" name="request_message"></textarea>
+                                @error('request_message')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-12 text-center">
-                                <button type="submit" value="submit" id="submit" name="submit" class="ht-btn ht-btn--default">GET A QUOTE</button>
+                                <button type="submit" value="submit" id="submit" class="ht-btn ht-btn--default">GET A QUOTE</button>
                             </div>
                         </div>
                     </form>

@@ -32,4 +32,7 @@ Route::get('/get-quote', [
 ]);
 
 
-
+Route::post('/get-quote', [
+    'uses' => 'Front\FrontController@addQuote',
+    'as' => 'front.addQuote'
+]);
