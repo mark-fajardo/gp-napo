@@ -84,7 +84,7 @@ class ItemsController extends Controller
      */
     public function load()
     {
-        $oItems = Items::all();
+        $oItems = Items::with('categories')->get();
         return response()->json($oItems);
     }
 }
