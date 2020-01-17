@@ -6,11 +6,11 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="button">Back</button>
                 </router-link>
                 <div class="navbar-brand ml-4" href="#">
-                    Add Category
+                    Update Category
                 </div>
             </div>
             <div class="mt-3 ml-2">
-                <form action="#/categories/add">
+                <form action="#/categories/update">
                     <div class="form-group row">
                         <label for="category-name" class="col-sm-2 col-form-label">Category Name:</label>
                         <div class="col-sm-5">
@@ -40,7 +40,7 @@
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
-                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addCategory()">Add</button>
+                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="updateCategory()">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
+    props : {
+        aItem : {
+            type : Object,
+            default : () => {}
+        }
+    },
     data () {
         return {
             sCategoryName : '',
@@ -62,15 +70,26 @@ export default {
             oFiles : [],
         };
     },
+    props : {
+        iItemId : {
+            type : Number,
+            default : 1
+        }
+    },
+    created () {
+        if (this.aItem === undefined || this.aItem === null) {
+            this.$router.push({ name : 'categories'});
+        }
+    },
     methods : {
-        addCategory : function () {
+        updateCategory : function () {
             let oThis = this;
             let oFormData = new FormData();
             oFormData.append('category_name', this.sCategoryName);
             oFormData.append('category_desc', this.sCategoryDesc);
             oFormData.append('category_img', this.oImg);
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-            axios.post('/admin/api/category/add', oFormData)
+            axios.post('/admin/api/category/update', oFormData)
             .then(function (bResponse) {
                 if (bResponse.data === true) {
                     oThis.$store.dispatch('toast', {

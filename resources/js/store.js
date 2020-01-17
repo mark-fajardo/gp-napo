@@ -13,6 +13,9 @@ export default new Vuex.Store({
                 sFailAddCategory : 'Please check category credentials',
                 sNoCategSelected : 'There is no category selected',
                 sNoImgSelected : 'There is no image selected',
+                sSuccessUpdateItem : 'Item is successfully updated',
+                sFailUpdateItem : 'Please check category credentials',
+                sMinFiveChars : 'Minimum of Five characters each text field'
             },
             iPage : 1,
             sFilter : '',

@@ -62,6 +62,40 @@ class ItemsController extends Controller
         $oItems->categories()->attach(explode(',', $this->aRequest['item_categs']));
         return response()->json($bReturn);
     }
+    
+    /**
+     * Add new item
+     * 
+     * @return Boolean
+     */
+    public function update()
+    {
+        $iFileLen = $this->getFilesCount();
+        $validatedData = $this->oRequest->validate([
+            'item_name' => 'required|min:5',
+            'item_brand' => 'required|min:5',
+            'item_qty' => 'required',
+        ]);
+
+        $bReturn = false;
+        $oItems = Items::find(intval($this->aRequest['item_id']));
+        $oItems->users_id = Auth::user()->get('id')[0]['id'];
+        $oItems->item_name = $this->aRequest['item_name'];
+        $oItems->item_brand = $this->aRequest['item_brand'];
+        $oItems->item_qty = $this->aRequest['item_qty'];
+        if ($iFileLen > 0) {
+            $sItemImg = '[';
+            for ($i = 0; $i < $iFileLen; $i++) {
+                $sItemImg .= '"' . Storage::putFile('photos/items', new File($this->aRequest['file_' . $i])) . '", ';
+            }
+            $sItemImg = rtrim($sItemImg, ", ");
+            $sItemImg .= ']';
+            $oItems->img_dir = $sItemImg;
+        }
+        $bReturn = $oItems->save();
+        return $oItems->categories()->sync(explode(',', $this->aRequest['item_categs']));
+        return response()->json($bReturn);
+    }
 
     /**
      * Get all files count

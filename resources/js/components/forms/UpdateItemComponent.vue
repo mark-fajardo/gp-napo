@@ -6,11 +6,11 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="button">Back</button>
                 </router-link>
                 <div class="navbar-brand ml-4" href="#">
-                    Add Item
+                    Update Item
                 </div>
             </div>
             <div class="mt-3 ml-2">
-                <form action="#/items/add">
+                <form action="#/items/update">
                     <div class="form-group row">
                         <label for="item-name" class="col-sm-2 col-form-label">Item Name:</label>
                         <div class="col-sm-5">
@@ -33,7 +33,7 @@
                         <label for="item-qty" class="col-sm-2 col-form-label">Select Category:</label>
                         <div class="col-sm-5">
                             <multiselect 
-                                v-model="aTags" 
+                                v-model="aItem.categories" 
                                 :options="$store.state.oApi.oCategories.rows" 
                                 :multiple="true" 
                                 :close-on-select="false" 
@@ -62,7 +62,7 @@
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
-                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Add</button>
+                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -74,19 +74,45 @@
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect';
-Vue.component('multiselect', Multiselect);
 export default {
+    props : {
+        aItem : {
+            type : Object,
+            default : () => {}
+        }
+    },
     data () {
         return {
+            iItemId : 0,
             sItemName : '',
             sItemBrand : '',
             sItemQty : '',
-            aTags : [],
             aCategIds : [],
             oImg : [],
             bPreviewImage : null,
         };
+    },
+    created () {
+        if (this.aItem === undefined || this.aItem === null) {
+            this.$router.push({ name : 'items'});
+            return;
+        }
+
+        this.iItemId = this.aItem.id;
+        this.sItemName = this.aItem.item_name;
+        this.sItemBrand = this.aItem.item_brand;
+        this.sItemQty = this.aItem.item_qty;
+        // this.aTags = this.aItem.categories;
+    },
+    computed : {
+        aTags : {
+            get () {
+               return []
+            },
+            set (value) {
+                this.aTags = value;
+            }
+        }
     },
     methods : {
         addItem : function () {
@@ -95,13 +121,14 @@ export default {
                 return;
             }
 
-            if (this.validateImgs() === false) {
-                this.aCategIds = [];
-                return;
-            }
+            // if (this.validateImgs() === false) {
+            //     this.aCategIds = [];
+            //     return;
+            // }
             
             let oThis = this;
             let oFormData = new FormData();
+            oFormData.append('item_id', this.iItemId);
             oFormData.append('item_name', this.sItemName);
             oFormData.append('item_brand', this.sItemBrand);
             oFormData.append('item_qty', this.sItemQty);
@@ -111,12 +138,12 @@ export default {
             }
             // oFormData.append(this.oImg);
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-            axios.post('/admin/api/item/add', oFormData)
+            axios.post('/admin/api/item/update', oFormData)
             .then(function (bResponse) {
                 if (bResponse.data === true) {
                     oThis.$store.dispatch('toast', {
                         bType : true,
-                        sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessAddItem,
+                        sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessUpdateItem,
                     });
                     oThis.$router.push({ name : 'items'});
                 }
@@ -125,7 +152,7 @@ export default {
             .catch(function (oResponse) {
                 oThis.$store.dispatch('toast', {
                     bType : false,
-                    sMsg : oThis.$store.state.oMessages.oAlerts.sFailAddItem,
+                    sMsg : oThis.$store.state.oMessages.oAlerts.sFailUpdateItem,
                 });
                 oThis.$store.dispatch('toast', {
                     bType : false,
@@ -156,7 +183,7 @@ export default {
             this.oImg = [];
         },
         recollectCategIds : function () {
-            let iCategLen = this.aTags.length;
+            let iCategLen = this.aItem.categories.length;
             if (iCategLen <= 0) {
                 this.$store.dispatch('toast', {
                     bType : false,
@@ -166,9 +193,9 @@ export default {
             }
 
             for (let i = 0; i < iCategLen; i++) {
-                let iIndex = this.aCategIds.indexOf(this.aTags[i]['id']);
+                let iIndex = this.aCategIds.indexOf(this.aItem.categories[i]['id']);
                 if (iIndex === -1) {
-                    this.aCategIds.push(this.aTags[i]['id']);
+                    this.aCategIds.push(this.aItem.categories[i]['id']);
                 }
             }
 

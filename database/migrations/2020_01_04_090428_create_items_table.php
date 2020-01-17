@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('item_brand');
             $table->bigInteger('item_qty');
             $table->string('img_dir');
-            $table->bigInteger('archived');
+            $table->bigInteger('archived')->nullable();
             $table->timestamps();
         });
     }

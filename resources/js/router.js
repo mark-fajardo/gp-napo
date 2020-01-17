@@ -46,9 +46,21 @@ export default new VueRouter({
           component: require('./components/forms/AddItemsComponent.vue').default
         },
         {
+          path: '/items/update',
+          name: 'update-items',
+          component: require('./components/forms/UpdateItemComponent.vue').default,
+          props: true
+        },
+        {
           path: '/categories/add',
           name: 'add-categories',
           component: require('./components/forms/AddCategoryComponent.vue').default
+        },
+        {
+          path: '/categories/update',
+          name: 'update-categories',
+          component: require('./components/forms/UpdateCategoryComponent.vue').default,
+          props: true
         }
     ]
 });
