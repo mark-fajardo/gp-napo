@@ -74135,7 +74135,10 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c(
                       "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
+                      {
+                        staticClass: "dropdown-item",
+                        attrs: { href: "/register" }
+                      },
                       [_vm._v("Add User")]
                     ),
                     _vm._v(" "),
@@ -75034,7 +75037,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid mt-3" }, [
+    return _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row" }, [
         _c(
           "div",

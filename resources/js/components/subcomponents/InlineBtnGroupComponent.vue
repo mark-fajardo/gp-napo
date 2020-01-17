@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-3">
+    <div class="container-fluid">
         <div class="row">
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
