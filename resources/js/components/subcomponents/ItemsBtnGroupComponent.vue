@@ -8,9 +8,25 @@
                     </router-link>
                     <!-- <button type="button" class="btn btn-primary">Update</button> -->
                     <button type="button" class="btn btn-warning">Archive</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button
+                        @click="emitDelete"
+                        type="button" 
+                        class="btn btn-danger"
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        emitDelete() {
+            this.$emit('onDelete')
+        }
+    }
+}
+</script>

@@ -116,6 +116,11 @@ export default {
                 })
             }
         }
+    },
+    watch: {
+        aSelectedItemsIds() {
+            this.$store.commit('setDeleteIds', this.aSelectedItemsIds)
+        }
     }
 }
-</script>
+</script>   

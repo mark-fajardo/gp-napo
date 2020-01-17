@@ -62,4 +62,24 @@ class CategoriesController extends Controller
         $oCategories = Categories::with('items')->get();
         return response()->json($oCategories);
     }
+
+    /**
+     * Delete multiple items
+     */
+    public function delete() {
+        $ids = $this->aRequest['id'];
+        $response = false;
+
+        try {
+            foreach($ids as $id) {
+                $item = Categories::findOrFail($id);
+                $item->delete();
+            }
+            $response  = true;
+        } catch (Exception $e) {
+            $response = false;
+        }
+
+        return response()->json(['result' => $response]);
+    }
 }
