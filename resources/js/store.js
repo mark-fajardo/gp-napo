@@ -42,6 +42,10 @@ export default new Vuex.Store({
                 {
                     sLabel : 'Reports',
                     sRoute : 'reports'
+                },
+                {
+                    sLabel : 'Archived details',
+                    sRoute : 'archived'
                 }
             ]
         },

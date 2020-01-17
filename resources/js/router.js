@@ -36,6 +36,11 @@ export default new VueRouter({
           component: require('./components/OrdersComponent.vue').default
         },
         {
+          path: '/archived',
+          name: 'archived',
+          component: require('./components/ArchivedComponent.vue').default
+        },
+        {
           path: '/items/add',
           name: 'add-items',
           component: require('./components/forms/AddItemsComponent.vue').default
