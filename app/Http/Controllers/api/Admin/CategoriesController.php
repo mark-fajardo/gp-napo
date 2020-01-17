@@ -105,6 +105,17 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Load items
+     * 
+     * @return Object
+     */
+    public function loadArchived()
+    {
+        $oCategories = Categories::with('items')->where('archived', 1)->get();
+        return response()->json($oCategories);
+    }
+
+    /**
      * Delete multiple items
      */
     public function delete() {

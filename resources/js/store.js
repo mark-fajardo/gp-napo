@@ -81,6 +81,28 @@ export default new Vuex.Store({
                 ],
                 rows: []
             },
+            oArchivedCategories  : {
+                columns: [
+                    {label: 'No', field: 'no'},
+                    {label: 'Category Name', field: 'name'},
+                    {label: 'Category Description', field: 'description'},
+                    {label: 'Action', field: 'action'},
+                    // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+                ],
+                rows: []
+            },
+            oArchivedItems  : {
+                columns: [
+                    {label: 'No', field: 'no'},
+                    {label: 'Quantity', field: 'item_qty', headerClass: 'class-in-header second-class'},
+                    {label: 'Item Name', field: 'item_name'},
+                    {label: 'Item Brand', field: 'item_brand'},
+                    {label: 'Category', field: 'item_name'},
+                    {label: 'Action', field: 'action'},
+                    // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+                ],
+                rows: []
+            },
         },
         aToBeDeletedIds: []
     },
@@ -93,6 +115,12 @@ export default new Vuex.Store({
         },
         setCategories: (state, payload) => {
             state.oApi.oCategories.rows = payload;
+        },
+        setArchivedCategories: (state, payload) => {
+            state.oApi.oArchivedCategories.rows = payload;
+        },
+        setArchivedItems: (state, payload) => {
+            state.oApi.oArchivedItems.rows = payload;
         },
         setDeleteIds: (state, payload) => {
             state.aToBeDeletedIds = payload;
@@ -125,6 +153,18 @@ export default new Vuex.Store({
             axios.get('/admin/api/category/load')
                 .then(function (oResponse) {
                     context.commit('setCategories', oResponse.data)
+                })
+        },
+        getArchivedCategories : function (context) {
+            axios.get('/admin/api/category/load/archived')
+                .then(function (oResponse) {
+                    context.commit('setArchivedCategories', oResponse.data)
+                })
+        },
+        getArchivedItems : function (context) {
+            axios.get('/admin/api/item/load/archived')
+                .then(function (oResponse) {
+                    context.commit('setArchivedItems', oResponse.data)
                 })
         },
         deleteItems: ({dispatch, commit, state}) => {
@@ -175,6 +215,8 @@ export default new Vuex.Store({
     getters: {
         oItems: state => state.oApi.oItems,
         oCategories: state => state.oApi.oCategories,
+        oArchivedCategories: state => state.oApi.oArchivedCategories,
+        oArchivedItems: state => state.oApi.oArchivedItems,
         sFilter: state => state.oMessages.sFilter,
         aToBeDeletedItems: state => state.aToBeDeletedItems
     }
