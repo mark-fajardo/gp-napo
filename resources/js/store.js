@@ -122,7 +122,7 @@ export default new Vuex.Store({
                     context.commit('setCategories', oResponse.data)
                 })
         },
-        deleteItems: ({dispatch, state}) => {
+        deleteItems: ({dispatch, commit, state}) => {
             const ids = [...state.aToBeDeletedIds]
             if (ids.length >= 1) {
                 axios.post('/admin/api/item/delete', {id: ids})
@@ -133,6 +133,7 @@ export default new Vuex.Store({
                                 bType : true,
                                 sMsg : state.oMessages.oAlerts.sSuccessDeleteItems
                             });
+                            commit('setDeleteIds', []);
                         }
                     })
                     .catch(err => {
@@ -154,6 +155,7 @@ export default new Vuex.Store({
                                 bType : true,
                                 sMsg : state.oMessages.oAlerts.sSuccessDeleteCategory
                             });
+                            commit('setDeleteIds', []);
                         }
                     })
                     .catch(err => {
