@@ -86,6 +86,9 @@ class ItemsController extends Controller
         if ($iFileLen > 0) {
             $sItemImg = '[';
             for ($i = 0; $i < $iFileLen; $i++) {
+                $validatedData = $this->oRequest->validate([
+                    'file_' . $i => 'required|image|max:5000'
+                ]);
                 $sItemImg .= '"' . Storage::putFile('photos/items', new File($this->aRequest['file_' . $i])) . '", ';
             }
             $sItemImg = rtrim($sItemImg, ", ");
@@ -93,7 +96,7 @@ class ItemsController extends Controller
             $oItems->img_dir = $sItemImg;
         }
         $bReturn = $oItems->save();
-        return $oItems->categories()->sync(explode(',', $this->aRequest['item_categs']));
+        $oItems->categories()->sync(explode(',', $this->aRequest['item_categs']));
         return response()->json($bReturn);
     }
 

@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
                                 <div class="form-group form-inline m-3 ml-auto">
-                                    <router-link :to="{ name: 'items'}">
+                                    <router-link :to="{ name: 'categories'}">
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
@@ -96,6 +96,9 @@ export default {
         },
         clearForms : function () {
             this.sCategoryName = '';
+            this.sCategoryDesc = '';
+            this.oImg = [];
+            this.oFiles = [];
         },
         uploadImage : function (e) {
             const image = e.target.files[0];

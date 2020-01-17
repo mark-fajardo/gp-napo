@@ -31,7 +31,7 @@ class CategoriesController extends Controller
     }
     
     /**
-     * Add new item
+     * Add new category
      * 
      * @return Boolean
      */
@@ -48,6 +48,33 @@ class CategoriesController extends Controller
         $oCategories->name = $this->aRequest['category_name'];
         $oCategories->description = $this->aRequest['category_desc'];
         $oCategories->img_dir = Storage::putFile('photos/categories', new File($this->aRequest['category_img']));
+        $bReturn = $oCategories->save();
+        return response()->json($bReturn);
+    }
+    
+    /**
+     * Update category
+     * 
+     * @return Boolean
+     */
+    public function update()
+    {
+        $validatedData = $this->oRequest->validate([
+            'category_name' => 'required|min:5',
+            'category_desc' => 'required|min:5',
+        ]);
+
+        $bReturn = false;
+        $oCategories = Categories::find($this->aRequest['category_id']);
+        $oCategories->name = $this->aRequest['category_name'];
+        $oCategories->description = $this->aRequest['category_desc'];
+        if (isset($this->aRequest['category_img']) === true) {
+            
+            $validatedData = $this->oRequest->validate([
+                'category_img' => 'required|image|max:5000'
+            ]);
+            $oCategories->img_dir = Storage::putFile('photos/categories', new File($this->aRequest['category_img']));
+        }
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
     }

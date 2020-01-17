@@ -66,6 +66,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'as'   => 'api.admin.category.add'
         ]);
 
+        Route::post('/category/update', [
+            'uses' => 'api\Admin\CategoriesController@update',
+            'as'   => 'api.admin.category.update'
+        ]);
+
         Route::get('/item/load', [
             'uses' => 'api\Admin\ItemsController@load',
             'as'   => 'api.admin.item.load'

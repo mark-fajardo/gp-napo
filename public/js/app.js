@@ -2363,6 +2363,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     clearForms: function clearForms() {
       this.sCategoryName = '';
+      this.sCategoryDesc = '';
+      this.oImg = [];
+      this.oFiles = [];
     },
     uploadImage: function uploadImage(e) {
       var _this = this;
@@ -2602,10 +2605,6 @@ Vue.component('multiselect', vue_multiselect__WEBPACK_IMPORTED_MODULE_0___defaul
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-var _props$data$props$cre;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2660,7 +2659,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = (_props$data$props$cre = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     aItem: {
       type: Object,
@@ -2675,64 +2674,73 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       oImg: [],
       oFiles: []
     };
-  }
-}, _defineProperty(_props$data$props$cre, "props", {
-  iItemId: {
-    type: Number,
-    "default": 1
-  }
-}), _defineProperty(_props$data$props$cre, "created", function created() {
-  if (this.aItem === undefined || this.aItem === null) {
-    this.$router.push({
-      name: 'categories'
-    });
-  }
-}), _defineProperty(_props$data$props$cre, "methods", {
-  updateCategory: function updateCategory() {
-    var oThis = this;
-    var oFormData = new FormData();
-    oFormData.append('category_name', this.sCategoryName);
-    oFormData.append('category_desc', this.sCategoryDesc);
-    oFormData.append('category_img', this.oImg);
-    axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-    axios.post('/admin/api/category/update', oFormData).then(function (bResponse) {
-      if (bResponse.data === true) {
-        oThis.$store.dispatch('toast', {
-          bType: true,
-          sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessAddCategory
-        });
-        oThis.$router.push({
-          name: 'categories'
-        });
-        return;
+  },
+  created: function created() {
+    if (this.aItem === undefined || this.aItem === null) {
+      this.$router.push({
+        name: 'categories'
+      });
+      return;
+    }
+
+    this.sCategoryName = this.aItem['name'];
+    this.sCategoryDesc = this.aItem['description'];
+  },
+  methods: {
+    updateCategory: function updateCategory() {
+      var oThis = this;
+      var oFormData = new FormData();
+      oFormData.append('category_id', this.aItem['id']);
+      oFormData.append('category_name', this.sCategoryName);
+      oFormData.append('category_desc', this.sCategoryDesc);
+
+      if (this.oImg !== []) {
+        oFormData.append('category_img', this.oImg);
       }
-    })["catch"](function (oResponse) {
-      oThis.$store.dispatch('toast', {
-        bType: false,
-        sMsg: oThis.$store.state.oMessages.oAlerts.sFailAddCategory
-      });
-      oThis.$store.dispatch('toast', {
-        bType: false,
-        sMsg: oThis.$store.state.oMessages.oAlerts.sMinFiveChars
-      });
-    });
-  },
-  clearForms: function clearForms() {
-    this.sCategoryName = '';
-  },
-  uploadImage: function uploadImage(e) {
-    var _this = this;
 
-    var image = e.target.files[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(image);
+      axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+      axios.post('/admin/api/category/update', oFormData).then(function (bResponse) {
+        if (bResponse.data === true) {
+          oThis.$store.dispatch('toast', {
+            bType: true,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessAddCategory
+          });
+          oThis.$router.push({
+            name: 'categories'
+          });
+          return;
+        }
+      })["catch"](function (oResponse) {
+        oThis.$store.dispatch('toast', {
+          bType: false,
+          sMsg: oThis.$store.state.oMessages.oAlerts.sFailAddCategory
+        });
+        oThis.$store.dispatch('toast', {
+          bType: false,
+          sMsg: oThis.$store.state.oMessages.oAlerts.sMinFiveChars
+        });
+      });
+    },
+    clearForms: function clearForms() {
+      this.sCategoryName = '';
+      this.sCategoryDesc = '';
+      this.oImg = [];
+      this.oFiles = [];
+    },
+    uploadImage: function uploadImage(e) {
+      var _this = this;
 
-    reader.onload = function (e) {
-      _this.oImg = image;
-      _this.bPreviewImage = e.target.result;
-    };
+      var image = e.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(image);
+
+      reader.onload = function (e) {
+        _this.oImg = image;
+        _this.bPreviewImage = e.target.result;
+      };
+    }
   }
-}), _props$data$props$cre);
+});
 
 /***/ }),
 
@@ -2745,8 +2753,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2822,7 +2828,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+/* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     aItem: {
       type: Object,
@@ -2852,16 +2858,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.sItemName = this.aItem.item_name;
     this.sItemBrand = this.aItem.item_brand;
     this.sItemQty = this.aItem.item_qty; // this.aTags = this.aItem.categories;
-  },
-  computed: {
-    aTags: {
-      get: function get() {
-        return [];
-      },
-      set: function set(value) {
-        this.aTags = value;
-      }
-    }
   },
   methods: {
     addItem: function addItem() {
@@ -2968,8 +2964,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.$store.dispatch('getCategories');
     this.aTags = [];
-  }
-}, "computed", {}));
+  },
+  computed: {}
+});
 
 /***/ }),
 
@@ -75034,16 +75031,20 @@ var render = function() {
                   "div",
                   { staticClass: "form-group form-inline m-3 ml-auto" },
                   [
-                    _c("router-link", { attrs: { to: { name: "items" } } }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-outline-danger mr-1 my-2 my-sm-0"
-                        },
-                        [_vm._v("Cancel")]
-                      )
-                    ]),
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "categories" } } },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-outline-danger mr-1 my-2 my-sm-0"
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -75577,16 +75578,20 @@ var render = function() {
                   "div",
                   { staticClass: "form-group form-inline m-3 ml-auto" },
                   [
-                    _c("router-link", { attrs: { to: { name: "items" } } }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-outline-danger mr-1 my-2 my-sm-0"
-                        },
-                        [_vm._v("Cancel")]
-                      )
-                    ]),
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "categories" } } },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-outline-danger mr-1 my-2 my-sm-0"
+                          },
+                          [_vm._v("Cancel")]
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",

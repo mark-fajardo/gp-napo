@@ -104,16 +104,6 @@ export default {
         this.sItemQty = this.aItem.item_qty;
         // this.aTags = this.aItem.categories;
     },
-    computed : {
-        aTags : {
-            get () {
-               return []
-            },
-            set (value) {
-                this.aTags = value;
-            }
-        }
-    },
     methods : {
         addItem : function () {
             if (this.recollectCategIds() === false) {

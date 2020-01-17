@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
                                 <div class="form-group form-inline m-3 ml-auto">
-                                    <router-link :to="{ name: 'items'}">
+                                    <router-link :to="{ name: 'categories'}">
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
@@ -70,24 +70,25 @@ export default {
             oFiles : [],
         };
     },
-    props : {
-        iItemId : {
-            type : Number,
-            default : 1
-        }
-    },
     created () {
         if (this.aItem === undefined || this.aItem === null) {
             this.$router.push({ name : 'categories'});
+            return;
         }
+
+        this.sCategoryName = this.aItem['name'];
+        this.sCategoryDesc = this.aItem['description'];
     },
     methods : {
         updateCategory : function () {
             let oThis = this;
             let oFormData = new FormData();
+            oFormData.append('category_id', this.aItem['id']);
             oFormData.append('category_name', this.sCategoryName);
             oFormData.append('category_desc', this.sCategoryDesc);
-            oFormData.append('category_img', this.oImg);
+            if (this.oImg !== []) {
+                oFormData.append('category_img', this.oImg);
+            }
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
             axios.post('/admin/api/category/update', oFormData)
             .then(function (bResponse) {
@@ -115,6 +116,10 @@ export default {
         },
         clearForms : function () {
             this.sCategoryName = '';
+            this.sCategoryDesc = '';
+            this.oImg = [];
+            this.oFiles = [];
+
         },
         uploadImage : function (e) {
             const image = e.target.files[0];
