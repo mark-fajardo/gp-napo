@@ -54,6 +54,16 @@
                             <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage" multiple>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="item-name" class="col-sm-2 col-form-label">Item Short Description:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sItemShortDescription" id="item-short-description" placeholder="Item short description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Item Description: </label>
+                        <ckeditor :editor="editor" v-model="sItemDescription"></ckeditor>
+                    </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
                             <div class="col-sm-7 bg-light border">
@@ -75,17 +85,22 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 Vue.component('multiselect', Multiselect);
 export default {
     data () {
         return {
             sItemName : '',
             sItemBrand : '',
+            sItemShortDescription: '',
+            sItemDescription: '',
             sItemQty : '',
             aTags : [],
             aCategIds : [],
             oImg : [],
             bPreviewImage : null,
+            editor: ClassicEditor
         };
     },
     methods : {
@@ -99,10 +114,12 @@ export default {
                 this.aCategIds = [];
                 return;
             }
-            
+
             let oThis = this;
             let oFormData = new FormData();
             oFormData.append('item_name', this.sItemName);
+            oFormData.append('item_short_description', this.sItemShortDescription);
+            oFormData.append('item_description', this.sItemDescription);
             oFormData.append('item_brand', this.sItemBrand);
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
