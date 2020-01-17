@@ -1,10 +1,14 @@
-@import "tailwindcss/base";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-@import "global.scss";
+// Variables
+@import 'variables';
 
-@import "./front/front.scss";
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
-@import "tailwindcss/components";
 
-@import "tailwindcss/utilities";
-
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+} 

@@ -13,7 +13,7 @@
 
 Route::get('/', [
     'uses' => 'Front\FrontController@index',
-    'as' => 'front.index'
+    'as'   => 'front.index'
 ]);
 
 Route::get('/contact', [
@@ -36,3 +36,39 @@ Route::post('/get-quote', [
     'uses' => 'Front\FrontController@addQuote',
     'as' => 'front.addQuote'
 ]);
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/admin', [
+    'uses' => 'Admin\HomeController@auth',
+    'as'   => 'admin.auth'
+])->middleware('guest');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::get('/control', [
+        'uses' => 'Admin\HomeController@index',
+        'as'   => 'admin.index'
+    ]);
+
+    Route::group(['prefix' => 'api'], function () {
+        Route::post('/item/add', [
+            'uses' => 'api\Admin\ItemsController@add',
+            'as'   => 'api.admin.item.add'
+        ]);
+
+        Route::post('/category/add', [
+            'uses' => 'api\Admin\CategoriesController@add',
+            'as'   => 'api.admin.category.add'
+        ]);
+
+        Route::get('/item/load', [
+            'uses' => 'api\Admin\ItemsController@load',
+            'as'   => 'api.admin.item.load'
+        ]);
+
+        Route::get('/category/load', [
+            'uses' => 'api\Admin\CategoriesController@load',
+            'as'   => 'api.admin.category.load'
+        ]);
+    });
+});
