@@ -29,7 +29,7 @@ export default {
         },
         aItem : {
             type : Object,
-            default : {}
+            default : () => {}
         }
     },
     methods: {

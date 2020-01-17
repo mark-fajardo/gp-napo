@@ -16,7 +16,10 @@ export default new Vuex.Store({
                 sSuccessDeleteItems: 'Item(s) successfully deleted',
                 sFailDeleteItems: 'Failed to delete item(s), please try again',
                 sSuccessDeleteCategory: 'Categories successfully deleted',
-                sFailDeleteCategory: 'Failed to delete categories, please try again'
+                sFailDeleteCategory: 'Failed to delete categories, please try again',
+                sSuccessUpdateItem : 'Item is successfully updated',
+                sFailUpdateItem : 'Please check category credentials',
+                sMinFiveChars : 'Minimum of Five characters each text field'
             },
             iPage : 1,
             sFilter : '',

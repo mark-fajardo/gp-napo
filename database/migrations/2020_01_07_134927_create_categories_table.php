@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
-            $table->string('img_dir');
+            $table->text('img_dir');
             $table->bigInteger('archived')->nullable();
             $table->timestamps();
         });

@@ -49,6 +49,7 @@
                             ></inline-btns>
                     </td>
                 </tr>
+                <tr v-if="aData.length === 0" class="text-center"><td colspan="7">There is no data</td></tr>
             </tbody>
             <tbody
                 v-if="sShow === 'categories'">
@@ -74,6 +75,7 @@
                             ></inline-btns>
                     </td>
                 </tr>
+                <tr v-if="aData.length === 0" class="text-center"><td colspan="7">There is no data</td></tr>
             </tbody>
         </table>
     </div>

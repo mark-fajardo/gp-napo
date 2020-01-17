@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded" style="z-index: 1">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/admin/control">
             <img src="https://img.icons8.com/bubbles/50/000000/maintenance.png" width="30" height="30" class="d-inline-block align-top" alt="">
             GP-NAPO Control System
         </a>
