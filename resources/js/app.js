@@ -9,10 +9,12 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
 import { TColumnsDefinition, VuejsDatatableFactory } from 'vuejs-datatable';
 import VueTagsInput from '@johmun/vue-tags-input';import UploadImage from 'vue-upload-image';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 window.Vue = require('vue');
 Vue.use(VueToast);
 Vue.use( VuejsDatatableFactory );
+Vue.use( CKEditor );
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
