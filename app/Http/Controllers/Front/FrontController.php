@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use App\Repositories\Quote;
+use App\Repositories\Items;
 
 class FrontController extends Controller
 {
@@ -49,4 +50,12 @@ class FrontController extends Controller
         return redirect()->route('front.quote')->with('success', 'Your quote request has sucessfully created. GP-NAPO Team will contact you as soon as possible. Thank You!');
     }
 
+    public function searchItems() {
+        $query = request('q');
+        $items = Items::where('item_name', 'like', '%'.$query.'%')
+                        ->orWhere('item_brand', 'like', '%'.$query.'%')
+                        ->get();
+        
+        return response()->json($items);
+    }
 }

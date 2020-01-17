@@ -16,6 +16,7 @@ Route::get('/', [
     'as'   => 'front.index'
 ]);
 
+<<<<<<< HEAD
 Route::get('/contact', [
     'uses' => 'Front\FrontController@contact',
     'as' => 'front.contact'
@@ -36,6 +37,13 @@ Route::post('/get-quote', [
     'uses' => 'Front\FrontController@addQuote',
     'as' => 'front.addQuote'
 ]);
+=======
+Route::get('/results', [
+    'uses' => 'Front\FrontController@searchItems',
+    'as' => 'front.search'
+]);
+
+>>>>>>> 905196c023242329041443a66d8dc3664681b287
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
