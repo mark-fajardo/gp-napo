@@ -7,7 +7,7 @@
                         Add Category
                     </router-link>
                     <!-- <button type="button" class="btn btn-primary">Update</button> -->
-                    <button type="button" class="btn btn-warning">Archive</button>
+                    <button type="button" @click="archiveRow()" class="btn btn-warning">Archive</button>
                     <button 
                          @click="emitDelete"
                         type="button" 
@@ -23,6 +23,30 @@ export default {
     methods: {
         emitDelete() {
             this.$emit('onDelete')
+        },
+        archiveRow () {
+            if (confirm('Archive this row?')) {
+                let oThis = this;
+                axios.post('/admin/api/category/archive', {
+                    'id' : oThis.$store.state.aToBeDeletedIds
+                })
+                .then(function (bResponse) {
+                    if (bResponse.data === true) {
+                        oThis.$store.dispatch('toast', {
+                            bType : true,
+                            sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessArchive,
+                        });
+                        oThis.$router.go();
+                    }
+
+                })
+                .catch(function (oResponse) {
+                    oThis.$store.dispatch('toast', {
+                        bType : false,
+                        sMsg : oThis.$store.state.oMessages.oAlerts.sFailArchive,
+                    });
+                });
+            }
         }
     }
 }

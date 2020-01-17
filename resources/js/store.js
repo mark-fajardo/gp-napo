@@ -19,7 +19,9 @@ export default new Vuex.Store({
                 sFailDeleteCategory: 'Failed to delete categories, please try again',
                 sSuccessUpdateItem : 'Item is successfully updated',
                 sFailUpdateItem : 'Please check category credentials',
-                sMinFiveChars : 'Minimum of Five characters each text field'
+                sMinFiveChars : 'Minimum of Five characters each text field',
+                sSuccessArchive : 'Successfully archived',
+                sFailArchive : 'Archive failed',
             },
             iPage : 1,
             sFilter : '',
@@ -162,7 +164,6 @@ export default new Vuex.Store({
                         }
                     })
                     .catch(err => {
-                        console.log(err)
                         dispatch('toast', {
                             bType : false,
                             sMsg : state.oMessages.oAlerts.sFailDeleteCategory

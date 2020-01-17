@@ -127,8 +127,22 @@ class ItemsController extends Controller
      */
     public function load()
     {
-        $oItems = Items::with('categories')->get();
+        $oItems = Items::with('categories')->where('archived', 0)->get();
         return response()->json($oItems);
+    }
+
+    /**
+     * Archive row
+     */
+    public function archive()
+    {
+        $bReturn = false;
+        foreach ($this->aRequest['id'] as $iId) {
+            $aItems = Items::find($iId);
+            $aItems->archived = 1;
+            $bReturn = $aItems->save();
+        }
+        return response()->json($bReturn);
     }
     
     /**
