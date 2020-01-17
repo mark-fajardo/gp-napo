@@ -93391,6 +93391,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     deleteItems: function deleteItems(_ref2) {
       var dispatch = _ref2.dispatch,
+          commit = _ref2.commit,
           state = _ref2.state;
 
       var ids = _toConsumableArray(state.aToBeDeletedIds);
@@ -93405,6 +93406,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
               bType: true,
               sMsg: state.oMessages.oAlerts.sSuccessDeleteItems
             });
+            commit('setDeleteIds', []);
           }
         })["catch"](function (err) {
           dispatch('toast', {
@@ -93430,6 +93432,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
               bType: true,
               sMsg: state.oMessages.oAlerts.sSuccessDeleteCategory
             });
+            commit('setDeleteIds', []);
           }
         })["catch"](function (err) {
           dispatch('toast', {
