@@ -11,10 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'Front\FrontController@index',
+    'as' => 'front.index'
+]);
 
-Auth::routes();
+Route::get('/contact', [
+    'uses' => 'Front\FrontController@contact',
+    'as' => 'front.contact'
+]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', [
+    'uses' => 'Front\FrontController@about',
+    'as' => 'front.about'
+]);
+
+Route::get('/get-quote', [
+    'uses' => 'Front\FrontController@quote',
+    'as' => 'front.quote'
+]);
+
+
+Route::post('/get-quote', [
+    'uses' => 'Front\FrontController@addQuote',
+    'as' => 'front.addQuote'
+]);
