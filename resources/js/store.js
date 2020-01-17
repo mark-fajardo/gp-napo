@@ -144,7 +144,7 @@ export default new Vuex.Store({
                     })
             }
         },
-        deleteCategories: ({dispatch, state}) => {
+        deleteCategories: ({dispatch, commit, state}) => {
             const ids = [...state.aToBeDeletedIds]
             if (ids.length >= 1) {
                 axios.post('/admin/api/category/delete', {id: ids})
@@ -159,6 +159,7 @@ export default new Vuex.Store({
                         }
                     })
                     .catch(err => {
+                        console.log(err)
                         dispatch('toast', {
                             bType : false,
                             sMsg : state.oMessages.oAlerts.sFailDeleteCategory

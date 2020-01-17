@@ -43,7 +43,10 @@
                         <span v-for="aCateg in aItem.categories" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
                     </td>
                     <td>
-                        <inline-btns></inline-btns>
+                        <inline-btns
+                            :s-todo="'items'"
+                            :a-item="aItem"
+                            ></inline-btns>
                     </td>
                 </tr>
             </tbody>
@@ -65,7 +68,10 @@
                     <td>{{ aItem.name }}</td>
                     <td>{{ aItem.description }}</td>
                     <td>
-                        <inline-btns></inline-btns>
+                        <inline-btns
+                            :s-todo="'categories'"
+                            :a-item="aItem"
+                            ></inline-btns>
                     </td>
                 </tr>
             </tbody>
