@@ -12,7 +12,9 @@ export default new Vuex.Store({
                 sSuccessAddCategory : 'Category is successfully added',
                 sFailAddCategory : 'Please check category credentials',
                 sSuccessDeleteItems: 'Item(s) successfully deleted',
-                sFailDeleteItems: 'Failed to delete item(s), please try again'
+                sFailDeleteItems: 'Failed to delete item(s), please try again',
+                sSuccessDeleteCategory: 'Categories successfully deleted',
+                sFailDeleteCategory: 'Failed to delete categories, please try again'
             },
             iPage : 1,
             sFilter : '',
@@ -129,6 +131,27 @@ export default new Vuex.Store({
                         dispatch('toast', {
                             bType : false,
                             sMsg : state.oMessages.oAlerts.sFailDeleteItems
+                        });
+                    })
+            }
+        },
+        deleteCategories: ({dispatch, state}) => {
+            const ids = [...state.aToBeDeletedIds]
+            if (ids.length >= 1) {
+                axios.post('/admin/api/category/delete', {id: ids})
+                    .then(function (oResponse) {
+                        if (oResponse.data.result === true) {
+                            dispatch('getCategories');
+                            dispatch('toast', {
+                                bType : true,
+                                sMsg : state.oMessages.oAlerts.sSuccessDeleteCategory
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        dispatch('toast', {
+                            bType : false,
+                            sMsg : state.oMessages.oAlerts.sFailDeleteCategory
                         });
                     })
             }

@@ -24,7 +24,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-12" style="">
-                    <categories-btns></categories-btns>
+                    <categories-btns
+                        @onDelete="deleteCatogoryHandler"></categories-btns>
                     <!-- <table-sub></table-sub> -->
                     <div class="col-xs-12 form-inline mt-3">
                         <div class="form-group">
@@ -51,7 +52,11 @@
 <script>
 export default {
     methods : {
-
+        deleteCatogoryHandler() {
+            if (confirm('Are you sure you want to delete this items?')) {
+                this.$store.dispatch('deleteCategories')
+            }
+        }
     },
     mounted () {
         this.$store.dispatch('getCategories');
