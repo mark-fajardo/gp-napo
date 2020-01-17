@@ -10,8 +10,17 @@ use App\Repositories\Items;
 
 class FrontController extends Controller
 {
+
     public function index() {
         return view('front.home.index');
+    }
+
+    public function categoryItems() {
+        return view('front.category.index');
+    }
+    
+    public function item() {
+        return view('front.item.index');
     }
 
     public function about() {

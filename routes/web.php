@@ -36,9 +36,22 @@ Route::post('/get-quote', [
     'uses' => 'Front\FrontController@addQuote',
     'as' => 'front.addQuote'
 ]);
+
 Route::get('/results', [
     'uses' => 'Front\FrontController@searchItems',
     'as' => 'front.search'
+]);
+
+
+Route::get('/category', [
+    'uses' => 'Front\FrontController@categoryItems',
+    'as' => 'front.category'
+]);
+
+
+Route::get('/item', [
+    'uses' => 'Front\FrontController@item',
+    'as' => 'front.item'
 ]);
 
 Auth::routes();
