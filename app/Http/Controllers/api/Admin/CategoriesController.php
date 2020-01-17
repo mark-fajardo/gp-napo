@@ -47,7 +47,7 @@ class CategoriesController extends Controller
         $oCategories = new Categories;
         $oCategories->name = $this->aRequest['category_name'];
         $oCategories->description = $this->aRequest['category_desc'];
-        $oCategories->img_dir = Storage::putFile('photos/categories', new File($this->aRequest['category_img']));
+        $oCategories->img_dir = Storage::putFile('public/photos/categories', new File($this->aRequest['category_img']));
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
     }

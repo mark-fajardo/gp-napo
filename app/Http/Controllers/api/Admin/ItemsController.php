@@ -57,7 +57,7 @@ class ItemsController extends Controller
         $oItems->item_description = $this->aRequest['item_description'];
         $sItemImg = '[';
         for ($i = 0; $i < $iFileLen; $i++) {
-            $sItemImg .= '"' . Storage::putFile('photos/items', new File($this->aRequest['file_' . $i])) . '", ';
+            $sItemImg .= '"' . Storage::putFile('public/photos/items', new File($this->aRequest['file_' . $i])) . '", ';
         }
         $sItemImg = rtrim($sItemImg, ", ");
         $sItemImg .= ']';

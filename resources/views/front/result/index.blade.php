@@ -10,8 +10,8 @@
 
 @section('content')
 
-    @include('front.category.header')
-    @include('front.category.items')
+    @include('front.result.header')
+    @include('front.result.items')
 
 
 @endsection

@@ -7,32 +7,47 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Repositories\Quote;
 use App\Repositories\Items;
+use App\Repositories\Categories;
 
 class FrontController extends Controller
 {
 
     public function index() {
-        return view('front.home.index');
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.home.index', compact('categories', 'items'));
     }
 
-    public function categoryItems() {
-        return view('front.category.index');
+    public function categoryItems($slug) {
+        $categories = Categories::with('items')->get();
+        $category = Categories::findBySlugOrFail($slug);
+        $items = Items::with('categories')->get();
+        return view('front.category.index',  compact('categories', 'items', 'category'));
     }
     
-    public function item() {
-        return view('front.item.index');
+    public function item($slug) {
+        $categories = Categories::with('items')->get();
+        $item = Items::findBySlugOrFail($slug);
+        $items = Items::with('categories')->get();
+        return view('front.item.index',  compact('categories', 'items', 'item'));
     }
 
     public function about() {
-        return view('front.about.index');
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.about.index', compact('categories', 'items'));
     }
 
     public function contact() {
-        return view('front.contact.index');
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.contact.index', compact('categories', 'items'));
     }
 
     public function quote() {
-        return view('front.quote.index');
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.quote.index', compact('categories', 'items'));
     }
 
     public function addQuote(Request $request) {
@@ -61,10 +76,12 @@ class FrontController extends Controller
 
     public function searchItems() {
         $query = request('q');
-        $items = Items::where('item_name', 'like', '%'.$query.'%')
+        $results = Items::where('item_name', 'like', '%'.$query.'%')
                         ->orWhere('item_brand', 'like', '%'.$query.'%')
                         ->get();
         
-        return response()->json($items);
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.result.index', compact('categories', 'items', 'results'));
     }
 }

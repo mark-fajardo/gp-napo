@@ -1,4 +1,4 @@
-<div class="breadcrumb-area breadcrumb-area-bg section-space--inner--80 default-bg" data-bg="assets/img/backgrounds/19.jpg">
+{{-- <div class="breadcrumb-area breadcrumb-area-bg section-space--inner--80 default-bg" data-bg="assets/img/backgrounds/19.jpg">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-6">
@@ -12,4 +12,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

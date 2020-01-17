@@ -39,7 +39,7 @@
                             <!-- logo -->
                             <div class="logo">
                                 <a href="{{ route('front.index') }}">
-                                    <img src="assets/img/logo/logo-dark.png" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/logo/Logodark_NAPO.png') }}" class="img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -110,50 +110,28 @@
                                         <li class="has-children">
                                             <a href="#">EQUIPMENTS</a>
                                             <ul class="megamenu megamenu--mega">
-                                                <li>
-                                                    <h2 class="page-list-title">
-                                                        <a href="#" class="header-title">Industrial Mixer</a>
-                                                    </h2>
-                                                    <ul>
-                                                        <li><a href="#">Item</a></li>
-                                                        <li class="remove-after">
-                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <h2 class="page-list-title">
-                                                        <a href="#" class="header-title">Meat Processing</a>
-                                                    </h2>
-                                                    <ul>
-                                                        <li><a href="#">Item</a></li>
-                                                        <li class="remove-after">
-                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <h2 class="page-list-title">
-                                                        <a href="#" class="header-title">Restaurant Equipment</a>
-                                                    </h2>
-                                                    <ul>
-                                                        <li><a href="#">Item</a></li>
-                                                        <li class="remove-after">
-                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <h2 class="page-list-title">
-                                                        <a href="#" class="header-title">Bakeshops and Commissary</a>
-                                                    </h2>
-                                                    <ul>
-                                                        <li><a href="#">Item</a></li>
-                                                        <li class="remove-after">
-                                                            <a href="page-contact-2.html" class="li-more">More Equipments</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                @foreach ($categories as $category)
+                                                    <li>
+                                                        <h2 class="page-list-title">
+                                                            <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="header-title">{{ $category->name }}</a>
+                                                        </h2>
+                                                        <ul>
+                                                            @foreach ($items as $item)
+                                                                @foreach ($item->categories as $icat)
+                                                                    {{-- @foreach ($category->items as $citem) --}}
+                                                                        @if ($icat->id == $category->id)
+                                                                            <li><a href="{{route('front.item', ['slug' => $item->id])}}">{{ $item->item_name }}</a></li>
+                                                                        @endif
+                                                                    {{-- @endforeach --}}
+                                                                @endforeach     
+                                                                
+                                                            @endforeach
+                                                            <li class="remove-after">
+                                                                <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="li-more">More Equipments</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li>

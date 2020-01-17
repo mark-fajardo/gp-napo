@@ -28,10 +28,7 @@
                 <div class="col-lg-12">
                     <div class="shop-single-product-wrapper">
                         <div class="row">
-                            @foreach ($items as $item)
-                                @foreach ($item->categories as $icat)
-                                    {{-- @foreach ($category->items as $citem) --}}
-                                        @if ($icat->id == $category->id)
+                                @foreach ($results as $item)
                                             
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="shop-single-product">
@@ -48,12 +45,11 @@
                                             </div>
                                         </div>
 
-                                        @endif
-                                    {{-- @endforeach --}}
                                 @endforeach     
-                                
-                            @endforeach
-                            
+
+                                @if ($results->count() == 0)
+                                    <div class="text-center">NO RESULT FOUND</div> 
+                                @endif
 
                         </div>
                     </div>

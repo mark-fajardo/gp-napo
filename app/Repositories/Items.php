@@ -58,9 +58,16 @@ class Items extends Model
     {
         return [
             'slug' => [
-                'source' => ['item_brand', 'item_name'],
+                'source' => 'item_name',
                 'onUpdate' => true
             ]
         ];
+    }
+
+    public function getImgDirAttribute($img_dir){
+        $x = substr($img_dir, 2, -2);
+        $aImg = explode('", "', $x);
+
+        return $aImg;
     }
 }

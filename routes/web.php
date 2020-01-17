@@ -43,13 +43,13 @@ Route::get('/results', [
 ]);
 
 
-Route::get('/category', [
+Route::get('/category/{slug}', [
     'uses' => 'Front\FrontController@categoryItems',
     'as' => 'front.category'
 ]);
 
 
-Route::get('/item', [
+Route::get('/equipment/{slug}', [
     'uses' => 'Front\FrontController@item',
     'as' => 'front.item'
 ]);

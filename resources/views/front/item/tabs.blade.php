@@ -28,16 +28,7 @@
                             <!--=======  description content  =======-->
 
                             <div class="description-content">
-                                <p class="long-desc">Inspired by the simplistic style of traditional Scandinavian design, this cone shaped ceiling pendant adds an understated elegance to any interior design scheme.
-                                    Strung on a 3m coloured cord, this simple yet stylish ceiling light can be hung above your breakfast bar or dining table to enhance your surroundings.
-                                    A modern interpretation of a classic pendant light, Annular is available in a choice of muted colourways and will look wonderful hung alone, or as a cluster for greater visual impact.</p>
-
-                                <p><b>Light source: Integrated LED (non-replaceable) with 30,000 hour life span.</b></p>
-                                <p><b>Specification: EU 220-Volts</b></p>
-                                <p><b>Ceiling rose: White – included</b></p>
-                                <p><b>Cable: 3 metre adjustable textile cord.</b></p>
-                                <p><b>Approximate net product weight: 2.6kg</b></p>
-                                <p><b>This product is hardwired – professional installation recommended.</b></p>
+                               {!! $item->item_description !!}
                             </div>
 
                             <!--=======  End of description content  =======-->
