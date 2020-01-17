@@ -108,6 +108,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'uses' => 'api\Admin\CategoriesController@delete',
             'as'   => 'api.admin.category.delete'
         ]);
-        
+
+        Route::post('/category/archive', [
+            'uses' => 'api\Admin\CategoriesController@archive',
+            'as'   => 'api.admin.category.archive'
+        ]);        
+
+        Route::post('/item/archive', [
+            'uses' => 'api\Admin\ItemsController@archive',
+            'as'   => 'api.admin.item.archive'
+        ]);
     });
 });

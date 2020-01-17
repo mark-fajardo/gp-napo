@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->text('img_dir');
-            $table->bigInteger('archived')->nullable();
+            $table->bigInteger('archived')->default('1');
             $table->timestamps();
         });
     }

@@ -80,13 +80,27 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Archive row
+     */
+    public function archive()
+    {
+        $bReturn = false;
+        foreach ($this->aRequest['id'] as $iId) {
+            $aCateg = Categories::find($iId);
+            $aCateg->archived = 1;
+            $bReturn = $aCateg->save();
+        }
+        return response()->json($bReturn);
+    }
+
+    /**
      * Load items
      * 
      * @return Object
      */
     public function load()
     {
-        $oCategories = Categories::with('items')->get();
+        $oCategories = Categories::with('items')->where('archived', 0)->get();
         return response()->json($oCategories);
     }
 

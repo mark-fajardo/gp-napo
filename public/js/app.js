@@ -3117,6 +3117,27 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     emitDelete: function emitDelete() {
       this.$emit('onDelete');
+    },
+    archiveRow: function archiveRow() {
+      if (confirm('Archive this row?')) {
+        var oThis = this;
+        axios.post('/admin/api/category/archive', {
+          'id': oThis.$store.state.aToBeDeletedIds
+        }).then(function (bResponse) {
+          if (bResponse.data === true) {
+            oThis.$store.dispatch('toast', {
+              bType: true,
+              sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessArchive
+            });
+            oThis.$router.go();
+          }
+        })["catch"](function (oResponse) {
+          oThis.$store.dispatch('toast', {
+            bType: false,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sFailArchive
+          });
+        });
+      }
     }
   }
 });
@@ -3167,7 +3188,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onDelete: function onDelete() {
-      console.log(this.aItem);
       var id = this.aItem.id.toString();
       var aId = id.split().map(function (n) {
         return parseInt(n, 10);
@@ -3176,6 +3196,28 @@ __webpack_require__.r(__webpack_exports__);
       if (confirm('Are you sure you want to delete this items?')) {
         this.$store.commit('setDeleteIds', aId);
         this.sTodo === 'items' ? this.$store.dispatch('deleteItems') : this.$store.dispatch('deleteCategories');
+      }
+    },
+    archiveRow: function archiveRow() {
+      if (confirm('Archive this row?')) {
+        var oThis = this;
+        var sEndPoint = this.sTodo === 'categories' ? '/admin/api/category/archive' : '/admin/api/item/archive';
+        axios.post(sEndPoint, {
+          'id': [this.aItem.id]
+        }).then(function (bResponse) {
+          if (bResponse.data === true) {
+            oThis.$store.dispatch('toast', {
+              bType: true,
+              sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessArchive
+            });
+            oThis.$router.go();
+          }
+        })["catch"](function (oResponse) {
+          oThis.$store.dispatch('toast', {
+            bType: false,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sFailArchive
+          });
+        });
       }
     }
   }
@@ -3219,6 +3261,27 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     emitDelete: function emitDelete() {
       this.$emit('onDelete');
+    },
+    archiveRow: function archiveRow() {
+      if (confirm('Archive this row?')) {
+        var oThis = this;
+        axios.post('/admin/api/item/archive', {
+          'id': oThis.$store.state.aToBeDeletedIds
+        }).then(function (bResponse) {
+          if (bResponse.data === true) {
+            oThis.$store.dispatch('toast', {
+              bType: true,
+              sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessArchive
+            });
+            oThis.$router.go();
+          }
+        })["catch"](function (oResponse) {
+          oThis.$store.dispatch('toast', {
+            bType: false,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sFailArchive
+          });
+        });
+      }
     }
   }
 });
@@ -76185,7 +76248,15 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
-                { staticClass: "btn btn-warning", attrs: { type: "button" } },
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.archiveRow()
+                    }
+                  }
+                },
                 [_vm._v("Archive")]
               ),
               _vm._v(" "),
@@ -76282,7 +76353,12 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-warning btn-sm",
-                  attrs: { type: "button" }
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.archiveRow()
+                    }
+                  }
                 },
                 [_vm._v("Archive")]
               ),
@@ -76353,7 +76429,15 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
-                { staticClass: "btn btn-warning", attrs: { type: "button" } },
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.archiveRow()
+                    }
+                  }
+                },
                 [_vm._v("Archive")]
               ),
               _vm._v(" "),
@@ -94991,7 +95075,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         sFailDeleteCategory: 'Failed to delete categories, please try again',
         sSuccessUpdateItem: 'Item is successfully updated',
         sFailUpdateItem: 'Please check category credentials',
-        sMinFiveChars: 'Minimum of Five characters each text field'
+        sMinFiveChars: 'Minimum of Five characters each text field',
+        sSuccessArchive: 'Successfully archived',
+        sFailArchive: 'Archive failed'
       },
       iPage: 1,
       sFilter: ''
@@ -95156,7 +95242,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
             commit('setDeleteIds', []);
           }
         })["catch"](function (err) {
-          console.log(err);
           dispatch('toast', {
             bType: false,
             sMsg: state.oMessages.oAlerts.sFailDeleteCategory
