@@ -1882,6 +1882,13 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1896,7 +1903,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.$store.dispatch('getArchivedCategories');
+    this.$store.dispatch('getArchivedItems');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    oCategories: 'oArchivedCategories',
+    oItems: 'oArchivedItems'
+  }), {
+    oCategoriesRow: function oCategoriesRow() {
+      var _this = this;
+
+      return this.oCategories.rows.filter(function (rows) {
+        return rows.name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter) !== -1;
+      });
+    },
+    oItemsRow: function oItemsRow() {
+      var _this2 = this;
+
+      return this.oItems.rows.filter(function (rows) {
+        return rows.item_name.toLowerCase().indexOf(_this2.sFilter) !== -1 || rows.item_brand.toLowerCase().indexOf(_this2.sFilter) !== -1;
+      });
+    },
+    sFilter: {
+      get: function get() {
+        return this.$store.getters.sFilter;
+      },
+      set: function set(value) {
+        this.$store.commit('setFilter', value);
+      }
+    },
+    sItemFilter: {
+      get: function get() {
+        return this.$store.getters.sFilter;
+      },
+      set: function set(value) {
+        this.$store.commit('setFilter', value);
+      }
+    }
+  })
+});
 
 /***/ }),
 
@@ -3347,6 +3435,62 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -74373,23 +74517,147 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "col-xs-12 form-inline mt-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "sr-only", attrs: { for: "filter" } },
+                [_vm._v("Filter")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.sItemFilter,
+                    expression: "sItemFilter"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Search" },
+                domProps: { value: _vm.sItemFilter },
+                on: {
+                  keydown: function($event) {
+                    return $event.stopImmediatePropagation()
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.sItemFilter = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-xs-12 table-responsive" },
+            [
+              _c("table-sub", {
+                attrs: {
+                  "s-show": "items-archived",
+                  "a-column": _vm.oItems.columns,
+                  "a-data": _vm.oItemsRow
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "col-xs-12 form-inline mt-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "sr-only", attrs: { for: "filter" } },
+                [_vm._v("Filter")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.sFilter,
+                    expression: "sFilter"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Search" },
+                domProps: { value: _vm.sFilter },
+                on: {
+                  keydown: function($event) {
+                    return $event.stopImmediatePropagation()
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.sFilter = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-xs-12 table-responsive" },
+            [
+              _c("table-sub", {
+                attrs: {
+                  "s-show": "categories-archived",
+                  "a-column": _vm.oCategories.columns,
+                  "a-data": _vm.oCategoriesRow
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("h3", [_vm._v("Archived Details")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" })
-      ])
+    return _c("div", { staticClass: "row" }, [
+      _c("h3", [_vm._v("Archived Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("h4", { staticClass: "ml-3 mt-5" }, [_vm._v("Items")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("h4", { staticClass: "ml-3 mt-5" }, [_vm._v("Categories")])
     ])
   }
 ]
@@ -76750,6 +77018,93 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _vm.sShow === "items-archived"
+        ? _c(
+            "tbody",
+            [
+              _vm._l(_vm.aData, function(aItem, iKey) {
+                return _c("tr", { key: aItem.id }, [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.aSelectedItemsIds,
+                            expression: "aSelectedItemsIds"
+                          }
+                        ],
+                        staticClass: "form-check-input position-static",
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: aItem.id,
+                          checked: Array.isArray(_vm.aSelectedItemsIds)
+                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                            : _vm.aSelectedItemsIds
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.aSelectedItemsIds,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = aItem.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.aSelectedItemsIds = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.aSelectedItemsIds = $$c
+                            }
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(aItem.item_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    _vm._l(aItem.categories, function(aCateg) {
+                      return _c(
+                        "span",
+                        { staticClass: "badge badge-success p-2 m-1" },
+                        [_vm._v(_vm._s(aCateg.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("td")
+                ])
+              }),
+              _vm._v(" "),
+              _vm.aData.length === 0
+                ? _c("tr", { staticClass: "text-center" }, [
+                    _c("td", { attrs: { colspan: "7" } }, [
+                      _vm._v("There is no data")
+                    ])
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm.sShow === "categories"
         ? _c(
             "tbody",
@@ -76816,6 +77171,79 @@ var render = function() {
                     ],
                     1
                   )
+                ])
+              }),
+              _vm._v(" "),
+              _vm.aData.length === 0
+                ? _c("tr", { staticClass: "text-center" }, [
+                    _c("td", { attrs: { colspan: "7" } }, [
+                      _vm._v("There is no data")
+                    ])
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.sShow === "categories-archived"
+        ? _c(
+            "tbody",
+            [
+              _vm._l(_vm.aData, function(aItem, iKey) {
+                return _c("tr", { key: aItem.id }, [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.aSelectedItemsIds,
+                            expression: "aSelectedItemsIds"
+                          }
+                        ],
+                        staticClass: "form-check-input position-static",
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: aItem.id,
+                          checked: Array.isArray(_vm.aSelectedItemsIds)
+                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                            : _vm.aSelectedItemsIds
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.aSelectedItemsIds,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = aItem.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.aSelectedItemsIds = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.aSelectedItemsIds = $$c
+                            }
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(aItem.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(aItem.description))]),
+                  _vm._v(" "),
+                  _c("td")
                 ])
               }),
               _vm._v(" "),
@@ -95262,6 +95690,47 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
         ],
         rows: []
+      },
+      oArchivedCategories: {
+        columns: [{
+          label: 'No',
+          field: 'no'
+        }, {
+          label: 'Category Name',
+          field: 'name'
+        }, {
+          label: 'Category Description',
+          field: 'description'
+        }, {
+          label: 'Action',
+          field: 'action'
+        } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+        ],
+        rows: []
+      },
+      oArchivedItems: {
+        columns: [{
+          label: 'No',
+          field: 'no'
+        }, {
+          label: 'Quantity',
+          field: 'item_qty',
+          headerClass: 'class-in-header second-class'
+        }, {
+          label: 'Item Name',
+          field: 'item_name'
+        }, {
+          label: 'Item Brand',
+          field: 'item_brand'
+        }, {
+          label: 'Category',
+          field: 'item_name'
+        }, {
+          label: 'Action',
+          field: 'action'
+        } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
+        ],
+        rows: []
       }
     },
     aToBeDeletedIds: []
@@ -95275,6 +95744,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     setCategories: function setCategories(state, payload) {
       state.oApi.oCategories.rows = payload;
+    },
+    setArchivedCategories: function setArchivedCategories(state, payload) {
+      state.oApi.oArchivedCategories.rows = payload;
+    },
+    setArchivedItems: function setArchivedItems(state, payload) {
+      state.oApi.oArchivedItems.rows = payload;
     },
     setDeleteIds: function setDeleteIds(state, payload) {
       state.aToBeDeletedIds = payload;
@@ -95308,6 +95783,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     getCategories: function getCategories(context) {
       axios.get('/admin/api/category/load').then(function (oResponse) {
         context.commit('setCategories', oResponse.data);
+      });
+    },
+    getArchivedCategories: function getArchivedCategories(context) {
+      axios.get('/admin/api/category/load/archived').then(function (oResponse) {
+        context.commit('setArchivedCategories', oResponse.data);
+      });
+    },
+    getArchivedItems: function getArchivedItems(context) {
+      axios.get('/admin/api/item/load/archived').then(function (oResponse) {
+        context.commit('setArchivedItems', oResponse.data);
       });
     },
     deleteItems: function deleteItems(_ref2) {
@@ -95372,6 +95857,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     oCategories: function oCategories(state) {
       return state.oApi.oCategories;
     },
+    oArchivedCategories: function oArchivedCategories(state) {
+      return state.oApi.oArchivedCategories;
+    },
+    oArchivedItems: function oArchivedItems(state) {
+      return state.oApi.oArchivedItems;
+    },
     sFilter: function sFilter(state) {
       return state.oMessages.sFilter;
     },
@@ -95401,8 +95892,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

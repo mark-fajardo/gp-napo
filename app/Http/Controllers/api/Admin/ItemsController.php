@@ -132,6 +132,17 @@ class ItemsController extends Controller
     }
 
     /**
+     * Load items
+     * 
+     * @return Object
+     */
+    public function loadArchived()
+    {
+        $oItems = Items::with('categories')->where('archived', 1)->get();
+        return response()->json($oItems);
+    }
+
+    /**
      * Archive row
      */
     public function archive()

@@ -99,6 +99,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'as'   => 'api.admin.category.load'
         ]);
 
+        Route::get('/category/load/archived', [
+            'uses' => 'api\Admin\CategoriesController@loadArchived',
+            'as'   => 'api.admin.category.load.archived'
+        ]);
+
+        Route::get('/item/load/archived', [
+            'uses' => 'api\Admin\ItemsController@loadArchived',
+            'as'   => 'api.admin.item.load.archived'
+        ]);
+
         Route::post('/item/delete', [
             'uses' => 'api\Admin\ItemsController@delete',
             'as'   => 'api.admin.item.delete'
