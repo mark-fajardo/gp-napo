@@ -5,18 +5,6 @@
                 <div class="col-sm-6">
                     Showing all results
                 </div>
-                <div class="col-sm-6">
-                    <div class="sort-selection-wrapper text-left text-sm-right">
-                        <select class="sort-selection">
-                            <option selected="selected">Default sorting</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by latest</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

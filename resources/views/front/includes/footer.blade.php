@@ -41,10 +41,9 @@
                             <div class="footer-widget">
                                 <h4 class="footer-widget__title">EQUIPMENTS</h4>
                                 <ul class="footer-widget__navigation">
-                                    <li><a href="#">Industrial Mixer</a></li>
-                                    <li><a href="#">Meat Processing</a></li>
-                                    <li><a href="#">Restaurant Equipment</a></li>
-                                    <li style="line-height: 30px !important"><a href="#">Bakeshops and Commissary</a></li>
+                                @foreach ($categories as $category)
+                                    <li><a href="{{ route('front.category', ['slug' => $category->slug]) }}"">{{ $category->name }}</a></li>
+                                @endforeach
                                 </ul>
                             </div>
                         </div>

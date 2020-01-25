@@ -11,7 +11,10 @@
 @section('content')
 
     @include('front.result.header')
-    @include('front.result.items')
+   
+    @if ($results->count() > 0)
+        @include('front.result.items')
+    @endif
 
 
 @endsection
