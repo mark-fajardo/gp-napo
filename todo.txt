@@ -1,15 +1,11 @@
 Front Design:
-1. Fix next and prev btn
-2. Change slider contents
-3. Mobile header fix
-4. Search Page
+1. Item images
+2. GP NAPO BULL
+3. Remove social media icons
+4. Comments ni napo sa meeting na nilista ni nixon
 
-Front Data:
-1. Header megamenu
-2. Footer
-3. Home category
-4. category page
-5. Item page
+Admin: 
+1. Quote Page
 
 Backend:
 1. Get quote
@@ -23,3 +19,4 @@ BEFORE DEPLOYMENT:
 2. Compress, Ooptimized image size
 3. Remove Comments
 4. Use styles and scripts yields per page
+5. SEO
