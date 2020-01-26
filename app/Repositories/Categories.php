@@ -63,4 +63,10 @@ class Categories extends Model
             ]
         ];
     }
+
+    public function getImgDirAttribute($img_dir) {
+        $newImgDir = str_replace("public","storage",$img_dir);
+
+        return $newImgDir;
+    }
 }

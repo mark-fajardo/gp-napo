@@ -38,8 +38,9 @@ class CategoriesController extends Controller
     public function add()
     {
         $validatedData = $this->oRequest->validate([
-            'category_name' => 'required|min:5',
-            'category_desc' => 'required|min:5',
+            'category_name' => 'required',
+            'category_desc' => 'required',
+            'category_icon' => 'required',
             'category_img' => 'required|image|max:5000',
         ]);
 
@@ -47,6 +48,7 @@ class CategoriesController extends Controller
         $oCategories = new Categories;
         $oCategories->name = $this->aRequest['category_name'];
         $oCategories->description = $this->aRequest['category_desc'];
+        $oCategories->icon = $this->aRequest['category_icon'];
         $oCategories->img_dir = Storage::putFile('public/photos/categories', new File($this->aRequest['category_img']));
         $bReturn = $oCategories->save();
         return response()->json($bReturn);
@@ -60,20 +62,22 @@ class CategoriesController extends Controller
     public function update()
     {
         $validatedData = $this->oRequest->validate([
-            'category_name' => 'required|min:5',
-            'category_desc' => 'required|min:5',
+            'category_name' => 'required',
+            'category_desc' => 'required',
+            'category_icon' => 'required',
         ]);
 
         $bReturn = false;
         $oCategories = Categories::find($this->aRequest['category_id']);
         $oCategories->name = $this->aRequest['category_name'];
         $oCategories->description = $this->aRequest['category_desc'];
+        $oCategories->icon = $this->aRequest['category_icon'];
         if (isset($this->aRequest['category_img']) === true) {
             
             $validatedData = $this->oRequest->validate([
                 'category_img' => 'required|image|max:5000'
             ]);
-            $oCategories->img_dir = Storage::putFile('photos/categories', new File($this->aRequest['category_img']));
+            $oCategories->img_dir = Storage::putFile('public/photos/categories', new File($this->aRequest['category_img']));
         }
         $bReturn = $oCategories->save();
         return response()->json($bReturn);

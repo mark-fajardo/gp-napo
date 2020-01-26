@@ -20,7 +20,13 @@
                     <div class="form-group row">
                         <label for="category-name" class="col-sm-2 col-form-label">Category Description:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" v-model="sCategoryDesc" id="category-name" placeholder="Category description">
+                            <input type="text" class="form-control" v-model="sCategoryDesc" id="category-description" placeholder="Category description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="category-name" class="col-sm-2 col-form-label">Category Icon:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sCategoryIcon" id="category-icon" placeholder="Category icon">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -65,6 +71,7 @@ export default {
         return {
             sCategoryName : '',
             sCategoryDesc : '',
+            sCategoryIcon : '',
             bPreviewImage : null,
             oImg : [],
             oFiles : [],
@@ -75,9 +82,10 @@ export default {
             this.$router.push({ name : 'categories'});
             return;
         }
-
+        console.log(this.aItem)
         this.sCategoryName = this.aItem['name'];
         this.sCategoryDesc = this.aItem['description'];
+        this.sCategoryIcon = this.aItem['icon'];
     },
     methods : {
         updateCategory : function () {
@@ -86,6 +94,7 @@ export default {
             oFormData.append('category_id', this.aItem['id']);
             oFormData.append('category_name', this.sCategoryName);
             oFormData.append('category_desc', this.sCategoryDesc);
+            oFormData.append('category_icon', this.sCategoryIcon);
             if (this.oImg !== []) {
                 oFormData.append('category_img', this.oImg);
             }

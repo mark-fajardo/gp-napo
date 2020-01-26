@@ -41,6 +41,10 @@ export default new Vuex.Store({
                     sRoute : 'categories'
                 },
                 {
+                    sLabel : 'Quotes',
+                    sRoute : 'quotes'
+                },
+                {
                     sLabel : 'Orders',
                     sRoute : 'orders'
                 },

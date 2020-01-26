@@ -64,7 +64,7 @@ class Items extends Model
         ];
     }
 
-    public function getImgDirAttribute($img_dir){
+    public function getImgDirAttribute($img_dir) {
         $x = substr($img_dir, 2, -2);
         $aImg = explode('", "', $x);
 

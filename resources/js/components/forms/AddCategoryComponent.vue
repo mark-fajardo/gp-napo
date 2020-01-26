@@ -20,7 +20,13 @@
                     <div class="form-group row">
                         <label for="category-name" class="col-sm-2 col-form-label">Category Description:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" v-model="sCategoryDesc" id="category-name" placeholder="Category description">
+                            <input type="text" class="form-control" v-model="sCategoryDesc" id="category-description" placeholder="Category description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="category-name" class="col-sm-2 col-form-label">Category Icon:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sCategoryIcon" id="category-icon" placeholder="Category Icon">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -57,6 +63,7 @@ export default {
         return {
             sCategoryName : '',
             sCategoryDesc : '',
+            sCategoryIcon : '',
             bPreviewImage : null,
             oImg : [],
             oFiles : [],
@@ -68,6 +75,7 @@ export default {
             let oFormData = new FormData();
             oFormData.append('category_name', this.sCategoryName);
             oFormData.append('category_desc', this.sCategoryDesc);
+            oFormData.append('category_icon', this.sCategoryIcon);
             oFormData.append('category_img', this.oImg);
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
             axios.post('/admin/api/category/add', oFormData)

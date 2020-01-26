@@ -21,6 +21,11 @@ export default new VueRouter({
           component: require('./components/CategoriesComponent.vue').default
         },
         {
+          path: '/quotes',
+          name: 'quotes',
+          component: require('./components/QuotesComponent.vue').default
+        },
+        {
           path: '/orders',
           name: 'orders',
           component: require('./components/OrdersComponent.vue').default
