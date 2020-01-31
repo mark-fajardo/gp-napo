@@ -140,6 +140,7 @@ export default {
 
             })
             .catch(function (oResponse) {
+                conosle.log(oResponse)
                 oThis.$store.dispatch('toast', {
                     bType : false,
                     sMsg : oThis.$store.state.oMessages.oAlerts.sFailAddItem,

@@ -2681,6 +2681,7 @@ Vue.component('multiselect', vue_multiselect__WEBPACK_IMPORTED_MODULE_0___defaul
           });
         }
       })["catch"](function (oResponse) {
+        conosle.log(oResponse);
         oThis.$store.dispatch('toast', {
           bType: false,
           sMsg: oThis.$store.state.oMessages.oAlerts.sFailAddItem

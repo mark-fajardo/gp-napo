@@ -46,7 +46,7 @@
                                         <div class="mb-2" style="font-size: 3.125rem;">
                                             <i class="flaticon-016-gear" style="color: #FFC246;"></i>
                                         </div>
-                                        <h3 class="single-feature-project-box__title">Service & Maintenance</h3>
+                                        <h3 class="single-feature-project-box__title">After Sales Service</h3>
                                         <p class="single-feature-project-box__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio enim facere hic ipsum maxime ratione!</p>
                                     </div>
                                 </div>

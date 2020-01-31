@@ -120,7 +120,7 @@
                                                                 @foreach ($item->categories as $icat)
                                                                     {{-- @foreach ($category->items as $citem) --}}
                                                                         @if ($icat->id == $category->id)
-                                                                            <li><a href="{{route('front.item', ['slug' => $item->id])}}">{{ $item->item_name }}</a></li>
+                                                                            <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li>
                                                                         @endif
                                                                     {{-- @endforeach --}}
                                                                 @endforeach     

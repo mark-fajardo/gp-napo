@@ -40,8 +40,8 @@ class ItemsController extends Controller
     {
         $iFileLen = $this->getFilesCount();
         $validatedData = $this->oRequest->validate([
-            'item_name' => 'required|min:5',
-            'item_brand' => 'required|min:5',
+            'item_name' => 'required',
+            'item_brand' => 'required',
             'item_qty' => 'required',
             'item_short_description' => 'required',
             'item_description' => 'required'
@@ -76,8 +76,8 @@ class ItemsController extends Controller
     {
         $iFileLen = $this->getFilesCount();
         $validatedData = $this->oRequest->validate([
-            'item_name' => 'required|min:5',
-            'item_brand' => 'required|min:5',
+            'item_name' => 'required',
+            'item_brand' => 'required',
             'item_qty' => 'required',
         ]);
 
