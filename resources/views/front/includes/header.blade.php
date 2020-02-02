@@ -116,15 +116,8 @@
                                                             <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="header-title">{{ $category->name }}</a>
                                                         </h2>
                                                         <ul>
-                                                            @foreach ($items as $item)
-                                                                @foreach ($item->categories as $icat)
-                                                                    {{-- @foreach ($category->items as $citem) --}}
-                                                                        @if ($icat->id == $category->id)
-                                                                            <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li>
-                                                                        @endif
-                                                                    {{-- @endforeach --}}
-                                                                @endforeach     
-                                                                
+                                                            @foreach ($category->items->slice(0,5) as $item)
+                                                                <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li>
                                                             @endforeach
                                                             <li class="remove-after">
                                                                 <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="li-more">More Equipments</a>

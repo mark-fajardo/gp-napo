@@ -6,12 +6,12 @@
                     <div class="row row-35">
                         <div class="col-lg-6">
                             <div class="product-details__image-slider">
-                                <div class="swiper-container product-details__image-slider-container">
+                                <div class="swiper-container product-details__image-slider-container" style="display: flex; align-items: center">
                                     <div class="swiper-wrapper product-details__image-slider-wrapper">
                                         @foreach ($item->img_dir as $img)
                                             <div class="swiper-slide">
                                                 <div class="product-details__image-single">
-                                                    <img src="{{ asset('storage/' . $img) }}" class="img-fluid" alt="">
+                                                    <img src="{{ asset($img) }}" class="img-fluid item-mm--image" alt="">
                                                 </div>
                                             </div>
                                         @endforeach
@@ -26,11 +26,6 @@
                                 <div class="product-details__desc section-space--bottom--30">
                                     <p>{{ $item->item_short_description }}</p>
                                 </div>
-                                <div class="product-details__quantity-wrapper section-space--bottom--40">
-                                    <span class="quantity-label">Available Quantity</span>
-                                    <div class="pro-qty d-inline-block">
-                                        <input type="text" value="{{ $item->item_qty }}" disabled>
-                                    </div>
                                 </div>
                                 <div class="product-details__actions">
                                     <a href="#" class="add-cart-btn">GET A QUOTE</a>
@@ -39,8 +34,8 @@
                                 </div>
                                 <div class="product-details__meta-wrap">
                                     <div class="single-meta">
-                                        <h4 class="title">SKU: </h4>
-                                        <span class="sku">{{ $item->slug }}</span>
+                                        <h4 class="title">Brand: </h4>
+                                        <span class="sku">{{ $item->item_brand }}</span>
                                     </div>
                                     <div class="single-meta">
                                         <h4 class="title">Categories: </h4>

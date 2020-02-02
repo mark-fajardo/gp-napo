@@ -43,7 +43,26 @@
                                 <h2 class="title title--left" style="margin-bottom: 1.2rem !important"> {{ $category->name }}</h2>
                             </div>
                             <p class="section-title-content" style="margin-bottom: 1.2rem !important; font-size: 16px !important"> {{ $category->description }}</p>
+                            <style>
+                                .imahe {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                            </style>
+                            @foreach ($category->items->slice(0,2) as $item)
+                                {{-- <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li> --}}
+                                <div class="single-case-study-project" style="margin-bottom: 10px !important; display: flex; align-items: center">
+                                    <div style="margin-left: 1rem">
+                                        <img class="imahe" src="{{asset($item->img_dir[0])}}" alt="i{{$item->item_name}} image">
+                                    </div>
+                                    <div class="single-case-study-project__content" style="padding: 14px 20px !important">
+                                        <h3 class="title" style="font-size: 16px !important"><a href="{{route('front.item', ['slug' => $item->slug])}}">{{$item->item_name}}</a></h3>
+                                        <a href="{{route('front.category', ['slug' => $category->slug])}}" class="category">{{$category->name}}</a>
+                                    </div>
+                                </div>
+                            @endforeach
                             
+
                             <a href="service-details-4.html" class="ht-btn ht-btn--dark" style="margin-top: 10px !important">MORE PRODUCTS</a>
                         </div>
                     </div>

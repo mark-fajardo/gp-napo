@@ -96027,11 +96027,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     getItems: function getItems(context) {
       axios.get('/admin/api/item/load').then(function (oResponse) {
+        console.log(oResponse);
         context.commit('setItems', oResponse.data);
       });
     },
     getCategories: function getCategories(context) {
       axios.get('/admin/api/category/load').then(function (oResponse) {
+        console.log(oResponse);
         context.commit('setCategories', oResponse.data);
       });
     },

@@ -68,6 +68,13 @@ class Items extends Model
         $x = substr($img_dir, 2, -2);
         $aImg = explode('", "', $x);
 
-        return $aImg;
+        $newImg = [];
+
+        for ($i = 0; $i < count($aImg); $i++) {
+            $newImgDir = str_replace("public","storage",$aImg[$i]);
+            array_push($newImg, $newImgDir);
+        }
+
+        return $newImg;
     }
 }

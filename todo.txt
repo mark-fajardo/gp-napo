@@ -1,3 +1,8 @@
+NEW: 
+1. Add one item image from google
+2. Convert all image to 570x570 pixels
+3. Fix single item page
+
 Front Design:
 1. Item images
 2. GP NAPO BULL

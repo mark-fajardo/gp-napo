@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-6">
-                <h2 class="breadcrumb-page-title">Equipment</h2>
+                <h2 class="breadcrumb-page-title">{{ $category->name }}</h2>
             </div>
             <div class="col-sm-6">
                 <ul class="breadcrumb-page-list text-uppercase">

@@ -150,12 +150,14 @@ export default new Vuex.Store({
         getItems : function (context) {
             axios.get('/admin/api/item/load')
                 .then(function (oResponse) {
+                    console.log(oResponse)
                     context.commit('setItems', oResponse.data)
                 })
         },
         getCategories : function (context) {
             axios.get('/admin/api/category/load')
                 .then(function (oResponse) {
+                    console.log(oResponse)
                     context.commit('setCategories', oResponse.data)
                 })
         },

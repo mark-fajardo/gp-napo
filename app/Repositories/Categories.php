@@ -47,7 +47,7 @@ class Categories extends Model
      * Item table relationship
      */
     public function items() {
-        return $this->belongsToMany('App\Repositories\Items', 'category_item', 'item_id', 'category_id');
+        return $this->belongsToMany('App\Repositories\Items', 'category_item', 'category_id', 'item_id');
     }
 
     /**
