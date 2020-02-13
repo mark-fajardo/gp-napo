@@ -72,7 +72,7 @@ class Items extends Model
 
         for ($i = 0; $i < count($aImg); $i++) {
             $newImgDir = str_replace("public","storage",$aImg[$i]);
-            array_push($newImg, $newImgDir);
+            array_unshift($newImg, $newImgDir);
         }
 
         return $newImg;
