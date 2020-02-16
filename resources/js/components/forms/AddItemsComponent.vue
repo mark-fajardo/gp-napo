@@ -48,13 +48,6 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
-                        <div class="col-sm-5">
-                            <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
-                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage" multiple>
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="item-name" class="col-sm-2 col-form-label">Item Short Description:</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" v-model="sItemShortDescription" id="item-short-description" placeholder="Item short description">
@@ -62,7 +55,37 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Item Description: </label>
-                        <ckeditor :editor="editor" v-model="sItemDescription"></ckeditor>
+                        <ckeditor :editor="editor" v-model="sItemDescription" style="margin-left: 15px !important"></ckeditor>
+                    </div>
+                    <div class="form-group row">
+                        <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
+                        <div class="col-sm-5">
+                            <!-- <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/> -->
+                            <input ref="itemImages" type="file" class="mt-1" id="category-img" accept="image/*" @change="uploadImage" multiple>
+                        </div>
+                    </div>
+                    <div v-if="oImgSortable.length !== 0" class="form-group row">
+                        <label class="col-sm-2 col-form-label">
+                            Preview <br> 
+                            <small><i>Drag the panel to order the image</i></small>
+                        </label>       
+                        <div class="col-sm-5">
+                            <ImageList 
+                                lockAxis="y" 
+                                v-model="oImgSortable" 
+                                @sort-start="onSorting('start')"
+                                @sort-end="onSorting('end')"
+                                :style="{cursor: selectedCursor}"
+                            >  
+                                <ImageItem 
+                                    v-for="(item, index) in oImgSortable " 
+                                    :index="index" 
+                                    :key="index" 
+                                    :imageData="item"
+                                    @delete="removeImage"
+                                />
+                            </ImageList> 
+                        </div>
                     </div>
                     <div class="container-fluid mt-5 mb-1">
                         <div class="row">
@@ -86,9 +109,15 @@
 <script>
 import Multiselect from 'vue-multiselect';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ImageList from './DraggableImage/ImageList'
+import ImageItem from './DraggableImage/ImageItem'
 
-Vue.component('multiselect', Multiselect);
 export default {
+    components: {
+        'multiselect': Multiselect,
+        ImageList,
+        ImageItem
+    },
     data () {
         return {
             sItemName : '',
@@ -99,12 +128,15 @@ export default {
             aTags : [],
             aCategIds : [],
             oImg : [],
+            oImgSortable: [],
             bPreviewImage : null,
-            editor: ClassicEditor
+            editor: ClassicEditor,
+            selectedCursor: 'grab'
         };
     },
     methods : {
         addItem : function () {
+            const oImg = this.getSortedImages()
             if (this.recollectCategIds() === false) {
                 this.aCategIds = [];
                 return;
@@ -123,10 +155,10 @@ export default {
             oFormData.append('item_brand', this.sItemBrand);
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
-            for (let i = 0; i < this.oImg.length; i++) {
-               oFormData.append('file_' + i, this.oImg[i]); 
+            for (let i = 0; i < oImg.length; i++) {
+               oFormData.append('file_' + i, oImg[i]); 
             }
-            // oFormData.append(this.oImg);
+
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
             axios.post('/admin/api/item/add', oFormData)
             .then(function (bResponse) {
@@ -140,7 +172,6 @@ export default {
 
             })
             .catch(function (oResponse) {
-                conosle.log(oResponse)
                 oThis.$store.dispatch('toast', {
                     bType : false,
                     sMsg : oThis.$store.state.oMessages.oAlerts.sFailAddItem,
@@ -157,17 +188,55 @@ export default {
             this.sItemQty = ''
         },
         uploadImage : function (e) {
-            this.oImg = [];
-            let iImgCount = e.target.files.length;
-            // for (let i = 0; i < iImgCount; i++) {
-                const image = e.target.files[0];
-                this.oImg = e.target.files;
-                const reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onload = e =>{
-                    this.bPreviewImage = e.target.result;
-                };
-            // }
+            const oImg = [];
+            const oImgSortable = []
+            const imagesFiles = this.$refs.itemImages.files
+            Array.from(imagesFiles).forEach((file, i) => {
+                const data = new FormData();
+                const extension = file.name.substring(file.name.lastIndexOf('.'))
+                const newFileName = file.name.replace(extension, `-image-${i}`) + extension
+                data.append(newFileName, file, newFileName);
+                const newImage = data.get(newFileName);
+                this.getPreviewImage(newImage, (image) => {
+                    const { src } = image
+                    const base64Src = `data:${newImage.type};base64,${src}`
+                    oImgSortable.push({
+                        id: i,
+                        name: newImage.name,
+                        size: newImage.size,
+                        src: base64Src
+                    })
+                })
+                oImg.push(newImage)
+            })
+            this.oImg = oImg
+            this.oImgSortable = oImgSortable
+            this.$refs.itemImages.value = ''
+        },
+        removeImage(name) {
+            const newSortableImage = this.oImgSortable.filter(image => image.name !== name)
+            const newImages = this.oImg.filter(image => image.name !== name)
+            this.oImg = newImages
+            this.oImgSortable = newSortableImage
+        },
+        getSortedImages() {
+            const images = []
+            const test = this.oImgSortable.map(sortImage => {
+                const image = this.oImg.find(image => image.name === sortImage.name)
+                images.push(image)
+            })
+
+            return images.reverse()
+        },
+        getPreviewImage(file, callback) {
+            const image = {}
+            const reader = new FileReader()
+            reader.onload = (e) => {
+                const src = btoa(e.target.result)
+                image.src = src
+                callback(image)
+            }
+            reader.readAsBinaryString(file) 
         },
         cancelSelect : function (e) {
             this.bPreviewImage = null;
@@ -202,13 +271,20 @@ export default {
             }
 
             return true;
+        },
+        onSorting(type) {
+            this.selectedCursor = type === 'start' ? 'grabbing' : 'grab'
         }
     },
     mounted () {
         this.$store.dispatch('getCategories');
-        this.aTags = [];
-    },
-    computed: {
+        this.aTags = []
     },
 }
 </script>
+
+<style>
+    .ck-editor {
+        margin-left: 15px !important
+    }
+</style>
