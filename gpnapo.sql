@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2020 at 07:56 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Feb 18, 2020 at 03:29 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,10 +72,40 @@ INSERT INTO `category_item` (`id`, `item_id`, `category_id`) VALUES
 (33, 24, 3),
 (34, 24, 4),
 (36, 10, 1),
-(37, 25, 2),
-(38, 26, 1),
-(39, 27, 1),
-(40, 28, 1);
+(37, 25, 3),
+(38, 26, 3),
+(39, 26, 2),
+(40, 27, 3),
+(41, 27, 2),
+(42, 27, 1),
+(43, 28, 3),
+(44, 28, 2),
+(45, 29, 3),
+(46, 29, 2),
+(47, 30, 3),
+(48, 30, 2),
+(49, 31, 3),
+(50, 31, 2),
+(51, 32, 3),
+(52, 33, 3),
+(53, 33, 2),
+(54, 34, 2),
+(55, 34, 3),
+(56, 35, 3),
+(57, 35, 2),
+(58, 36, 1),
+(59, 37, 1),
+(60, 38, 1),
+(61, 39, 1),
+(62, 40, 4),
+(63, 41, 4),
+(64, 42, 4),
+(65, 43, 4),
+(66, 43, 1),
+(67, 44, 4),
+(68, 44, 1),
+(69, 45, 3),
+(70, 45, 4);
 
 -- --------------------------------------------------------
 
@@ -89,7 +119,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -164,7 +194,7 @@ CREATE TABLE `t_categories` (
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_dir` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `archived` bigint(20) NOT NULL DEFAULT 0,
+  `archived` bigint(20) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -195,10 +225,33 @@ CREATE TABLE `t_items` (
   `item_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_dir` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `archived` bigint(20) NOT NULL DEFAULT 0,
+  `archived` bigint(20) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `t_items`
+--
+
+INSERT INTO `t_items` (`id`, `users_id`, `item_name`, `item_brand`, `item_qty`, `item_short_description`, `item_description`, `slug`, `img_dir`, `archived`, `created_at`, `updated_at`) VALUES
+(28, 1, 'Henny Penny Combi Steamer', 'Henny Penny', 1, 'Steamer , Oven', '<p><strong>Henny Penny Combi Steamer&nbsp;</strong><br><br>- Oven For Roasting Chicken, Turkey, Pig&nbsp;<br>- Baking of Breads and Pastries&nbsp;<br>- Steaming Rice, Veggies, Siopao, Puto ETC.&nbsp;<br>-Capacity: 10 Trays</p>', 'henny-penny-combi-steamer', '[\"public/photos/items/ta0UeZmgWCAqqC0ouUmXz0fKVEz2mN7jeE2C4OM4.jpeg\", \"public/photos/items/ZdZpvBZvNxyUgItOx5CVC1p4AZAIGuCXV4zumN3n.jpeg\"]', 0, '2020-02-18 05:04:37', '2020-02-18 05:04:37'),
+(29, 1, 'Kitchen Aid Cake Mixers', 'Kitchen Aid', 10, 'Mixer', '<p><strong>Kitchen Aid Cake Mixer</strong><br>- Cake Mixers&nbsp;<br>-Made in USA&nbsp;<br>- Capacity: 5 quarts / 5 liters<br>&nbsp;</p>', 'kitchen-aid-cake-mixers', '[\"public/photos/items/ytOUUl90JB5vbIxdyrpMeJEL2tt1QuBp1ZneZ5H4.jpeg\", \"public/photos/items/9skjiRXKx7iJl9baTVqaOiDz48YklC63CzS1hQws.jpeg\"]', 0, '2020-02-18 05:08:47', '2020-02-18 05:08:47'),
+(30, 1, 'Convection Oven with Built-in Exhaust Hood And Proofer', 'Branded', 1, 'Oven', '<p><strong>Convection Oven with Built-in Exhaust Hood And Proofer underneath&nbsp;</strong><br><br>-Electric Type&nbsp;<br>-Made in Europe&nbsp;<br>- 8 to 10 trays capacity</p>', 'convection-oven-with-built-in-exhaust-hood-and-proofer', '[\"public/photos/items/r4YIrJAb3yRdGfBVSOv3Wu8MVWOqBu2kBMePYVGF.jpeg\", \"public/photos/items/XJhyjIb1Wr1iH0jbcH6ZcuAe4E0CoYVMJDS333zc.jpeg\"]', 0, '2020-02-18 05:50:16', '2020-02-18 05:50:16'),
+(31, 1, 'Conveyor Type pizza Oven', 'Blodgett', 1, 'Oven', '<p><strong>Conveyor Type pizza Oven</strong><br><br>-LPG Type&nbsp;<br>-“Impinge Ovens “ can be set it up as Tunnel ovens&nbsp;<br>-For cooking of: Hopia ,Nachos ,Cookies and Biscuits&nbsp;<br>-Can be use for drying purposes</p>', 'conveyor-type-pizza-oven', '[\"public/photos/items/JFHjBjLKJMrcXgRoqcFJtRVCk3OL5vJ0YF2zk7xn.jpeg\", \"public/photos/items/Y0XEsUTpf4lIZMpp4EDWrT2wZy58JBp3rMDbJ7iG.jpeg\"]', 0, '2020-02-18 05:52:36', '2020-02-18 05:52:36'),
+(32, 1, 'Baker Perkins Twin Paddle Planetary Mixer', 'Baker Perkins', 1, 'Mixer', '<p><strong>Baker Perkins Twin Paddle Planetary Mixer&nbsp;</strong><br><br>-Twin paddle -Hydrolic Type&nbsp;<br>-630 Liters Capacity&nbsp;<br>-Made In UK / London&nbsp;<br>-Ideal for making , cookies , biscuits , chips ahoy , brownies and other soft breads and pastries</p>', 'baker-perkins-twin-paddle-planetary-mixer', '[\"public/photos/items/iPb9bWUAyVrcETW8niNVE6wLkszfNnSmFimzvj9K.jpeg\", \"public/photos/items/aqc3b1esvbd6pbslUlIY4u0yKm4Gf2ax6wdUG1X0.jpeg\"]', 0, '2020-02-18 05:54:03', '2020-02-18 05:54:03'),
+(33, 1, 'Mondial Forni Convection Oven with Built-in Proofer and Hood (Gas Type)', 'Mondial Forni', 1, 'Oven', '<p><strong>Convection Oven with Built-in Proofer and Hood&nbsp;</strong><br><br>-Brand : Mondial Forni&nbsp;<br>-Made in Italy&nbsp;<br>-LPG gas type</p>', 'mondial-forni-convection-oven-with-built-in-proofer-and-hood-gas-type', '[\"public/photos/items/ggYUDGuaJUqgq397fXhkedxPAj7XhwW7UT930mtg.jpeg\", \"public/photos/items/T1j5yYqnwRgZyzp7gx3setO29Zlf7EnkAm4HuR6f.jpeg\"]', 0, '2020-02-18 05:55:45', '2020-02-18 05:55:45'),
+(34, 1, 'Esmach Bread Stick Machine', 'Esmach', 1, 'Bread Stick Machine', '<p><strong>Esmach Bread Stick Machine</strong><br><br>-Brand: Esmach&nbsp;<br>-Made in Italy</p>', 'esmach-bread-stick-machine', '[\"public/photos/items/sOWuLksSdBGEX8Ofs7GlimQKK1tsckEoYiQjvu1W.jpeg\", \"public/photos/items/9fOHV3l0V4ZefDX3OjSCMjszHbnUT2K5DMv6JzO0.jpeg\"]', 0, '2020-02-18 05:57:40', '2020-02-18 05:57:40'),
+(35, 1, 'Proofing Cabinet / Fermentation Room for Breads', 'Branded', 1, 'Cabinet', '<p><strong>Proofing Cabinet / Fermentation Room for Breads</strong><br><br>-Made in Taiwan</p>', 'proofing-cabinet-fermentation-room-for-breads', '[\"public/photos/items/BDHPyo47Q8Rncu3tL5ZGIeaPwq7mThNYHGqGigLP.jpeg\"]', 0, '2020-02-18 05:58:59', '2020-02-18 05:58:59'),
+(36, 1, 'Paddle type Mixer (80 - 10 Liters)', 'Branded', 1, 'Mixer', '<p><strong>Paddle type Mixer&nbsp;</strong><br><br>- 80 -100 Liters Capacity&nbsp;<br>- Use for Meat mixing, powder Mixing, Dough &amp; Bread mixing &nbsp;<br>-Tilting Type&nbsp;<br>- Made in Japan</p>', 'paddle-type-mixer-80-10-liters', '[\"public/photos/items/RXrLQCpxZzURpntsjt43r8Xyf0KXWaQLhgUD0E1p.jpeg\", \"public/photos/items/yzsAKAI0l14al0x9beJUTXWiKoOTKbg6l0fWAgrq.jpeg\"]', 0, '2020-02-18 06:02:50', '2020-02-18 06:02:50'),
+(37, 1, 'Ribbon Blender / Ribbon Mixer - 240 Liters Capacity', 'Branded', 1, 'Mixer , Blender', '<p><strong>Ribbon Blender / Ribbon Mixer - 240 Liters Capacity</strong></p><p>- Use for mixing all kinds of powders like Flour, coffee powder, Cream powder, spices, salt, sugar, etc&nbsp;<br>- Can mix all kinds of liquid products like Milk, vinegar, sugar syrup, petroleum oils, liquid detergent, vinegar, soy sauce, etc&nbsp;<br>- Available units 500 L / 750 L / 850 L, 1000 L / 1200 L, 2000 L / 2500 / 3000 L</p>', 'ribbon-blender-ribbon-mixer-240-liters-capacity', '[\"public/photos/items/Bjonawv0eWEwne21qZ4mGIf2BJEV84aJYhTSCbvC.jpeg\", \"public/photos/items/GC3BcZFEyg1BLI7gOKIpKuU5y7cCp5CnJd3fVPpX.jpeg\", \"public/photos/items/3YeMuT4RPMvmKtwjm4cL1W8z1Ze4qdhsyOsYc6vg.jpeg\"]', 0, '2020-02-18 06:04:20', '2020-02-18 06:04:20'),
+(38, 1, 'Hobart & Berkel Multi Cutter Meat Grinder', 'Hobart & Berkel', 1, 'Grinder , Cutter', '<p><strong>Multi Cutter Meat Grinder</strong><br><br>- For cutting vegetables, Fine cutting of meat products for making sausages &amp; Hams / Hotdogs, etc.&nbsp;<br>- Can be used for making desserts like Brownies, Ube Halaya And Making of Bread crumbs&nbsp;<br>- Capacity: 45 liters with Power supply: 5hp Motor, 220v, 60hz, 3 phase</p>', 'hobart-berkel-multi-cutter-meat-grinder', '[\"public/photos/items/KB4VGshw2MFQI9wpYxhXd7PlvuZJpLXgiB8Cr5pd.jpeg\", \"public/photos/items/8Ial3tgshCfdhP5XIbXKyFCV6z3Ogl7EuVFRzpaQ.jpeg\"]', 0, '2020-02-18 06:05:53', '2020-02-18 06:05:53'),
+(39, 1, 'Kramer Grebe Silent Cutter and Bowl Chopper 500 liters', 'Kramer Grebe', 1, 'Cutter , Chopper', '<p><strong>Silent Cutter / Bowl Chopper 500 liters</strong></p><p>-Brand: Kramer Grebe&nbsp;<br>-Capacity, Vacuum Type with loading &amp; unloading attachments<br>-Made in Germany - all stainless</p>', 'kramer-grebe-silent-cutter-and-bowl-chopper-500-liters', '[\"public/photos/items/ew2UCwn6AaPnBpTHIQ6J2mwDR6iTZS83hIkZ3YMi.jpeg\", \"public/photos/items/Y7u3KZHwVuWvJuBwbPYuPg9nTRGfSxoQ2RnUMUsh.jpeg\"]', 0, '2020-02-18 06:07:52', '2020-02-18 06:07:52'),
+(41, 1, 'Ribbon Blender / Ribbon mixer 3,000 liters Capacity', 'Branded', 1, 'Mixer', '<p><strong>Ribbon Blender / Ribbon mixer 3,000 liters Capacity</strong><br><br>Ribbon Blender / Ribbon mixer 3,000 liters Capacity<br>-Made in USA for all kinds of powder and liquid products<br>-For Mixing of flour , powder milk , sugar , coffee, feeds , beans. rice grains , liquid detergent, tide powder , petroleum products, oils , etc<br><br>&nbsp;</p>', 'ribbon-blender-ribbon-mixer-3-000-liters-capacity', '[\"public/photos/items/YjVdpN4r1WkC3QGVIhyfGnYgeapZTEoNsCvkmvRt.jpeg\", \"public/photos/items/qgTunpaN8l0JOZpp3vAl3syT1oA3RRLIOoxnQ3Rs.jpeg\"]', 0, '2020-02-18 06:13:23', '2020-02-18 06:13:23'),
+(42, 1, 'Dorit Vacuum Tumbler  Meat Marinator', 'Dorit', 1, 'Marinator , Tumbler', '<p><strong>Vacuum Tumbler &nbsp;Meat Marinator</strong><br><br>- Brand: Dorit<br>- Curing Machine&nbsp;<br>- For Tocinos &amp; Beef tapas<br>- Made in Europe<br>- Capacity: 600 Liters</p>', 'dorit-vacuum-tumbler-meat-marinator', '[\"public/photos/items/PxNqZDXwKJtFDufIfOX5I7m0nGMsn4QbVa4iNHRn.jpeg\", \"public/photos/items/l3vCIGYOOrJtaVF2xvjIVbiqI8PDzlS3s5xExSge.jpeg\"]', 0, '2020-02-18 06:16:07', '2020-02-18 06:16:07'),
+(43, 1, 'Rhule Meat Marinator / Vacuum tumbler', 'Rhule', 1, 'Marinator , Tumbler', '<p><strong>Meat Marinator / Vacuum tumbler&nbsp;</strong><br><br>- Brand : Rhule&nbsp;<br>- Curing Machines for Tocinos / Beef tapas&nbsp;<br>- Made in Europe&nbsp;<br>-200 liters Capacity</p>', 'rhule-meat-marinator-vacuum-tumbler', '[\"public/photos/items/WRhQl3GKiMaadQ7KMH6gVdryFRawFvTJK3Lw2bYT.jpeg\", \"public/photos/items/jUrRtgKk28jx2Cdaywmzs8iiImDIcK5GAHBqQIb4.jpeg\"]', 0, '2020-02-18 06:18:21', '2020-02-18 06:18:21'),
+(44, 1, 'Dual Paddle Type Meat Mixer', 'Branded', 1, 'Mixer', '<p><strong>Dual paddle type Meat Mixer&nbsp;</strong></p><p>- Made In USA<br>- 240 liters Capacity</p>', 'dual-paddle-type-meat-mixer', '[\"public/photos/items/RVPKyi1favpCO6t82mEX3gTJiXOsnoQeeECJUB8V.jpeg\", \"public/photos/items/uIlhqS9n9P44lK1IGc3MUmR0fmiJjwgNr5ufKXeD.jpeg\"]', 0, '2020-02-18 06:21:30', '2020-02-18 06:21:30'),
+(45, 1, 'Hobart Dough Mixer / Cake mixer', 'Hobart', 1, 'Mixer', '<p><strong>Dough Mixer / Cake mixer</strong><br><br>- Brand : Hobart&nbsp;<br>- 3 in one<br>- For mixing of Breads , cakes and cookies</p>', 'hobart-dough-mixer-cake-mixer', '[\"public/photos/items/SAoCRngRzxqGnQDnIFsa4FrdzGBY7QcRyA9qB3lG.jpeg\", \"public/photos/items/XS1xRXK2jPBMvaWjHljPo8yyEROLpcYrPyxoFCac.jpeg\"]', 0, '2020-02-18 06:23:25', '2020-02-18 06:23:25');
 
 -- --------------------------------------------------------
 
@@ -285,7 +338,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category_item`
 --
 ALTER TABLE `category_item`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -315,7 +368,7 @@ ALTER TABLE `t_categories`
 -- AUTO_INCREMENT for table `t_items`
 --
 ALTER TABLE `t_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`
