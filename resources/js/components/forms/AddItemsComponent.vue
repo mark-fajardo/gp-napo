@@ -58,9 +58,14 @@
                         <ckeditor :editor="editor" v-model="sItemDescription" style="margin-left: 15px !important"></ckeditor>
                     </div>
                     <div class="form-group row">
+                        <label for="category-img" class="col-sm-2 col-form-label">Feature this item:</label>
+                        <div class="col-sm-5">
+                            <input type="checkbox" v-model="isFeatured">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
                         <div class="col-sm-5">
-                            <!-- <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/> -->
                             <input ref="itemImages" type="file" class="mt-1" id="category-img" accept="image/*" @change="uploadImage" multiple>
                         </div>
                     </div>
@@ -129,6 +134,7 @@ export default {
             aCategIds : [],
             oImg : [],
             oImgSortable: [],
+            isFeatured: false,
             bPreviewImage : null,
             editor: ClassicEditor,
             selectedCursor: 'grab'
@@ -155,6 +161,7 @@ export default {
             oFormData.append('item_brand', this.sItemBrand);
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
+            oFormData.append('isFeatured', this.isFeatured);
             for (let i = 0; i < oImg.length; i++) {
                oFormData.append('file_' + i, oImg[i]); 
             }

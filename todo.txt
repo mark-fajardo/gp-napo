@@ -1,20 +1,13 @@
-NEW: 
-1. Add one item image from google
-2. Convert all image to 570x570 pixels
-3. Fix single item page
-
 Front Design:
 1. Item images
-2. GP NAPO BULL
-3. Remove social media icons
-4. Comments ni napo sa meeting na nilista ni nixon
+2. Search in mobile view
 
 Admin: 
 1. Quote Page
+2. Liters
 
 Backend:
 1. Get quote
-2. Search
 
 (Optional):
 1. Add im not a robot security in get quote

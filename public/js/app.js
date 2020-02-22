@@ -2650,6 +2650,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2671,6 +2676,7 @@ __webpack_require__.r(__webpack_exports__);
       aCategIds: [],
       oImg: [],
       oImgSortable: [],
+      isFeatured: false,
       bPreviewImage: null,
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default.a,
       selectedCursor: 'grab'
@@ -2698,6 +2704,7 @@ __webpack_require__.r(__webpack_exports__);
       oFormData.append('item_brand', this.sItemBrand);
       oFormData.append('item_qty', this.sItemQty);
       oFormData.append('item_categs', this.aCategIds);
+      oFormData.append('isFeatured', this.isFeatured);
 
       for (var i = 0; i < oImg.length; i++) {
         oFormData.append('file_' + i, oImg[i]);
@@ -3164,6 +3171,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3182,6 +3195,7 @@ __webpack_require__.r(__webpack_exports__);
       sItemBrand: '',
       sItemQty: '',
       aCategIds: [],
+      isFeatured: false,
       oImg: [],
       bPreviewImage: null
     };
@@ -3197,7 +3211,8 @@ __webpack_require__.r(__webpack_exports__);
     this.iItemId = this.aItem.id;
     this.sItemName = this.aItem.item_name;
     this.sItemBrand = this.aItem.item_brand;
-    this.sItemQty = this.aItem.item_qty; // this.aTags = this.aItem.categories;
+    this.sItemQty = this.aItem.item_qty;
+    this.isFeatured = this.aItem.is_featured === 1; // this.aTags = this.aItem.categories;
   },
   methods: {
     addItem: function addItem() {
@@ -3217,6 +3232,7 @@ __webpack_require__.r(__webpack_exports__);
       oFormData.append('item_brand', this.sItemBrand);
       oFormData.append('item_qty', this.sItemQty);
       oFormData.append('item_categs', this.aCategIds);
+      oFormData.append('isFeatured', this.isFeatured);
 
       for (var i = 0; i < this.oImg.length; i++) {
         oFormData.append('file_' + i, this.oImg[i]);
@@ -3622,6 +3638,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -76320,6 +76340,57 @@ var render = function() {
                   staticClass: "col-sm-2 col-form-label",
                   attrs: { for: "category-img" }
                 },
+                [_vm._v("Feature this item:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-5" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.isFeatured,
+                      expression: "isFeatured"
+                    }
+                  ],
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(_vm.isFeatured)
+                      ? _vm._i(_vm.isFeatured, null) > -1
+                      : _vm.isFeatured
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.isFeatured,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.isFeatured = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.isFeatured = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.isFeatured = $$c
+                      }
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-2 col-form-label",
+                  attrs: { for: "category-img" }
+                },
                 [_vm._v("Item Images:")]
               ),
               _vm._v(" "),
@@ -77041,6 +77112,57 @@ var render = function() {
                 staticClass: "col-sm-2 col-form-label",
                 attrs: { for: "category-img" }
               },
+              [_vm._v("Feature this item:")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-5" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.isFeatured,
+                    expression: "isFeatured"
+                  }
+                ],
+                attrs: { type: "checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.isFeatured)
+                    ? _vm._i(_vm.isFeatured, null) > -1
+                    : _vm.isFeatured
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.isFeatured,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.isFeatured = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.isFeatured = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.isFeatured = $$c
+                    }
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-2 col-form-label",
+                attrs: { for: "category-img" }
+              },
               [_vm._v("Item Images:")]
             ),
             _vm._v(" "),
@@ -77583,12 +77705,34 @@ var render = function() {
                     _vm._l(aItem.categories, function(aCateg) {
                       return _c(
                         "span",
-                        { staticClass: "badge badge-success p-2 m-1" },
+                        {
+                          key: aCateg.name,
+                          staticClass: "badge badge-success p-2 m-1"
+                        },
                         [_vm._v(_vm._s(aCateg.name))]
                       )
                     }),
                     0
                   ),
+                  _vm._v(" "),
+                  _c("td", [
+                    aItem.is_featured === 1
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "badge badge-info text-white p-2 m-1"
+                          },
+                          [_vm._v("FEATURED")]
+                        )
+                      : _c(
+                          "span",
+                          {
+                            staticClass:
+                              "badge badge-secondary text-white p-2 m-1"
+                          },
+                          [_vm._v("NOT FEATURED")]
+                        )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "td",
@@ -77678,7 +77822,10 @@ var render = function() {
                     _vm._l(aItem.categories, function(aCateg) {
                       return _c(
                         "span",
-                        { staticClass: "badge badge-success p-2 m-1" },
+                        {
+                          key: aCateg.name,
+                          staticClass: "badge badge-success p-2 m-1"
+                        },
                         [_vm._v(_vm._s(aCateg.name))]
                       )
                     }),
@@ -97590,6 +97737,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         }, {
           label: 'Category',
           field: 'item_name'
+        }, {
+          label: 'Is Featured',
+          field: 'is_featured'
         }, {
           label: 'Action',
           field: 'action'

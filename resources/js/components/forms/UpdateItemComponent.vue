@@ -48,6 +48,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="category-img" class="col-sm-2 col-form-label">Feature this item:</label>
+                        <div class="col-sm-5">
+                            <input type="checkbox" v-model="isFeatured">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
                         <div class="col-sm-5">
                             <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
@@ -93,6 +99,7 @@ export default {
             sItemBrand : '',
             sItemQty : '',
             aCategIds : [],
+            isFeatured: false,
             oImg : [],
             bPreviewImage : null,
         };
@@ -107,6 +114,7 @@ export default {
         this.sItemName = this.aItem.item_name;
         this.sItemBrand = this.aItem.item_brand;
         this.sItemQty = this.aItem.item_qty;
+        this.isFeatured = this.aItem.is_featured === 1
         // this.aTags = this.aItem.categories;
     },
     methods : {
@@ -128,6 +136,7 @@ export default {
             oFormData.append('item_brand', this.sItemBrand);
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
+            oFormData.append('isFeatured', this.isFeatured);
             for (let i = 0; i < this.oImg.length; i++) {
                oFormData.append('file_' + i, this.oImg[i]); 
             }

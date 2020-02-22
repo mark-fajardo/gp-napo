@@ -40,7 +40,11 @@
                     <td>{{ aItem.item_name }}</td>
                     <td>{{ aItem.item_brand }}</td>
                     <td>
-                        <span v-for="aCateg in aItem.categories" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
+                        <span v-for="aCateg in aItem.categories" :key="aCateg.name" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
+                    </td>
+                    <td>
+                        <span v-if="aItem.is_featured === 1" class="badge badge-info text-white p-2 m-1">FEATURED</span>
+                        <span v-else class="badge badge-secondary text-white p-2 m-1">NOT FEATURED</span>
                     </td>
                     <td>
                         <inline-btns
@@ -70,7 +74,7 @@
                     <td>{{ aItem.item_name }}</td>
                     <td>{{ aItem.item_brand }}</td>
                     <td>
-                        <span v-for="aCateg in aItem.categories" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
+                        <span v-for="aCateg in aItem.categories" :key="aCateg.name" class="badge badge-success p-2 m-1">{{aCateg.name}}</span>
                     </td>
                     <td>
                         <!-- <inline-btns

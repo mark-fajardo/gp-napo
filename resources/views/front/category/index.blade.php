@@ -43,23 +43,32 @@
 @section('content')
 
     @include('front.category.header')
-    @include('front.category.front')
-    @include('front.category.items')
+    <?php $ctr = 0; ?>
+    @foreach ($category->items as $item)
+        @if ($item->is_featured == 1)
+        <?php $ctr++ ?>
+        @endif
+    @endforeach
+    @if ($ctr > 0)
+    @include('front.category.front',  ['featuredCount' => $ctr])
+    @endif
+    @include('front.category.items', ['featuredCount' => $ctr])
 
 @endsection
 
 @section('scripts')
+@if ($ctr > 0)
 <script>
     var featureProjectTwoSlider = new Swiper('.featured-project-two-slider-container', {
-        slidesPerView : 2,
+        slidesPerView : {{ $ctr >= 3 ? 3 : $ctr }},
         loop: true,
         speed: 1000,
         watchSlidesVisibility: true,
-        pagination: {
-            el: '.swiper-pagination-2',
-            type: 'bullets',
-            clickable: true
-        },
+        // pagination: {
+        //     el: '.swiper-pagination-2',
+        //     type: 'bullets',
+        //     clickable: true
+        // },
         navigation: {
             nextEl: '.ht-swiper-button-next-1',
             prevEl: '.ht-swiper-button-prev-1'
@@ -67,11 +76,11 @@
         // Responsive breakpoints
         breakpoints: {
             991:{
-                slidesPerView : 2
+                slidesPerView : {{ $ctr >= 2 ? 2 : 1 }}
             },
 
             767:{
-                slidesPerView : 2
+                slidesPerView : {{ $ctr >= 2 ? 2 : 1 }}
 
             },
 
@@ -82,4 +91,5 @@
         }
     });
 </script>
+@endif
 @endsection
