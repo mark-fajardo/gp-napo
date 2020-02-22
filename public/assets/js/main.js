@@ -278,41 +278,6 @@
             },
         });
 
-        var featureProjectTwoSlider = new Swiper('.featured-project-two-slider-container', {
-            slidesPerView : 3,
-            loop: true,
-            speed: 1000,
-            watchSlidesVisibility: true,
-            pagination: {
-                el: '.swiper-pagination-2',
-                type: 'bullets',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.ht-swiper-button-next-1',
-                prevEl: '.ht-swiper-button-prev-1'
-            },
-            // Responsive breakpoints
-            breakpoints: {
-                1499:{
-                    slidesPerView : 3
-                },
-
-                991:{
-                    slidesPerView : 2
-                },
-
-                767:{
-                    slidesPerView : 2
-
-                },
-
-                575:{
-                    slidesPerView : 1,
-                    spaceBetween : 30
-                }
-            }
-        });
 
         if($('.industry-slider-nav-container').length && $('.industry-slider-content-container').length){
             var industryNavSlider = new Swiper('.industry-slider-nav-container', {
