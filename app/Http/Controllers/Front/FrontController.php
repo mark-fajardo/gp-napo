@@ -15,6 +15,9 @@ class FrontController extends Controller
     public function index() {
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
+        foreach ($categories as $cat) {
+            // echo json_encode($cat->items);
+        }
         return view('front.home.index', compact('categories', 'items'));
     }
 

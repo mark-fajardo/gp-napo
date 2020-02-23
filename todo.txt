@@ -1,8 +1,13 @@
 Front Design:
 1. Item images
 2. Search in mobile view
+3. <link rel="icon" href="assets/img/favicon.png">
+4. About Page fix
+5. Add new slide, Edit slide background
+6. Create slide and page for Paper Factory
+7. GPNAPO LOGO
 
-Admin: 
+Admin:
 1. Quote Page
 2. Liters
 

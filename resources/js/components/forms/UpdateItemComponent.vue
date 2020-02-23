@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="mt-3 ml-2">
-                <form action="#/items/update">
+                <form action="#" @submit.prevent="addItem">
                     <div class="form-group row">
                         <label for="item-name" class="col-sm-2 col-form-label">Item Name:</label>
                         <div class="col-sm-5">
@@ -56,8 +56,31 @@
                     <div class="form-group row">
                         <label for="category-img" class="col-sm-2 col-form-label">Item Images:</label>
                         <div class="col-sm-5">
-                            <img :src="bPreviewImage" v-if="bPreviewImage !== null" class="uploading-image p-1 border" style="max-width: 200px; max-height: 200px"/>
-                            <input type="file" class="mt-1" id="category-img" accept="image/jpeg" @change="uploadImage" multiple>
+                            <input ref="itemImages" type="file" class="mt-1" id="category-img" accept="image/*" @change="uploadImage" multiple>
+                        </div>
+                    </div>
+                    <div v-if="oImgSortable.length !== 0" class="form-group row">
+                        <label class="col-sm-2 col-form-label">
+                            Preview <br> 
+                            <small><i>Drag the panel to order the image</i></small>
+                        </label>       
+                        <div class="col-sm-5">
+                            <ImageList 
+                                lockAxis="y" 
+                                v-model="oImgSortable" 
+                                @sort-start="onSorting('start')"
+                                @sort-end="onSorting('end')"
+                                :style="{cursor: selectedCursor}"
+                            >  
+                                <ImageItem 
+                                    v-for="(item, index) in oImgSortable " 
+                                    :index="index" 
+                                    :key="index" 
+                                    :imageData="item"
+                                    :isImageFromApi="isImageFromApi"
+                                    @delete="removeImage"
+                                />
+                            </ImageList> 
                         </div>
                     </div>
                     <div class="container-fluid mt-5 mb-1">
@@ -68,7 +91,7 @@
                                         <button class="btn btn-outline-danger mr-1 my-2 my-sm-0">Cancel</button>
                                     </router-link>
                                     <button type="button" class="btn btn-outline-success mr-1 my-2 my-sm-0" @click="clearForms()">Clear</button>
-                                    <button type="submit" class="btn btn-success my-2 my-sm-0" @click="addItem()">Update</button>
+                                    <button type="submit" class="btn btn-success my-2 my-sm-0">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -81,10 +104,14 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
+import ImageList from './DraggableImage/ImageList'
+import ImageItem from './DraggableImage/ImageItem'
 
 export default {
     components: {
-        'multiselect': Multiselect
+        'multiselect': Multiselect,
+        ImageList,
+        ImageItem
     },
     props : {
         aItem : {
@@ -101,6 +128,9 @@ export default {
             aCategIds : [],
             isFeatured: false,
             oImg : [],
+            oImgSortable: [],
+            isImageFromApi: true,
+            selectedCursor: 'grab',
             bPreviewImage : null,
         };
     },
@@ -109,25 +139,28 @@ export default {
             this.$router.push({ name : 'items'});
             return;
         }
-
         this.iItemId = this.aItem.id;
         this.sItemName = this.aItem.item_name;
         this.sItemBrand = this.aItem.item_brand;
         this.sItemQty = this.aItem.item_qty;
         this.isFeatured = this.aItem.is_featured === 1
-        // this.aTags = this.aItem.categories;
+        this.oImg = this.aItem.img_dir
+        this.oImgSortable = this.aItem.img_dir
+    },
+    beforeDestroy() {
+        this.isImageFromApi = true
+        this.oImg = []
+        this.oImgSortable = []
     },
     methods : {
         addItem : function () {
+            const oImg = this.getSortedImages()
             if (this.recollectCategIds() === false) {
                 this.aCategIds = [];
                 return;
             }
 
-            // if (this.validateImgs() === false) {
-            //     this.aCategIds = [];
-            //     return;
-            // }
+            if (!this.validateImgs()) return
             
             let oThis = this;
             let oFormData = new FormData();
@@ -137,21 +170,24 @@ export default {
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
             oFormData.append('isFeatured', this.isFeatured);
-            for (let i = 0; i < this.oImg.length; i++) {
-               oFormData.append('file_' + i, this.oImg[i]); 
+            if (this.isImageFromApi) {
+                oFormData.append('img_dir', oImg);
+            } else {
+                for (let i = 0; i < oImg.length; i++) {
+                    oFormData.append('file_' + i, oImg[i]); 
+                }
             }
-            // oFormData.append(this.oImg);
+
             axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
             axios.post('/admin/api/item/update', oFormData)
             .then(function (bResponse) {
-                if (bResponse.data === true) {
+                if (bResponse.status === 200) {
                     oThis.$store.dispatch('toast', {
                         bType : true,
                         sMsg : oThis.$store.state.oMessages.oAlerts.sSuccessUpdateItem,
                     });
                     oThis.$router.push({ name : 'items'});
                 }
-
             })
             .catch(function (oResponse) {
                 oThis.$store.dispatch('toast', {
@@ -170,17 +206,63 @@ export default {
             this.sItemQty = ''
         },
         uploadImage : function (e) {
-            this.oImg = [];
-            let iImgCount = e.target.files.length;
-            // for (let i = 0; i < iImgCount; i++) {
-                const image = e.target.files[0];
-                this.oImg = e.target.files;
-                const reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onload = e =>{
-                    this.bPreviewImage = e.target.result;
-                };
-            // }
+            this.isImageFromApi = false
+            this.oImg = []
+            this.oImgSortable = []
+            const oImg = [];
+            const oImgSortable = []
+            const imagesFiles = this.$refs.itemImages.files
+            Array.from(imagesFiles).forEach((file, i) => {
+                const data = new FormData();
+                const extension = file.name.substring(file.name.lastIndexOf('.'))
+                const newFileName = file.name.replace(extension, `-image-${i}`) + extension
+                data.append(newFileName, file, newFileName);
+                const newImage = data.get(newFileName);
+                this.getPreviewImage(newImage, (image) => {
+                    const { src } = image
+                    const base64Src = `data:${newImage.type};base64,${src}`
+                    oImgSortable.push({
+                        id: i,
+                        name: newImage.name,
+                        size: newImage.size,
+                        src: base64Src
+                    })
+                })
+                oImg.push(newImage)
+            })
+            this.oImg = oImg
+            this.oImgSortable = oImgSortable
+            this.$refs.itemImages.value = ''
+        },
+        removeImage(name) {
+            if (this.oImg.length <= 1) {
+                alert('There should be atleast 1 Image')
+                return
+            }
+            const newSortableImage = !this.isImageFromApi ? this.oImgSortable.filter(image => image.name !== name) : this.oImgSortable.filter(image => image !== name)
+            const newImages = !this.isImageFromApi ? this.oImg.filter(image => image.name !== name) : this.oImg.filter(image => image !== name)
+            this.oImg = newImages
+            this.oImgSortable = newSortableImage
+        },
+        getSortedImages() {
+            const oImgSortable = [...this.oImgSortable]
+            const oImg = [...this.oImg]
+            const images = !this.isImageFromApi ? oImgSortable.map(sortImage => oImg.find(image => image.name === sortImage.name)) : oImgSortable
+
+            return images.reverse()
+        },
+        getPreviewImage(file, callback) {
+            const image = {}
+            const reader = new FileReader()
+            reader.onload = (e) => {
+                const src = btoa(e.target.result)
+                image.src = src
+                callback(image)
+            }
+            reader.readAsBinaryString(file) 
+        },
+        onSorting(type) {
+            this.selectedCursor = type === 'start' ? 'grabbing' : 'grab'
         },
         cancelSelect : function (e) {
             this.bPreviewImage = null;

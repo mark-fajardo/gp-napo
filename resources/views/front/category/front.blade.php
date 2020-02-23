@@ -22,7 +22,7 @@
                                 <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid" alt="{{$item->item_name}} image" style="object-fit: contain ;max-height: 340px;">
                             </div>
                             <div class="feature-project-two-single-item__content" style="overflow: hidden;text-overflow: ellipsis;">
-                                <a href="case-study-single-slider.html" class="stretched-link" style="font-size: 1rem !important; text-overflow: ellipsis;">{{$item->item_name}}</a>
+                                <a href="{{ route('front.item', ['slug' => $item->slug]) }}" class="stretched-link" style="font-size: 1rem !important; text-overflow: ellipsis;">{{$item->item_name}}</a>
                             </div>
                         </div>
                     </div>
@@ -30,6 +30,7 @@
                 @endforeach
             </div>
         </div>
+        {{-- <div class="swiper-pagination swiper-pagination-2"></div> --}}
         <div class="ht-swiper-button-prev ht-swiper-button-prev-1 ht-swiper-button-nav d-none d-lg-block" style="left: -80px"><i class="ion-ios-arrow-left"></i></div>
         <div class="ht-swiper-button-next ht-swiper-button-next-1 ht-swiper-button-nav d-none d-lg-block" style="right: -80px"><i class="ion-ios-arrow-forward"></i></div>
     </div>

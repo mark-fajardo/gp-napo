@@ -1,11 +1,11 @@
 <template>
     <li class="list-group-item list-image">
       <div class="image-wrapper">
-        <img :src="imageData.src" alt="imageData.name" class="image rounded">
+        <img :src="src" :alt="name" class="image rounded">
       </div>
       <div class="info">
         <div style="align-items: flex-start; flex: 1">
-          <p class="mb-0 font-weight-bold desc">{{ imageData.name }}</p>
+          <p class="mb-0 font-weight-bold desc">{{ name }}</p>
           <small>{{ toReadableSize(imageData.size) }}</small>
         </div>
         <div style="align-items: flex-end; display: flex; justify-content: flex-end">
@@ -19,9 +19,20 @@
 import { ElementMixin } from 'vue-slicksort';
 export default {
     mixins: [ElementMixin],
-    props: ['imageData'],
+    props: ['imageData', 'isImageFromApi', 'index'],
+    computed: {
+      src() {
+        return !this.isImageFromApi ? this.imageData.src : location.protocol + '//' + location.host + '/' +  this.imageData
+      },
+      name () {
+        return !this.isImageFromApi ? this.imageData.name : ''
+      },
+    },
     methods: {
       toReadableSize(size) {
+        if (this.isImageFromApi) {
+          return ''
+        }
         const units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         let l = 0, n = parseInt(size, 10) || 0;
         while (n >= 1024 && ++l) {
@@ -30,7 +41,9 @@ export default {
         return (n.toFixed(n < 10 && l > 0 ? 1 : 0) + ' ' + units[l]);
       },
       deleteImageHandler(name) {
-        this.$emit('delete', name)
+        const payload = this.isImageFromApi ? this.imageData : name
+        console.log({payload})
+        this.$emit('delete', payload)
       }
     }
 }

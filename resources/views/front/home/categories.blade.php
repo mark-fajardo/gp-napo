@@ -49,8 +49,14 @@
                                     height: 50px;
                                 }
                             </style>
-                            @foreach ($category->items->slice(0,2) as $item)
-                                {{-- <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li> --}}
+                            @php
+                                $featuredItems = unserialize(serialize($category->items));
+                                foreach ($category->items as $key => $item) {
+                                    if ($item->is_featured != 1) unset($featuredItems[$key]);
+                                }
+                                $categoriesItems = count($featuredItems) == 0 ? $category->items : $featuredItems;
+                            @endphp
+                            @foreach ($categoriesItems->slice(0,2) as $item)
                                 <div class="single-case-study-project" style="margin-bottom: 10px !important; display: flex; align-items: center">
                                     <div style="margin-left: 1rem">
                                         <img class="imahe" src="{{asset($item->img_dir[0])}}" alt="i{{$item->item_name}} image">
@@ -61,8 +67,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                            
-
                             <a href="service-details-4.html" class="ht-btn ht-btn--dark" style="margin-top: 10px !important">MORE PRODUCTS</a>
                         </div>
                     </div>

@@ -89,16 +89,28 @@ class ItemsController extends Controller
         $oItems->item_brand = $this->aRequest['item_brand'];
         $oItems->item_qty = $this->aRequest['item_qty'];
         $oItems->is_featured = $this->aRequest['isFeatured'] === "true" ? 1 : 0;
+        if (isset($this->aRequest['img_dir'])) {
+            $aImages = explode(',', $this->aRequest['img_dir']);
+            $sItemImg = '[';
+            foreach ($aImages as $img) {
+                $newImageName = str_replace("storage","public",$img);
+                $sItemImg .= '"' . $newImageName . '", ';
+            }
+            $sItemImg = rtrim($sItemImg, ", ");
+            $sItemImg .= ']';
+            $oItems->img_dir = $sItemImg;
+        }
         if ($iFileLen > 0) {
             $sItemImg = '[';
             for ($i = 0; $i < $iFileLen; $i++) {
                 $validatedData = $this->oRequest->validate([
                     'file_' . $i => 'required|image|max:5000'
                 ]);
-                $sItemImg .= '"' . Storage::putFile('photos/items', new File($this->aRequest['file_' . $i])) . '", ';
+                $sItemImg .= '"' . Storage::putFile('public/photos/items', new File($this->aRequest['file_' . $i])) . '", ';
             }
             $sItemImg = rtrim($sItemImg, ", ");
             $sItemImg .= ']';
+            echo $sItemImg;
             $oItems->img_dir = $sItemImg;
         }
         $bReturn = $oItems->save();

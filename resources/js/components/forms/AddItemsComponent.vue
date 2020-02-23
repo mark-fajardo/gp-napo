@@ -87,6 +87,7 @@
                                     :index="index" 
                                     :key="index" 
                                     :imageData="item"
+                                    :isImageFromApi="false"
                                     @delete="removeImage"
                                 />
                             </ImageList> 
@@ -149,7 +150,6 @@ export default {
             }
 
             if (this.validateImgs() === false) {
-                this.aCategIds = [];
                 return;
             }
 
@@ -221,17 +221,17 @@ export default {
             this.$refs.itemImages.value = ''
         },
         removeImage(name) {
+            if (this.oImg.length <= 1) {
+                alert('There should be atleast 1 Image')
+                return
+            }
             const newSortableImage = this.oImgSortable.filter(image => image.name !== name)
             const newImages = this.oImg.filter(image => image.name !== name)
             this.oImg = newImages
             this.oImgSortable = newSortableImage
         },
         getSortedImages() {
-            const images = []
-            const test = this.oImgSortable.map(sortImage => {
-                const image = this.oImg.find(image => image.name === sortImage.name)
-                images.push(image)
-            })
+            const images = this.oImgSortable.map(sortImage => this.oImg.find(image => image.name === sortImage.name))
 
             return images.reverse()
         },
