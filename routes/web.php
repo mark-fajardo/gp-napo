@@ -42,6 +42,11 @@ Route::get('/results', [
     'as' => 'front.search'
 ]);
 
+Route::get('/printer', [
+    'uses' => 'Front\FrontController@printer',
+    'as' => 'front.printer'
+]);
+
 
 Route::get('/category/{slug}', [
     'uses' => 'Front\FrontController@categoryItems',

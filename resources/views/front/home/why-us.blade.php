@@ -14,7 +14,7 @@
                         <div class="col-lg-6">
                             <!-- section title content -->
                             <div class="section-title-content-area ">
-                                <p class="section-title-content mt-3">We are committed to providing our customers with an outstanding products and exceptional service without breaking a bank. Our goal is to excel and help other business produce a great results. This company focus has been in place for more than a 20 years.</p>
+                                <p class="section-title-content mt-3">We are committed on providing our customers with an outstanding products and exceptional service without breaking a bank. Our goal is to excel and help other business produce a great results. This company focus has been in place for almost a 20 years.</p>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                             <i class="flaticon-026-mechanism" style="color: #FFC246;"></i>
                                         </div>
                                         <h3 class="single-feature-project-box__title">High Quality Equipments</h3>
-                                        <p class="single-feature-project-box__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio enim facere hic ipsum maxime ratione!</p>
+                                        <p class="single-feature-project-box__subtitle">All units are branded, reconditioned second hand and fully functional equipment. Machines are imported and all working as new. </p>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                             <i class="flaticon-016-gear" style="color: #FFC246;"></i>
                                         </div>
                                         <h3 class="single-feature-project-box__title">After Sales Service</h3>
-                                        <p class="single-feature-project-box__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio enim facere hic ipsum maxime ratione!</p>
+                                        <p class="single-feature-project-box__subtitle">The goal is to make sure to satisfy the customers by offering good services such as product warranty and free shipping service depending on the customer's location.</p>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                             <i class="flaticon-032-gears-1" style="color: #FFC246;"></i>
                                         </div>
                                         <h3 class="single-feature-project-box__title">Large selection of equipment</h3>
-                                        <p class="single-feature-project-box__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio enim facere hic ipsum maxime ratione!</p>
+                                        <p class="single-feature-project-box__subtitle">The only organization in the Philippines that offers second hand branded machines of different industries.</p>
                                     </div>
                                 </div>
                             </div>

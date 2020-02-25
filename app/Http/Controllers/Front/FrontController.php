@@ -87,4 +87,10 @@ class FrontController extends Controller
         $items = Items::with('categories')->get();
         return view('front.result.index', compact('categories', 'items', 'results'));
     }
+
+    public function printer() {
+        $categories = Categories::with('items')->get();
+        $items = Items::with('categories')->get();
+        return view('front.paper.index', compact('categories', 'items'));
+    }
 }
