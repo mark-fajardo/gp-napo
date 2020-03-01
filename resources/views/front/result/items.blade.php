@@ -18,20 +18,20 @@
                         <div class="row">
                                 @foreach ($results as $item)
                                             
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <div class="shop-single-product tilted">
-                                            <div class="shop-single-product__thumb-wrapper">
-                                                <div class="shop-single-product__image">
-                                                    <a href="{{ route('front.item', ['slug' => $item->slug]) }}">
-                                                        <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid cat-item-img" alt="{{$item->item_name}} image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="shop-single-product__content">
-                                                <h3 class="shop-single-product__title" style="font-size: 1rem !important"><a href="{{ route('front.item', ['slug' => $item->slug]) }}">{{ $item->item_name }}</a></h3>
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="shop-single-product tilted">
+                                        <div class="shop-single-product__thumb-wrapper mb-1">
+                                            <div class="shop-single-product__image">
+                                                <a href="{{ route('front.item', ['slug' => $item->slug]) }}">
+                                                    <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid cat-item-img" alt="{{$item->item_name}} image">
+                                                </a>
                                             </div>
                                         </div>
+                                        <div class="shop-single-product__content">
+                                            <h3 class="shop-single-product__title" style="font-size: 1rem !important"><a href="{{ route('front.item', ['slug' => $item->slug]) }}">{{ $item->item_name }}</a></h3>
+                                        </div>
                                     </div>
+                                </div>
 
                                 @endforeach     
 

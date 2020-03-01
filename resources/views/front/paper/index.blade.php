@@ -1,17 +1,25 @@
 @extends('layouts.front')
 
 @section('content')
+<div class="breadcrumb-area breadcrumb-area-bg bg-img section-space--inner--bottom--50 section-space--inner--top--120" data-bg="assets/img/backgrounds/20.jpg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h2 class="breadcrumb-page-title breadcrumb-page-title--style2">Paper Printing Machine</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div class="page-content-wrapper page-content-double-sidebar section-space--inner--120">
+<div class="page-content-wrapper  section-space--inner--120">
     <div class="container">
         <div class="row">
-           
-            <div class="col-xl-6 order-1 order-xl-2 m-auto">
+            <div class="m-auto">
                 <div class="service-details-page-content">
                     <div class="service-details-text-wrapper section-space--bottom--60">
-                        <h1 class="big-title">Paper Printing Machine</h1>
-                        <p>Our Tractor Industrial Group combines the multi-sector skills and tracks record of quality certified companies to provide best in class products and services. Our wealth of expertise and state-of-the-art facilities offers our customers a wide range of global services and benefits.</p>
-                        <p>Working together, we are able to bring the latest in international best practices to every project to ensure our customer’s success. We provide a comprehensive suite of fully integrated, multidisciplinary services and can design, engineer and fabricate for fast track projects in either traditional tender delivery or design-build services.</p>
+                        {{-- <h1 class="big-title">Paper Printing Machine</h1> --}}
+                        <p>It’s formerly used by a religious group from America and it was sent In the Philippines to supplies magazines- booklets for jehovas witness in ASIA and partly doing Books for Iglesia for 3 years. And now the factory and the entire compound in Quezon City more or less 2 hectares purchased by the DMCI Consunji big Construction Company/Developer for high rise buildings , that why the Chairman decided to sold it out here.</p>
+                        <p>Our company joined the bidding and luckily we won. The brand new price of latest model of the machines <strong>is more or less ₱500 Million</strong>, and the americans decalared value of this upon entering the pier if around <strong>₱150 Million.</strong> But we are selling this for almost <strong>1/3 price of the americans</strong>, and less <strong>30% off</strong> for the sure buyer.</p>
                     </div>
                     <div class="service-details-image-block section-space--bottom--60">
                         <div class="single-list-blog-post__media section-space--bottom--50">

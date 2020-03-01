@@ -18,7 +18,8 @@ class FrontController extends Controller
         foreach ($categories as $cat) {
             // echo json_encode($cat->items);
         }
-        return view('front.home.index', compact('categories', 'items'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.home.index', compact('categories', 'items', 'email'));
     }
 
     public function categoryItems($slug) {

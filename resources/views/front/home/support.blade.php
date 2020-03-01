@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-6">
             <div class="support-footer__single bg-img" data-bg="assets/img/icons/message.png">
-                Email: wyatt.enterprise@gmail.com
+                Email: {{$email}}
             </div>
         </div>
         <div class="col-md-6">

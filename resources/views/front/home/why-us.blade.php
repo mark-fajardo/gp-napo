@@ -47,7 +47,7 @@
                                             <i class="flaticon-016-gear" style="color: #FFC246;"></i>
                                         </div>
                                         <h3 class="single-feature-project-box__title">After Sales Service</h3>
-                                        <p class="single-feature-project-box__subtitle">The goal is to make sure to satisfy the customers by offering good services such as product warranty and free shipping service depending on the customer's location.</p>
+                                        <p class="single-feature-project-box__subtitle">We Provide our customers with <strong>Lifetime service</strong>. Incase of equipment failure, we will lend you a new equipment while we repair your equipment</p>
                                     </div>
                                 </div>
                             </div>
