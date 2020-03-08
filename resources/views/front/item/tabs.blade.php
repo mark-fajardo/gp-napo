@@ -19,19 +19,15 @@
     <!--=======  description tab content  =======-->
     <div class="single-product-description-tab-content">
 
-        <div class="tab-content">
+        <div class="tab-content" style="padding: 40px 0 !important">
 
             <div class="tab-pane fade show active" id="product-description" role="tabpanel" aria-labelledby="description-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <!--=======  description content  =======-->
-
                             <div class="description-content">
                                {!! $item->item_description !!}
                             </div>
-
-                            <!--=======  End of description content  =======-->
                         </div>
                     </div>
                 </div>

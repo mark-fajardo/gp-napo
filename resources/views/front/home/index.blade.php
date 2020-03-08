@@ -11,6 +11,7 @@
     @include('front.includes.quote')
     @include('front.home.why-us')
     @include('front.home.leaders')
+    @include('front.includes.clients')
     {{-- @include('front.home.testimonials') --}}
     @include('front.home.support')
 

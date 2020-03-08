@@ -1,4 +1,4 @@
-<div class="product-details-area section-space--bottom--50">
+<div class="product-details-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -7,7 +7,7 @@
                         <div class="col-lg-6">
                             <div class="product-details__image-slider">
                                 <div class="swiper-container product-details__image-slider-container" style="display: flex; align-items: center">
-                                    <div class="swiper-wrapper product-details__image-slider-wrapper">
+                                    <div class="swiper-wrapper product-details__image-slider-wrapper d-flex align-items-center">
                                         @foreach ($item->img_dir as $img)
                                             <div class="swiper-slide">
                                                 <div class="product-details__image-single">
@@ -28,7 +28,7 @@
                                 </div>
                                 </div>
                                 <div class="product-details__actions">
-                                    <a href="#" class="add-cart-btn">GET A QUOTE</a>
+                                    <a href="{{ route('front.quote') }}" class="add-cart-btn">GET A QUOTE</a>
                                     <a href="javascript:void(0)" class="wishlist" data-tippy="Add to wishlist" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-android-favorite"></i></a>
                                     <a href="javascript:void(0)" class="compare" data-tippy="Compare" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-ios-shuffle-strong"></i></a>
                                 </div>

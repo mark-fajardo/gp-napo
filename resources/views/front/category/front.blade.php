@@ -7,7 +7,9 @@
         <h4 class="subtitle pl-3 py-2 front-text">FEATURED EQUIPMENTS</h4>
         {{-- <h2 class="title" style="margin-top: -20px"></h2> --}}
     </div>
-
+    <div class="col-lg-12 text-center font-italic mb-1 d-block d-lg-none">
+        <p>(Swipe for more equipments)</p>
+    </div>
     <div class="featured-project-two-slider" style="max-height: 500px">
         <div class="swiper-container featured-project-two-slider-container" style="max-height: 500px">
             <div class="swiper-wrapper featured-project-two-slider-wrapper">
@@ -18,7 +20,7 @@
                             <div class="shop-single-product__badges">
                                 <span class="onsale">BEST</span>
                             </div>
-                            <div class="feature-project-two-single-item__image px-3 px-3">
+                            <div class="feature-project-two-single-item__image px-3 d-flex  align-items-center ">
                                 <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid" alt="{{$item->item_name}} image" style="object-fit: contain ;max-height: 340px;">
                             </div>
                             <div class="feature-project-two-single-item__content" style="overflow: hidden;text-overflow: ellipsis;">

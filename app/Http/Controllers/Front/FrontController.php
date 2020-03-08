@@ -26,32 +26,37 @@ class FrontController extends Controller
         $categories = Categories::with('items')->get();
         $category = Categories::findBySlugOrFail($slug);
         $items = Items::with('categories')->get();
-        return view('front.category.index',  compact('categories', 'items', 'category'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.category.index',  compact('categories', 'items', 'category', 'email'));
     }
     
     public function item($slug) {
         $categories = Categories::with('items')->get();
         $item = Items::findBySlugOrFail($slug);
         $items = Items::with('categories')->get();
-        return view('front.item.index',  compact('categories', 'items', 'item'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.item.index',  compact('categories', 'items', 'item', 'email'));
     }
 
     public function about() {
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
-        return view('front.about.index', compact('categories', 'items'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.about.index', compact('categories', 'items', 'email'));
     }
 
     public function contact() {
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
-        return view('front.contact.index', compact('categories', 'items'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.contact.index', compact('categories', 'items', 'email'));
     }
 
     public function quote() {
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
-        return view('front.quote.index', compact('categories', 'items'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.quote.index', compact('categories', 'items', 'email'));
     }
 
     public function addQuote(Request $request) {
@@ -86,12 +91,14 @@ class FrontController extends Controller
         
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
-        return view('front.result.index', compact('categories', 'items', 'results'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.result.index', compact('categories', 'items', 'results', 'email'));
     }
 
     public function printer() {
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
-        return view('front.paper.index', compact('categories', 'items'));
+        $email = 'napo.enterprise@gmail.com';
+        return view('front.paper.index', compact('categories', 'items', 'email'));
     }
 }

@@ -62,7 +62,7 @@
                                     </li>
                                     <li>
                                         <p style="color: #fff"><i class="fa fa-envelope-o" aria-hidden="true"></i> Got any concerns?</p>
-                                        <p style="line-height: 24px">support-gpnapo@gmail.com</p>
+                                        <p style="line-height: 24px">{{ $email }}</p>
                                     </li>
                                 </ul>
                             </div>

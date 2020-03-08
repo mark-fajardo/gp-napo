@@ -14,17 +14,14 @@
                                 <div class="feature-background__content-wrapper section-space--inner--190">
                                     <!-- section title area -->
                                     <div class="section-title-area section-space--bottom--60">
-                                        <h2 class="title title--style4 title--style4--about">About GP NAPO <br/>Trading Equipments</h2>
+                                        <h2 class="title title--style4 title--style4--about">About GP NAPO <br/>Food Trading Equipments</h2>
                                     </div>
 
                                     <!-- feature single content -->
                                     <div class="feature-background__single-content-wrapper">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <p>GP Napo Equipment Trading was founded in 1990 in Quezon City, as a distribution company of factory and food processing equipments. Over the past 30 years, we have grown from a small-sized local company into a global industrial corporate.</p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <a href="{{ route('front.quote') }}" class="ht-btn ht-btn--default ht-btn--default--style4">GET A QUOTE</a>
+                                                <p>The founder of GPNapo Food Equiptment Trading (Gabriel Pangilinan Napo) started the business since 1997 - after separations from an international Pizza Chain in the Philippines.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -42,15 +39,18 @@
                 <div class="col-lg-4">
                     <div class="about-list-title-wrapper">
                         <div class="career-title-area section-space--bottom--50">
-                            <h2 class="title mb-0">A company involved in service, maintenance.</h2>
+                            <h2 class="title mb-0">We provide food machines for all types of business</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 offset-lg-1">
                     <div class="about-list-wrapper mt-0">
-                        <h3 class="about-list-title">Providing excellent products and service</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores aut corporis eius laboriosam magnam natus nesciunt nobis non praesentium ratione, temporibus tenetur ullam? Ad id ipsa quibusdam temporibus voluptatem.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque autem, distinctio ducimus eligendi, ipsam itaque maxime, molestiae mollitia sapiente sit soluta velit! Assumenda eveniet excepturi ipsa minus sapiente unde?</p>
+                        <h3 class="about-list-title">Our Mission</h3>
+                        <p>Our mission is to offer much cheaper Food Machines (50% to 60%  less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses. Our goal is:</p>
+                        <ul style="list-style-type: square" class="ml-3">
+                            <li>To help young entrepreneurs to start their own businesses with a minimal amount required</li>
+                            <li>To help the Philippines economy for not spending much dollar/euros when they purchased our used -reconditioned-refurbished- -slightly used - locally assembled machines with high quality in terms of performance & durability</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,8 @@
                                         <img src="assets/img/icons/about-icon1.png" alt="">
                                     </div>
                                     <div class="about-icon-box__content">
-                                        <h4 class="title">Mission & Values</h4>
-                                        <p class="content">Build the best product, cause no unnecessary harm, use business to inspire and implement solutions to the environmental crisis.</p>
+                                        <h4 class="title">Vision & Values</h4>
+                                        <p class="content">To develop our own brands of Machines using a combination of old & new technologies without sacrificing the quality & work performance of each machines being produce locally.</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +75,8 @@
                                         <img src="assets/img/icons/about-icon2.png" alt="">
                                     </div>
                                     <div class="about-icon-box__content">
-                                        <h4 class="title">Corporate Structure</h4>
-                                        <p class="content">Each of our departments effectively performs their specialized function while collaborating with each other to achieve the corporate's goals.</p>
+                                        <h4 class="title">Company Structure</h4>
+                                        <p class="content">Our company is now operated by 5 group of peoples. Two (2) locals & three (3) foreign partners since since June 2016. Our target is to to build more partnership in the future.</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +86,8 @@
                                         <img src="assets/img/icons/about-icon3.png" alt="">
                                     </div>
                                     <div class="about-icon-box__content">
-                                        <h4 class="title">Corporate Accountability</h4>
-                                        <p class="content">We assure that our company will always keep our performance and behavior in line with the government's regulations on environment protection.</p>
+                                        <h4 class="title">Company Accountability</h4>
+                                        <p class="content">We assure that our company will always keep the standards, quality and performance of our equipments.</p>
                                     </div>
                                 </div>
                             </div>

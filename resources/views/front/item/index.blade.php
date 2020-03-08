@@ -8,7 +8,7 @@
 
     @include('front.item.header')
 
-    <div class="page-content-wrapper section-space--inner--120">
+    <div class="page-content-wrapper section-space--top--60">
         @include('front.item.details')
         @include('front.item.tabs')
     </div>

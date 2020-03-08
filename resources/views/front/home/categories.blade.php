@@ -15,13 +15,17 @@
             <div class="swiper-wrapper industry-slider-nav-wrapper">
             @foreach ($categories as $category)
                 <div class="swiper-slide">
-                    <div class="industry-single-nav">
-                        <div class="industry-single-nav__icon">
-                            <i class="{{ $category->icon }}"></i>
+                    <div class="industry-single-nav justify-content-between">
+                        <span class="mr-1 ht-swiper-button-prev-2 d-block d-lg-none"><i class="ion-arrow-left-c"></i></span>
+                        <div class="d-flex align-items-center">
+                            <div class="industry-single-nav__icon">
+                                <i class="{{ $category->icon }}"></i>
+                            </div>
+                            <div class="industry-single-nav__title">
+                                {{ $category->name }}
+                            </div>
                         </div>
-                        <div class="industry-single-nav__title">
-                            {{ $category->name }}
-                        </div>
+                        <span class="ml-1 ht-swiper-button-next-2 d-block d-lg-none"><i class="ion-arrow-right-c"></i></span>
                     </div>
                 </div>
             @endforeach
