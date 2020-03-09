@@ -1,7 +1,52 @@
 @extends('layouts.front')
 
 @section('styles')
+    <style>
+        .slide-2 {
+            z-index: 6;
+            min-width: 1000px;
+            max-width: 1000px;
+            white-space: normal;
+            font-size: 70px;
+            line-height: 40px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0px;
+            font-family:Roboto;
+            margin-top: -150px
+        }
 
+        @media (min-width: 576px) {
+            .slide-2 {
+                min-width: 400px;
+                max-width: 400px;
+                white-space: normal;
+                font-size: 30px;
+                line-height: 30px;
+                font-weight: 700;
+                color: #ffffff;
+                letter-spacing: 0px;
+                font-family:Roboto;
+                margin-top: -150px
+            }
+        }
+
+        @media (min-width: 768px) {
+
+        }
+
+        @media (min-width: 992px) {
+
+        }
+
+        @media (min-width: 1200px) {
+
+        }
+
+        @media (max-width: 576px) { 
+           
+        }
+    </style>
 @endsection
 
 @section('content')

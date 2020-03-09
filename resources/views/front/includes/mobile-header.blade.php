@@ -25,6 +25,11 @@
         <nav class="offcanvas-navigation">
             <ul>
                 <li>
+                    <form action="{{ route('front.search') }}" method="GET" class="form-group">
+                        <input type="search" placeholder="Search equipments..." class="form-control text-white" style="background: #4e4e4e" name="q">
+                    </form>
+                </li>
+                <li>
                     <a href="{{route('front.index')}}">Home</a>
                 </li>
                 <li class="has-children">

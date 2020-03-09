@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="single-icon-info__content">
                                     <h4 class="single-icon-info__title single-icon-info__title--black2">Contact us via mail</h4>
-                                    <p class="single-icon-info__text">support-gpnapo@gmail.com <br> gpnapo@gmail.com</p>
+                                    <p class="single-icon-info__text">{{ $email }}</p>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
                                     </a>
                                 </div>
                                 <div class="footer-desc">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, similique harum, sequi perspiciatis, minima doloribus architecto qui iure fuga soluta dolores quaerat quisquam voluptatem assumenda.
+                                    We offer much cheaper Food Machines (50% to 60% less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses.
                                 </div>
                                 <div class="social-links">
                                     <ul>
