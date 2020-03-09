@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2020 at 03:54 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Feb 23, 2020 at 12:02 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -115,14 +115,7 @@ INSERT INTO `category_item` (`id`, `item_id`, `category_id`) VALUES
 (77, 52, 2),
 (78, 53, 1),
 (79, 54, 3),
-(81, 55, 3),
-(82, 56, 3),
-(83, 57, 2),
-(84, 57, 3),
-(85, 58, 1),
-(86, 59, 1),
-(87, 60, 1),
-(88, 60, 4);
+(81, 55, 3);
 
 -- --------------------------------------------------------
 
@@ -136,7 +129,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -212,7 +205,7 @@ CREATE TABLE `t_categories` (
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_dir` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `archived` bigint(20) NOT NULL DEFAULT '0',
+  `archived` bigint(20) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -243,8 +236,8 @@ CREATE TABLE `t_items` (
   `item_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_dir` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `archived` bigint(20) NOT NULL DEFAULT '0',
-  `is_featured` bigint(20) NOT NULL DEFAULT '0',
+  `archived` bigint(20) NOT NULL DEFAULT 0,
+  `is_featured` bigint(20) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -257,7 +250,7 @@ INSERT INTO `t_items` (`id`, `users_id`, `item_name`, `item_brand`, `item_qty`, 
 (28, 1, 'Henny Penny Combi Steamer', 'Henny Penny', 1, 'Steamer , Oven', '<p><strong>Henny Penny Combi Steamer&nbsp;</strong><br><br>- Oven For Roasting Chicken, Turkey, Pig&nbsp;<br>- Baking of Breads and Pastries&nbsp;<br>- Steaming Rice, Veggies, Siopao, Puto ETC.&nbsp;<br>-Capacity: 10 Trays</p>', 'henny-penny-combi-steamer', '[\"public/photos/items/ta0UeZmgWCAqqC0ouUmXz0fKVEz2mN7jeE2C4OM4.jpeg\", \"public/photos/items/ZdZpvBZvNxyUgItOx5CVC1p4AZAIGuCXV4zumN3n.jpeg\"]', 0, 0, '2020-02-18 05:04:37', '2020-02-22 07:32:14'),
 (29, 1, 'Kitchen Aid Cake Mixers', 'Kitchen Aid', 10, 'Mixer', '<p><strong>Kitchen Aid Cake Mixer</strong><br>- Cake Mixers&nbsp;<br>-Made in USA&nbsp;<br>- Capacity: 5 quarts / 5 liters<br>&nbsp;</p>', 'kitchen-aid-cake-mixers', '[\"public/photos/items/ytOUUl90JB5vbIxdyrpMeJEL2tt1QuBp1ZneZ5H4.jpeg\", \"public/photos/items/9skjiRXKx7iJl9baTVqaOiDz48YklC63CzS1hQws.jpeg\"]', 0, 0, '2020-02-18 05:08:47', '2020-02-18 05:08:47'),
 (30, 1, 'Convection Oven with Built-in Exhaust Hood And Proofer', 'Branded', 1, 'Oven', '<p><strong>Convection Oven with Built-in Exhaust Hood And Proofer underneath&nbsp;</strong><br><br>-Electric Type&nbsp;<br>-Made in Europe&nbsp;<br>- 8 to 10 trays capacity</p>', 'convection-oven-with-built-in-exhaust-hood-and-proofer', '[\"public/photos/items/r4YIrJAb3yRdGfBVSOv3Wu8MVWOqBu2kBMePYVGF.jpeg\", \"public/photos/items/XJhyjIb1Wr1iH0jbcH6ZcuAe4E0CoYVMJDS333zc.jpeg\"]', 0, 0, '2020-02-18 05:50:16', '2020-02-18 05:50:16'),
-(31, 1, 'Blodgett Conveyor Type pizza Oven', 'Blodgett', 1, 'Oven', '<p><strong>Conveyor Type pizza Oven</strong><br><br>-LPG Type&nbsp;<br>-“Impinge Ovens “ can be set it up as Tunnel ovens&nbsp;<br>-For cooking of: Hopia ,Nachos ,Cookies and Biscuits&nbsp;<br>-Can be use for drying purposes</p>', 'blodgett-conveyor-type-pizza-oven', '[\"public/photos/items/0DAXLwoGIRwR1wxnyTr0lWGXi06KGk7GQLQIiIpg.jpeg\", \"public/photos/items/PRLtdX1562O30mhBLh9QetgzpfYupvOTsUgzt6xD.jpeg\", \"public/photos/items/q11vqdITCda3Gy3yBhUkwgdh4LaWaNcReqmqMbli.jpeg\"]', 0, 0, '2020-02-18 05:52:36', '2020-03-09 06:34:01'),
+(31, 1, 'Conveyor Type pizza Oven', 'Blodgett', 1, 'Oven', '<p><strong>Conveyor Type pizza Oven</strong><br><br>-LPG Type&nbsp;<br>-“Impinge Ovens “ can be set it up as Tunnel ovens&nbsp;<br>-For cooking of: Hopia ,Nachos ,Cookies and Biscuits&nbsp;<br>-Can be use for drying purposes</p>', 'conveyor-type-pizza-oven', '[\"public/photos/items/JFHjBjLKJMrcXgRoqcFJtRVCk3OL5vJ0YF2zk7xn.jpeg\", \"public/photos/items/Y0XEsUTpf4lIZMpp4EDWrT2wZy58JBp3rMDbJ7iG.jpeg\"]', 0, 0, '2020-02-18 05:52:36', '2020-02-18 05:52:36'),
 (32, 1, 'Baker Perkins Twin Paddle Planetary Mixer', 'Baker Perkins', 1, 'Mixer', '<p><strong>Baker Perkins Twin Paddle Planetary Mixer&nbsp;</strong><br><br>-Twin paddle -Hydrolic Type&nbsp;<br>-630 Liters Capacity&nbsp;<br>-Made In UK / London&nbsp;<br>-Ideal for making , cookies , biscuits , chips ahoy , brownies and other soft breads and pastries</p>', 'baker-perkins-twin-paddle-planetary-mixer', '[\"public/photos/items/iPb9bWUAyVrcETW8niNVE6wLkszfNnSmFimzvj9K.jpeg\", \"public/photos/items/aqc3b1esvbd6pbslUlIY4u0yKm4Gf2ax6wdUG1X0.jpeg\"]', 0, 0, '2020-02-18 05:54:03', '2020-02-18 05:54:03'),
 (33, 1, 'Mondial Forni Convection Oven with Built-in Proofer and Hood (Gas Type)', 'Mondial Forni', 1, 'Oven', '<p><strong>Convection Oven with Built-in Proofer and Hood&nbsp;</strong><br><br>-Brand : Mondial Forni&nbsp;<br>-Made in Italy&nbsp;<br>-LPG gas type</p>', 'mondial-forni-convection-oven-with-built-in-proofer-and-hood-gas-type', '[\"public/photos/items/ggYUDGuaJUqgq397fXhkedxPAj7XhwW7UT930mtg.jpeg\", \"public/photos/items/T1j5yYqnwRgZyzp7gx3setO29Zlf7EnkAm4HuR6f.jpeg\"]', 0, 0, '2020-02-18 05:55:45', '2020-02-18 05:55:45'),
 (34, 1, 'Esmach Bread Stick Machine', 'Esmach', 1, 'Bread Stick Machine', '<p><strong>Esmach Bread Stick Machine</strong><br><br>-Brand: Esmach&nbsp;<br>-Made in Italy</p>', 'esmach-bread-stick-machine', '[\"public/photos/items/sOWuLksSdBGEX8Ofs7GlimQKK1tsckEoYiQjvu1W.jpeg\", \"public/photos/items/9fOHV3l0V4ZefDX3OjSCMjszHbnUT2K5DMv6JzO0.jpeg\"]', 0, 0, '2020-02-18 05:57:40', '2020-02-18 05:57:40'),
@@ -270,12 +263,7 @@ INSERT INTO `t_items` (`id`, `users_id`, `item_name`, `item_brand`, `item_qty`, 
 (42, 1, 'Dorit Vacuum Tumbler  Meat Marinator', 'Dorit', 1, 'Marinator , Tumbler', '<p><strong>Vacuum Tumbler &nbsp;Meat Marinator</strong><br><br>- Brand: Dorit<br>- Curing Machine&nbsp;<br>- For Tocinos &amp; Beef tapas<br>- Made in Europe<br>- Capacity: 600 Liters</p>', 'dorit-vacuum-tumbler-meat-marinator', '[\"public/photos/items/PxNqZDXwKJtFDufIfOX5I7m0nGMsn4QbVa4iNHRn.jpeg\", \"public/photos/items/l3vCIGYOOrJtaVF2xvjIVbiqI8PDzlS3s5xExSge.jpeg\"]', 0, 0, '2020-02-18 06:16:07', '2020-02-18 06:16:07'),
 (43, 1, 'Rhule Meat Marinator / Vacuum tumbler', 'Rhule', 1, 'Marinator , Tumbler', '<p><strong>Meat Marinator / Vacuum tumbler&nbsp;</strong><br><br>- Brand : Rhule&nbsp;<br>- Curing Machines for Tocinos / Beef tapas&nbsp;<br>- Made in Europe&nbsp;<br>-200 liters Capacity</p>', 'rhule-meat-marinator-vacuum-tumbler', '[\"public/photos/items/WRhQl3GKiMaadQ7KMH6gVdryFRawFvTJK3Lw2bYT.jpeg\", \"public/photos/items/jUrRtgKk28jx2Cdaywmzs8iiImDIcK5GAHBqQIb4.jpeg\"]', 0, 1, '2020-02-18 06:18:21', '2020-02-22 07:32:47'),
 (44, 1, 'Dual Paddle Type Meat Mixer', 'Branded', 1, 'Mixer', '<p><strong>Dual paddle type Meat Mixer&nbsp;</strong></p><p>- Made In USA<br>- 240 liters Capacity</p>', 'dual-paddle-type-meat-mixer', '[\"public/photos/items/RVPKyi1favpCO6t82mEX3gTJiXOsnoQeeECJUB8V.jpeg\", \"public/photos/items/uIlhqS9n9P44lK1IGc3MUmR0fmiJjwgNr5ufKXeD.jpeg\"]', 0, 1, '2020-02-18 06:21:30', '2020-02-22 07:33:03'),
-(45, 1, 'Hobart Dough Mixer / Cake mixer', 'Hobart', 1, 'Mixer', '<p><strong>Dough Mixer / Cake mixer</strong><br><br>- Brand : Hobart&nbsp;<br>- 3 in one<br>- For mixing of Breads , cakes and cookies</p>', 'hobart-dough-mixer-cake-mixer', '[\"public/photos/items/SAoCRngRzxqGnQDnIFsa4FrdzGBY7QcRyA9qB3lG.jpeg\", \"public/photos/items/XS1xRXK2jPBMvaWjHljPo8yyEROLpcYrPyxoFCac.jpeg\"]', 0, 0, '2020-02-18 06:23:25', '2020-02-18 06:23:25'),
-(56, 1, 'Hobart planetary Mixer', 'Hobart', 3, 'Mixer', '<p><strong>Hobart planetary Mixer</strong><br><br>&nbsp;-For Dough / cakes &amp; pastries / dry ingredients.<br>-Complete Accessories, stainless bowl , padle and Wire Whip<br>-140 quarts , 80 quarts , 60quarts ,40quarts , 30quarts &amp; 20quarts&nbsp;</p>', 'hobart-planetary-mixer', '[\"public/photos/items/Tt9J4jtmj44BatF65JUDQZBk6swWmMkSEun6lluA.jpeg\", \"public/photos/items/igoacuWcbflUZQcOLlHDSHjwk85Ev1IIfO0QL8ug.jpeg\"]', 0, 1, '2020-03-09 06:00:37', '2020-03-09 06:00:37'),
-(57, 1, 'Ice Cube Machine (1000 - 1300 series)', 'Branded', 5, 'Ice Cube Maker', '<p><strong>Ice cube machine</strong><br><br>-1000 to 1300 series<br>&nbsp;-Made in USA<br>-For Bakeshop / Restaurant/ Hotel &amp; meat processing use .</p>', 'ice-cube-machine-1000-1300-series', '[\"public/photos/items/goH4DgyhEitzYg83dw0ZuxhNbnw1LROASKKMKe6l.jpeg\"]', 0, 0, '2020-03-09 06:05:29', '2020-03-09 06:05:43'),
-(58, 1, 'LASKA 200 liters Bowl Chopper / Silent Cutter', 'Laska', 1, 'Cutter Copper', '<p><strong>LASKA 200 liters Bowl Chopper / Silent Cutter&nbsp;</strong><br><br>-Made In Austria Power Supply&nbsp;<br>-50hp to 75hp Motor&nbsp;<br>-80v/ 440v , 60/50hz ,<br>-3phase&nbsp;</p>', 'laska-200-liters-bowl-chopper-silent-cutter', '[\"public/photos/items/oTVbU3R6AGCRMNiTI78sgHCaExIUk1taDyJQXjb1.jpeg\", \"public/photos/items/g3v3PCI5ryCRqCSVCKkBrTBPaQBpYEydvS4r6ZTL.jpeg\"]', 0, 1, '2020-03-09 06:11:47', '2020-03-09 06:11:47'),
-(59, 1, 'Braising Pans', 'Branded', 1, 'Braising Pan', '<p><strong>Braising Pans&nbsp;</strong><br><br>- 100 liter to 120 liters&nbsp;<br>-LPG Type&nbsp;<br>-Made In USA</p>', 'braising-pans', '[\"public/photos/items/zUqVWdrn8p5BBeGp0Qy17q3hkoiCOljxoodpLH8Y.jpeg\", \"public/photos/items/TPZvT5EZsepm3iuGpnaTLDUzuzvaUCGCnpksHLgI.jpeg\"]', 0, 1, '2020-03-09 06:18:00', '2020-03-09 06:18:00'),
-(60, 1, 'Multi purpose Industrial Type Heavy Duty Mixers', 'Branded', 1, 'Mixer', '<p><strong>Multi purpose - Industrial Type Mixers&nbsp;</strong>&nbsp;<br>-Ribbon Blenders And meat mixers&nbsp;<br>-200 liters to 3000 liters Capacities&nbsp;<br>-Made in Europe&nbsp;</p>', 'multi-purpose-industrial-type-heavy-duty-mixers', '[\"public/photos/items/M9zdegHR1URf1I6T4J64aohzkGv8RGR15p9y68t6.jpeg\", \"public/photos/items/jeVuSf066A1FBtU8sGl6ZIcAgaMpSqdaanX5zrzF.jpeg\", \"public/photos/items/WFaRJS20ryQlCKMx9buUaucnNQOnGt61uvPvC2WP.jpeg\"]', 0, 1, '2020-03-09 06:23:13', '2020-03-09 06:23:13');
+(45, 1, 'Hobart Dough Mixer / Cake mixer', 'Hobart', 1, 'Mixer', '<p><strong>Dough Mixer / Cake mixer</strong><br><br>- Brand : Hobart&nbsp;<br>- 3 in one<br>- For mixing of Breads , cakes and cookies</p>', 'hobart-dough-mixer-cake-mixer', '[\"public/photos/items/SAoCRngRzxqGnQDnIFsa4FrdzGBY7QcRyA9qB3lG.jpeg\", \"public/photos/items/XS1xRXK2jPBMvaWjHljPo8yyEROLpcYrPyxoFCac.jpeg\"]', 0, 0, '2020-02-18 06:23:25', '2020-02-18 06:23:25');
 
 -- --------------------------------------------------------
 
@@ -299,7 +287,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$oOI6p7I7ffs372CUf7Msa.cPdzZ8uk9gUzU0IH2hqCatHBi1u6YMa', 'O2gC09Eeu8FoMA0hSatAnnHYx3JXYMmus3KvdZZtUaGmMSyCkCLOfTzo1js4', '2020-01-17 11:12:49', '2020-01-17 11:12:49');
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$oOI6p7I7ffs372CUf7Msa.cPdzZ8uk9gUzU0IH2hqCatHBi1u6YMa', NULL, '2020-01-17 11:12:49', '2020-01-17 11:12:49');
 
 --
 -- Indexes for dumped tables
@@ -362,7 +350,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category_item`
 --
 ALTER TABLE `category_item`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -392,7 +380,7 @@ ALTER TABLE `t_categories`
 -- AUTO_INCREMENT for table `t_items`
 --
 ALTER TABLE `t_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `users`
