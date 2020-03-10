@@ -18,8 +18,8 @@
                 Admin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">User Information</a>
-                    <a class="dropdown-item" href="#">Update Credentials</a>
+                    <!-- <a class="dropdown-item" href="#">User Information</a>
+                    <a class="dropdown-item" href="#">Update Credentials</a> -->
                     <a class="dropdown-item" href="/register">Add User</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout">Logout</a>

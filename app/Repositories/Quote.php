@@ -12,6 +12,7 @@ class Quote extends Model
         'email',
         'phone',
         'company_name',
-        'request_message'
+        'request_message',
+        'created_at'
     ];
 }

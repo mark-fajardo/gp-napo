@@ -10,17 +10,17 @@
                     :s-card-label="'Total Items'">
                 </dashboard-card>
                 <dashboard-card
-                    :s-title="'0 items'"
+                    :s-title="oArchivedCount +' items'"
                     :s-card-label="'Archived Items'">
                 </dashboard-card>
-                <dashboard-card
+                <!-- <dashboard-card
                     :s-title="'0 refunds'"
                     :s-card-label="'Changed Items'">
-                </dashboard-card>
-                <dashboard-card
+                </dashboard-card> -->
+                <!-- <dashboard-card
                     :s-title="'0 items'"
                     :s-card-label="'Returned Items'">
-                </dashboard-card>
+                </dashboard-card> -->
             </div>
             <div class="row">
                 <div class="col-sm-12" style="">
@@ -58,16 +58,21 @@ export default {
     },
     mounted () {
         this.$store.dispatch('getItems');
+        this.$store.dispatch('getArchivedItems');
     },
     computed: {
         ...mapGetters({
-            oItemsWhole : 'oItems'
+            oItemsWhole : 'oItems',
+            oArchivedItems : 'oArchivedItems'
         }),
         oItemsRow () {
             return this.oItemsWhole.rows.filter(rows => {
                 return rows.item_name.toLowerCase().indexOf(this.sFilter) !== -1 
                     || rows.item_brand.toLowerCase().indexOf(this.sFilter) !== -1
             });
+        },
+        oArchivedCount () {
+            return this.oArchivedItems.rows.length;
         },
         sFilter: {
             get () {

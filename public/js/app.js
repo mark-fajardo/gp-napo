@@ -2062,9 +2062,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    this.$store.dispatch('getArchivedCategories');
     this.$store.dispatch('getCategories');
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    oArchivedCategories: 'oArchivedCategories',
     oCategoriesWhole: 'oCategories'
   }), {
     oItemsRow: function oItemsRow() {
@@ -2073,6 +2075,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.oCategoriesWhole.rows.filter(function (rows) {
         return rows.name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter) !== -1;
       });
+    },
+    oArchivedCount: function oArchivedCount() {
+      return this.oArchivedCategories.rows.length;
     },
     sFilter: {
       get: function get() {
@@ -2123,6 +2128,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2156,7 +2168,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {},
+  mounted: function mounted() {
+    this.$store.dispatch('getQuotes');
+    this.$store.dispatch('getItems');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    oItemsWhole: 'oItems',
+    oQuotesWhole: 'oQuotes'
+  }), {
+    oQuotesRow: function oQuotesRow() {
+      return this.oQuotesWhole.rows.length;
+    },
+    oItemsRow: function oItemsRow() {
+      return this.oItemsWhole.rows.length;
+    }
+  })
+});
 
 /***/ }),
 
@@ -2234,9 +2264,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.$store.dispatch('getItems');
+    this.$store.dispatch('getArchivedItems');
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    oItemsWhole: 'oItems'
+    oItemsWhole: 'oItems',
+    oArchivedItems: 'oArchivedItems'
   }), {
     oItemsRow: function oItemsRow() {
       var _this = this;
@@ -2244,6 +2276,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.oItemsWhole.rows.filter(function (rows) {
         return rows.item_name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.item_brand.toLowerCase().indexOf(_this.sFilter) !== -1;
       });
+    },
+    oArchivedCount: function oArchivedCount() {
+      return this.oArchivedItems.rows.length;
     },
     sFilter: {
       get: function get() {
@@ -2331,6 +2366,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {},
+  mounted: function mounted() {
+    this.$store.dispatch('getQuotes');
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    oQuotesWhole: 'oQuotes'
+  }), {
+    oQuotesRow: function oQuotesRow() {
+      return this.oQuotesWhole.rows;
+    }
+  })
+});
 
 /***/ }),
 
@@ -75135,22 +75238,8 @@ var render = function() {
           _vm._v(" "),
           _c("dashboard-card", {
             attrs: {
-              "s-title": "0 items",
+              "s-title": _vm.oArchivedCount + " items",
               "s-card-label": "Archived categories"
-            }
-          }),
-          _vm._v(" "),
-          _c("dashboard-card", {
-            attrs: {
-              "s-title": "0 items",
-              "s-card-label": "Changed category related"
-            }
-          }),
-          _vm._v(" "),
-          _c("dashboard-card", {
-            attrs: {
-              "s-title": "0 items",
-              "s-card-label": "Returned category related"
             }
           })
         ],
@@ -75297,24 +75386,27 @@ var render = function() {
         [
           _c("dashboard-card", {
             attrs: {
-              "s-title": "38 views",
+              "s-title": "0 views",
               "s-card-label": "Total Website Views"
             }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "42 items", "s-card-label": "Items Viewed" }
+            attrs: { "s-title": "0 items", "s-card-label": "Items Viewed" }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
             attrs: {
-              "s-title": "32 users",
+              "s-title": _vm.oQuotesRow + " users",
               "s-card-label": "Subscribed to Newsletter"
             }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "300 pcs", "s-card-label": "Warehouse Stock" }
+            attrs: {
+              "s-title": _vm.oItemsRow + " pcs",
+              "s-card-label": "Warehouse Stock"
+            }
           })
         ],
         1
@@ -75376,15 +75468,10 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 items", "s-card-label": "Archived Items" }
-          }),
-          _vm._v(" "),
-          _c("dashboard-card", {
-            attrs: { "s-title": "0 refunds", "s-card-label": "Changed Items" }
-          }),
-          _vm._v(" "),
-          _c("dashboard-card", {
-            attrs: { "s-title": "0 items", "s-card-label": "Returned Items" }
+            attrs: {
+              "s-title": _vm.oArchivedCount + " items",
+              "s-card-label": "Archived Items"
+            }
           })
         ],
         1
@@ -75568,18 +75655,6 @@ var staticRenderFns = [
                   [
                     _c(
                       "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("User Information")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Update Credentials")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
                       {
                         staticClass: "dropdown-item",
                         attrs: { href: "/register" }
@@ -75697,8 +75772,7 @@ var render = function() {
         [
           _c("dashboard-card", {
             attrs: {
-              "s-title":
-                _vm.$store.state.oApi.oCategories.rows.length + " quotes",
+              "s-title": _vm.$store.state.oApi.oQuotes.rows.length + " quotes",
               "s-card-label": "Total Quote Request"
             }
           }),
@@ -75717,7 +75791,52 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(1)
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.oQuotesRow, function(aItem, iKey) {
+          return _c(
+            "div",
+            { staticClass: "card", staticStyle: { width: "18rem" } },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(
+                    _vm._s(aItem.first_name) + " " + _vm._s(aItem.last_name)
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h6", { staticClass: "card-subtitle mb-2 text-muted" }, [
+                  _vm._v(_vm._s(aItem.company_name))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(aItem.request_message))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-warning card-link",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("Mark as Responded")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-danger card-link",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("Archive Message")]
+                )
+              ])
+            ]
+          )
+        }),
+        0
+      )
     ])
   ])
 }
@@ -75727,36 +75846,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Quotes")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("h6", { staticClass: "card-subtitle mb-2 text-muted" }, [
-            _vm._v("Card subtitle")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "Some quick example text to build on the card title and make up the bulk of the card's content."
-            )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Card link")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-            _vm._v("Another link")
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -75815,81 +75904,12 @@ var render = function() {
             )
           }),
           0
-        ),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1)
+        )
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h6",
-      {
-        staticClass:
-          "sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
-      },
-      [
-        _c("span", [_vm._v("Saved reports")]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "d-flex align-items-center text-muted",
-            attrs: { href: "#" }
-          },
-          [_c("span", { attrs: { "data-feather": "plus-circle" } })]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "nav flex-column mb-2" }, [
-      _c("li", { staticClass: "nav-item" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-          _c("span", { attrs: { "data-feather": "file-text" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "green-font" }, [_vm._v("Current month")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-          _c("span", { attrs: { "data-feather": "file-text" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "green-font" }, [_vm._v("Last quarter")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-          _c("span", { attrs: { "data-feather": "file-text" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "green-font" }, [
-            _vm._v("Social engagement")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item" }, [
-        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-          _c("span", { attrs: { "data-feather": "file-text" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "green-font" }, [_vm._v("Year-end sale")])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -77474,12 +77494,6 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _vm._v(_vm._s(_vm.sCardLabel))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("a", { staticClass: "btn btn-success", attrs: { href: "#" } }, [
-              _vm._v(_vm._s(_vm.sButtonText))
             ])
           ])
         ])
@@ -96791,15 +96805,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _QuotesComponent_vue_vue_type_template_id_04c54aaa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./QuotesComponent.vue?vue&type=template&id=04c54aaa& */ "./resources/js/components/QuotesComponent.vue?vue&type=template&id=04c54aaa&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _QuotesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuotesComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _QuotesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _QuotesComponent_vue_vue_type_template_id_04c54aaa___WEBPACK_IMPORTED_MODULE_0__["render"],
   _QuotesComponent_vue_vue_type_template_id_04c54aaa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -96813,6 +96829,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/QuotesComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_QuotesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./QuotesComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QuotesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_QuotesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -97896,16 +97926,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       }, {
         sLabel: 'Quotes',
         sRoute: 'quotes'
-      }, {
-        sLabel: 'Orders',
-        sRoute: 'orders'
-      }, {
-        sLabel: 'Customers',
-        sRoute: 'customers'
-      }, {
-        sLabel: 'Reports',
-        sRoute: 'reports'
-      }, {
+      }, // {
+      //     sLabel : 'Orders',
+      //     sRoute : 'orders'
+      // },
+      // {
+      //     sLabel : 'Customers',
+      //     sRoute : 'customers'
+      // },
+      // {
+      //     sLabel : 'Reports',
+      //     sRoute : 'reports'
+      // },
+      {
         sLabel: 'Archived details',
         sRoute: 'archived'
       }]
@@ -97953,6 +97986,31 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
           field: 'action'
         } // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
         ],
+        rows: []
+      },
+      oQuotes: {
+        columns: [{
+          label: 'No',
+          field: 'no'
+        }, {
+          label: 'First Name',
+          field: 'first_name'
+        }, {
+          label: 'Last Name',
+          field: 'last_name'
+        }, {
+          label: 'Email',
+          field: 'email'
+        }, {
+          label: 'Phone',
+          field: 'phone'
+        }, {
+          label: 'Company Name',
+          field: 'company_name'
+        }, {
+          label: 'Message',
+          field: 'request_message'
+        }],
         rows: []
       },
       oArchivedCategories: {
@@ -98009,6 +98067,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     setCategories: function setCategories(state, payload) {
       state.oApi.oCategories.rows = payload;
     },
+    setQuotes: function setQuotes(state, payload) {
+      state.oApi.oQuotes.rows = payload;
+    },
     setArchivedCategories: function setArchivedCategories(state, payload) {
       state.oApi.oArchivedCategories.rows = payload;
     },
@@ -98041,14 +98102,18 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     getItems: function getItems(context) {
       axios.get('/admin/api/item/load').then(function (oResponse) {
-        console.log(oResponse);
         context.commit('setItems', oResponse.data);
       });
     },
     getCategories: function getCategories(context) {
       axios.get('/admin/api/category/load').then(function (oResponse) {
-        console.log(oResponse);
         context.commit('setCategories', oResponse.data);
+      });
+    },
+    getQuotes: function getQuotes(context) {
+      axios.get('/admin/api/quotes/load').then(function (oResponse) {
+        console.log(oResponse);
+        context.commit('setQuotes', oResponse.data);
       });
     },
     getArchivedCategories: function getArchivedCategories(context) {
@@ -98122,6 +98187,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     oCategories: function oCategories(state) {
       return state.oApi.oCategories;
+    },
+    oQuotes: function oQuotes(state) {
+      return state.oApi.oQuotes;
     },
     oArchivedCategories: function oArchivedCategories(state) {
       return state.oApi.oArchivedCategories;

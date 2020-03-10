@@ -109,6 +109,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'as'   => 'api.admin.category.load.archived'
         ]);
 
+        Route::get('/quotes/load', [
+            'uses' => 'api\Admin\QuotesController@load',
+            'as'   => 'api.admin.quotes.load'
+        ]);
+
         Route::get('/item/load/archived', [
             'uses' => 'api\Admin\ItemsController@loadArchived',
             'as'   => 'api.admin.item.load.archived'
