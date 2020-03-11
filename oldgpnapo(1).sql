@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2020 at 03:46 PM
+-- Generation Time: Mar 09, 2020 at 03:54 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -122,28 +122,7 @@ INSERT INTO `category_item` (`id`, `item_id`, `category_id`) VALUES
 (85, 58, 1),
 (86, 59, 1),
 (87, 60, 1),
-(88, 60, 4),
-(89, 61, 1),
-(90, 61, 4),
-(91, 61, 3),
-(92, 62, 1),
-(93, 63, 1),
-(94, 64, 1),
-(95, 65, 1),
-(96, 66, 2),
-(97, 66, 1),
-(98, 66, 4),
-(99, 67, 1),
-(100, 67, 4),
-(101, 68, 1),
-(102, 69, 1),
-(103, 70, 2),
-(104, 71, 3),
-(105, 71, 2),
-(106, 72, 2),
-(107, 73, 3),
-(108, 73, 4),
-(109, 73, 1);
+(88, 60, 4);
 
 -- --------------------------------------------------------
 
@@ -296,20 +275,7 @@ INSERT INTO `t_items` (`id`, `users_id`, `item_name`, `item_brand`, `item_qty`, 
 (57, 1, 'Ice Cube Machine (1000 - 1300 series)', 'Branded', 5, 'Ice Cube Maker', '<p><strong>Ice cube machine</strong><br><br>-1000 to 1300 series<br>&nbsp;-Made in USA<br>-For Bakeshop / Restaurant/ Hotel &amp; meat processing use .</p>', 'ice-cube-machine-1000-1300-series', '[\"public/photos/items/goH4DgyhEitzYg83dw0ZuxhNbnw1LROASKKMKe6l.jpeg\"]', 0, 0, '2020-03-09 06:05:29', '2020-03-09 06:05:43'),
 (58, 1, 'LASKA 200 liters Bowl Chopper / Silent Cutter', 'Laska', 1, 'Cutter Copper', '<p><strong>LASKA 200 liters Bowl Chopper / Silent Cutter&nbsp;</strong><br><br>-Made In Austria Power Supply&nbsp;<br>-50hp to 75hp Motor&nbsp;<br>-80v/ 440v , 60/50hz ,<br>-3phase&nbsp;</p>', 'laska-200-liters-bowl-chopper-silent-cutter', '[\"public/photos/items/oTVbU3R6AGCRMNiTI78sgHCaExIUk1taDyJQXjb1.jpeg\", \"public/photos/items/g3v3PCI5ryCRqCSVCKkBrTBPaQBpYEydvS4r6ZTL.jpeg\"]', 0, 1, '2020-03-09 06:11:47', '2020-03-09 06:11:47'),
 (59, 1, 'Braising Pans', 'Branded', 1, 'Braising Pan', '<p><strong>Braising Pans&nbsp;</strong><br><br>- 100 liter to 120 liters&nbsp;<br>-LPG Type&nbsp;<br>-Made In USA</p>', 'braising-pans', '[\"public/photos/items/zUqVWdrn8p5BBeGp0Qy17q3hkoiCOljxoodpLH8Y.jpeg\", \"public/photos/items/TPZvT5EZsepm3iuGpnaTLDUzuzvaUCGCnpksHLgI.jpeg\"]', 0, 1, '2020-03-09 06:18:00', '2020-03-09 06:18:00'),
-(60, 1, 'Multi purpose Industrial Type Heavy Duty Mixers', 'Branded', 1, 'Mixer', '<p><strong>Multi purpose - Industrial Type Mixers&nbsp;</strong>&nbsp;<br>-Ribbon Blenders And meat mixers&nbsp;<br>-200 liters to 3000 liters Capacities&nbsp;<br>-Made in Europe&nbsp;</p>', 'multi-purpose-industrial-type-heavy-duty-mixers', '[\"public/photos/items/M9zdegHR1URf1I6T4J64aohzkGv8RGR15p9y68t6.jpeg\", \"public/photos/items/jeVuSf066A1FBtU8sGl6ZIcAgaMpSqdaanX5zrzF.jpeg\", \"public/photos/items/WFaRJS20ryQlCKMx9buUaucnNQOnGt61uvPvC2WP.jpeg\"]', 0, 1, '2020-03-09 06:23:13', '2020-03-09 06:23:13'),
-(61, 1, 'Seydelmann Dual Paddle Mixer', 'Seydelmann', 3, 'Mixer', '<p><strong>Seydelmann Dual Paddle Mixer</strong><br><br>-Brand :Seydelmann&nbsp;<br>-For Dough and meat mixing<br>-Made In Germany&nbsp;</p><p>-800 liters to 1,200 Liters Capacity<br>-All stainless</p>', 'seydelmann-dual-paddle-mixer', '[\"public/photos/items/kt6gAPFwXyHBMC7ZWFSQ0mQca1AWmCmrWePI9kfi.jpeg\", \"public/photos/items/xfuHmcFpmHOBiBxO8bLs9AE9MTNiyD8IevzTdphs.jpeg\", \"public/photos/items/aTAwOkanixq4nj5EBb2NExnDd7Qpd6w9d9262xAu.jpeg\", \"public/photos/items/nJFFLckEvgrSSgqS8zSgeeBm2YLWVSECHDqu4uKC.jpeg\", \"public/photos/items/S8l7Ofm2XXvXrSecJP2pdUYrrPsEoiwZEMxRgmpT.jpeg\", \"public/photos/items/rARkRamzQRtfzNOC9Fmu9DbtvAMnWAw11LeaBI8Y.jpeg\"]', 0, 1, '2020-03-11 06:09:17', '2020-03-11 06:09:17'),
-(62, 1, 'Automatic  Frozen Meat Slicer', 'Branded', 3, 'Slicer', '<p><strong>Automatic &nbsp;Frozen Meat Slicer</strong><br><br><strong>Made In Japan</strong></p>', 'automatic-frozen-meat-slicer', '[\"public/photos/items/rjC5o7ABmXKH2OlHEYxh94uJaaHV5waZcLIFc99N.jpeg\", \"public/photos/items/TzVHy0deJjJbllvclo9WbjchsSAZxdyVJDWUHmt8.jpeg\"]', 0, 1, '2020-03-11 06:10:55', '2020-03-11 06:10:55'),
-(63, 1, 'Tabletop Meat Slicer', 'Branded', 10, 'Slicer', '<p><strong>Tabletop Meat Slicer</strong><br><br><strong>-Made in US</strong><br><strong>-1/2 HP Motor</strong><br><strong>-220V</strong><br><strong>-Singe Phase</strong></p>', 'tabletop-meat-slicer', '[\"public/photos/items/Uvs4h72bUhM9obwlKGIsOUBrFl0LvidNwzkwN8KH.jpeg\", \"public/photos/items/5bDZ3LriJB0ZNKON3kne19IzR9nUnzZ4nnDBRZDy.jpeg\"]', 0, 1, '2020-03-11 06:12:48', '2020-03-11 06:12:48'),
-(64, 1, 'Hobart and Biro Meat Grinder and Bandsaw', 'Hobart,Biro', 10, 'Grinder', '<p><strong>Hobart and Biro Meat Grinder and Bandsaw</strong><br><br><strong>-3HP motor</strong></p>', 'hobart-and-biro-meat-grinder-and-bandsaw', '[\"public/photos/items/S7jAekM4tnp98PT6pHXwCBbg8fzsd8sbL66w1ZKQ.jpeg\", \"public/photos/items/MldjbVndo2TEtUl65j5R9cd219KXehUgxEM8b6T9.jpeg\"]', 0, 1, '2020-03-11 06:15:13', '2020-03-11 06:15:13'),
-(65, 1, 'Townsend Frankamatic Set Model RL17', 'Townsend', 3, 'Hotdog Sausage Making', '<p><strong>Townsend Frankamatic Set Model RL17</strong><br><br><strong>-Made In US</strong><br><strong>-380V/440V/220V</strong><br><strong>-3 phase latest model</strong></p>', 'townsend-frankamatic-set-model-rl17', '[\"public/photos/items/ORXxZoB1Ab9slrm64GmDi2akbLTR0wSwasbim2KH.jpeg\"]', 0, 1, '2020-03-11 06:20:07', '2020-03-11 06:20:07'),
-(66, 1, 'Steam Jacketed Sauce Cooker (1000-1300 Pale)', 'Branded', 3, 'Sauce Cooker', '<p><strong>Steam Jacketed Sauce Cooker (1000-1300 Pale Per Batch)</strong><br><br><strong>-Made in Japan</strong></p>', 'steam-jacketed-sauce-cooker-1000-1300-pale', '[\"public/photos/items/CGKXlyRrNu7mfdWIID8lZMsBPYhGTWqOSwnG7x27.jpeg\"]', 0, 1, '2020-03-11 06:22:09', '2020-03-11 06:22:09'),
-(67, 1, 'Vacuum Marinator', 'Branded', 2, 'Marinator', '<p><strong>Vacuum Marinator</strong><br><br><strong>-Made in Italy</strong><br><strong>-500 Liters Capacity</strong></p>', 'vacuum-marinator', '[\"public/photos/items/QRn3DXAsBHt9WrG7sSw7KnALPTR22cdMwzJWWq2K.jpeg\"]', 0, 1, '2020-03-11 06:23:33', '2020-03-11 06:23:33'),
-(68, 1, 'Dorit Meat Marinator / Tumbler', 'Dorit', 2, 'Marinator / Tumbler', '<p><strong>Dorit Meat Marinator / Tumbler</strong><br><br>- Made Germany<br>-600 Liters Capacity</p>', 'dorit-meat-marinator-tumbler', '[\"public/photos/items/JCe6rfbMo4yd3zxBHBlGzWiC9tjd0uNT94q5YDxM.jpeg\", \"public/photos/items/vATo7Phx6cRJkZPTKUFHCGKGXQlyrSn37D6khq1c.jpeg\"]', 0, 1, '2020-03-11 06:28:57', '2020-03-11 06:28:57'),
-(69, 1, 'Rhule Meat Marinator', 'Rhule', 3, 'Marinator', '<p><strong>Rhule Meat Marinator</strong><br><br><strong>-Vacuum Type</strong><br><strong>-200 Liters</strong></p>', 'rhule-meat-marinator', '[\"public/photos/items/2cWcIaNDjOmia0vDHojf6YFMsTM3foFClTWYzjmQ.jpeg\"]', 0, 1, '2020-03-11 06:30:48', '2020-03-11 06:30:48'),
-(70, 1, 'KOLB: Fermentation Room', 'KOLB', 2, 'Fermentation Room', '<p><strong>KOLB: Fermentation Room</strong><br><br><strong>-Made In Germany</strong><br><strong>-Walk-in typle</strong></p>', 'kolb-fermentation-room', '[\"public/photos/items/ytPADaTsjyQQmFJ3Kwiw57kdoNMwFcKLBzmcofeW.jpeg\"]', 0, 1, '2020-03-11 06:33:50', '2020-03-11 06:33:50'),
-(71, 1, 'Batinox / Electrolux Convection Oven', 'Branded', 3, 'Oven', '<p><strong>Batinox / Electrolux Convection Oven</strong><br><br><strong>-Electric Type</strong></p>', 'batinox-electrolux-convection-oven', '[\"public/photos/items/DUO2A4aj4Ko5ku9j0mtXnm6YLpXHNSkR7W9ssxqO.jpeg\", \"public/photos/items/hmYySEGSu9BM4ojhnjEDtdfc1NqqoG6Uw0ePGusD.jpeg\"]', 0, 1, '2020-03-11 06:35:25', '2020-03-11 06:35:25'),
-(72, 1, 'Batinox & Sinmag Proofing Machines', 'Batinox , SInmag', 5, 'Proofing Machines', '<p><strong>Batinox &amp; Sinmag Proofing Machines</strong><br><br><strong>Brand: Batinox , SInmag</strong></p>', 'batinox-sinmag-proofing-machines', '[\"public/photos/items/TeQkyUPPCuOUyS5SPC6uQ4YFEMg0S6oUW3NKJMRD.jpeg\"]', 0, 1, '2020-03-11 06:36:50', '2020-03-11 06:36:50'),
-(73, 1, 'Champion Horizontal Dough Mixer', 'Champion', 2, 'Mixer', '<p>- 4-5 bagger mixer - Made In USA - Triple Sigma Arms&nbsp;<br>- 30hp Motor, 220v,60hz, 3phase&nbsp;<br>- Used for mixing all types of products from fine powder to coarse ground ingredients.&nbsp;<br>- For making/mixing bread, rolls, buns, bagels, English muffins, flour tortillas, pizza crusts, sweet goods, and frozen doughs.</p>', 'champion-horizontal-dough-mixer', '[\"public/photos/items/CfoLVbMlfa1sVFWARZRT6CLr7P6rVsyZQAWY4gMy.jpeg\", \"public/photos/items/zIzyuXh4ql3WwNOvfkb0IEcfye1MyBCC1lXPcK1r.jpeg\", \"public/photos/items/YDMF9cRNU43WBYnUfgBqNKM5XFHBnmryCZBIjv9c.jpeg\"]', 0, 1, '2020-03-11 06:42:00', '2020-03-11 06:42:00');
+(60, 1, 'Multi purpose Industrial Type Heavy Duty Mixers', 'Branded', 1, 'Mixer', '<p><strong>Multi purpose - Industrial Type Mixers&nbsp;</strong>&nbsp;<br>-Ribbon Blenders And meat mixers&nbsp;<br>-200 liters to 3000 liters Capacities&nbsp;<br>-Made in Europe&nbsp;</p>', 'multi-purpose-industrial-type-heavy-duty-mixers', '[\"public/photos/items/M9zdegHR1URf1I6T4J64aohzkGv8RGR15p9y68t6.jpeg\", \"public/photos/items/jeVuSf066A1FBtU8sGl6ZIcAgaMpSqdaanX5zrzF.jpeg\", \"public/photos/items/WFaRJS20ryQlCKMx9buUaucnNQOnGt61uvPvC2WP.jpeg\"]', 0, 1, '2020-03-09 06:23:13', '2020-03-09 06:23:13');
 
 -- --------------------------------------------------------
 
@@ -396,7 +362,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category_item`
 --
 ALTER TABLE `category_item`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -426,7 +392,7 @@ ALTER TABLE `t_categories`
 -- AUTO_INCREMENT for table `t_items`
 --
 ALTER TABLE `t_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `users`
