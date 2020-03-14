@@ -2184,6 +2184,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     oItemsRow: function oItemsRow() {
       return this.oItemsWhole.rows.length;
+    },
+    oItemsViewed: function oItemsViewed() {
+      return this.oItemsWhole.rows.filter(function (rows) {
+        return rows.views !== 0;
+      }).length;
+    },
+    oItemsViews: function oItemsViews() {
+      var oTotalViews = 0;
+      var oWithViews = this.oItemsWhole.rows.filter(function (rows) {
+        return rows.views !== 0;
+      });
+      oWithViews.forEach(function (aRow, iKey) {
+        oTotalViews += aRow.views;
+      });
+      return oTotalViews;
     }
   })
 });
@@ -75449,13 +75464,16 @@ var render = function() {
         [
           _c("dashboard-card", {
             attrs: {
-              "s-title": "0 views",
+              "s-title": _vm.oItemsViews + " views",
               "s-card-label": "Total Website Views"
             }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 items", "s-card-label": "Items Viewed" }
+            attrs: {
+              "s-title": _vm.oItemsViewed + " items",
+              "s-card-label": "Items Viewed"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {

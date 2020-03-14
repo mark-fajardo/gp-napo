@@ -8,6 +8,7 @@ use Validator;
 use App\Repositories\Quote;
 use App\Repositories\Items;
 use App\Repositories\Categories;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
@@ -33,6 +34,8 @@ class FrontController extends Controller
     public function item($slug) {
         $categories = Categories::with('items')->get();
         $item = Items::findBySlugOrFail($slug);
+        Items::where('id', $item->id)
+            ->increment('views', 1, ['updated_at' => Carbon::now()]);
         $items = Items::with('categories')->get();
         $email = 'napo.enterprise@gmail.com';
         return view('front.item.index',  compact('categories', 'items', 'item', 'email'));
