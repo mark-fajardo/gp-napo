@@ -77,7 +77,9 @@ class FrontController extends Controller
             'last_name'         => $request->last_name,
             'email'             => $request->email,
             'phone'             => $request->phone,
-            'request_message'   => $request->request_message
+            'request_message'   => $request->request_message,
+            'archived'          => 0,
+            'replied'           => 0
         ]);
 
         return redirect()->route('front.quote')->with('success', 'Your quote request has sucessfully created. GP-NAPO Team will contact you as soon as possible. Thank You!');

@@ -2420,9 +2420,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {},
+  methods: {
+    archiveRow: function archiveRow(iId) {
+      if (confirm('Archive this quote?')) {
+        var oThis = this;
+        var sEndPoint = '/admin/api/quotes/archive';
+        axios.post(sEndPoint, {
+          'id': [iId]
+        }).then(function (bResponse) {
+          if (bResponse.data === true) {
+            oThis.$store.dispatch('toast', {
+              bType: true,
+              sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessArchive
+            });
+            oThis.$router.go();
+          }
+        })["catch"](function (oResponse) {
+          oThis.$store.dispatch('toast', {
+            bType: false,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sFailArchive
+          });
+        });
+      }
+    },
+    markAsReplied: function markAsReplied(iId) {
+      if (confirm('Mark selected as replied?')) {
+        var oThis = this;
+        var sEndPoint = '/admin/api/quotes/replied';
+        axios.post(sEndPoint, {
+          'id': [iId]
+        }).then(function (bResponse) {
+          if (bResponse.data === true) {
+            oThis.$store.dispatch('toast', {
+              bType: true,
+              sMsg: oThis.$store.state.oMessages.oAlerts.sSuccessReplied
+            });
+            oThis.$router.go();
+          }
+        })["catch"](function (oResponse) {
+          oThis.$store.dispatch('toast', {
+            bType: false,
+            sMsg: oThis.$store.state.oMessages.oAlerts.sFailReplied
+          });
+        });
+      }
+    }
+  },
   mounted: function mounted() {
     this.$store.dispatch('getQuotes');
   },
@@ -2431,6 +2484,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), {
     oQuotesRow: function oQuotesRow() {
       return this.oQuotesWhole.rows;
+    },
+    oArchivedQuotes: function oArchivedQuotes() {
+      return this.oQuotesWhole.rows.filter(function (rows) {
+        return rows.archived === 1;
+      }).length;
+    },
+    oRepliedQuotes: function oRepliedQuotes() {
+      return this.oQuotesWhole.rows.filter(function (rows) {
+        return rows.replied === 1;
+      }).length;
     }
   })
 });
@@ -75778,12 +75841,15 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("dashboard-card", {
-            attrs: { "s-title": "0 quotes", "s-card-label": "Archived quotes" }
+            attrs: {
+              "s-title": _vm.oArchivedQuotes + " quotes",
+              "s-card-label": "Archived quotes"
+            }
           }),
           _vm._v(" "),
           _c("dashboard-card", {
             attrs: {
-              "s-title": "0 quote request",
+              "s-title": _vm.oRepliedQuotes + " quotes",
               "s-card-label": "Responded Quote Request"
             }
           })
@@ -75793,11 +75859,14 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row" },
+        { staticClass: "row p-3" },
         _vm._l(_vm.oQuotesRow, function(aItem, iKey) {
           return _c(
             "div",
-            { staticClass: "card", staticStyle: { width: "18rem" } },
+            {
+              staticClass: "card m-3 bg-light",
+              staticStyle: { width: "18rem" }
+            },
             [
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
@@ -75814,23 +75883,49 @@ var render = function() {
                   _vm._v(_vm._s(aItem.request_message))
                 ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-warning card-link",
-                    attrs: { href: "#" }
-                  },
-                  [_vm._v("Mark as Responded")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-danger card-link",
-                    attrs: { href: "#" }
-                  },
-                  [_vm._v("Archive Message")]
-                )
+                aItem.archived === 0 && aItem.replied === 0
+                  ? _c("div", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-warning card-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.markAsReplied(aItem.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Mark as Responded")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger card-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.archiveRow(aItem.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Archive Message")]
+                      )
+                    ])
+                  : aItem.archived === 1
+                  ? _c("div", [
+                      _c("span", { staticClass: "badge badge-secondary" }, [
+                        _vm._v("Archived")
+                      ])
+                    ])
+                  : aItem.replied === 1
+                  ? _c("div", [
+                      _c("span", { staticClass: "badge badge-success" }, [
+                        _vm._v("Replied")
+                      ])
+                    ])
+                  : _vm._e()
               ])
             ]
           )
@@ -97908,7 +98003,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         sFailUpdateItem: 'Please check category credentials',
         sMinFiveChars: 'Minimum of Five characters each text field',
         sSuccessArchive: 'Successfully archived',
-        sFailArchive: 'Archive failed'
+        sFailArchive: 'Archive failed',
+        sSuccessReplied: 'Successfully marked as replied',
+        sFailReplied: 'Failed to marked as replied'
       },
       iPage: 1,
       sFilter: ''
@@ -98112,7 +98209,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     getQuotes: function getQuotes(context) {
       axios.get('/admin/api/quotes/load').then(function (oResponse) {
-        console.log(oResponse);
         context.commit('setQuotes', oResponse.data);
       });
     },
@@ -98226,8 +98322,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

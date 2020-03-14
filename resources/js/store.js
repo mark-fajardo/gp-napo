@@ -22,6 +22,8 @@ export default new Vuex.Store({
                 sMinFiveChars : 'Minimum of Five characters each text field',
                 sSuccessArchive : 'Successfully archived',
                 sFailArchive : 'Archive failed',
+                sSuccessReplied : 'Successfully marked as replied',
+                sFailReplied : 'Failed to marked as replied',
             },
             iPage : 1,
             sFilter : '',
@@ -178,7 +180,6 @@ export default new Vuex.Store({
         getQuotes : function (context) {
             axios.get('/admin/api/quotes/load')
                 .then(function (oResponse) {
-                    console.log(oResponse)
                     context.commit('setQuotes', oResponse.data)
                 })
         },

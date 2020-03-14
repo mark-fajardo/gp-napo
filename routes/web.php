@@ -138,5 +138,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'uses' => 'api\Admin\ItemsController@archive',
             'as'   => 'api.admin.item.archive'
         ]);
+
+        Route::post('/quotes/archive', [
+            'uses' => 'api\Admin\QuotesController@archive',
+            'as'   => 'api.admin.quotes.archive'
+        ]);
+
+        Route::post('/quotes/replied', [
+            'uses' => 'api\Admin\QuotesController@replied',
+            'as'   => 'api.admin.quotes.replied'
+        ]);
     });
 });

@@ -38,4 +38,32 @@ class QuotesController extends Controller
         $oQuotes = Quote::all();
         return response()->json($oQuotes);
     }
+
+    /**
+     * Archive row
+     */
+    public function archive()
+    {
+        $bReturn = false;
+        foreach ($this->aRequest['id'] as $iId) {
+            $aQuote = Quote::find($iId);
+            $aQuote->archived = 1;
+            $bReturn = $aQuote->save();
+        }
+        return response()->json($bReturn);
+    }
+
+    /**
+     * Mark as responded
+     */
+    public function replied()
+    {
+        $bReturn = false;
+        foreach ($this->aRequest['id'] as $iId) {
+            $aQuote = Quote::find($iId);
+            $aQuote->replied = 1;
+            $bReturn = $aQuote->save();
+        }
+        return response()->json($bReturn);
+    }
 }
