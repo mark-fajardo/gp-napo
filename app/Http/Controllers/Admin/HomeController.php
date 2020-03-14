@@ -12,12 +12,6 @@ class HomeController extends Controller
     
     public function index() 
     {
-        // $oItems = Items::where('updated_at', '>', Carbon::now()->subMonths(12))->groupBy('updated_at')->get();
-        $oItems = Items::selectRaw('SUM(`views`)')
-        ->where('updated_at', '>', Carbon::now()->subMonths(12))->groupBy('updated_at')
-        ->groupBy()
-        ->get();
-        dd($oItems);
         return view('admin.home.index');
     }
 
