@@ -1,10 +1,10 @@
-<div class="industry-slider-area section-space--inner--120"  style="background-color:#fff; padding-bottom: 0">
+<div id="categories" class="industry-slider-area section-space--inner--120"  style="background-color:#fff; padding-bottom: 0">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 m-auto">
                 <div class="section-title-area section-title-area--middle section-space--bottom--80">
                     <h2 class="title section-space--bottom--30">Equipments</h2>
-                    <p class="section-title-content text-center">Machines being offered Are mostly 2nd Hand - Rebuilt. We supply also Brand-new Equiptment from Europe & USA for a special arrangements / special orders only</p>
+                    <p class="section-title-content text-center desc-text">Machines being offered Are mostly 2nd Hand - Rebuilt. We supply also Brand-new Equiptment from Europe & USA for a special arrangements / special orders only</p>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
                         <div class="col-lg-6">
                             <!-- section title content -->
                             <div class="section-title-content-area ">
-                                <p class="section-title-content mt-3">We are committed on providing our customers with an outstanding products and exceptional service without breaking a bank. Our goal is to excel and help other business produce a great results. This company focus has been in place for almost a 20 years.</p>
+                                <p class="section-title-content mt-3 desc-text">We are committed on providing our customers with an outstanding products and exceptional service without breaking a bank. Our goal is to excel and help other business produce a great results. This company focus has been in place for almost a 20 years.</p>
                             </div>
                         </div>
                     </div>

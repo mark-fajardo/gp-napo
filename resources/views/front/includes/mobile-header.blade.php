@@ -3,7 +3,6 @@
         <div class="container-fluid--cp-60">
             <div class="row align-items-center">
                 <div class="col-md-4 col-sm-6 col-9">
-                    <!-- logo -->
                     <div class="logo">
                         <a href="{{route('front.index')}}">
                             <img src="{{ asset('assets/img/logo/Logodark_NAPO.png') }}" class="img-fluid" alt="">
@@ -11,7 +10,6 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-3">
-                    <!-- mobile menu content -->
                     <div class="mobile-menu-content">
                         <a class="mobile-navigation-close-icon" id="mobile-menu-close-trigger" href="javascript:void(0)">
                             <i class="ion-ios-close-empty"></i>
@@ -26,7 +24,7 @@
             <ul>
                 <li>
                     <form action="{{ route('front.search') }}" method="GET" class="form-group">
-                        <input type="search" placeholder="Search equipments..." class="form-control text-white" style="background: #4e4e4e" name="q">
+                        <input type="search" placeholder="Search equipments..." class="form-control text-white search-mobile" style="background: #4e4e4e" name="q">
                     </form>
                 </li>
                 <li>

@@ -77,7 +77,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="footer-copyright-left">
-                                Copyright © 2020 All Rights Reserved by GP NAPO Food and Equipment Trading
+                                Copyright © 2020 All Rights Reserved by GP NAPO Food Equipment Trading
                             </div>
                         </div>
                     </div>
