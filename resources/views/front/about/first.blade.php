@@ -5,19 +5,14 @@
                 <div class="feature-background__wrapper bg-img" data-bg="assets/img/backgrounds/13.jpg">
                     <div class="row no-gutters">
                         <div class="col-lg-5">
-                            <!-- feature background -->
                             <div class="feature-background__image feature-background__image--style2 bg-img" data-bg="assets/img/backgrounds/about-2.jpg"></div>
                         </div>
                         <div class="col-lg-7">
-                            <!-- feature content -->
                             <div class="feature-background__content-area feature-background__content-area--style2">
                                 <div class="feature-background__content-wrapper section-space--inner--190">
-                                    <!-- section title area -->
                                     <div class="section-title-area section-space--bottom--60">
                                         <h2 class="title title--style4 title--style4--about">About GP NAPO <br/>Food Trading Equipments</h2>
                                     </div>
-
-                                    <!-- feature single content -->
                                     <div class="feature-background__single-content-wrapper">
                                         <div class="row">
                                             <div class="col-lg-12">

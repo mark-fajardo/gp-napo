@@ -5,7 +5,6 @@
     
     <div class="section-title-area section-title-area--middle section-space--bottom--30 align-items-start">
         <h4 class="subtitle pl-3 py-2 front-text">FEATURED EQUIPMENTS</h4>
-        {{-- <h2 class="title" style="margin-top: -20px"></h2> --}}
     </div>
     <div class="col-lg-12 text-center font-italic mb-1 d-block d-lg-none">
         <p>(Swipe for more equipments)</p>
@@ -32,7 +31,6 @@
                 @endforeach
             </div>
         </div>
-        {{-- <div class="swiper-pagination swiper-pagination-2"></div> --}}
         <div class="ht-swiper-button-prev ht-swiper-button-prev-1 ht-swiper-button-nav d-none d-lg-block" style="left: -80px"><i class="ion-ios-arrow-left"></i></div>
         <div class="ht-swiper-button-next ht-swiper-button-next-1 ht-swiper-button-nav d-none d-lg-block" style="right: -80px"><i class="ion-ios-arrow-forward"></i></div>
     </div>

@@ -3,4 +3,4 @@
 <script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/vendor/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/swiper.min.js')}}"></script>
-<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('assets/js/main.min.js')}}"></script>

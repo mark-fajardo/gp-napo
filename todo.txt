@@ -1,22 +1,14 @@
 Front Design:
-3. <link rel="icon" href="assets/img/favicon.png">
-5. Add new slide, Edit slide background
-6. Create slide and page for Paper Factory
-7. GPNAPO LOGO
 
 Admin:
-1. Quote Page
 2. Liters
-
-Backend:
-1. Get quote
 
 (Optional):
 1. Add im not a robot security in get quote
 
 BEFORE DEPLOYMENT:
-1. Minify Css, Js
-2. Compress, Ooptimized image size
-3. Remove Comments
-4. Use styles and scripts yields per page
+1. Minify Css, Js /
+2. Compress, Ooptimized image size /
+3. Remove Comments /
+4. Use styles and scripts yields per page /
 5. SEO

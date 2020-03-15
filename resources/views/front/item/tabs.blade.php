@@ -94,11 +94,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     </div>
-    <!--=======  End of description tab content  =======-->
-
 </div>

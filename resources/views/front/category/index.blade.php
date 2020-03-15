@@ -64,16 +64,10 @@
         loop: true,
         speed: 1000,
         watchSlidesVisibility: true,
-        // pagination: {
-        //     el: '.swiper-pagination-2',
-        //     type: 'bullets',
-        //     clickable: true
-        // },
         navigation: {
             nextEl: '.ht-swiper-button-next-1',
             prevEl: '.ht-swiper-button-prev-1'
         },
-        // Responsive breakpoints
         breakpoints: {
             991:{
                 slidesPerView : {{ $ctr >= 2 ? 2 : 1 }}

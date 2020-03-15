@@ -9,7 +9,6 @@
             </div>
         </div>
     </div>
-    <!-- industry slider nav -->
     <div class="industry-slider-nav-area" style="background-color:#f7fafc;">
         <div class="swiper-container industry-slider-nav-container">
             <div class="swiper-wrapper industry-slider-nav-wrapper">
@@ -34,7 +33,6 @@
         <div class="ht-swiper-button-prev ht-swiper-button-prev-2 ht-swiper-button-nav d-none d-lg-block"><i class="ion-ios-arrow-left"></i></div>
         <div class="ht-swiper-button-next ht-swiper-button-next-2 ht-swiper-button-nav d-none d-lg-block"><i class="ion-ios-arrow-forward"></i></div>
     </div>
-    <!-- industry slider content -->
     <div class="industry-slider-content-area">
         <div class="swiper-container industry-slider-content-container">
             <div class="swiper-wrapper industry-slider-content-wrapper">
