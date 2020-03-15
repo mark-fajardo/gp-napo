@@ -109,6 +109,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
             'as'   => 'api.admin.category.load.archived'
         ]);
 
+        Route::get('/quotes/load', [
+            'uses' => 'api\Admin\QuotesController@load',
+            'as'   => 'api.admin.quotes.load'
+        ]);
+
         Route::get('/item/load/archived', [
             'uses' => 'api\Admin\ItemsController@loadArchived',
             'as'   => 'api.admin.item.load.archived'
@@ -132,6 +137,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::post('/item/archive', [
             'uses' => 'api\Admin\ItemsController@archive',
             'as'   => 'api.admin.item.archive'
+        ]);
+
+        Route::post('/quotes/archive', [
+            'uses' => 'api\Admin\QuotesController@archive',
+            'as'   => 'api.admin.quotes.archive'
+        ]);
+
+        Route::post('/quotes/replied', [
+            'uses' => 'api\Admin\QuotesController@replied',
+            'as'   => 'api.admin.quotes.replied'
         ]);
     });
 });

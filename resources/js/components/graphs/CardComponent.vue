@@ -6,9 +6,9 @@
                     <h3 class="card-title">{{ sTitle }}</h3>
                     <p class="card-text">{{ sCardLabel }}</p>
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <a href="#" class="btn btn-success">{{ sButtonText }}</a>  
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -6,19 +6,19 @@
             </div>
             <div class="row">
                 <dashboard-card
-                    :s-title="'38 views'"
+                    :s-title="oItemsViews + ' views'"
                     :s-card-label="'Total Website Views'">
                 </dashboard-card>
                 <dashboard-card
-                    :s-title="'42 items'"
+                    :s-title="oItemsViewed + ' items'"
                     :s-card-label="'Items Viewed'">
                 </dashboard-card>
                 <dashboard-card
-                    :s-title="'32 users'"
+                    :s-title="oQuotesRow + ' users'"
                     :s-card-label="'Subscribed to Newsletter'">
                 </dashboard-card>
                 <dashboard-card
-                    :s-title="'300 pcs'"
+                    :s-title="oItemsRow + ' pcs'"
                     :s-card-label="'Warehouse Stock'">
                 </dashboard-card>
             </div>
@@ -32,7 +32,45 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-    
+    methods : {
+        
+    },
+    mounted () {
+        this.$store.dispatch('getQuotes');
+        this.$store.dispatch('getItems');
+    },
+    computed: {
+        ...mapGetters({
+            oItemsWhole : 'oItems',
+            oQuotesWhole : 'oQuotes'
+        }),
+        oQuotesRow () {
+            return this.oQuotesWhole.rows.length;
+        },
+        oItemsRow () {
+            return this.oItemsWhole.rows.length;
+        },
+        oItemsViewed () {
+            return this.oItemsWhole.rows.filter(rows => {
+                return rows.views !== 0
+            }).length;
+        },
+        oItemsViews () {
+            let oTotalViews = 0;
+            
+            let oWithViews = this.oItemsWhole.rows.filter(rows => {
+                return rows.views !== 0
+            });
+
+            oWithViews.forEach(function (aRow, iKey) {
+                oTotalViews += aRow.views;
+            });
+
+            return oTotalViews;
+        }
+    }
 }
 </script>
