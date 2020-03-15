@@ -6,7 +6,7 @@
                   <h3 class="cta-content__subtitle">Providing since 1997</h3>
                   <h2 class="cta-content__title cta-content__title--style2">We are leaders in <br> Food Equipment market</h2>
                   <a href="{{ route('front.quote') }}" class="ht-btn ht-btn--default ht-btn--default--style3">GET A QUOTE NOW</a>
-                <p class="cta-content__text">or contact us via <span class="highlight">{{ $email }}</span></p>
+                <p class="cta-content__text">or contact us via <span class="highlight">napo.enterprise@gmail.com / brandedfoodequipment@gmail.com</span></p>
               </div>
           </div>
       </div>

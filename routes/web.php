@@ -42,7 +42,7 @@ Route::get('/results', [
     'as' => 'front.search'
 ]);
 
-Route::get('/printer', [
+Route::get('/hantscho-paper-and-book-printers', [
     'uses' => 'Front\FrontController@printer',
     'as' => 'front.printer'
 ]);

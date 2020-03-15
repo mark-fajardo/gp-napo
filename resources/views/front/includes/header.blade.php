@@ -39,7 +39,7 @@
                             <!-- logo -->
                             <div class="logo">
                                 <a href="{{ route('front.index') }}">
-                                    <img src="{{ asset('assets/img/logo/Logodark_NAPO.png') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/logo/lightlogo1.png') }}" class="img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -64,8 +64,8 @@
                                                     <i class="ion-ios-telephone-outline"></i>
                                                 </div>
                                                 <div class="header-info-single-item__content">
-                                                    <h6 class="header-info-single-item__title">+63 956-498-7838</h6>
-                                                    <p class="header-info-single-item__subtitle">Contact Sales</p>
+                                                    <h6 class="header-info-single-item__title">09178033855</h6>
+                                                    <p class="header-info-single-item__subtitle">+639564987838</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +108,7 @@
                                             <a href="{{ route('front.index') }}">HOME</a>
                                         </li>
                                         <li class="has-children">
-                                            <a href="#">EQUIPMENTS</a>
+                                            <a href="javascript:void(0)">EQUIPMENTS</a>
                                             <ul class="megamenu megamenu--mega">
                                                 @foreach ($categories as $category)
                                                     <li>
@@ -125,6 +125,12 @@
                                                         </ul>
                                                     </li>
                                                 @endforeach
+                                            </ul>
+                                        </li>
+                                        <li class="has-children has-children--multilevel-submenu">
+                                            <a href="javascript:void(0)">PRODUCTS</a>
+                                            <ul class="submenu">
+                                                <li><a href="{{ route('front.printer') }}">Hantscho Paper and Book Printers</a></li>
                                             </ul>
                                         </li>
                                         <li>

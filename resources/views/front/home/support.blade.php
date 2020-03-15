@@ -5,12 +5,12 @@
         </div>
         <div class="col-md-6">
             <div class="support-footer__single bg-img" data-bg="assets/img/icons/message.png">
-                Email: {{$email}}
+                {!!$email!!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="support-footer__single support-footer__single--dark bg-img" data-bg="assets/img/icons/support.png">
-                Support: (+63)-956-498-7838
+                09178033855 /<br> +639564987838
             </div>
         </div>
     </div>

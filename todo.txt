@@ -3,8 +3,6 @@ Front Design:
 5. Add new slide, Edit slide background
 6. Create slide and page for Paper Factory
 7. GPNAPO LOGO
-- About in footer
-- Slide mobile view
 
 Admin:
 1. Quote Page

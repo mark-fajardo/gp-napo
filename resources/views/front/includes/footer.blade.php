@@ -9,7 +9,7 @@
                             <div class="footer-intro-wrapper">
                                 <div class="footer-logo">
                                     <a href="#">
-                                        <img src="{{ asset('assets/img/logo/LogoLight_NAPO.png') }}" class="img-fluid" alt="">
+                                        <img src="{{ asset('assets/img/logo/darklogo.png') }}" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="footer-desc">
@@ -29,7 +29,7 @@
                                 <h4 class="footer-widget__title">NAVIGATION</h4>
                                 <ul class="footer-widget__navigation">
                                     <li><a href="{{ route('front.index') }}">Home</a></li>
-                                    <li><a href="#">Equipments</a></li>
+                                    <li><a href="#categories">Equipments</a></li>
                                     <li><a href="{{ route('front.about') }}">About Us</a></li>
                                     <li><a href="{{ route('front.contact') }}">Contact Us</a></li>
                                     <li style="border: 2px solid #FFC246; padding: 15px 25px !important; text-align: center; margin-top: 30px"><a href="{{ route('front.quote') }}" style="color: #FFC246; padding: 0 !important;">GET A QUOTE</a></li>
@@ -58,11 +58,11 @@
                                     </li>
                                     <li>
                                         <p style="color: #fff"><i class="fa fa-phone" aria-hidden="true"></i> Have any questions?</p>
-                                        <p style="line-height: 24px">+63 995-461-3274 / 0920-424-5854</p>
+                                        <p style="line-height: 24px">09178033855 / +639564987838</p>
                                     </li>
                                     <li>
                                         <p style="color: #fff"><i class="fa fa-envelope-o" aria-hidden="true"></i> Got any concerns?</p>
-                                        <p style="line-height: 24px">{{ $email }}</p>
+                                        <p style="line-height: 24px">{!! $email !!}</p>
                                     </li>
                                 </ul>
                             </div>

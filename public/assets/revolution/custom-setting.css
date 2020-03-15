@@ -68,6 +68,10 @@
   margin-top: -50px !important;
 }
 
+.mt-printer {
+  margin-top: -45px !important;
+}
+
 .caption-p {
   margin-top: 25px !important;
   font-size: 18px !important;
@@ -88,6 +92,10 @@
 
   .mt-c2 {
     margin-top: -30px !important;
+  }
+
+  .mt-printer {
+    margin-top: -40px !important;
   }
   
   .caption-p {

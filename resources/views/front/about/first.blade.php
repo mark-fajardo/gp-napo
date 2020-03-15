@@ -39,14 +39,14 @@
                 <div class="col-lg-4">
                     <div class="about-list-title-wrapper">
                         <div class="career-title-area section-space--bottom--50">
-                            <h2 class="title mb-0">We provide food machines for all types of business</h2>
+                            <h2 class="title mb-0">We provide food equipments for all types of business</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 offset-lg-1">
                     <div class="about-list-wrapper mt-0">
                         <h3 class="about-list-title">Our Mission</h3>
-                        <p>Our mission is to offer much cheaper Food Machines (50% to 60%  less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses. Our goal is:</p>
+                        <p>Our mission is to offer much cheaper Food Equipments (50% to 60%  less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses. Our goal is:</p>
                         <ul style="list-style-type: square" class="ml-3">
                             <li>To help young entrepreneurs to start their own businesses with a minimal amount required</li>
                             <li>To help the Philippines economy for not spending much dollar/euros when they purchased our used -reconditioned-refurbished- -slightly used - locally assembled machines with high quality in terms of performance & durability</li>
