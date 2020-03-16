@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    {{ $featuredCount > 0 ? 'More Equipments' : 'All Equipments' }}
+                    All Equipments
                 </div>
             </div>
         </div>
@@ -16,7 +16,6 @@
                     <div class="shop-single-product-wrapper">
                         <div class="row">
                             @foreach ($category->items as $item)
-                            @if ($item->is_featured != 1)
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="shop-single-product tilted">
                                     <div class="shop-single-product__thumb-wrapper mb-1">
@@ -31,7 +30,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @endif
                             @endforeach
                         </div>
                     </div>
