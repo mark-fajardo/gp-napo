@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <a href="service-details-4.html" class="ht-btn ht-btn--dark" style="margin-top: 10px !important">MORE PRODUCTS</a>
+                            <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="ht-btn ht-btn--dark" style="margin-top: 10px !important">MORE PRODUCTS</a>
                         </div>
                     </div>
                 </div>
