@@ -13,7 +13,7 @@
                                     </a>
                                 </div>
                                 <div class="footer-desc">
-                                    We offer much cheaper Food Machines (50% to 60% less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses.
+                                    Branded and imported food equipments for Meat processing, Restaurant, Bakery, Hotel Kitchen and Industrial factories. We offer much cheaper Food Machines (50% to 60% less compared to Brandnew Equiptment) to some of existing food manufacturers, Hotels & Restaurants, Bakeshop, meatshop, meat processors and to any food related businesses.
                                 </div>
                                 <div class="social-links">
                                     <ul>

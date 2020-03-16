@@ -31,7 +31,7 @@
                             <span class="caption-head">
                                 Refurbished Reconditioned Equipments 
                             </span>
-                            <p class="caption-p">Branded and imported machineries for meat processing, Restaurant, Bakery and Hotel Kitchen and Industrial factories.</p>
+                            <p class="caption-p">Branded and imported food equipments for Meat processing, Restaurant, Bakery, Hotel Kitchen and Industrial factories.</p>
                         </div>
                     </div>
                 </li>

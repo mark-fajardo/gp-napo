@@ -29,8 +29,8 @@
                                 </div>
                                 <div class="product-details__actions">
                                     <a href="{{ route('front.quote') }}" class="add-cart-btn">GET A QUOTE</a>
-                                    <a href="javascript:void(0)" class="wishlist" data-tippy="Add to wishlist" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-android-favorite"></i></a>
-                                    <a href="javascript:void(0)" class="compare" data-tippy="Compare" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-ios-shuffle-strong"></i></a>
+                                    {{-- <a href="javascript:void(0)" class="wishlist" data-tippy="Add to wishlist" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-android-favorite"></i></a> --}}
+                                    {{-- <a href="javascript:void(0)" class="compare" data-tippy="Compare" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-ios-shuffle-strong"></i></a> --}}
                                 </div>
                                 <div class="product-details__meta-wrap">
                                     <div class="single-meta">
@@ -51,8 +51,8 @@
                                         <h4 class="title">Share: </h4>
                                         <div class="social-links d-inline-block">
                                             <ul>
-                                                <li><a href="//facebook.com" data-tippy="Facebook" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-facebook"></i></a></li>
-                                                <li><a href="//twitter.com" data-tippy="Twitter" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-twitter"></i></a></li>
+                                                <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&src=sdkpreparse" data-tippy="Facebook" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-facebook"></i></a></li>
+                                                {{-- <li><a href="//twitter.com" data-tippy="Twitter" data-tippy-inertia="false" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder__black" data-tippy-placement="top"><i class="ion-social-twitter"></i></a></li> --}}
                                             </ul>
                                         </div>
                                     </div>

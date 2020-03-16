@@ -1,5 +1,18 @@
 @extends('layouts.front')
 
+@section('meta')
+<meta property="og:image" content="{{ asset('assets/img/printer/2.jpg') }}" />
+    <meta property="og:site_name" content="GP NAPO Branded Bull Equipment"/>
+    <meta property="og:description" content="Can accomodate job printing of Bills from Central Bank & Printing of Books from DECS."/>
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Hantscho Paper and Book Printers | GP NAPO Branded Bull Equipment"/>
+    <meta name="title" content="Hantscho Paper and Book Printers | GP NAPO Branded Bull Equipment"/>
+    <meta name="keywords" content="food equipment, Hantscho, paper printer, money printer, magazine printer.">
+    <meta name="description" content="Can accomodate job printing of Bills from Central Bank & Printing of Books from DECS."/>
+    <title>Hantscho Paper and Book Printers | GP NAPO Branded Bull Equipment</title>
+@endsection
+
 @section('content')
 <div class="page-content-wrapper section-space--inner--60" style="background: #f7f7f7">
     <div class="container">

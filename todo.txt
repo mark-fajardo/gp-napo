@@ -11,4 +11,4 @@ BEFORE DEPLOYMENT:
 2. Compress, Ooptimized image size /
 3. Remove Comments /
 4. Use styles and scripts yields per page /
-5. SEO
+5. SEO (/ sort of)
