@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -147,6 +146,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::post('/quotes/replied', [
             'uses' => 'api\Admin\QuotesController@replied',
             'as'   => 'api.admin.quotes.replied'
+        ]);
+
+        Route::get('/fetch-analytics', [
+            'uses' => 'api\Admin\AnalyticsController@fetchAnalytics',
+            'as' => 'api.admin.analytics'
         ]);
     });
 });

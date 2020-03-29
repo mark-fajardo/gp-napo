@@ -5,7 +5,7 @@
                 <div class="col-md-4 col-sm-6 col-9">
                     <div class="logo">
                         <a href="{{route('front.index')}}">
-                            <img src="{{ asset('assets/img/logo/Logodark_NAPO.png') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/img/logo/darklogo.png') }}" class="img-fluid" alt="">
                         </a>
                     </div>
                 </div>

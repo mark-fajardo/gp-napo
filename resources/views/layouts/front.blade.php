@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,15 @@
     <link rel="icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon">
     @include('front.includes.styles')
     @yield('styles')
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162020410-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-162020410-1');
+    </script>
 </head>
 
 <body>
