@@ -2353,6 +2353,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -3949,6 +3951,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -75133,7 +75136,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75257,7 +75260,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("h3", [_vm._v("Archived Details")])
+      _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+        _vm._v("Archived Details")
+      ])
     ])
   },
   function() {
@@ -75298,7 +75303,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75391,7 +75396,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Categories")])])
+    return _c("div", { staticClass: "row" }, [
+      _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+        _vm._v("Categories")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -75422,9 +75431,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+    return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Customers")])]),
+        _c("div", { staticClass: "row" }, [
+          _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+            _vm._v("Customers")
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }),
         _vm._v(" "),
@@ -75454,7 +75467,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75509,7 +75522,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Dashboard")])])
+    return _c("div", { staticClass: "row" }, [
+      _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+        _vm._v("Dashboard ")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -75533,7 +75550,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75626,7 +75643,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Items")])])
+    return _c("div", { staticClass: "row" }, [
+      _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [_vm._v("Items")])
+    ])
   }
 ]
 render._withStripped = true
@@ -75650,7 +75669,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    {
+      staticClass:
+        "navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded",
+      staticStyle: { "z-index": "1" }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "navbarSupportedContent" }
+        },
+        [
+          _c(
+            "ul",
+            { staticClass: "navbar-nav mr-auto" },
+            [
+              _vm._l(_vm.$store.state.oLabels.oSideNav, function(aRoute) {
+                return _c(
+                  "li",
+                  {
+                    key: aRoute.sLabel,
+                    staticClass: "nav-item d-block d-lg-none"
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: aRoute.sRoute } }
+                      },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(aRoute.sLabel) +
+                            "\n                "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _vm._m(2)
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm._m(3)
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -75658,129 +75736,106 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "nav",
-      {
-        staticClass:
-          "navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded",
-        staticStyle: { "z-index": "1" }
-      },
+      "a",
+      { staticClass: "navbar-brand", attrs: { href: "/admin/control" } },
       [
-        _c(
-          "a",
-          { staticClass: "navbar-brand", attrs: { href: "/admin/control" } },
-          [
-            _c("img", {
-              staticClass: "d-inline-block align-top",
-              attrs: {
-                src: "https://img.icons8.com/bubbles/50/000000/maintenance.png",
-                width: "30",
-                height: "30",
-                alt: ""
-              }
-            }),
-            _vm._v("\n        GP-NAPO Control System\n    ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c("li", { staticClass: "nav-item" }, [
-                _c("span", { staticClass: "nav-link" }, [_vm._v("Welcome")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item dropdown" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link dropdown-toggle",
-                    attrs: {
-                      href: "#",
-                      id: "navbarDropdown",
-                      role: "button",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [_vm._v("\n            Admin\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "navbarDropdown" }
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item",
-                        attrs: { href: "/register" }
-                      },
-                      [_vm._v("Add User")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "dropdown-divider" }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item",
-                        attrs: { href: "/logout" }
-                      },
-                      [_vm._v("Logout")]
-                    )
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-              _c("input", {
-                staticClass: "form-control mr-sm-2",
-                attrs: {
-                  type: "search",
-                  placeholder: "Search",
-                  "aria-label": "Search"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-success my-2 my-sm-0",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("Search")]
-              )
-            ])
-          ]
-        )
+        _c("img", {
+          staticClass: "d-inline-block align-top",
+          attrs: {
+            src: "https://img.icons8.com/bubbles/50/000000/maintenance.png",
+            width: "30",
+            height: "30",
+            alt: ""
+          }
+        }),
+        _vm._v("\n        GP-NAPO Control System\n    ")
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "navbarDropdown",
+            role: "button",
+            "data-toggle": "dropdown",
+            "aria-haspopup": "true",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("\n                Admin\n                ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "navbarDropdown" }
+        },
+        [
+          _c(
+            "a",
+            { staticClass: "dropdown-item", attrs: { href: "/register" } },
+            [_vm._v("Add User")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "dropdown-divider" }),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "dropdown-item", attrs: { href: "/logout" } },
+            [_vm._v("Logout")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", { staticClass: "form-inline my-2 my-lg-0 d-none" }, [
+      _c("input", {
+        staticClass: "form-control mr-sm-2",
+        attrs: { type: "search", placeholder: "Search", "aria-label": "Search" }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success my-2 my-sm-0",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Search")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -75811,9 +75866,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+    return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Orders")])]),
+        _c("div", { staticClass: "row" }, [
+          _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+            _vm._v("Orders")
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }),
         _vm._v(" "),
@@ -75843,7 +75902,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75958,7 +76017,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [_c("h3", [_vm._v("Quotes")])])
+    return _c("div", { staticClass: "row" }, [
+      _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
+        _vm._v("Quotes")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -75985,7 +76048,7 @@ var render = function() {
   return _c(
     "nav",
     {
-      staticClass: "col-md-2 d-none d-md-block bg-light sidebar",
+      staticClass: "col-md-2 d-none d-lg-block bg-light sidebar",
       staticStyle: { "border-right": "1px solid whitesmoke" }
     },
     [
@@ -76044,7 +76107,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c(
         "div",
@@ -76315,7 +76378,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c(
         "div",
@@ -76900,7 +76963,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c(
         "div",
@@ -77164,7 +77227,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-10 bg-white p-5" }, [
+  return _c("div", { staticClass: "col-sm-10 bg-white p-0 p-lg-5" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c(
         "div",
@@ -77896,429 +77959,431 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid mt-3" }, [
-    _c("table", { staticClass: "table w-100" }, [
-      _c("thead", [
-        _c(
-          "tr",
-          [
-            _c("th", { attrs: { scope: "col" } }, [
-              _c("div", { staticClass: "form-check" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.bSelectAllItems,
-                      expression: "bSelectAllItems"
-                    }
-                  ],
-                  staticClass: "form-check-input position-static",
-                  attrs: { type: "checkbox" },
-                  domProps: {
-                    checked: Array.isArray(_vm.bSelectAllItems)
-                      ? _vm._i(_vm.bSelectAllItems, null) > -1
-                      : _vm.bSelectAllItems
-                  },
-                  on: {
-                    click: _vm.selectAllItem,
-                    change: function($event) {
-                      var $$a = _vm.bSelectAllItems,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.bSelectAllItems = $$a.concat([$$v]))
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table w-100" }, [
+        _c("thead", [
+          _c(
+            "tr",
+            [
+              _c("th", { attrs: { scope: "col" } }, [
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.bSelectAllItems,
+                        expression: "bSelectAllItems"
+                      }
+                    ],
+                    staticClass: "form-check-input position-static",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.bSelectAllItems)
+                        ? _vm._i(_vm.bSelectAllItems, null) > -1
+                        : _vm.bSelectAllItems
+                    },
+                    on: {
+                      click: _vm.selectAllItem,
+                      change: function($event) {
+                        var $$a = _vm.bSelectAllItems,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.bSelectAllItems = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.bSelectAllItems = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
                         } else {
-                          $$i > -1 &&
-                            (_vm.bSelectAllItems = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
+                          _vm.bSelectAllItems = $$c
                         }
-                      } else {
-                        _vm.bSelectAllItems = $$c
                       }
                     }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.aColumn, function(aCol, index) {
-              return _c("th", { key: index, attrs: { scope: "col" } }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(aCol.label) +
-                    "\n                "
-                )
-              ])
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _vm.sShow === "items"
-        ? _c(
-            "tbody",
-            [
-              _vm._l(_vm.aData, function(aItem, iKey) {
-                return _c("tr", { key: aItem.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.aSelectedItemsIds,
-                            expression: "aSelectedItemsIds"
-                          }
-                        ],
-                        staticClass: "form-check-input position-static",
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: aItem.id,
-                          checked: Array.isArray(_vm.aSelectedItemsIds)
-                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
-                            : _vm.aSelectedItemsIds
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.aSelectedItemsIds,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = aItem.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  (_vm.aSelectedItemsIds = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
-                              }
-                            } else {
-                              _vm.aSelectedItemsIds = $$c
-                            }
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    _vm._l(aItem.categories, function(aCateg) {
-                      return _c(
-                        "span",
-                        {
-                          key: aCateg.name,
-                          staticClass: "badge badge-success p-2 m-1"
-                        },
-                        [_vm._v(_vm._s(aCateg.name))]
-                      )
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("td", [
-                    aItem.is_featured === 1
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "badge badge-info text-white p-2 m-1"
-                          },
-                          [_vm._v("FEATURED")]
-                        )
-                      : _c(
-                          "span",
-                          {
-                            staticClass:
-                              "badge badge-secondary text-white p-2 m-1"
-                          },
-                          [_vm._v("NOT FEATURED")]
-                        )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    [
-                      _c("inline-btns", {
-                        attrs: { "s-todo": "items", "a-item": aItem }
-                      })
-                    ],
-                    1
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.aColumn, function(aCol, index) {
+                return _c("th", { key: index, attrs: { scope: "col" } }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(aCol.label) +
+                      "\n                    "
                   )
                 ])
-              }),
-              _vm._v(" "),
-              _vm.aData.length === 0
-                ? _c("tr", { staticClass: "text-center" }, [
-                    _c("td", { attrs: { colspan: "7" } }, [
-                      _vm._v("There is no data")
-                    ])
-                  ])
-                : _vm._e()
+              })
             ],
             2
           )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sShow === "items-archived"
-        ? _c(
-            "tbody",
-            [
-              _vm._l(_vm.aData, function(aItem, iKey) {
-                return _c("tr", { key: aItem.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.aSelectedItemsIds,
-                            expression: "aSelectedItemsIds"
-                          }
-                        ],
-                        staticClass: "form-check-input position-static",
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: aItem.id,
-                          checked: Array.isArray(_vm.aSelectedItemsIds)
-                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
-                            : _vm.aSelectedItemsIds
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.aSelectedItemsIds,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = aItem.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+        ]),
+        _vm._v(" "),
+        _vm.sShow === "items"
+          ? _c(
+              "tbody",
+              [
+                _vm._l(_vm.aData, function(aItem, iKey) {
+                  return _c("tr", { key: aItem.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.aSelectedItemsIds,
+                              expression: "aSelectedItemsIds"
+                            }
+                          ],
+                          staticClass: "form-check-input position-static",
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: aItem.id,
+                            checked: Array.isArray(_vm.aSelectedItemsIds)
+                              ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                              : _vm.aSelectedItemsIds
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.aSelectedItemsIds,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = aItem.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.aSelectedItemsIds = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
                               } else {
-                                $$i > -1 &&
-                                  (_vm.aSelectedItemsIds = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
+                                _vm.aSelectedItemsIds = $$c
                               }
-                            } else {
-                              _vm.aSelectedItemsIds = $$c
                             }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    _vm._l(aItem.categories, function(aCateg) {
-                      return _c(
-                        "span",
-                        {
-                          key: aCateg.name,
-                          staticClass: "badge badge-success p-2 m-1"
-                        },
-                        [_vm._v(_vm._s(aCateg.name))]
-                      )
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("td")
-                ])
-              }),
-              _vm._v(" "),
-              _vm.aData.length === 0
-                ? _c("tr", { staticClass: "text-center" }, [
-                    _c("td", { attrs: { colspan: "7" } }, [
-                      _vm._v("There is no data")
-                    ])
-                  ])
-                : _vm._e()
-            ],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sShow === "categories"
-        ? _c(
-            "tbody",
-            [
-              _vm._l(_vm.aData, function(aItem, iKey) {
-                return _c("tr", { key: aItem.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("input", {
-                        directives: [
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      _vm._l(aItem.categories, function(aCateg) {
+                        return _c(
+                          "span",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.aSelectedItemsIds,
-                            expression: "aSelectedItemsIds"
-                          }
-                        ],
-                        staticClass: "form-check-input position-static",
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: aItem.id,
-                          checked: Array.isArray(_vm.aSelectedItemsIds)
-                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
-                            : _vm.aSelectedItemsIds
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.aSelectedItemsIds,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = aItem.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                            key: aCateg.name,
+                            staticClass: "badge badge-success p-2 m-1"
+                          },
+                          [_vm._v(_vm._s(aCateg.name))]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("td", [
+                      aItem.is_featured === 1
+                        ? _c(
+                            "span",
+                            {
+                              staticClass: "badge badge-info text-white p-2 m-1"
+                            },
+                            [_vm._v("FEATURED")]
+                          )
+                        : _c(
+                            "span",
+                            {
+                              staticClass:
+                                "badge badge-secondary text-white p-2 m-1"
+                            },
+                            [_vm._v("NOT FEATURED")]
+                          )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      [
+                        _c("inline-btns", {
+                          attrs: { "s-todo": "items", "a-item": aItem }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.aData.length === 0
+                  ? _c("tr", { staticClass: "text-center" }, [
+                      _c("td", { attrs: { colspan: "7" } }, [
+                        _vm._v("There is no data")
+                      ])
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.sShow === "items-archived"
+          ? _c(
+              "tbody",
+              [
+                _vm._l(_vm.aData, function(aItem, iKey) {
+                  return _c("tr", { key: aItem.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.aSelectedItemsIds,
+                              expression: "aSelectedItemsIds"
+                            }
+                          ],
+                          staticClass: "form-check-input position-static",
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: aItem.id,
+                            checked: Array.isArray(_vm.aSelectedItemsIds)
+                              ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                              : _vm.aSelectedItemsIds
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.aSelectedItemsIds,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = aItem.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.aSelectedItemsIds = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
                               } else {
-                                $$i > -1 &&
-                                  (_vm.aSelectedItemsIds = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
+                                _vm.aSelectedItemsIds = $$c
                               }
-                            } else {
-                              _vm.aSelectedItemsIds = $$c
                             }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.description))]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    [
-                      _c("inline-btns", {
-                        attrs: { "s-todo": "categories", "a-item": aItem }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              }),
-              _vm._v(" "),
-              _vm.aData.length === 0
-                ? _c("tr", { staticClass: "text-center" }, [
-                    _c("td", { attrs: { colspan: "7" } }, [
-                      _vm._v("There is no data")
-                    ])
-                  ])
-                : _vm._e()
-            ],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sShow === "categories-archived"
-        ? _c(
-            "tbody",
-            [
-              _vm._l(_vm.aData, function(aItem, iKey) {
-                return _c("tr", { key: aItem.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("input", {
-                        directives: [
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.item_brand))]),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      _vm._l(aItem.categories, function(aCateg) {
+                        return _c(
+                          "span",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.aSelectedItemsIds,
-                            expression: "aSelectedItemsIds"
-                          }
-                        ],
-                        staticClass: "form-check-input position-static",
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          value: aItem.id,
-                          checked: Array.isArray(_vm.aSelectedItemsIds)
-                            ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
-                            : _vm.aSelectedItemsIds
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.aSelectedItemsIds,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = aItem.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                            key: aCateg.name,
+                            staticClass: "badge badge-success p-2 m-1"
+                          },
+                          [_vm._v(_vm._s(aCateg.name))]
+                        )
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("td")
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.aData.length === 0
+                  ? _c("tr", { staticClass: "text-center" }, [
+                      _c("td", { attrs: { colspan: "7" } }, [
+                        _vm._v("There is no data")
+                      ])
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.sShow === "categories"
+          ? _c(
+              "tbody",
+              [
+                _vm._l(_vm.aData, function(aItem, iKey) {
+                  return _c("tr", { key: aItem.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.aSelectedItemsIds,
+                              expression: "aSelectedItemsIds"
+                            }
+                          ],
+                          staticClass: "form-check-input position-static",
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: aItem.id,
+                            checked: Array.isArray(_vm.aSelectedItemsIds)
+                              ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                              : _vm.aSelectedItemsIds
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.aSelectedItemsIds,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = aItem.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.aSelectedItemsIds = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
                               } else {
-                                $$i > -1 &&
-                                  (_vm.aSelectedItemsIds = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
+                                _vm.aSelectedItemsIds = $$c
                               }
-                            } else {
-                              _vm.aSelectedItemsIds = $$c
                             }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(iKey + 1))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(aItem.description))]),
-                  _vm._v(" "),
-                  _c("td")
-                ])
-              }),
-              _vm._v(" "),
-              _vm.aData.length === 0
-                ? _c("tr", { staticClass: "text-center" }, [
-                    _c("td", { attrs: { colspan: "7" } }, [
-                      _vm._v("There is no data")
-                    ])
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.description))]),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      [
+                        _c("inline-btns", {
+                          attrs: { "s-todo": "categories", "a-item": aItem }
+                        })
+                      ],
+                      1
+                    )
                   ])
-                : _vm._e()
-            ],
-            2
-          )
-        : _vm._e()
+                }),
+                _vm._v(" "),
+                _vm.aData.length === 0
+                  ? _c("tr", { staticClass: "text-center" }, [
+                      _c("td", { attrs: { colspan: "7" } }, [
+                        _vm._v("There is no data")
+                      ])
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.sShow === "categories-archived"
+          ? _c(
+              "tbody",
+              [
+                _vm._l(_vm.aData, function(aItem, iKey) {
+                  return _c("tr", { key: aItem.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.aSelectedItemsIds,
+                              expression: "aSelectedItemsIds"
+                            }
+                          ],
+                          staticClass: "form-check-input position-static",
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: aItem.id,
+                            checked: Array.isArray(_vm.aSelectedItemsIds)
+                              ? _vm._i(_vm.aSelectedItemsIds, aItem.id) > -1
+                              : _vm.aSelectedItemsIds
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.aSelectedItemsIds,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = aItem.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.aSelectedItemsIds = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.aSelectedItemsIds = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.aSelectedItemsIds = $$c
+                              }
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(aItem.description))]),
+                    _vm._v(" "),
+                    _c("td")
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.aData.length === 0
+                  ? _c("tr", { staticClass: "text-center" }, [
+                      _c("td", { attrs: { colspan: "7" } }, [
+                        _vm._v("There is no data")
+                      ])
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
+          : _vm._e()
+      ])
     ])
   ])
 }
@@ -98340,8 +98405,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

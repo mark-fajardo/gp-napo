@@ -1,8 +1,8 @@
 <template>
-    <div class="col-sm-10 bg-white p-5">
+    <div class="col-sm-10 bg-white p-0 p-lg-5">
         <div class="container-fluid">
             <div class="row">
-                <h3>Archived Details</h3>
+                <h2 class="ml-3 mt-3 font-weight-bold">Archived Details</h2>
             </div>
             <div class="row">
                 <h4 class="ml-3 mt-5">Items</h4>

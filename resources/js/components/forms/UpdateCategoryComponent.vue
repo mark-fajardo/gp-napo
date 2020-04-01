@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-10 bg-white p-5">
+    <div class="col-sm-10 bg-white p-0 p-lg-5">
         <div class="container-fluid">
             <div class="row p-2">
                 <router-link :to="{ name: 'categories'}">

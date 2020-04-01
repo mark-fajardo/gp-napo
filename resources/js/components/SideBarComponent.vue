@@ -1,5 +1,5 @@
 <template>
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="border-right: 1px solid whitesmoke;">
+    <nav class="col-md-2 d-none d-lg-block bg-light sidebar" style="border-right: 1px solid whitesmoke;">
         <div class="sidebar-sticky p-3">
             <ul class="nav flex-column">
                 <li class="nav-item" v-for="aRoute in $store.state.oLabels.oSideNav" :key="aRoute.sLabel">
