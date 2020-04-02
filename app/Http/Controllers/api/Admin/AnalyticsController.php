@@ -15,7 +15,7 @@ class AnalyticsController extends Controller
         $endDate = Carbon::now();
         Period::create($startDate, $endDate);
         $pages = Analytics::fetchMostVisitedPages(Period::days(1));
-        $visitors = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        $visitors = Analytics::fetchVisitorsAndPageViews(Period::months(12));
         $total_visitors = Analytics::fetchTotalVisitorsAndPageViews(Period::days(7));
         $top_referrers = Analytics::fetchTopReferrers(Period::days(7));
         $user_types = Analytics::fetchUserTypes(Period::days(7));

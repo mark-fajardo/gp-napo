@@ -2168,17 +2168,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {},
+  methods: {
+    getSpecificIndex: function getSpecificIndex(aArray, sIndex) {
+      var sIndex2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      var sIndex3 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+      var aLabel = [];
+      var aData = [];
+      var aData2 = [];
+
+      for (var aKey in aArray) {
+        var sFirstIndex = aArray[aKey][sIndex].replace('GP NAPO Branded Bull Equipment', '');
+        sFirstIndex = sFirstIndex.replace('Search results for:', 'Search:');
+        sFirstIndex = sFirstIndex.replace(' | ', '');
+
+        if (sFirstIndex !== '') {
+          aLabel.push(sFirstIndex);
+        }
+
+        if (sIndex2 !== '') {
+          aData.push(aArray[aKey][sIndex2]);
+        }
+
+        if (sIndex3 !== '') {
+          aData2.push(aArray[aKey][sIndex3]);
+        }
+
+        if (aKey === '25') {
+          break;
+        }
+      }
+
+      return [aLabel, aData, aData2];
+    }
+  },
   mounted: function mounted() {
     this.$store.dispatch('getQuotes');
     this.$store.dispatch('getItems');
+    this.$store.dispatch('getAnalytics');
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     oItemsWhole: 'oItems',
-    oQuotesWhole: 'oQuotes'
+    oQuotesWhole: 'oQuotes',
+    oAnalyticsWhole: 'oAnalytics'
   }), {
+    aVisitors: function aVisitors() {
+      return this.getSpecificIndex(this.oAnalyticsWhole.visitors, 'pageTitle', 'pageViews', 'visitors');
+    },
     oQuotesRow: function oQuotesRow() {
       return this.oQuotesWhole.rows.length;
     },
@@ -3709,7 +3754,21 @@ __webpack_require__.r(__webpack_exports__);
         return [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11];
       }
     },
+    aData2: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    sTitle: {
+      type: String,
+      "default": 'Monthly Report'
+    },
     sLabel: {
+      type: String,
+      "default": 'Monthly Report'
+    },
+    sLabel2: {
       type: String,
       "default": 'Monthly Report'
     },
@@ -3719,7 +3778,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     sBgColor: {
       type: String,
-      "default": '#D8F3E3'
+      "default": '#FFFFFF'
+    },
+    sBorderColor2: {
+      type: String,
+      "default": '#33cccc'
+    },
+    sBgColor2: {
+      type: String,
+      "default": '#FFFFFF'
     }
   },
   mounted: function mounted() {
@@ -3731,7 +3798,50 @@ __webpack_require__.r(__webpack_exports__);
         borderColor: oThis.sBorderColor,
         backgroundColor: oThis.sBgColor,
         data: oThis.aData
+      }, {
+        label: oThis.sLabel2,
+        borderColor: oThis.sBorderColor2,
+        backgroundColor: oThis.sBgColor2,
+        data: oThis.aData2
       }]
+    }, {
+      responsive: true,
+      title: {
+        display: true,
+        text: oThis.sTitle
+      },
+      tooltips: {
+        mode: 'label'
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          ticks: {
+            userCallback: function userCallback(label, index, labels) {
+              if (typeof label === "string") {
+                return label.substring(0, 9) + '...';
+              }
+
+              return label;
+            }
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'Equipment'
+          }
+        }],
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Value'
+          }
+        }]
+      }
     });
   }
 });
@@ -75478,7 +75588,7 @@ var render = function() {
           _c("dashboard-card", {
             attrs: {
               "s-title": _vm.oItemsViews + " views",
-              "s-card-label": "Total Website Views"
+              "s-card-label": "Items' Total Views"
             }
           }),
           _vm._v(" "),
@@ -75510,7 +75620,19 @@ var render = function() {
         _c(
           "div",
           { staticClass: "col-sm-8" },
-          [_c("line-graph", { attrs: { height: 180 } })],
+          [
+            _c("line-graph", {
+              attrs: {
+                height: 240,
+                "s-title": "Recently Viewed Pages",
+                "s-label": "Page Views (Max: 25)",
+                "s-label2": "Visitors (Max: 25)",
+                "a-labels": _vm.aVisitors[0],
+                "a-data": _vm.aVisitors[1],
+                "a-data2": _vm.aVisitors[2]
+              }
+            })
+          ],
           1
         )
       ])
@@ -98124,6 +98246,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       }]
     },
     oApi: {
+      oAnalytics: [],
       oItems: {
         columns: [{
           label: 'No',
@@ -98241,6 +98364,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     setFilter: function setFilter(state, value) {
       state.oMessages.sFilter = value;
     },
+    setAnalytics: function setAnalytics(state, payload) {
+      state.oApi.oAnalytics = payload;
+    },
     setItems: function setItems(state, payload) {
       state.oApi.oItems.rows = payload;
     },
@@ -98278,6 +98404,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         message: sMsg,
         type: 'success',
         position: 'top'
+      });
+    },
+    getAnalytics: function getAnalytics(context) {
+      axios.get('/admin/api/fetch-analytics').then(function (oResponse) {
+        context.commit('setAnalytics', oResponse.data);
       });
     },
     getItems: function getItems(context) {
@@ -98361,6 +98492,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     }
   },
   getters: {
+    oAnalytics: function oAnalytics(state) {
+      return state.oApi.oAnalytics;
+    },
     oItems: function oItems(state) {
       return state.oApi.oItems;
     },
@@ -98405,8 +98539,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

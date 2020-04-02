@@ -65,6 +65,7 @@ export default new Vuex.Store({
             ]
         },
         oApi : {
+            oAnalytics : [],
             oItems : {
                 columns: [
                     {label: 'No', field: 'no'},
@@ -129,6 +130,9 @@ export default new Vuex.Store({
         setFilter: (state, value) => {
             state.oMessages.sFilter = value;
         },
+        setAnalytics: (state, payload) => {
+            state.oApi.oAnalytics = payload;
+        },
         setItems: (state, payload) => {
             state.oApi.oItems.rows = payload;
         },
@@ -164,6 +168,12 @@ export default new Vuex.Store({
                 type : 'success',
                 position : 'top'
             });
+        },
+        getAnalytics : function (context) {
+            axios.get('/admin/api/fetch-analytics')
+                .then(function (oResponse) {
+                    context.commit('setAnalytics', oResponse.data)
+                })
         },
         getItems : function (context) {
             axios.get('/admin/api/item/load')
@@ -241,6 +251,7 @@ export default new Vuex.Store({
         }
     },
     getters: {
+        oAnalytics: state => state.oApi.oAnalytics,
         oItems: state => state.oApi.oItems,
         oCategories: state => state.oApi.oCategories,
         oQuotes: state => state.oApi.oQuotes,

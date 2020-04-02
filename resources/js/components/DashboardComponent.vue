@@ -7,7 +7,7 @@
             <div class="row">
                 <dashboard-card
                     :s-title="oItemsViews + ' views'"
-                    :s-card-label="'Total Website Views'">
+                    :s-card-label="'Items\' Total Views'">
                 </dashboard-card>
                 <dashboard-card
                     :s-title="oItemsViewed + ' items'"
@@ -24,7 +24,15 @@
             </div>
             <div class="row">
                 <div class="col-sm-8" style="">
-                    <line-graph :height="180"></line-graph>
+                    <line-graph 
+                        :height="240"
+                        :s-title="'Recently Viewed Pages'"
+                        :s-label="'Page Views (Max: 25)'"
+                        :s-label2="'Visitors (Max: 25)'"
+                        :a-labels="aVisitors[0]"
+                        :a-data="aVisitors[1]"
+                        :a-data2="aVisitors[2]">
+                    </line-graph>
                 </div>
             </div>
         </div>
@@ -36,17 +44,50 @@ import { mapGetters } from 'vuex';
 
 export default {
     methods : {
-        
+        getSpecificIndex (aArray, sIndex, sIndex2 = '', sIndex3 = '') {
+            let aLabel = [];
+            let aData = [];
+            let aData2 = [];
+            
+            for (let aKey in aArray) {
+                let sFirstIndex = aArray[aKey][sIndex].replace('GP NAPO Branded Bull Equipment', '');
+                sFirstIndex = sFirstIndex.replace('Search results for:', 'Search:');
+                sFirstIndex = sFirstIndex.replace(' | ', '');
+
+                if (sFirstIndex !== '') {
+                    aLabel.push(sFirstIndex);
+                }
+                
+                if (sIndex2 !== '') {
+                    aData.push(aArray[aKey][sIndex2]);
+                }
+                
+                if (sIndex3 !== '') {
+                    aData2.push(aArray[aKey][sIndex3]);
+                }
+
+                if (aKey === '25') {
+                    break;
+                }
+            }
+
+            return [aLabel, aData, aData2];
+        }
     },
     mounted () {
         this.$store.dispatch('getQuotes');
         this.$store.dispatch('getItems');
+        this.$store.dispatch('getAnalytics');
     },
     computed: {
         ...mapGetters({
             oItemsWhole : 'oItems',
-            oQuotesWhole : 'oQuotes'
+            oQuotesWhole : 'oQuotes',
+            oAnalyticsWhole : 'oAnalytics'
         }),
+        aVisitors () {
+            return this.getSpecificIndex(this.oAnalyticsWhole.visitors, 'pageTitle', 'pageViews', 'visitors');
+        },
         oQuotesRow () {
             return this.oQuotesWhole.rows.length;
         },
@@ -70,7 +111,8 @@ export default {
             });
 
             return oTotalViews;
-        }
+        },
+
     }
 }
 </script>

@@ -20,7 +20,21 @@ export default {
                 ];
             } 
         },
+        aData2 : {
+            type : Array,
+            default () {
+                return [];
+            } 
+        },
+        sTitle : {
+            type : String,
+            default : 'Monthly Report'
+        },
         sLabel : {
+            type : String,
+            default : 'Monthly Report'
+        },
+        sLabel2 : {
             type : String,
             default : 'Monthly Report'
         },
@@ -30,7 +44,15 @@ export default {
         },
         sBgColor : {
             type : String,
-            default : '#D8F3E3'
+            default : '#FFFFFF'
+        },
+        sBorderColor2 : {
+            type : String,
+            default : '#33cccc'
+        },
+        sBgColor2 : {
+            type : String,
+            default : '#FFFFFF'
         }
     },
     mounted () {
@@ -43,8 +65,54 @@ export default {
                     borderColor: oThis.sBorderColor,
                     backgroundColor: oThis.sBgColor,
                     data: oThis.aData
+                },
+                {
+                    label: oThis.sLabel2,
+                    borderColor: oThis.sBorderColor2,
+                    backgroundColor: oThis.sBgColor2,
+                    data: oThis.aData2
                 }
             ]
+        },
+        {
+            responsive: true,
+            title: {
+            display: true,
+            text: oThis.sTitle
+            },
+            tooltips: {
+            mode: 'label',
+            },
+            hover: {
+            mode: 'nearest',
+            intersect: true
+            },
+            scales: {
+            xAxes: [{
+                display: true,
+                ticks: {
+                userCallback: function(label, index, labels) {
+                    if(typeof label === "string")
+                {
+                    return label.substring(0,9) + '...'
+                }
+                    return label
+            
+                },
+                },
+                scaleLabel: {
+                display: true,
+                labelString: 'Equipment'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                display: true,
+                labelString: 'Value'
+                }
+            }]
+            }
         })
     }
 }
