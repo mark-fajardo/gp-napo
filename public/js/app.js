@@ -2178,7 +2178,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      bShowGraph: false
+    };
+  },
   methods: {
+    refreshDashboard: function refreshDashboard() {
+      this.$forceUpdate();
+    },
     getSpecificIndex: function getSpecificIndex(aArray, sIndex) {
       var sIndex2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
       var sIndex3 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
@@ -2212,9 +2220,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    this.$store.dispatch('getAnalytics');
     this.$store.dispatch('getQuotes');
     this.$store.dispatch('getItems');
-    this.$store.dispatch('getAnalytics');
+    this.bShowGraph = true;
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     oItemsWhole: 'oItems',
@@ -75616,26 +75625,28 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-sm-8" },
-          [
-            _c("line-graph", {
-              attrs: {
-                height: 240,
-                "s-title": "Recently Viewed Pages",
-                "s-label": "Page Views (Max: 25)",
-                "s-label2": "Visitors (Max: 25)",
-                "a-labels": _vm.aVisitors[0],
-                "a-data": _vm.aVisitors[1],
-                "a-data2": _vm.aVisitors[2]
-              }
-            })
-          ],
-          1
-        )
-      ])
+      _vm.bShowGraph
+        ? _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-sm-8" },
+              [
+                _c("line-graph", {
+                  attrs: {
+                    height: 240,
+                    "s-title": "Recently Viewed Pages (Max: 25)",
+                    "s-label": "Views",
+                    "s-label2": "Visitors",
+                    "a-labels": _vm.aVisitors[0],
+                    "a-data": _vm.aVisitors[1],
+                    "a-data2": _vm.aVisitors[2]
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -75646,7 +75657,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
-        _vm._v("Dashboard ")
+        _vm._v("Dashboard")
       ])
     ])
   }

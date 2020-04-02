@@ -2,7 +2,7 @@
     <div class="col-sm-10 bg-white p-0 p-lg-5">
         <div class="container-fluid">
             <div class="row">
-                <h2 class="ml-3 mt-3 font-weight-bold">Dashboard </h2>
+                <h2 class="ml-3 mt-3 font-weight-bold">Dashboard</h2>
             </div>
             <div class="row">
                 <dashboard-card
@@ -22,13 +22,13 @@
                     :s-card-label="'Warehouse Stock'">
                 </dashboard-card>
             </div>
-            <div class="row">
+            <div class="row" v-if="bShowGraph">
                 <div class="col-sm-8" style="">
                     <line-graph 
                         :height="240"
-                        :s-title="'Recently Viewed Pages'"
-                        :s-label="'Page Views (Max: 25)'"
-                        :s-label2="'Visitors (Max: 25)'"
+                        :s-title="'Recently Viewed Pages (Max: 25)'"
+                        :s-label="'Views'"
+                        :s-label2="'Visitors'"
                         :a-labels="aVisitors[0]"
                         :a-data="aVisitors[1]"
                         :a-data2="aVisitors[2]">
@@ -43,7 +43,15 @@
 import { mapGetters } from 'vuex';
 
 export default {
+    data () {
+        return {
+            bShowGraph : false
+        }
+    },
     methods : {
+        refreshDashboard () {
+            this.$forceUpdate();
+        },
         getSpecificIndex (aArray, sIndex, sIndex2 = '', sIndex3 = '') {
             let aLabel = [];
             let aData = [];
@@ -75,9 +83,10 @@ export default {
         }
     },
     mounted () {
+        this.$store.dispatch('getAnalytics');
         this.$store.dispatch('getQuotes');
         this.$store.dispatch('getItems');
-        this.$store.dispatch('getAnalytics');
+        this.bShowGraph = true;
     },
     computed: {
         ...mapGetters({
