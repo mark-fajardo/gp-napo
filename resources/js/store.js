@@ -27,6 +27,7 @@ export default new Vuex.Store({
             },
             iPage : 1,
             sFilter : '',
+            sFilter2 : '',
         },
         oLabels : {
             oSideNav : [
@@ -73,7 +74,7 @@ export default new Vuex.Store({
                     {label: 'Item Name', field: 'item_name'},
                     {label: 'Item Brand', field: 'item_brand'},
                     {label: 'Category', field: 'item_name'},
-                    {label: 'Is Featured', field: 'is_featured'},
+                    {label: 'Featured', field: 'is_featured'},
                     {label: 'Action', field: 'action'},
                     // {label: 'Address', representedAs: ({address, city, state}) => `${address}<br />${city}, ${state}`, interpolate: true}
                 ],
@@ -129,6 +130,9 @@ export default new Vuex.Store({
     mutations: {
         setFilter: (state, value) => {
             state.oMessages.sFilter = value;
+        },
+        setFilter2: (state, value) => {
+            state.oMessages.sFilter2 = value;
         },
         setAnalytics: (state, payload) => {
             state.oApi.oAnalytics = payload;
@@ -258,6 +262,7 @@ export default new Vuex.Store({
         oArchivedCategories: state => state.oApi.oArchivedCategories,
         oArchivedItems: state => state.oApi.oArchivedItems,
         sFilter: state => state.oMessages.sFilter,
+        sFilter2: state => state.oMessages.sFilter2,
         aToBeDeletedItems: state => state.aToBeDeletedItems
     }
 });

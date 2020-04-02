@@ -1957,14 +1957,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.oCategories.rows.filter(function (rows) {
-        return rows.name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter) !== -1;
+        return rows.name.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1;
       });
     },
     oItemsRow: function oItemsRow() {
       var _this2 = this;
 
       return this.oItems.rows.filter(function (rows) {
-        return rows.item_name.toLowerCase().indexOf(_this2.sFilter) !== -1 || rows.item_brand.toLowerCase().indexOf(_this2.sFilter) !== -1;
+        return rows.item_name.toLowerCase().indexOf(_this2.sItemFilter.toLowerCase()) !== -1 || rows.item_brand.toLowerCase().indexOf(_this2.sItemFilter.toLowerCase()) !== -1;
       });
     },
     sFilter: {
@@ -1977,10 +1977,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     sItemFilter: {
       get: function get() {
-        return this.$store.getters.sFilter;
+        return this.$store.getters.sFilter2;
       },
       set: function set(value) {
-        this.$store.commit('setFilter', value);
+        this.$store.commit('setFilter2', value);
       }
     }
   })
@@ -2073,7 +2073,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.oCategoriesWhole.rows.filter(function (rows) {
-        return rows.name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter) !== -1;
+        return rows.name.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1 || rows.description.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1;
       });
     },
     oArchivedCount: function oArchivedCount() {
@@ -2343,7 +2343,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.oItemsWhole.rows.filter(function (rows) {
-        return rows.item_name.toLowerCase().indexOf(_this.sFilter) !== -1 || rows.item_brand.toLowerCase().indexOf(_this.sFilter) !== -1;
+        return rows.item_name.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1 || rows.item_brand.toLowerCase().indexOf(_this.sFilter.toLowerCase()) !== -1;
       });
     },
     oArchivedCount: function oArchivedCount() {
@@ -98224,7 +98224,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         sFailReplied: 'Failed to marked as replied'
       },
       iPage: 1,
-      sFilter: ''
+      sFilter: '',
+      sFilter2: ''
     },
     oLabels: {
       oSideNav: [{
@@ -98276,7 +98277,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
           label: 'Category',
           field: 'item_name'
         }, {
-          label: 'Is Featured',
+          label: 'Featured',
           field: 'is_featured'
         }, {
           label: 'Action',
@@ -98374,6 +98375,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   mutations: {
     setFilter: function setFilter(state, value) {
       state.oMessages.sFilter = value;
+    },
+    setFilter2: function setFilter2(state, value) {
+      state.oMessages.sFilter2 = value;
     },
     setAnalytics: function setAnalytics(state, payload) {
       state.oApi.oAnalytics = payload;
@@ -98523,6 +98527,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     sFilter: function sFilter(state) {
       return state.oMessages.sFilter;
+    },
+    sFilter2: function sFilter2(state) {
+      return state.oMessages.sFilter2;
     },
     aToBeDeletedItems: function aToBeDeletedItems(state) {
       return state.aToBeDeletedItems;

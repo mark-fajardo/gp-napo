@@ -67,14 +67,14 @@ export default {
         }),
         oCategoriesRow () {
             return this.oCategories.rows.filter(rows => {
-                return rows.name.toLowerCase().indexOf(this.sFilter) !== -1 
-                    || rows.description.toLowerCase().indexOf(this.sFilter) !== -1
+                return rows.name.toLowerCase().indexOf(this.sFilter.toLowerCase()) !== -1 
+                    || rows.description.toLowerCase().indexOf(this.sFilter.toLowerCase()) !== -1
             });
         },
         oItemsRow () {
             return this.oItems.rows.filter(rows => {
-                return rows.item_name.toLowerCase().indexOf(this.sFilter) !== -1 
-                    || rows.item_brand.toLowerCase().indexOf(this.sFilter) !== -1
+                return rows.item_name.toLowerCase().indexOf(this.sItemFilter.toLowerCase()) !== -1 
+                    || rows.item_brand.toLowerCase().indexOf(this.sItemFilter.toLowerCase()) !== -1
             });
         },
         sFilter: {
@@ -87,10 +87,10 @@ export default {
         },
         sItemFilter: {
             get () {
-               return this.$store.getters.sFilter
+               return this.$store.getters.sFilter2
             },
             set (value) {
-                this.$store.commit('setFilter', value)
+                this.$store.commit('setFilter2', value)
             }
         }
     }

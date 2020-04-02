@@ -68,8 +68,8 @@ export default {
         }),
         oItemsRow () {
             return this.oCategoriesWhole.rows.filter(rows => {
-                return rows.name.toLowerCase().indexOf(this.sFilter) !== -1 
-                    || rows.description.toLowerCase().indexOf(this.sFilter) !== -1
+                return rows.name.toLowerCase().indexOf(this.sFilter.toLowerCase()) !== -1 
+                    || rows.description.toLowerCase().indexOf(this.sFilter.toLowerCase()) !== -1
             });
         },
         oArchivedCount () {
