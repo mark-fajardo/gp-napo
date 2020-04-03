@@ -15,7 +15,7 @@
                 <div class="col-lg-12">
                     <div class="shop-single-product-wrapper">
                         <div class="row">
-                            @foreach ($category->items as $item)
+                            @foreach ($categItems as $item)
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="shop-single-product tilted">
                                     <div class="shop-single-product__thumb-wrapper mb-1">
@@ -33,6 +33,9 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-12 d-flex justify-content-center justify-content-md-end mt-5">
+                    {{ $categItems->links() }}
                 </div>
             </div>
         </div>

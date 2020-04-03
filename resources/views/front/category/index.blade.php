@@ -44,11 +44,20 @@
         -ms-transform: translateY(-4px) !important;
         transform: translateY(-4px) !important;
     }
-    
     .front-text {
         border-left:#ffc246 solid 3px;
         align-items: flex-start !important;
         -webkit-align-items: flex-start !important;
+    }
+    .page-link {
+        color: #F6A623
+    }
+    .page-link:hover {
+        color: #F6A623
+    }
+    .page-item.active .page-link {
+        background-color: #F6A623 !important;
+        border-color: #F6A623 !important;
     }
     </style>
 @endsection

@@ -24,8 +24,9 @@ class FrontController extends Controller
         $categories = Categories::with('items')->get();
         $category = Categories::findBySlugOrFail($slug);
         $items = Items::with('categories')->get();
+        $categItems = $category->items()->orderBy('item_name', 'asc')->paginate(8);
         $email = 'napo.enterprise@gmail.com /<br> brandedfoodequipment@gmail.com';
-        return view('front.category.index',  compact('categories', 'items', 'category', 'email'));
+        return view('front.category.index',  compact('categories', 'items', 'category', 'email', 'categItems'));
     }
     
     public function item($slug) {
