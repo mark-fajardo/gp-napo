@@ -55,7 +55,7 @@ class ItemsController extends Controller
         $oItems->item_qty = $this->aRequest['item_qty'];
         $oItems->item_short_description = $this->aRequest['item_short_description'];
         $oItems->item_description = $this->aRequest['item_description'];
-        $oItems->is_featured = $this->aRequest['isFeatured'] ? 1 : 0;
+        $oItems->is_featured = $this->aRequest['isFeatured'] === "true" ? 1 : 0;
         $sItemImg = '[';
         for ($i = 0; $i < $iFileLen; $i++) {
             $sItemImg .= '"' . Storage::putFile('public/photos/items', new File($this->aRequest['file_' . $i])) . '", ';
