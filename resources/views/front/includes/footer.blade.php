@@ -58,7 +58,7 @@
                                     </li>
                                     <li>
                                         <p style="color: #fff"><i class="fa fa-phone" aria-hidden="true"></i> Have any questions?</p>
-                                        <p style="line-height: 24px">09178033855 / +639564987838</p>
+                                        <p style="line-height: 24px">09179943924 / +639564987838</p>
                                     </li>
                                     <li>
                                         <p style="color: #fff"><i class="fa fa-envelope-o" aria-hidden="true"></i> Got any concerns?</p>

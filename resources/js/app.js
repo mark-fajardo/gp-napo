@@ -25,9 +25,12 @@ Vue.use( CKEditor );
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate)
 
 Vue.component('upload-image', UploadImage);
 Vue.component('vue-tags-input', VueTagsInput);
+Vue.component('Pagination', Paginate);
 
 Vue.component('nav-bar', require('./components/NavBarComponent.vue').default);
 Vue.component('side-bar', require('./components/SideBarComponent.vue').default);
