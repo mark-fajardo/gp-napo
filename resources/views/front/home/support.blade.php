@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-6">
             <div class="support-footer__single support-footer__single--dark bg-img" data-bg="assets/img/icons/support.png">
-                09178033855 /<br> +639564987838
+                09179943924 /<br> +639564987838
             </div>
         </div>
     </div>

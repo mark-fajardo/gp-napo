@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="single-icon-info__content">
                                     <h4 class="single-icon-info__title single-icon-info__title--black2">Call Us</h4>
-                                    <p class="single-icon-info__text">24/7 Support<br> 09178033855 / +639564987838</p>
+                                    <p class="single-icon-info__text">24/7 Support<br> 09179943924 / +639564987838</p>
                                 </div>
                             </div>
                         </div>
