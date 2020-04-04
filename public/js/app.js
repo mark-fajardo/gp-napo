@@ -4193,6 +4193,16 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     this.iInc = 0;
   },
   methods: {
+    getRowNo: function getRowNo(key) {
+      var newKey = key + 1;
+
+      if (newKey >= 0 && newKey < 10 && Math.floor(newKey) == newKey) {
+        var firstDigit = this.currentPage - 1;
+        return firstDigit !== 0 ? "".concat(firstDigit).concat(newKey) : newKey;
+      }
+
+      return "".concat(this.currentPage).concat(newKey.toString().substr(1));
+    },
     onPaginateHandler: function onPaginateHandler(newPage) {
       this.currentPage = newPage;
     },
@@ -78214,7 +78224,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(iKey + 1))]),
+                    _c("td", [_vm._v(_vm._s(_vm.getRowNo(iKey)))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(aItem.item_qty))]),
                     _vm._v(" "),

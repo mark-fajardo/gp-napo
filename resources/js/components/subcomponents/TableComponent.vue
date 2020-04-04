@@ -35,7 +35,7 @@
                                     type="checkbox">
                             </div>
                         </th>
-                        <td>{{ iKey + 1 }}</td>
+                        <td>{{ getRowNo(iKey) }}</td>
                         <td>{{ aItem.item_qty }}</td>
                         <td>{{ aItem.item_name }}</td>
                         <td>{{ aItem.item_brand }}</td>
@@ -216,6 +216,16 @@ export default {
         this.iInc = 0;
     },
     methods: {
+        getRowNo (key) {
+            const newKey = key + 1
+            if ((newKey >= 0) && (newKey < 10) && (Math.floor(newKey) == newKey)) {
+                const firstDigit = this.currentPage - 1
+                
+                return (firstDigit !== 0) ? `${firstDigit}${newKey}` : newKey
+            }
+
+            return `${this.currentPage}${newKey.toString().substr(1)}`
+        },
         onPaginateHandler (newPage) {
             this.currentPage = newPage
         },
