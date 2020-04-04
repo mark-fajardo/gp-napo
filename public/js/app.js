@@ -3297,8 +3297,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DraggableImage_ImageList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DraggableImage/ImageList */ "./resources/js/components/forms/DraggableImage/ImageList.vue");
-/* harmony import */ var _DraggableImage_ImageItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DraggableImage/ImageItem */ "./resources/js/components/forms/DraggableImage/ImageItem.vue");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DraggableImage_ImageList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DraggableImage/ImageList */ "./resources/js/components/forms/DraggableImage/ImageList.vue");
+/* harmony import */ var _DraggableImage_ImageItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DraggableImage/ImageItem */ "./resources/js/components/forms/DraggableImage/ImageItem.vue");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -3411,14 +3413,25 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     'multiselect': vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a,
-    ImageList: _DraggableImage_ImageList__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ImageItem: _DraggableImage_ImageItem__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ImageList: _DraggableImage_ImageList__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ImageItem: _DraggableImage_ImageItem__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     aItem: {
@@ -3438,7 +3451,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       oImgSortable: [],
       isImageFromApi: true,
       selectedCursor: 'grab',
-      bPreviewImage: null
+      bPreviewImage: null,
+      editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default.a,
+      sItemShortDescription: '',
+      sItemDescription: ''
     };
   },
   created: function created() {
@@ -3456,6 +3472,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     this.isFeatured = this.aItem.is_featured === 1;
     this.oImg = this.aItem.img_dir;
     this.oImgSortable = this.aItem.img_dir;
+    this.sItemShortDescription = this.aItem.item_short_description;
+    this.sItemDescription = this.aItem.item_description;
   },
   beforeDestroy: function beforeDestroy() {
     this.isImageFromApi = true;
@@ -3477,6 +3495,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       oFormData.append('item_id', this.iItemId);
       oFormData.append('item_name', this.sItemName);
       oFormData.append('item_brand', this.sItemBrand);
+      oFormData.append('item_description', this.sItemDescription);
+      oFormData.append('item_short_description', this.sItemShortDescription);
       oFormData.append('item_qty', this.sItemQty);
       oFormData.append('item_categs', this.aCategIds);
       oFormData.append('isFeatured', this.isFeatured);
@@ -77445,6 +77465,68 @@ var render = function() {
                 1
               )
             ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-2 col-form-label",
+                  attrs: { for: "item-name" }
+                },
+                [_vm._v("Item Short Description:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-5" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.sItemShortDescription,
+                      expression: "sItemShortDescription"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "item-short-description",
+                    placeholder: "Item short description"
+                  },
+                  domProps: { value: _vm.sItemShortDescription },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.sItemShortDescription = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group row" },
+              [
+                _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+                  _vm._v("Item Description: ")
+                ]),
+                _vm._v(" "),
+                _c("ckeditor", {
+                  staticStyle: { "margin-left": "15px !important" },
+                  attrs: { editor: _vm.editor },
+                  model: {
+                    value: _vm.sItemDescription,
+                    callback: function($$v) {
+                      _vm.sItemDescription = $$v
+                    },
+                    expression: "sItemDescription"
+                  }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
               _c(

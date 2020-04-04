@@ -48,6 +48,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="item-name" class="col-sm-2 col-form-label">Item Short Description:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" v-model="sItemShortDescription" id="item-short-description" placeholder="Item short description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Item Description: </label>
+                        <ckeditor :editor="editor" v-model="sItemDescription" style="margin-left: 15px !important"></ckeditor>
+                    </div>
+                    <div class="form-group row">
                         <label for="category-img" class="col-sm-2 col-form-label">Feature this item:</label>
                         <div class="col-sm-5">
                             <input type="checkbox" v-model="isFeatured">
@@ -104,6 +114,7 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ImageList from './DraggableImage/ImageList'
 import ImageItem from './DraggableImage/ImageItem'
 
@@ -132,6 +143,9 @@ export default {
             isImageFromApi: true,
             selectedCursor: 'grab',
             bPreviewImage : null,
+            editor: ClassicEditor,
+            sItemShortDescription: '',
+            sItemDescription: ''
         };
     },
     created () {
@@ -146,6 +160,8 @@ export default {
         this.isFeatured = this.aItem.is_featured === 1
         this.oImg = this.aItem.img_dir
         this.oImgSortable = this.aItem.img_dir
+        this.sItemShortDescription = this.aItem.item_short_description
+        this.sItemDescription = this.aItem.item_description
     },
     beforeDestroy() {
         this.isImageFromApi = true
@@ -167,6 +183,8 @@ export default {
             oFormData.append('item_id', this.iItemId);
             oFormData.append('item_name', this.sItemName);
             oFormData.append('item_brand', this.sItemBrand);
+            oFormData.append('item_description', this.sItemDescription);
+            oFormData.append('item_short_description', this.sItemShortDescription);
             oFormData.append('item_qty', this.sItemQty);
             oFormData.append('item_categs', this.aCategIds);
             oFormData.append('isFeatured', this.isFeatured);
