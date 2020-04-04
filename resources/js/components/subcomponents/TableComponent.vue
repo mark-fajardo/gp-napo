@@ -141,7 +141,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-end">
-                <Paginate
+                <paginate
                     :page-count="pageCount"
                     :page-range="5"
                     :click-handler="onPaginateHandler"
@@ -160,12 +160,7 @@
 </template>
 
 <script>
-import Paginate from 'vuejs-paginate'
-
 export default {
-    components: {
-        Paginate
-    },
     props : {
         sShow : {
             type : String,

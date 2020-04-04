@@ -3971,8 +3971,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
-/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_0__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -4142,11 +4140,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Paginate: vuejs_paginate__WEBPACK_IMPORTED_MODULE_0___default.a
-  },
   props: {
     sShow: {
       type: String,
@@ -78537,7 +78531,7 @@ var render = function() {
         "div",
         { staticClass: "col-lg-12 d-flex justify-content-end" },
         [
-          _c("Paginate", {
+          _c("paginate", {
             attrs: {
               "page-count": _vm.pageCount,
               "page-range": 5,
@@ -96547,6 +96541,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_upload_image__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-upload-image */ "./node_modules/vue-upload-image/dist/upload_image.vue");
 /* harmony import */ var _ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ckeditor/ckeditor5-vue */ "./node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -96574,8 +96570,11 @@ Vue.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_5___default.a);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
+Vue.component('paginate', vuejs_paginate__WEBPACK_IMPORTED_MODULE_6___default.a);
 Vue.component('upload-image', vue_upload_image__WEBPACK_IMPORTED_MODULE_4__["default"]);
 Vue.component('vue-tags-input', _johmun_vue_tags_input__WEBPACK_IMPORTED_MODULE_3___default.a);
+Vue.component('Pagination', vuejs_paginate__WEBPACK_IMPORTED_MODULE_6___default.a);
 Vue.component('nav-bar', __webpack_require__(/*! ./components/NavBarComponent.vue */ "./resources/js/components/NavBarComponent.vue")["default"]);
 Vue.component('side-bar', __webpack_require__(/*! ./components/SideBarComponent.vue */ "./resources/js/components/SideBarComponent.vue")["default"]);
 Vue.component('dashboard', __webpack_require__(/*! ./components/DashboardComponent.vue */ "./resources/js/components/DashboardComponent.vue")["default"]); // Under Graphs
