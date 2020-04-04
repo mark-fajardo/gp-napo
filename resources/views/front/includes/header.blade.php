@@ -104,7 +104,14 @@
                                                             <a href="{{ route('front.category', ['slug' => $category->slug]) }}" class="header-title">{{ $category->name }}</a>
                                                         </h2>
                                                         <ul>
-                                                            @foreach ($category->items->slice(0,5) as $item)
+                                                            @php
+                                                                $featuredItems = unserialize(serialize($category->items));
+                                                                foreach ($category->items as $key => $item) {
+                                                                    if ($item->is_featured != 1) unset($featuredItems[$key]);
+                                                                }
+                                                                $categoriesItems = count($featuredItems) == 0 ? $category->items : $featuredItems;
+                                                            @endphp
+                                                            @foreach ($categoriesItems->slice(0,5) as $item)
                                                                 <li><a href="{{route('front.item', ['slug' => $item->slug])}}">{{ $item->item_name }}</a></li>
                                                             @endforeach
                                                             <li class="remove-after">
