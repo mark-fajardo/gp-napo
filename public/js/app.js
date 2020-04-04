@@ -1946,6 +1946,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
+    this.$store.dispatch('getAnalytics');
     this.$store.dispatch('getArchivedCategories');
     this.$store.dispatch('getArchivedItems');
   },
@@ -2062,6 +2063,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    this.$store.dispatch('getAnalytics');
     this.$store.dispatch('getArchivedCategories');
     this.$store.dispatch('getCategories');
   },
@@ -2176,12 +2178,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('getAnalytics');
+  },
   data: function data() {
-    return {
-      bShowGraph: false
-    };
+    return {};
   },
   methods: {
     refreshDashboard: function refreshDashboard() {
@@ -2220,10 +2224,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
-    this.$store.dispatch('getAnalytics');
+    var oThis = this;
     this.$store.dispatch('getQuotes');
     this.$store.dispatch('getItems');
-    this.bShowGraph = true;
+    setTimeout(function () {
+      oThis.$refs.lineGraph.renderLineChart(oThis.aVisitors[0], oThis.aVisitors[1], oThis.aVisitors[2]);
+    }, 3000);
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     oItemsWhole: 'oItems',
@@ -2332,6 +2338,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    this.$store.dispatch('getAnalytics');
     this.$store.dispatch('getItems');
     this.$store.dispatch('getArchivedItems');
   },
@@ -3819,59 +3826,64 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var oThis = this;
-    this.renderChart({
-      labels: oThis.aLabels,
-      datasets: [{
-        label: oThis.sLabel,
-        borderColor: oThis.sBorderColor,
-        backgroundColor: oThis.sBgColor,
-        data: oThis.aData
-      }, {
-        label: oThis.sLabel2,
-        borderColor: oThis.sBorderColor2,
-        backgroundColor: oThis.sBgColor2,
-        data: oThis.aData2
-      }]
-    }, {
-      responsive: true,
-      title: {
-        display: true,
-        text: oThis.sTitle
-      },
-      tooltips: {
-        mode: 'label'
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          display: true,
-          ticks: {
-            userCallback: function userCallback(label, index, labels) {
-              if (typeof label === "string") {
-                return label.substring(0, 9) + '...';
-              }
-
-              return label;
-            }
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'Equipment'
-          }
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: 'Value'
-          }
+    this.renderLineChart(this.aLabels, this.aData, this.aData2);
+  },
+  methods: {
+    renderLineChart: function renderLineChart(aLabels, aData, aData2) {
+      var oThis = this;
+      this.renderChart({
+        labels: aLabels,
+        datasets: [{
+          label: oThis.sLabel,
+          borderColor: oThis.sBorderColor,
+          backgroundColor: oThis.sBgColor,
+          data: aData
+        }, {
+          label: oThis.sLabel2,
+          borderColor: oThis.sBorderColor2,
+          backgroundColor: oThis.sBgColor2,
+          data: aData2
         }]
-      }
-    });
+      }, {
+        responsive: true,
+        title: {
+          display: true,
+          text: oThis.sTitle
+        },
+        tooltips: {
+          mode: 'label'
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            ticks: {
+              userCallback: function userCallback(label, index, labels) {
+                if (typeof label === "string") {
+                  return label.substring(0, 9) + '...';
+                }
+
+                return label;
+              }
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Equipment'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Value'
+            }
+          }]
+        }
+      });
+    }
   }
 });
 
@@ -75713,28 +75725,27 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.bShowGraph
-        ? _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-sm-8" },
-              [
-                _c("line-graph", {
-                  attrs: {
-                    height: 240,
-                    "s-title": "Recently Viewed Pages (Max: 25)",
-                    "s-label": "Views",
-                    "s-label2": "Visitors",
-                    "a-labels": _vm.aVisitors[0],
-                    "a-data": _vm.aVisitors[1],
-                    "a-data2": _vm.aVisitors[2]
-                  }
-                })
-              ],
-              1
-            )
-          ])
-        : _vm._e()
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-sm-8" },
+          [
+            _c("line-graph", {
+              ref: "lineGraph",
+              attrs: {
+                height: 240,
+                "s-title": "Recently Viewed Pages (Max: 25)",
+                "s-label": "Views",
+                "s-label2": "Visitors",
+                "a-labels": _vm.aVisitors[0],
+                "a-data": _vm.aVisitors[1],
+                "a-data2": _vm.aVisitors[2]
+              }
+            })
+          ],
+          1
+        )
+      ])
     ])
   ])
 }

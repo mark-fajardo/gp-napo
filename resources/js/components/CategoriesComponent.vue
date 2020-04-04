@@ -58,6 +58,7 @@ export default {
         }
     },
     mounted () {
+        this.$store.dispatch('getAnalytics');
         this.$store.dispatch('getArchivedCategories');
         this.$store.dispatch('getCategories');
     },

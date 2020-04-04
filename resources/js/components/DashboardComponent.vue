@@ -22,9 +22,10 @@
                     :s-card-label="'Warehouse Stock'">
                 </dashboard-card>
             </div>
-            <div class="row" v-if="bShowGraph">
+            <div class="row">
                 <div class="col-sm-8" style="">
                     <line-graph 
+                        ref="lineGraph"
                         :height="240"
                         :s-title="'Recently Viewed Pages (Max: 25)'"
                         :s-label="'Views'"
@@ -43,9 +44,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
+    created () {
+        this.$store.dispatch('getAnalytics');
+    },
     data () {
         return {
-            bShowGraph : false
         }
     },
     methods : {
@@ -83,10 +86,12 @@ export default {
         }
     },
     mounted () {
-        this.$store.dispatch('getAnalytics');
+        let oThis = this;
         this.$store.dispatch('getQuotes');
         this.$store.dispatch('getItems');
-        this.bShowGraph = true;
+        setTimeout(function () {
+            oThis.$refs.lineGraph.renderLineChart(oThis.aVisitors[0], oThis.aVisitors[1], oThis.aVisitors[2]);
+        }, 3000);
     },
     computed: {
         ...mapGetters({

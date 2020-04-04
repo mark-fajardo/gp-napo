@@ -56,64 +56,69 @@ export default {
         }
     },
     mounted () {
-        let oThis = this;
-        this.renderChart({
-            labels: oThis.aLabels,
-            datasets: [
-                {
-                    label: oThis.sLabel,
-                    borderColor: oThis.sBorderColor,
-                    backgroundColor: oThis.sBgColor,
-                    data: oThis.aData
-                },
-                {
-                    label: oThis.sLabel2,
-                    borderColor: oThis.sBorderColor2,
-                    backgroundColor: oThis.sBgColor2,
-                    data: oThis.aData2
-                }
-            ]
-        },
-        {
-            responsive: true,
-            title: {
-            display: true,
-            text: oThis.sTitle
+        this.renderLineChart(this.aLabels, this.aData, this.aData2);
+    },
+    methods : {
+        renderLineChart (aLabels, aData, aData2) {
+            let oThis = this;
+            this.renderChart({
+                labels: aLabels,
+                datasets: [
+                    {
+                        label: oThis.sLabel,
+                        borderColor: oThis.sBorderColor,
+                        backgroundColor: oThis.sBgColor,
+                        data: aData
+                    },
+                    {
+                        label: oThis.sLabel2,
+                        borderColor: oThis.sBorderColor2,
+                        backgroundColor: oThis.sBgColor2,
+                        data: aData2
+                    }
+                ]
             },
-            tooltips: {
-            mode: 'label',
-            },
-            hover: {
-            mode: 'nearest',
-            intersect: true
-            },
-            scales: {
-            xAxes: [{
+            {
+                responsive: true,
+                title: {
                 display: true,
-                ticks: {
-                userCallback: function(label, index, labels) {
-                    if(typeof label === "string")
-                {
-                    return label.substring(0,9) + '...'
-                }
-                    return label
-            
+                text: oThis.sTitle
                 },
+                tooltips: {
+                mode: 'label',
                 },
-                scaleLabel: {
-                display: true,
-                labelString: 'Equipment'
+                hover: {
+                mode: 'nearest',
+                intersect: true
+                },
+                scales: {
+                xAxes: [{
+                    display: true,
+                    ticks: {
+                    userCallback: function(label, index, labels) {
+                        if(typeof label === "string")
+                    {
+                        return label.substring(0,9) + '...'
+                    }
+                        return label
+                
+                    },
+                    },
+                    scaleLabel: {
+                    display: true,
+                    labelString: 'Equipment'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                    }
+                }]
                 }
-            }],
-            yAxes: [{
-                display: true,
-                scaleLabel: {
-                display: true,
-                labelString: 'Value'
-                }
-            }]
-            }
-        })
+            })
+        }
     }
 }
 </script>
