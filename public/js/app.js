@@ -78438,7 +78438,7 @@ var render = function() {
           ? _c(
               "tbody",
               [
-                _vm._l(_vm.paginatedData, function(aItem, iKey) {
+                _vm._l(_vm.aData, function(aItem, iKey) {
                   return _c("tr", { key: aItem.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _c("div", { staticClass: "form-check" }, [

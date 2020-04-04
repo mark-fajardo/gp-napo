@@ -58,7 +58,7 @@
                 <tbody
                     v-if="sShow === 'items-archived'">
                     <tr
-                        v-for="(aItem, iKey) in paginatedData"
+                        v-for="(aItem, iKey) in aData"
                         :key="aItem.id">
                         <th scope="row">
                             <div class="form-check">
