@@ -24,7 +24,7 @@
                 <tbody
                     v-if="sShow === 'items'">
                     <tr
-                        v-for="(aItem, iKey) in aData"
+                        v-for="(aItem, iKey) in paginatedData"
                         :key="aItem.id">
                         <th scope="row">
                             <div class="form-check">
@@ -58,7 +58,7 @@
                 <tbody
                     v-if="sShow === 'items-archived'">
                     <tr
-                        v-for="(aItem, iKey) in aData"
+                        v-for="(aItem, iKey) in paginatedData"
                         :key="aItem.id">
                         <th scope="row">
                             <div class="form-check">
@@ -139,11 +139,33 @@
                 </tbody>
             </table>
         </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-end">
+                <Paginate
+                    :page-count="pageCount"
+                    :page-range="5"
+                    :click-handler="onPaginateHandler"
+                    :prev-text="'Prev'"
+                    :next-text="'Next'"
+                    container-class="pagination"
+                    page-class="page-item"
+                    page-link-class="page-link"
+                    next-class="page-item"
+                    prev-class="page-item"
+                    prev-link-class="page-link"
+                    next-link-class="page-link"	/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import Paginate from 'vuejs-paginate'
+
 export default {
+    components: {
+        Paginate
+    },
     props : {
         sShow : {
             type : String,
@@ -165,17 +187,52 @@ export default {
                     [1, 'ABC Steamer', 'ABCApply', 'Steamer', 3]
                 ]
             }
+        },
+        iItemsPerPage: {
+            type: Number,
+            default: 10
         }
     },
     data: () => ({
         aSelectedItemsIds: [],
         bSelectAllItems: false,
         iInc : 0,
+        paginatedData: [],
+        currentPage: 1
     }),
+    computed: {
+        pageCount () {
+           return parseInt((this.aData.length / this.iItemsPerPage).toFixed(0), 10)
+        }
+    },
+    watch: {
+        aSelectedItemsIds() {
+            this.$store.commit('setDeleteIds', this.aSelectedItemsIds)
+        },
+        currentPage: {
+            handler: 'constructPageData',
+        },
+        aData: {
+            handler: 'constructPageData',
+            immediate: true
+        },
+    },
     created () {
         this.iInc = 0;
     },
     methods: {
+        onPaginateHandler (newPage) {
+            this.currentPage = newPage
+        },
+        constructPageData () {
+            if (this.pageCount === 0 || this.aData.length === 0) {
+                this.paginatedData = []
+                return
+            }
+            const offset = (this.currentPage * this.iItemsPerPage)
+            const start = (offset - this.iItemsPerPage)
+            this.paginatedData = [ ...this.aData ].filter((data, index) => (index >= start && index < offset))
+        },
         selectAllItem() {
             this.aSelectedItemsIds = [];
 
@@ -184,11 +241,6 @@ export default {
                     this.aSelectedItemsIds.push(item.id)
                 })
             }
-        }
-    },
-    watch: {
-        aSelectedItemsIds() {
-            this.$store.commit('setDeleteIds', this.aSelectedItemsIds)
         }
     }
 }
