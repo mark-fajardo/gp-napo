@@ -88,7 +88,7 @@
                 <tbody
                     v-if="sShow === 'categories'">
                     <tr
-                        v-for="(aItem, iKey) in aData"
+                        v-for="(aItem, iKey) in paginatedData"
                         :key="aItem.id">
                         <th scope="row">
                             <div class="form-check">
@@ -114,7 +114,7 @@
                 <tbody
                     v-if="sShow === 'categories-archived'">
                     <tr
-                        v-for="(aItem, iKey) in aData"
+                        v-for="(aItem, iKey) in paginatedData"
                         :key="aItem.id">
                         <th scope="row">
                             <div class="form-check">
@@ -197,7 +197,8 @@ export default {
     }),
     computed: {
         pageCount () {
-           return parseInt((this.aData.length / this.iItemsPerPage).toFixed(0), 10)
+           const count = parseInt((this.aData.length / this.iItemsPerPage).toFixed(0), 10)
+           return (count > 0) ? count : 1
         }
     },
     watch: {
@@ -230,6 +231,7 @@ export default {
             this.currentPage = newPage
         },
         constructPageData () {
+            // console.log(this.aData, this.pageCount)
             if (this.pageCount === 0 || this.aData.length === 0) {
                 this.paginatedData = []
                 return

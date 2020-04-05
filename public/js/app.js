@@ -4305,7 +4305,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   },
   computed: {
     pageCount: function pageCount() {
-      return parseInt((this.aData.length / this.iItemsPerPage).toFixed(0), 10);
+      var count = parseInt((this.aData.length / this.iItemsPerPage).toFixed(0), 10);
+      return count > 0 ? count : 1;
     }
   },
   watch: {
@@ -4338,6 +4339,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       this.currentPage = newPage;
     },
     constructPageData: function constructPageData() {
+      // console.log(this.aData, this.pageCount)
       if (this.pageCount === 0 || this.aData.length === 0) {
         this.paginatedData = [];
         return;
@@ -78528,7 +78530,7 @@ var render = function() {
           ? _c(
               "tbody",
               [
-                _vm._l(_vm.aData, function(aItem, iKey) {
+                _vm._l(_vm.paginatedData, function(aItem, iKey) {
                   return _c("tr", { key: aItem.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _c("div", { staticClass: "form-check" }, [
@@ -78609,7 +78611,7 @@ var render = function() {
           ? _c(
               "tbody",
               [
-                _vm._l(_vm.aData, function(aItem, iKey) {
+                _vm._l(_vm.paginatedData, function(aItem, iKey) {
                   return _c("tr", { key: aItem.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _c("div", { staticClass: "form-check" }, [
@@ -98760,8 +98762,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! M:\projects\gp-napo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! M:\projects\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\gp-napo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
