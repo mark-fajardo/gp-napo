@@ -2,21 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <!--=======  description tab navigation  =======-->
-
                 <div class="description-tab-navigation">
                     <div class="nav nav-tabs" id="nav-tab2" role="tablist">
                         <a class="nav-item nav-link active" id="description-tab" data-toggle="tab" href="#product-description" role="tab" aria-selected="true">Description</a>
                         <a class="nav-item nav-link" id="faq-tab" data-toggle="tab" href="#product-faq" role="tab" aria-selected="false">FAQ's</a>
                     </div>
                 </div>
-
-                <!--=======  End of description tab navigation  =======-->
             </div>
         </div>
     </div>
-
-    <!--=======  description tab content  =======-->
     <div class="single-product-description-tab-content">
 
         <div class="tab-content" style="padding: 40px 0 !important">
@@ -83,6 +77,21 @@
                                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                                             <div class="card-body">
                                                 <p>We accept payment online and bank to bank before the shipment of the equipement.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFour">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                                    How long does it take to get or ship the equipment? <span> <i class="ion-plus"></i>
+                                                    <i class="ion-minus"></i> </span>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>You will receive the equipment after 7 to 10 working days.</p>
                                             </div>
                                         </div>
                                     </div>
