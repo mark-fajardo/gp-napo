@@ -12,6 +12,12 @@ use Carbon\Carbon;
 
 class FrontController extends Controller
 {
+    private $specialItemIds = array(
+        1 => [ 178, 179, 180, 181, 182, 183 ],
+        2 => [ 190, 184 ],
+        3 => [ 189, 184 ],
+        4 => [ 191 ]
+    );
 
     public function index() {
         $categories = Categories::with('items')->get();
@@ -24,16 +30,19 @@ class FrontController extends Controller
         $categories = Categories::with('items')->get();
         $category = Categories::findBySlugOrFail($slug);
         $items = Items::with('categories')->get();
-        $categItems = $category->items()->orderBy('item_name', 'asc')->paginate(8);
+        $specialItemIds = $this->specialItemIds[$category->id];
+        $categItems = $category
+                        ->items()
+                        ->orderBy('item_name', 'asc')
+                        ->paginate(8);
+        $specialItems = Items::findMany($specialItemIds);
         $email = 'napo.enterprise@gmail.com /<br> brandedfoodequipment@gmail.com';
-        return view('front.category.index',  compact('categories', 'items', 'category', 'email', 'categItems'));
+        return view('front.category.index',  compact('categories', 'items', 'category', 'email', 'categItems', 'specialItems', 'specialItemIds'));
     }
     
     public function item($slug) {
         $categories = Categories::with('items')->get();
         $item = Items::findBySlugOrFail($slug);
-        Items::where('id', $item->id)
-            ->increment('views', 1, ['updated_at' => Carbon::now()]);
         $items = Items::with('categories')->get();
         $email = 'napo.enterprise@gmail.com /<br> brandedfoodequipment@gmail.com';
         return view('front.item.index',  compact('categories', 'items', 'item', 'email'));

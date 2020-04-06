@@ -12,12 +12,27 @@
     <div class="featured-project-two-slider" style="max-height: 500px">
         <div class="swiper-container featured-project-two-slider-container" style="max-height: 500px">
             <div class="swiper-wrapper featured-project-two-slider-wrapper">
-                @foreach ($category->items as $item)
-                @if ($item->is_featured == 1)
+                @foreach ($specialItems as $item)
                     <div class="swiper-slide">
                         <div class="feature-project-two-single-item" style="box-shadow: none; border: #F7FAFC solid 1px">
                             <div class="shop-single-product__badges">
-                                <span class="onsale">BEST</span>
+                                <span class="onsale" style="background-color: #B38831">BEST</span>
+                            </div>
+                            <div class="feature-project-two-single-item__image px-3 d-flex  align-items-center ">
+                                <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid" alt="{{$item->item_name}} image" style="object-fit: contain ;max-height: 340px;">
+                            </div>
+                            <div class="feature-project-two-single-item__content" style="overflow: hidden;text-overflow: ellipsis;">
+                                <a href="{{ route('front.item', ['slug' => $item->slug]) }}" class="stretched-link" style="font-size: 1rem !important; text-overflow: ellipsis;">{{$item->item_name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                @foreach ($category->items as $item)
+                @if (($item->is_featured == 1) && (in_array($item->id, $specialItemIds) === false))
+                    <div class="swiper-slide">
+                        <div class="feature-project-two-single-item" style="box-shadow: none; border: #F7FAFC solid 1px">
+                            <div class="shop-single-product__badges">
+                                <span class="onsale" style="background-color: #B38831">BEST</span>
                             </div>
                             <div class="feature-project-two-single-item__image px-3 d-flex  align-items-center ">
                                 <img src="{{ asset($item->img_dir[0]) }}" class="img-fluid" alt="{{$item->item_name}} image" style="object-fit: contain ;max-height: 340px;">
