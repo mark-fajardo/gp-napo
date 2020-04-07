@@ -23,7 +23,8 @@ class FrontController extends Controller
         $categories = Categories::with('items')->get();
         $items = Items::with('categories')->get();
         $email = 'napo.enterprise@gmail.com /<br> brandedfoodequipment@gmail.com';
-        return view('front.home.index', compact('categories', 'items', 'email'));
+        $specialItemIds = $this->specialItemIds;
+        return view('front.home.index', compact('categories', 'items', 'email', 'specialItemIds'));
     }
 
     public function categoryItems($slug) {

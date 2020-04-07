@@ -52,13 +52,23 @@
                                 }
                             </style>
                             @php
-                                $featuredItems = unserialize(serialize($category->items));
+                                $specialIds = $specialItemIds[$category->id];
+                                $specialItems = array();
                                 foreach ($category->items as $key => $item) {
-                                    if ($item->is_featured != 1) unset($featuredItems[$key]);
+                                    if (in_array($item->id, $specialIds) === true) array_push($specialItems, $item);
                                 }
-                                $categoriesItems = count($featuredItems) == 0 ? $category->items : $featuredItems;
+                                if (count($specialItems) < 2) {
+                                    $left = 2 - count($specialItems);
+                                    $featuredItems = array();
+                                    foreach ($category->items as $key => $item) {
+                                        if (count($featuredItems) === $left) break;
+                                        if ($item->is_featured === 1) array_push($featuredItems, $item);
+                                    }
+                                }
+                                $output = (count($specialItems) < 2) ? array_merge($specialItems, $featuredItems) : $specialItems;
+                                $categoriesItems = array_slice($output, 0, 2);
                             @endphp
-                            @foreach ($categoriesItems->slice(0,2) as $item)
+                            @foreach ($categoriesItems as $item)
                                 <div class="single-case-study-project" style="margin-bottom: 10px !important; display: flex; align-items: center">
                                     <div style="margin-left: 1rem">
                                         <img class="imahe" src="{{asset($item->img_dir[0])}}" alt="i{{$item->item_name}} image">

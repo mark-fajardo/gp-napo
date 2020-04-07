@@ -12,7 +12,7 @@
     <div class="featured-project-two-slider" style="max-height: 500px">
         <div class="swiper-container featured-project-two-slider-container" style="max-height: 500px">
             <div class="swiper-wrapper featured-project-two-slider-wrapper">
-                @foreach ($specialItems as $item)
+                {{-- @foreach ($specialItems as $item)
                     <div class="swiper-slide">
                         <div class="feature-project-two-single-item" style="box-shadow: none; border: #F7FAFC solid 1px">
                             <div class="shop-single-product__badges">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
                 @foreach ($category->items as $item)
                 @if (($item->is_featured == 1) && (in_array($item->id, $specialItemIds) === false))
                     <div class="swiper-slide">
