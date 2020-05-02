@@ -1,6 +1,12 @@
 <div class="brand-logo-slider-area section-space--inner--50">
   <div class="container">
       <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <!-- section title -->
+            <div class="section-title-area section-title-area--middle section-title-area--middle--style2 section-space--bottom--50">
+                <h4 class="subtitle text-uppercase" style="font-size: 1.25rem">Our Happy Customers</h4>
+            </div>
+        </div>
           <div class="col-lg-12">
               <!-- brand logo slider -->
               <div class="brand-logo-slider__container-area">

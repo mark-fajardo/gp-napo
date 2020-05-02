@@ -86,6 +86,7 @@ class FrontController extends Controller
         $quote = Quote::create([
             'first_name'        => $request->first_name,
             'last_name'         => $request->last_name,
+            'company_name'      => $request->company_name,
             'email'             => $request->email,
             'phone'             => $request->phone,
             'request_message'   => $request->request_message,

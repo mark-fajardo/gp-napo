@@ -19,14 +19,20 @@
                 </dashboard-card>
             </div>
             <div class="row p-3">
-              <div v-for="(aItem, iKey) in oQuotesRow" class="card m-3 bg-light" style="width: 18rem;">
+              <div v-for="(aItem, iKey) in oQuotesRow" :key="iKey" class="card m-3 bg-light" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ aItem.first_name }} {{ aItem.last_name }}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">{{ aItem.company_name }}</h6>
-                  <p class="card-text">{{ aItem.request_message }}</p>
-                  <div v-if="aItem.archived === 0 && aItem.replied === 0">
-                    <a href="#" @click="markAsReplied(aItem.id)" class="btn btn-warning card-link">Mark as Responded</a>
-                    <a href="#" @click="archiveRow(aItem.id)" class="btn btn-danger card-link">Archive Message</a>
+                  <h5 class="card-title"> <span class="text-muted">Name: </span> {{ aItem.first_name }} {{ aItem.last_name }}</h5>
+                  <p v-if="aItem.company_name" class="card-text"><span class="text-muted">Company: </span> {{ aItem.company_name }}</p>
+                  <p class="card-text"><span class="text-muted">Email: <br> </span> {{ aItem.email }}</p>
+                  <p class="card-text"><span class="text-muted">Contact No: <br> </span> {{ aItem.phone }}</p>
+                  <p class="card-text"><span class="text-muted">Messge: <br> </span> {{ aItem.request_message }}</p>
+                  <div v-if="aItem.archived === 0 && aItem.replied === 0" class="row">
+                      <div class="col-lg-12 mb-2">
+                        <button @click="markAsReplied(aItem.id)" class="btn btn-warning card-link col-lg-12">Mark as Responded</button>                          
+                      </div>
+                      <div class="col-lg-12">
+                        <button @click="archiveRow(aItem.id)" class="btn btn-danger card-link col-lg-12">Archive Message</button>
+                      </div>
                   </div>
                   <div v-else-if="aItem.archived === 1">
                       <span class="badge badge-secondary">Archived</span>

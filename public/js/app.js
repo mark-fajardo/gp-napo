@@ -2506,6 +2506,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
@@ -76175,54 +76181,77 @@ var render = function() {
           return _c(
             "div",
             {
+              key: iKey,
               staticClass: "card m-3 bg-light",
               staticStyle: { width: "18rem" }
             },
             [
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
+                  _c("span", { staticClass: "text-muted" }, [_vm._v("Name: ")]),
                   _vm._v(
-                    _vm._s(aItem.first_name) + " " + _vm._s(aItem.last_name)
+                    " " +
+                      _vm._s(aItem.first_name) +
+                      " " +
+                      _vm._s(aItem.last_name)
                   )
                 ]),
                 _vm._v(" "),
-                _c("h6", { staticClass: "card-subtitle mb-2 text-muted" }, [
-                  _vm._v(_vm._s(aItem.company_name))
+                aItem.company_name
+                  ? _c("p", { staticClass: "card-text" }, [
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v("Company: ")
+                      ]),
+                      _vm._v(" " + _vm._s(aItem.company_name))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._m(1, true),
+                  _vm._v(" " + _vm._s(aItem.email))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._v(_vm._s(aItem.request_message))
+                  _vm._m(2, true),
+                  _vm._v(" " + _vm._s(aItem.phone))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._m(3, true),
+                  _vm._v(" " + _vm._s(aItem.request_message))
                 ]),
                 _vm._v(" "),
                 aItem.archived === 0 && aItem.replied === 0
-                  ? _c("div", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-warning card-link",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.markAsReplied(aItem.id)
+                  ? _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-lg-12 mb-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning card-link col-lg-12",
+                            on: {
+                              click: function($event) {
+                                return _vm.markAsReplied(aItem.id)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Mark as Responded")]
-                      ),
+                          },
+                          [_vm._v("Mark as Responded")]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-danger card-link",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.archiveRow(aItem.id)
+                      _c("div", { staticClass: "col-lg-12" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger card-link col-lg-12",
+                            on: {
+                              click: function($event) {
+                                return _vm.archiveRow(aItem.id)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Archive Message")]
-                      )
+                          },
+                          [_vm._v("Archive Message")]
+                        )
+                      ])
                     ])
                   : aItem.archived === 1
                   ? _c("div", [
@@ -76255,6 +76284,33 @@ var staticRenderFns = [
       _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
         _vm._v("Quotes")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted" }, [
+      _vm._v("Email: "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted" }, [
+      _vm._v("Contact No: "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted" }, [
+      _vm._v("Messge: "),
+      _c("br")
     ])
   }
 ]
