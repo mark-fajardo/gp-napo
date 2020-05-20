@@ -22,6 +22,7 @@
               <div v-for="(aItem, iKey) in oQuotesRow" :key="iKey" class="card m-3 bg-light" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title"> <span class="text-muted">Name: </span> {{ aItem.first_name }} {{ aItem.last_name }}</h5>
+                  <p class="card-text"><span class="text-muted">Inquiry Date: <br> </span> {{ aItem.created_at }}</p>
                   <p v-if="aItem.company_name" class="card-text"><span class="text-muted">Company: </span> {{ aItem.company_name }}</p>
                   <p class="card-text"><span class="text-muted">Email: <br> </span> {{ aItem.email }}</p>
                   <p class="card-text"><span class="text-muted">Contact No: <br> </span> {{ aItem.phone }}</p>

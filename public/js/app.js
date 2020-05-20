@@ -2512,6 +2512,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
@@ -76197,6 +76198,11 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._m(1, true),
+                  _vm._v(" " + _vm._s(aItem.created_at))
+                ]),
+                _vm._v(" "),
                 aItem.company_name
                   ? _c("p", { staticClass: "card-text" }, [
                       _c("span", { staticClass: "text-muted" }, [
@@ -76207,17 +76213,17 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._m(1, true),
+                  _vm._m(2, true),
                   _vm._v(" " + _vm._s(aItem.email))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._m(2, true),
+                  _vm._m(3, true),
                   _vm._v(" " + _vm._s(aItem.phone))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._m(3, true),
+                  _vm._m(4, true),
                   _vm._v(" " + _vm._s(aItem.request_message))
                 ]),
                 _vm._v(" "),
@@ -76284,6 +76290,15 @@ var staticRenderFns = [
       _c("h2", { staticClass: "ml-3 mt-3 font-weight-bold" }, [
         _vm._v("Quotes")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-muted" }, [
+      _vm._v("Inquiry Date: "),
+      _c("br")
     ])
   },
   function() {

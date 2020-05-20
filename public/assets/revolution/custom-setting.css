@@ -164,3 +164,18 @@
   color: #BABABA;
 }
 
+.swiper-slide-active .circle-container {
+  background: #ffce6a;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding-top: 4px;
+}
+.w-lg-100 {
+  width: 100%;
+}
+@media (max-width: 991.98px)  {
+  .w-lg-100 {
+      width: auto
+  }
+}

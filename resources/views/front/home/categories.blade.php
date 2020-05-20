@@ -14,17 +14,17 @@
             <div class="swiper-wrapper industry-slider-nav-wrapper">
             @foreach ($categories as $category)
                 <div class="swiper-slide">
-                    <div class="industry-single-nav justify-content-between">
-                        <span class="mr-1 ht-swiper-button-prev-2 d-block d-lg-none"><i class="ion-arrow-left-c"></i></span>
-                        <div class="d-flex align-items-center">
+                    <div class="industry-single-nav justify-content-between align-items-center" style="padding-left: 10px; padding-right: 10px">
+                        <div class="mr-1 ht-swiper-button-prev-2 d-block d-lg-none circle-container"><i class="ion-arrow-left-c" style="margin-left: 10px"></i></div>
+                        <div class="d-flex align-items-center justify-content-center w-lg-100">
                             <div class="industry-single-nav__icon">
                                 <i class="{{ $category->icon }}"></i>
                             </div>
-                            <div class="industry-single-nav__title">
+                            <div class="industry-single-nav__title text-center">
                                 {{ $category->name }}
                             </div>
                         </div>
-                        <span class="ml-1 ht-swiper-button-next-2 d-block d-lg-none"><i class="ion-arrow-right-c"></i></span>
+                        <div class="ml-1 ht-swiper-button-next-2 d-block d-lg-none circle-container"><i class="ion-arrow-right-c" style="margin-left: 10px"></i></div>
                     </div>
                 </div>
             @endforeach
@@ -41,8 +41,8 @@
                 <div class="industry-slider-content-single bg-img" style="background-size: cover !important;" data-bg="{{ $category->img_dir }}">
                     <div class="container">
                         <div class="industry-content-inner" style="background: #F7FAFC; ">
-                            <div class="section-title-area">
-                                <h2 class="title title--left" style="margin-bottom: 1.2rem !important"> {{ $category->name }}</h2>
+                            <div class="section-title-area mt-3">
+                                <h2 class="title title--left" style="margin-bottom: 1.2rem !important; padding-bottom: 15px"> {{ $category->name }}</h2>
                             </div>
                             <p class="section-title-content" style="margin-bottom: 1.2rem !important; font-size: 16px !important"> {{ $category->description }}</p>
                             <style>
